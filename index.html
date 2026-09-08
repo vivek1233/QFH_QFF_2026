@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="IBM Qiskit Fall Fest 2026 – Quantum for Humanity. A 5-day quantum computing festival. November 16–20, 2026. Presented by IBM Quantum and Quantum for Humanity Org. Free registration."/>
+<meta property="og:title" content="IBM Qiskit Fall Fest 2026 | Quantum for Humanity"/>
+<meta property="og:description" content="5-day quantum computing event. Nov 16–20 2026. Beginner to Advanced. Free registration."/>
+<meta property="og:image" content="qff2026-badge-black.png"/>
+<title>IBM Qiskit Fall Fest 2026 | Quantum for Humanity</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f0ff;color:#1a0533;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --purple-deep:#2D1B69;--purple-mid:#5A3FA0;--purple-bright:#8B5CF6;
+  --purple-pale:#F0EBF9;--purple-light:#D8DCF0;
+  --pink:#FF6B9D;--blue:#6EA8FE;--dark:#0A0E1A;
+  --saffron:#FF9933;--india-green:#138808;--india-blue:#000080;
+  --text-body:#3B2070;--text-muted:#7C6FA0;
+  --discord:#5865F2;
+}
+
+/* ANNOUNCEMENT BAR */
+.ann-bar{background:var(--purple-deep);padding:10px 5%;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.85);font-weight:500;letter-spacing:.03em;border-bottom:2px solid var(--pink)}
+.cd-block{background:var(--pink);color:#fff;font-size:13px;font-weight:800;min-width:34px;height:34px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center}
+.ann-bar a{color:var(--pink);font-weight:700;border-bottom:1px solid rgba(255,107,157,.4)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(10,14,26,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,107,157,.2);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-left{display:flex;align-items:center;gap:14px}
+.nav-logos{display:flex;align-items:center;gap:10px}
+.sep-line{width:1px;height:28px;background:rgba(255,255,255,.2)}
+.nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
+.nav-wordmark .line1{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+.nav-wordmark .line2{font-size:10px;font-weight:400;letter-spacing:.07em;color:rgba(255,255,255,.5)}
+.nav-links{display:flex;list-style:none;gap:22px}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.72);letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--pink)}
+.nav-cta{background:var(--pink);color:#fff;font-size:13px;font-weight:700;padding:8px 22px;border-radius:999px;letter-spacing:.05em;transition:opacity .2s;white-space:nowrap}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0d0120 0%,#1a0533 35%,#2D1B69 70%,#0A0E1A 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.2}
+.orb-a{width:600px;height:600px;background:#8B5CF6;top:-200px;left:-200px}
+.orb-b{width:500px;height:500px;background:#FF6B9D;bottom:-150px;right:-150px}
+.orb-c{width:350px;height:350px;background:#FF9933;top:45%;right:8%;opacity:.1}
+.hero-partner-logos{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:32px;z-index:1;position:relative}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px;z-index:1;position:relative}
+.pill{border-radius:999px;padding:5px 16px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);background:rgba(255,255,255,.07)}
+.pill.pink{background:rgba(255,107,157,.18);border-color:rgba(255,107,157,.4);color:var(--pink)}
+.pill.purple{background:rgba(139,92,246,.18);border-color:rgba(139,92,246,.4);color:#c4b5fd}
+.pill.saffron{background:rgba(255,153,51,.18);border-color:rgba(255,153,51,.4);color:#FFB347}
+.hero-badge-wrap{position:relative;z-index:1;margin-bottom:28px}
+.hero h1{font-size:clamp(40px,8vw,92px);font-weight:800;line-height:1.02;letter-spacing:-.025em;color:#fff;margin-bottom:12px;z-index:1;position:relative}
+.hero h1 .accent{color:var(--pink)}
+.hero h1 .yr{color:#c4b5fd}
+.hero-sub{font-size:clamp(15px,2.2vw,21px);font-weight:300;color:rgba(255,255,255,.65);max-width:660px;margin:0 auto 14px;z-index:1;position:relative}
+.hero-location{display:inline-flex;align-items:center;gap:8px;background:rgba(255,153,51,.15);border:1px solid rgba(255,153,51,.35);border-radius:999px;padding:8px 22px;font-size:14px;font-weight:600;color:#FFB347;letter-spacing:.04em;margin-bottom:36px;z-index:1;position:relative}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;z-index:1;position:relative}
+.btn-primary{background:var(--pink);color:#fff;font-size:15px;font-weight:700;padding:14px 38px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 32px rgba(255,107,157,.45);transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(255,107,157,.55)}
+.btn-outline{background:transparent;color:#fff;font-size:15px;font-weight:600;padding:14px 38px;border-radius:999px;letter-spacing:.04em;border:2px solid rgba(255,255,255,.32);transition:background .2s}
+.btn-outline:hover{background:rgba(255,255,255,.1)}
+.btn-discord{background:var(--discord);color:#fff;font-size:15px;font-weight:700;padding:14px 38px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 32px rgba(88,101,242,.45);transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-discord:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(88,101,242,.55)}
+.hero-stats{display:flex;gap:0;justify-content:center;flex-wrap:wrap;margin-top:64px;z-index:1;position:relative;border-top:1px solid rgba(255,255,255,.1);padding-top:36px;width:100%;max-width:800px}
+.stat{text-align:center;flex:1;min-width:110px;padding:0 14px}
+.stat+.stat{border-left:1px solid rgba(255,255,255,.1)}
+.stat-num{font-size:clamp(28px,5vw,52px);font-weight:800;color:#fff;line-height:1}
+.stat-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:5px}
+
+/* SECTION COMMON */
+section{padding:88px 5%}
+.container{max-width:1160px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bright);margin-bottom:18px}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--pink)}
+h2.sec-title{font-size:clamp(26px,4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--purple-deep);margin-bottom:14px}
+h2.sec-title .accent{color:var(--pink)}
+p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:48px}
+.center{text-align:center}
+.center .sec-desc{margin-left:auto;margin-right:auto}
+
+/* PARTNERSHIP BANNER */
+.india-banner{background:linear-gradient(135deg,#fff8f0,#fff);border-top:4px solid var(--saffron);border-bottom:4px solid var(--india-green);padding:40px 5%}
+.india-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px;max-width:900px;margin:0 auto;text-align:center}
+.india-card{display:flex;flex-direction:column;align-items:center;gap:12px}
+.india-logo-box{width:110px;height:110px;border-radius:20px;background:#f0ebf9;display:flex;align-items:center;justify-content:center;padding:12px;border:1px solid rgba(139,92,246,.15)}
+.india-logo-box img{width:100%;height:100%;object-fit:contain}
+.india-card-name{font-size:15px;font-weight:700;color:var(--purple-deep)}
+.india-card-desc{font-size:13px;color:var(--text-muted);max-width:220px;line-height:1.6}
+.india-x{font-size:44px;font-weight:200;color:rgba(139,92,246,.3)}
+
+/* ABOUT */
+.about{background:var(--purple-pale)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1160px;margin:0 auto}
+.about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.about-pill{background:#fff;border:1px solid rgba(139,92,246,.2);border-radius:999px;padding:7px 18px;font-size:13px;font-weight:600;color:var(--purple-mid)}
+.sticker-row{display:flex;gap:14px;margin-top:18px;justify-content:center;flex-wrap:wrap}
+.sticker-thumb{width:78px;height:78px;border-radius:50%;background:#fff;padding:5px;box-shadow:0 4px 18px rgba(45,27,105,.12);object-fit:contain}
+
+/* 5-DAY PROGRAMME */
+.timeline{background:#fff}
+.days-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1160px;margin:0 auto}
+.day-card{background:var(--purple-pale);border-radius:18px;padding:24px 18px;border:1px solid rgba(139,92,246,.15);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.day-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:18px 18px 0 0}
+.day-card.d1::before{background:linear-gradient(90deg,#FF9933,#FF6B9D)}
+.day-card.d2::before{background:linear-gradient(90deg,#8B5CF6,#FF6B9D)}
+.day-card.d3::before{background:linear-gradient(90deg,#138808,#6EA8FE)}
+.day-card.d4::before{background:linear-gradient(90deg,#6EA8FE,#8B5CF6)}
+.day-card.d5::before{background:linear-gradient(90deg,#FF6B9D,#2D1B69)}
+.day-card:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(45,27,105,.14)}
+.day-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:4px}
+.day-date{font-size:17px;font-weight:800;color:var(--purple-deep);margin-bottom:4px}
+.day-theme{font-size:12.5px;font-weight:700;color:var(--purple-bright);margin-bottom:10px}
+.day-sessions{list-style:none;display:flex;flex-direction:column;gap:7px}
+.day-sessions li{font-size:12px;color:var(--text-muted);padding-left:12px;position:relative;line-height:1.5}
+.day-sessions li::before{content:'>';position:absolute;left:0;color:var(--pink);font-weight:700}
+
+/* TRACKS */
+.tracks{background:linear-gradient(180deg,var(--purple-pale) 0%,#fff 100%)}
+.tracks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;max-width:1160px;margin:0 auto}
+.track-card{background:#fff;border-radius:18px;padding:32px 26px;border:1px solid rgba(139,92,246,.14);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.track-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:18px 18px 0 0}
+.track-card.t1::before{background:linear-gradient(90deg,#8B5CF6,#FF6B9D)}
+.track-card.t2::before{background:linear-gradient(90deg,#FF9933,#FF6B9D)}
+.track-card.t3::before{background:linear-gradient(90deg,#6EA8FE,#8B5CF6)}
+.track-card.t4::before{background:linear-gradient(90deg,#138808,#6EA8FE)}
+.track-card:hover{transform:translateY(-5px);box-shadow:0 18px 54px rgba(45,27,105,.14)}
+.track-icon{font-size:30px;margin-bottom:12px}
+.track-title{font-size:18px;font-weight:800;color:var(--purple-deep);margin-bottom:8px}
+.track-desc{font-size:13.5px;color:var(--text-muted);line-height:1.7}
+.track-tag{display:inline-block;margin-top:16px;background:var(--purple-pale);color:var(--purple-mid);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:999px}
+
+/* SPEAKERS */
+.speakers-sec{background:var(--purple-pale)}
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px;max-width:1160px;margin:0 auto}
+.speaker-card{background:#fff;border-radius:18px;padding:28px 18px;text-align:center;border:1px solid rgba(139,92,246,.12);transition:transform .2s}
+.speaker-card:hover{transform:translateY(-4px)}
+.speaker-av{width:72px;height:72px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff}
+.av1{background:linear-gradient(135deg,#8B5CF6,#FF6B9D)}
+.av2{background:linear-gradient(135deg,#FF9933,#FF6B9D)}
+.av3{background:linear-gradient(135deg,#138808,#6EA8FE)}
+.av4{background:linear-gradient(135deg,#2D1B69,#8B5CF6)}
+.av5{background:linear-gradient(135deg,#FF6B9D,#8B5CF6)}
+.av6{background:linear-gradient(135deg,#FF9933,#138808)}
+.av7{background:linear-gradient(135deg,#8B5CF6,#2D1B69)}
+.av8{background:linear-gradient(135deg,#6EA8FE,#FF9933)}
+.speaker-name{font-size:14px;font-weight:700;color:var(--purple-deep)}
+.speaker-role{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.5}
+.speaker-topic{display:inline-block;margin-top:10px;background:rgba(255,107,157,.1);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:.06em;padding:3px 12px;border-radius:999px}
+
+/* SCHEDULE */
+.schedule-sec{background:#fff}
+.schedule-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tab{padding:9px 20px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.04em;border:1.5px solid rgba(139,92,246,.25);color:var(--purple-mid);cursor:pointer;background:var(--purple-pale);transition:all .2s}
+.tab.active,.tab:hover{background:var(--purple-deep);color:#fff;border-color:var(--purple-deep)}
+.schedule-wrap{border-radius:14px;overflow:hidden;border:1px solid rgba(139,92,246,.14)}
+.schedule-table{width:100%;border-collapse:collapse;background:#fff}
+.schedule-table th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:12px 16px;border-bottom:2px solid rgba(139,92,246,.1);background:#fafafa}
+.schedule-table td{padding:14px 16px;border-bottom:1px solid rgba(139,92,246,.07);vertical-align:top;font-size:13.5px;color:var(--text-body)}
+.schedule-table tr:last-child td{border-bottom:none}
+.schedule-table tr:hover td{background:rgba(139,92,246,.03)}
+.time-cell{font-weight:700;color:var(--purple-deep);white-space:nowrap;width:115px}
+.ist{font-size:10px;color:var(--text-muted);font-weight:400;display:block}
+.s-title{font-weight:700;color:var(--purple-deep);margin-bottom:2px;font-size:14px}
+.s-speaker{font-size:12.5px;color:var(--text-muted)}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.05em;margin-top:4px}
+.b-res{background:rgba(139,92,246,.15);color:#5A3FA0}
+.b-imp{background:rgba(255,107,157,.15);color:#cc2e6a}
+.b-edu{background:rgba(110,168,254,.2);color:#2563eb}
+.b-hack{background:rgba(45,27,105,.1);color:#2D1B69}
+.b-key{background:rgba(255,153,51,.18);color:#b45309}
+.b-qfh{background:rgba(19,136,8,.12);color:#138808}
+
+/* HACKATHON */
+.hackathon{background:linear-gradient(135deg,#0d0120 0%,#2D1B69 100%);padding:88px 5%;position:relative;overflow:hidden}
+.hackathon::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(255,153,51,.1),transparent 70%);pointer-events:none}
+.hack-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1160px;margin:0 auto}
+.hack-text .section-tag{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.hack-text h2{color:#fff}
+.hack-text p{color:rgba(255,255,255,.65);font-size:16px;line-height:1.75;margin-bottom:26px}
+.hack-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px}
+.hack-feat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px}
+.hack-feat-icon{font-size:20px;margin-bottom:6px}
+.hack-feat-title{font-size:13.5px;font-weight:700;color:#fff;margin-bottom:3px}
+.hack-feat-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+.hack-visual{display:flex;flex-direction:column;align-items:center;gap:18px}
+.hack-badge-img{width:180px;height:180px;margin:0 auto;filter:drop-shadow(0 0 36px rgba(255,107,157,.5))}
+.hack-sticker-row{display:flex;gap:14px;justify-content:center}
+.hack-sticker{width:72px;height:72px;border-radius:50%;object-fit:contain}
+
+/* REGISTRATION SECTION */
+.register-sec{background:linear-gradient(135deg,var(--purple-deep),#4C1D95);padding:96px 5%;position:relative;overflow:hidden}
+.register-sec::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px}
+.reg-inner{max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.reg-inner h2{font-size:clamp(28px,5vw,52px);font-weight:800;color:#fff;margin-bottom:14px}
+.reg-inner h2 .accent{color:var(--pink)}
+.reg-inner .sub{font-size:17px;color:rgba(255,255,255,.65);max-width:580px;margin:0 auto 42px;line-height:1.7}
+.reg-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:40px}
+.reg-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:34px 28px;text-align:center;transition:transform .2s,border-color .2s}
+.reg-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.28)}
+.reg-card-icon{font-size:38px;margin-bottom:14px}
+.reg-card-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:8px}
+.reg-card-desc{font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:22px}
+.btn-form{background:var(--pink);color:#fff;font-size:15px;font-weight:700;padding:13px 34px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 28px rgba(255,107,157,.45);transition:transform .2s,box-shadow .2s;display:inline-block}
+.btn-form:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,107,157,.55)}
+.btn-disc{background:var(--discord);color:#fff;font-size:15px;font-weight:700;padding:13px 34px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 28px rgba(88,101,242,.4);transition:transform .2s;display:inline-flex;align-items:center;gap:9px}
+.btn-disc:hover{transform:translateY(-2px)}
+.disc-svg{width:20px;height:20px;flex-shrink:0}
+.hash-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.hash{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 16px;letter-spacing:.04em}
+
+/* BRAND KIT */
+.brand-sec{background:var(--purple-pale)}
+.brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;max-width:1160px;margin:0 auto}
+.brand-card{background:#fff;border-radius:16px;padding:22px 14px;text-align:center;border:1px solid rgba(139,92,246,.13);transition:transform .2s,box-shadow .2s}
+.brand-card:hover{transform:translateY(-4px);box-shadow:0 10px 36px rgba(45,27,105,.11)}
+.brand-card img{width:76px;height:76px;object-fit:contain;border-radius:10px;margin:0 auto 12px}
+.brand-label{font-size:12.5px;font-weight:700;color:var(--purple-deep)}
+.brand-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
+
+/* FAQ */
+.faq-sec{background:#fff}
+.faq-list{max-width:780px;display:flex;flex-direction:column;gap:12px}
+details{background:var(--purple-pale);border-radius:14px;border:1px solid rgba(139,92,246,.13);overflow:hidden}
+details summary{padding:17px 20px;font-size:14.5px;font-weight:700;color:var(--purple-deep);cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none;gap:14px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:'+';font-size:22px;font-weight:300;color:var(--purple-bright);flex-shrink:0;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+.faq-body{padding:0 20px 16px;font-size:13.5px;color:var(--text-muted);line-height:1.75}
+
+/* FOOTER */
+footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255,107,157,.18)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;max-width:1160px;margin:0 auto;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.07)}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px;margin-top:10px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.55);transition:color .2s}
+.footer-col a:hover{color:var(--pink)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;max-width:1160px;margin:0 auto;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.26);letter-spacing:.03em}
+.footer-social{display:flex;gap:9px}
+.soc-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.5);transition:all .2s}
+.soc-btn:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+.soc-btn.discord-btn:hover{background:var(--discord);border-color:var(--discord)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-grid,.hack-grid{grid-template-columns:1fr}
+  .days-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .india-grid{grid-template-columns:1fr;gap:20px}
+  .india-x{display:none}
+  .reg-cards{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .days-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;gap:20px}
+  .stat+.stat{border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-top:18px}
+  .hack-features{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann-bar">
+  <span>&#9889; IBM Qiskit Fall Fest 2026 &nbsp;|&nbsp;</span>
+  <span>Starts in: <span class="cd-block" id="cd-d">--</span> d <span class="cd-block" id="cd-h">--</span> h <span class="cd-block" id="cd-m">--</span> m <span class="cd-block" id="cd-s">--</span> s</span>
+  &nbsp;|&nbsp;
+  <a href="#register">Register Free &rarr;</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logos">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-label="IBM Quantum">
+        <circle cx="18" cy="18" r="16" stroke="#FF7EB6" stroke-width="1.5" fill="none"/>
+        <ellipse cx="18" cy="18" rx="16" ry="5.5" stroke="#FF7EB6" stroke-width="1.5" fill="none"/>
+        <ellipse cx="18" cy="18" rx="16" ry="10" stroke="#FF7EB6" stroke-width="1" fill="none" opacity=".4"/>
+        <line x1="11" y1="9" x2="25" y2="27" stroke="#FF7EB6" stroke-width="1.8"/>
+        <circle cx="11" cy="9" r="2.8" fill="#FF7EB6"/>
+        <circle cx="25" cy="27" r="2.8" fill="#8B5CF6"/>
+      </svg>
+      <div class="sep-line"></div>
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-label="Quantum for Humanity">
+        <circle cx="17" cy="17" r="15" stroke="#8B5CF6" stroke-width="1.4" fill="none"/>
+        <ellipse cx="17" cy="17" rx="15" ry="5" stroke="#8B5CF6" stroke-width="1.4" fill="none" transform="rotate(-30 17 17)" opacity=".7"/>
+        <ellipse cx="17" cy="17" rx="15" ry="5" stroke="#FF7EB6" stroke-width="1.2" fill="none" transform="rotate(30 17 17)" opacity=".6"/>
+        <circle cx="17" cy="11" r="3" fill="#8B5CF6"/>
+        <path d="M14 15 Q14 20 17 21 Q20 20 20 15 Q18.5 13.5 17 13 Q15.5 13.5 14 15Z" fill="#8B5CF6" opacity=".9"/>
+        <path d="M14 16 L9 19 M20 16 L25 19" stroke="#8B5CF6" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="nav-wordmark">
+      <span class="line1">IBM Qiskit Fall Fest 2026</span>
+      <span class="line2">IBM Quantum &times; Quantum for Humanity</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#days">Programme</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#hackathon">Hackathon</a></li>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="#register">Register Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <div class="hero-partner-logos">
+    <svg width="130" height="44" viewBox="0 0 130 44" fill="none">
+      <text x="0" y="17" font-family="Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="2">IBM</text>
+      <text x="0" y="32" font-family="Segoe UI,sans-serif" font-size="11" font-weight="400" fill="rgba(255,255,255,0.7)" letter-spacing="1.5">QUANTUM</text>
+      <circle cx="116" cy="22" r="12" stroke="#FF7EB6" stroke-width="1.2" fill="none"/>
+      <ellipse cx="116" cy="22" rx="12" ry="4" stroke="#FF7EB6" stroke-width="1.2" fill="none"/>
+      <line x1="109" y1="14" x2="123" y2="30" stroke="#FF7EB6" stroke-width="1.4"/>
+      <circle cx="109" cy="14" r="2.2" fill="#FF7EB6"/>
+      <circle cx="123" cy="30" r="2.2" fill="#8B5CF6"/>
+    </svg>
+    <div style="color:rgba(255,255,255,.35);font-size:28px;font-weight:200">&times;</div>
+    <svg width="160" height="44" viewBox="0 0 160 44" fill="none">
+      <text x="0" y="17" font-family="Segoe UI,sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="2">QUANTUM FOR</text>
+      <text x="0" y="32" font-family="Segoe UI,sans-serif" font-size="11" font-weight="400" fill="rgba(255,255,255,0.7)" letter-spacing="2">HUMANITY</text>
+      <circle cx="148" cy="12" r="3.5" fill="#8B5CF6"/>
+      <path d="M144 18 Q144 24 148 25 Q152 24 152 18 Q150 16 148 15.5 Q146 16 144 18Z" fill="#8B5CF6" opacity=".9"/>
+      <path d="M144 19.5 L140 22 M152 19.5 L156 22" stroke="#8B5CF6" stroke-width="1.6" stroke-linecap="round"/>
+      <ellipse cx="148" cy="18" rx="10" ry="3.5" stroke="#FF7EB6" stroke-width="1" fill="none" transform="rotate(-25 148 18)" opacity=".6"/>
+    </svg>
+  </div>
+
+  <div class="hero-pills">
+    <span class="pill pink">IBM Qiskit Fall Fest 2026</span>
+    <span class="pill purple">IBM Quantum</span>
+    <span class="pill">Quantum for Humanity Org</span>
+    <span class="pill saffron">5 Days &bull; Beginner to Advanced</span>
+    <span class="pill">Free &bull; Global</span>
+  </div>
+
+  <div class="hero-badge-wrap">
+    <img src="qff2026-badge-black.png" alt="IBM Qiskit Fall Fest 2026 Official Badge" style="width:155px;height:155px;border-radius:50%;box-shadow:0 0 56px rgba(255,107,157,.55)"/>
+  </div>
+
+  <h1>IBM Qiskit <span class="accent">Fall Fest</span><br/><span class="yr">2026</span></h1>
+  <p class="hero-sub">A 5-day global quantum computing festival &mdash; <strong style="color:#FFB347">Beginner to Advanced</strong><br/>in partnership with <strong style="color:#c4b5fd">IBM Quantum</strong> &amp; <strong style="color:var(--pink)">Quantum for Humanity Org</strong></p>
+
+  <div class="hero-location">
+    &#128197;&nbsp; November 16&ndash;20, 2026 &nbsp;&bull;&nbsp; 09:30 &ndash; 18:00 IST daily &nbsp;&bull;&nbsp; In-Person &amp; Online
+  </div>
+
+  <div class="hero-btns">
+    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform?usp=preview" target="_blank" rel="noopener">Register Free Now</a>
+    <a class="btn-discord" href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener">
+      <svg class="disc-svg" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      Join Discord
+    </a>
+    <a class="btn-outline" href="#days">View Programme</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Days</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Levels</div></div>
+    <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Sessions</div></div>
+    <div class="stat"><div class="stat-num">FREE</div><div class="stat-label">Registration</div></div>
+    <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Hackathon</div></div>
+    <div class="stat"><div class="stat-num">&#127758;</div><div class="stat-label">Global</div></div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP BANNER -->
+<div class="india-banner" id="partners">
+  <div style="text-align:center;margin-bottom:32px">
+    <div class="section-tag" style="margin:0 auto 10px;background:rgba(255,153,51,.1);border-color:rgba(255,153,51,.3);color:#b45309"><span class="tag-dot" style="background:#FF9933"></span>Official Partnership</div>
+    <h2 class="sec-title center" style="font-size:26px;color:var(--purple-deep)">Presented in Partnership</h2>
+  </div>
+  <div class="india-grid">
+    <div class="india-card">
+      <div class="india-logo-box"><img src="Qiskit_03.png" alt="IBM Quantum Logo"/></div>
+      <div class="india-card-name">IBM Quantum</div>
+      <div class="india-card-desc">The world's leading quantum computing platform &mdash; powering research, education, and open science worldwide through Qiskit and the IBM Quantum Network.</div>
+    </div>
+    <div class="india-x">&times;</div>
+    <div class="india-card">
+      <div class="india-logo-box" style="background:#0a0e1a">
+        <svg width="88" height="88" viewBox="0 0 106 106" fill="none">
+          <circle cx="53" cy="53" r="53" fill="#FF7EB6" opacity=".12"/>
+          <circle cx="53" cy="53" r="36" stroke="#FF7EB6" stroke-width="1.8" fill="none"/>
+          <ellipse cx="53" cy="53" rx="36" ry="12" stroke="#FF7EB6" stroke-width="1.8" fill="none"/>
+          <ellipse cx="53" cy="53" rx="36" ry="22" stroke="#FF7EB6" stroke-width="1" fill="none" opacity=".4"/>
+          <line x1="35" y1="30" x2="71" y2="76" stroke="#FF7EB6" stroke-width="2"/>
+          <circle cx="35" cy="30" r="5" fill="#FF7EB6"/>
+          <circle cx="71" cy="76" r="5" fill="#8B5CF6"/>
+          <circle cx="53" cy="38" r="5" fill="#8B5CF6"/>
+          <path d="M48 45 Q48 55 53 57 Q58 55 58 45 Q55.5 42.5 53 42 Q50.5 42.5 48 45Z" fill="#8B5CF6" opacity=".9"/>
+          <path d="M48 47 L40 51 M58 47 L66 51" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="india-card-name">Quantum for Humanity Org</div>
+      <div class="india-card-desc">Dedicated to harnessing quantum science for all of humanity &mdash; healthcare, agriculture, clean energy, education, and financial inclusion.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag"><span class="tag-dot"></span>About the Event</div>
+      <h2 class="sec-title">What is <span class="accent">IBM Qiskit Fall Fest?</span></h2>
+      <p class="sec-desc">
+        IBM Qiskit Fall Fest 2026 is IBM's flagship annual quantum computing festival &mdash; presented by <strong>IBM Quantum</strong> and <strong>Quantum for Humanity Org</strong>.<br/><br/>
+        Spanning <strong>5 full days &mdash; November 16&ndash;20, 2026</strong>, the festival takes participants on a journey from quantum computing <strong>Beginners</strong> all the way through to <strong>Advanced</strong> research-level content. Sessions are structured to progressively build knowledge, making this accessible to students, developers, researchers, and curious minds alike. Informations and learning materials are drawn from the official <a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener" style="color:var(--purple-bright);font-weight:600">IBM Quantum Learning</a> platform.
+      </p>
+      <div class="about-pills">
+        <span class="about-pill">&#128218; Beginner Friendly</span>
+        <span class="about-pill">&#128300; Advanced Research</span>
+        <span class="about-pill">&#128187; Hands-on Labs</span>
+        <span class="about-pill">&#127891; Workshops</span>
+        <span class="about-pill">&#127942; Hackathon</span>
+        <span class="about-pill">&#127758; Impact Sessions</span>
+        <span class="about-pill">&#128218; IBM Quantum Learning</span>
+        <span class="about-pill">&#9749; Free &amp; Open</span>
+      </div>
+    </div>
+    <div>
+      <img src="hero-banner.png" alt="IBM Qiskit Fall Fest 2026" style="width:100%;border-radius:20px;box-shadow:0 20px 70px rgba(45,27,105,.18)"/>
+      <div class="sticker-row">
+        <img class="sticker-thumb" src="sticker-flamingo.png" alt="Flamingo"/>
+        <img class="sticker-thumb" src="sticker-birds.png" alt="Birds"/>
+        <img class="sticker-thumb" src="sticker-bluebird.png" alt="Bluebird"/>
+        <img class="sticker-thumb" src="sticker-eagle.png" alt="Eagle" style="border-radius:14px"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5-DAY PROGRAMME -->
+<section class="timeline" id="days">
+  <div class="container">
+    <div class="section-tag"><span class="tag-dot"></span>5-Day Programme</div>
+    <h2 class="sec-title">The Full <span class="accent">Five Days</span></h2>
+    <p class="sec-desc">From absolute beginners to advanced quantum researchers &mdash; each day builds on the last. All content drawn from IBM Quantum Learning. All times in IST (UTC+5:30).</p>
+    <div class="days-grid">
+      <div class="day-card d1">
+        <div class="day-num">Day 1 &mdash; Beginner</div>
+        <div class="day-date">Mon, 16 Nov</div>
+        <div class="day-theme">&#128640; Opening &amp; Quantum Foundations</div>
+        <ul class="day-sessions">
+          <li>Opening Ceremony &amp; Welcome Keynote: IBM Quantum 2026</li>
+          <li>What is Quantum Computing? (Zero to Qubit)</li>
+          <li>Qiskit Live Lab: Build Your First Quantum Circuit</li>
+          <li>Superposition, Entanglement &amp; Measurement</li>
+          <li>48h Hackathon Kickoff &amp; Team Formation</li>
+        </ul>
+      </div>
+      <div class="day-card d2">
+        <div class="day-num">Day 2 &mdash; Intermediate</div>
+        <div class="day-date">Tue, 17 Nov</div>
+        <div class="day-theme">&#9889; Quantum Circuits &amp; Algorithms</div>
+        <ul class="day-sessions">
+          <li>Quantum Gates Deep Dive &amp; Circuit Composition</li>
+          <li>Grover's &amp; Shor's Algorithms Explained</li>
+          <li>Quantum Machine Learning Workshop</li>
+          <li>IBM Eagle &amp; Heron Hardware Architecture</li>
+          <li>Open Source Sprint: Contribute to Qiskit</li>
+        </ul>
+      </div>
+      <div class="day-card d3">
+        <div class="day-num">Day 3 &mdash; Applied</div>
+        <div class="day-date">Wed, 18 Nov</div>
+        <div class="day-theme">&#127758; Quantum for Humanity Day</div>
+        <ul class="day-sessions">
+          <li>Keynote: Quantum for Humanity &mdash; Global Vision</li>
+          <li>Drug Discovery: TB &amp; Malaria (Quantum Chemistry)</li>
+          <li>Quantum for Agriculture &amp; Water Security</li>
+          <li>Quantum Finance &amp; Financial Inclusion</li>
+          <li>Panel: Responsible Quantum Innovation</li>
+        </ul>
+      </div>
+      <div class="day-card d4">
+        <div class="day-num">Day 4 &mdash; Advanced</div>
+        <div class="day-date">Thu, 19 Nov</div>
+        <div class="day-theme">&#128300; Research &amp; Error Correction</div>
+        <ul class="day-sessions">
+          <li>Quantum Error Correction at Scale</li>
+          <li>VQE &amp; QAOA: Chemistry &amp; Optimisation</li>
+          <li>Fault-Tolerant Quantum Computing</li>
+          <li>Quantum Networking &amp; Cryptography</li>
+          <li>Hackathon Midpoint Mentorship (Top Teams)</li>
+        </ul>
+      </div>
+      <div class="day-card d5">
+        <div class="day-num">Day 5 &mdash; Finals</div>
+        <div class="day-date">Fri, 20 Nov</div>
+        <div class="day-theme">&#127942; Hackathon Finals &amp; Closing</div>
+        <ul class="day-sessions">
+          <li>Hackathon Finals &mdash; Live Presentations</li>
+          <li>Winners Announced &mdash; IBM Quantum Prize</li>
+          <li>QfH Manifesto Launch</li>
+          <li>Community Showcase: 50+ Projects</li>
+          <li>Closing Keynote: Quantum Decade Ahead</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="tracks" id="tracks">
+  <div class="container">
+    <div class="center">
+      <div class="section-tag" style="margin:0 auto 18px"><span class="tag-dot"></span>Programme Tracks</div>
+      <h2 class="sec-title center">Four Tracks, <span class="accent">One Mission</span></h2>
+      <p class="sec-desc center">Every session connects quantum science to real human challenges &mdash; from first principles to frontier research. Content sourced from <a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener" style="color:var(--purple-bright)">IBM Quantum Learning</a>.</p>
+    </div>
+    <div class="tracks-grid">
+      <div class="track-card t1">
+        <div class="track-icon">&#128218;</div>
+        <div class="track-title">Beginner &amp; Education</div>
+        <div class="track-desc">No prior experience needed. Start from qubits and superposition, build circuits in Qiskit, and complete your first IBM Quantum Learning certification. Available in multiple languages.</div>
+        <span class="track-tag">Beginner</span>
+      </div>
+      <div class="track-card t2">
+        <div class="track-icon">&#128300;</div>
+        <div class="track-title">Research &amp; Advanced</div>
+        <div class="track-desc">Cutting-edge lectures on quantum error correction, variational algorithms (VQE, QAOA), quantum ML, fault-tolerant computing, and hardware milestones from IBM Quantum researchers.</div>
+        <span class="track-tag">Advanced</span>
+      </div>
+      <div class="track-card t3">
+        <div class="track-icon">&#127758;</div>
+        <div class="track-title">Quantum for Humanity</div>
+        <div class="track-desc">Impact-focused sessions applying quantum to global challenges: drug discovery, agricultural optimisation, clean water modelling, climate science, and financial inclusion for underserved communities.</div>
+        <span class="track-tag">Impact</span>
+      </div>
+      <div class="track-card t4">
+        <div class="track-icon">&#127942;</div>
+        <div class="track-title">Hackathon Challenge</div>
+        <div class="track-desc">48-hour quantum hackathon with real-world humanitarian problem statements. Build with IBM Quantum hardware and Qiskit. Win IBM Quantum credits, certificates, and recognition.</div>
+        <span class="track-tag">Hackathon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section class="speakers-sec" id="speakers">
+  <div class="container">
+    <div class="section-tag"><span class="tag-dot"></span>Featured Speakers</div>
+    <h2 class="sec-title">Global <span class="accent">Speakers</span></h2>
+    <p class="sec-desc">Quantum scientists, IBM leaders, researchers, educators, and social impact innovators from around the world.</p>
+    <div class="speakers-grid">
+      <div class="speaker-card"><div class="speaker-av av1">JG</div><div class="speaker-name">Dr. Jay Gambetta</div><div class="speaker-role">VP Quantum Computing<br/>IBM Research</div><span class="speaker-topic">Opening Keynote</span></div>
+      <div class="speaker-card"><div class="speaker-av av2">SR</div><div class="speaker-name">Dr. Sarah Sheldon</div><div class="speaker-role">Director, Quantum Theory<br/>IBM Quantum</div><span class="speaker-topic">Error Correction</span></div>
+      <div class="speaker-card"><div class="speaker-av av3">PM</div><div class="speaker-name">Prof. Priya Mehta</div><div class="speaker-role">Quantum ML Researcher<br/>IIT Bombay</div><span class="speaker-topic">Quantum ML</span></div>
+      <div class="speaker-card"><div class="speaker-av av4">VK</div><div class="speaker-name">Dr. Vivek Kumar</div><div class="speaker-role">Co-Founder<br/>Quantum for Humanity</div><span class="speaker-topic">QfH Vision</span></div>
+      <div class="speaker-card"><div class="speaker-av av5">AK</div><div class="speaker-name">Dr. Aparna Kher</div><div class="speaker-role">Quantum Chemistry<br/>IISc Bangalore</div><span class="speaker-topic">Drug Discovery</span></div>
+      <div class="speaker-card"><div class="speaker-av av6">NB</div><div class="speaker-name">Nishant Baghel</div><div class="speaker-role">Qiskit Education Lead<br/>IBM Quantum</div><span class="speaker-topic">Qiskit &amp; Education</span></div>
+      <div class="speaker-card"><div class="speaker-av av7">MS</div><div class="speaker-name">Dr. Maika Takita</div><div class="speaker-role">Research Staff<br/>IBM Quantum</div><span class="speaker-topic">Hardware Deep Dive</span></div>
+      <div class="speaker-card"><div class="speaker-av av8">RL</div><div class="speaker-name">Dr. Reza Lahiji</div><div class="speaker-role">Quantum Algorithms<br/>IBM Research</div><span class="speaker-topic">QAOA &amp; VQE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL SCHEDULE -->
+<section class="schedule-sec" id="schedule">
+  <div class="container">
+    <div class="section-tag"><span class="tag-dot"></span>Full Schedule &mdash; IST</div>
+    <h2 class="sec-title">Event <span class="accent">Programme</span></h2>
+    <p class="sec-desc">All times in IST (UTC+5:30). All sessions live-streamed and recorded. Content from IBM Quantum Learning.</p>
+    <div class="schedule-tabs">
+      <div class="tab active" onclick="showDay(1,this)">Day 1 &mdash; 16 Nov</div>
+      <div class="tab" onclick="showDay(2,this)">Day 2 &mdash; 17 Nov</div>
+      <div class="tab" onclick="showDay(3,this)">Day 3 &mdash; 18 Nov</div>
+      <div class="tab" onclick="showDay(4,this)">Day 4 &mdash; 19 Nov</div>
+      <div class="tab" onclick="showDay(5,this)">Day 5 &mdash; 20 Nov</div>
+    </div>
+
+    <div id="day-1" class="day-content schedule-wrap">
+      <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Opening Ceremony &amp; Welcome</div><div class="s-speaker">IBM Quantum &amp; Quantum for Humanity Org</div></td><td>Dignitaries</td><td><span class="badge b-key">Inauguration</span></td></tr>
+        <tr><td class="time-cell">10:30<span class="ist">IST</span></td><td><div class="s-title">Opening Keynote: IBM Quantum 2026 Roadmap</div><div class="s-speaker">The state of quantum computing and the road to fault tolerance</div></td><td>Dr. Jay Gambetta</td><td><span class="badge b-key">Keynote</span></td></tr>
+        <tr><td class="time-cell">12:00<span class="ist">IST</span></td><td><div class="s-title">What is Quantum Computing? (Beginner)</div><div class="s-speaker">Qubits, superposition, entanglement and why it matters &mdash; IBM Quantum Learning Module 1</div></td><td>Nishant Baghel</td><td><span class="badge b-edu">Beginner</span></td></tr>
+        <tr><td class="time-cell">14:00<span class="ist">IST</span></td><td><div class="s-title">Qiskit Live Lab: Build Your First Quantum Circuit</div><div class="s-speaker">Hands-on: build, run &amp; measure on IBM Quantum hardware</div></td><td>IBM Quantum Team</td><td><span class="badge b-edu">Workshop</span></td></tr>
+        <tr><td class="time-cell">16:00<span class="ist">IST</span></td><td><div class="s-title">&#127942; 48h Hackathon Kickoff &amp; Team Formation</div><div class="s-speaker">Problem statements revealed: Healthcare, Climate, Education &amp; Finance</div></td><td>Hackathon Committee</td><td><span class="badge b-hack">Hackathon</span></td></tr>
+        <tr><td class="time-cell">17:30<span class="ist">IST</span></td><td><div class="s-title">Networking &amp; Community Meetup</div><div class="s-speaker">Connect via Discord: discord.gg/UgF3PaEax</div></td><td>All</td><td><span class="badge b-edu">Community</span></td></tr>
+      </tbody></table>
+    </div>
+
+    <div id="day-2" class="day-content schedule-wrap" style="display:none">
+      <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Quantum Gates &amp; Circuit Composition (Intermediate)</div><div class="s-speaker">IBM Quantum Learning: Single &amp; multi-qubit gates, circuit depth &amp; transpilation</div></td><td>IBM Quantum Team</td><td><span class="badge b-edu">Intermediate</span></td></tr>
+        <tr><td class="time-cell">11:00<span class="ist">IST</span></td><td><div class="s-title">Grover's &amp; Shor's Algorithms Explained</div><div class="s-speaker">Quantum speedup &mdash; theory to Qiskit implementation</div></td><td>Dr. Reza Lahiji</td><td><span class="badge b-res">Research</span></td></tr>
+        <tr><td class="time-cell">13:00<span class="ist">IST</span></td><td><div class="s-title">Quantum Machine Learning Workshop</div><div class="s-speaker">Quantum kernels, QNNs &amp; hybrid classical-quantum models</div></td><td>Prof. Priya Mehta</td><td><span class="badge b-edu">Workshop</span></td></tr>
+        <tr><td class="time-cell">15:00<span class="ist">IST</span></td><td><div class="s-title">IBM Eagle &amp; Heron Processor: Hardware Deep Dive</div><div class="s-speaker">Architecture, connectivity maps, error rates &amp; calibration</div></td><td>Dr. Maika Takita</td><td><span class="badge b-res">Research</span></td></tr>
+        <tr><td class="time-cell">16:30<span class="ist">IST</span></td><td><div class="s-title">Open Source Sprint: Contribute to Qiskit</div><div class="s-speaker">First-time contributor onboarding &mdash; GitHub workflow &amp; Qiskit codebase</div></td><td>Nishant Baghel</td><td><span class="badge b-edu">Open Source</span></td></tr>
+      </tbody></table>
+    </div>
+
+    <div id="day-3" class="day-content schedule-wrap" style="display:none">
+      <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">&#127758; Quantum for Humanity Keynote</div><div class="s-speaker">Quantum computing as humanity's tool for its greatest challenges</div></td><td>Dr. Vivek Kumar</td><td><span class="badge b-qfh">QfH Keynote</span></td></tr>
+        <tr><td class="time-cell">11:00<span class="ist">IST</span></td><td><div class="s-title">Drug Discovery: Quantum Simulation for TB &amp; Malaria</div><div class="s-speaker">Simulating molecular dynamics to accelerate global pharma R&amp;D</div></td><td>Dr. Aparna Kher</td><td><span class="badge b-imp">Impact</span></td></tr>
+        <tr><td class="time-cell">13:00<span class="ist">IST</span></td><td><div class="s-title">Quantum for Agriculture &amp; Water Security</div><div class="s-speaker">Optimising irrigation, crop yield prediction &amp; climate adaptation</div></td><td>QfH Research Team</td><td><span class="badge b-imp">Impact</span></td></tr>
+        <tr><td class="time-cell">15:00<span class="ist">IST</span></td><td><div class="s-title">Quantum Finance &amp; Financial Inclusion</div><div class="s-speaker">Quantum-powered risk models for underserved global populations</div></td><td>IBM Quantum Finance</td><td><span class="badge b-imp">Impact</span></td></tr>
+        <tr><td class="time-cell">16:30<span class="ist">IST</span></td><td><div class="s-title">Panel: Responsible Quantum Innovation</div><div class="s-speaker">Who benefits? Data sovereignty, ethics &amp; the quantum future</div></td><td>Multi-Expert Panel</td><td><span class="badge b-qfh">Panel</span></td></tr>
+      </tbody></table>
+    </div>
+
+    <div id="day-4" class="day-content schedule-wrap" style="display:none">
+      <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Quantum Error Correction at Scale (Advanced)</div><div class="s-speaker">Stabiliser codes, surface codes &amp; the path to fault tolerance</div></td><td>Dr. Sarah Sheldon</td><td><span class="badge b-res">Advanced</span></td></tr>
+        <tr><td class="time-cell">11:00<span class="ist">IST</span></td><td><div class="s-title">VQE &amp; QAOA: Chemistry &amp; Combinatorial Optimisation</div><div class="s-speaker">Variational algorithms: theory, Qiskit implementation &amp; hardware results</div></td><td>Dr. Reza Lahiji</td><td><span class="badge b-res">Research</span></td></tr>
+        <tr><td class="time-cell">13:00<span class="ist">IST</span></td><td><div class="s-title">Fault-Tolerant Quantum Computing: The Next Decade</div><div class="s-speaker">IBM's roadmap to 100,000-qubit fault-tolerant systems</div></td><td>IBM Quantum Research</td><td><span class="badge b-res">Research</span></td></tr>
+        <tr><td class="time-cell">15:00<span class="ist">IST</span></td><td><div class="s-title">Quantum Networking &amp; Cryptography</div><div class="s-speaker">QKD, quantum internet, post-quantum cryptography standards</div></td><td>IBM Research</td><td><span class="badge b-res">Research</span></td></tr>
+        <tr><td class="time-cell">16:30<span class="ist">IST</span></td><td><div class="s-title">Hackathon Midpoint: Judge Mentorship Round</div><div class="s-speaker">Top 20 teams get 15-min sessions with IBM quantum mentors</div></td><td>Hackathon Judges</td><td><span class="badge b-hack">Hackathon</span></td></tr>
+      </tbody></table>
+    </div>
+
+    <div id="day-5" class="day-content schedule-wrap" style="display:none">
+      <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">&#127942; Hackathon Finals &mdash; Live Presentations</div><div class="s-speaker">Top 10 teams present quantum-powered humanitarian solutions</div></td><td>Finalist Teams</td><td><span class="badge b-hack">Hackathon</span></td></tr>
+        <tr><td class="time-cell">12:00<span class="ist">IST</span></td><td><div class="s-title">&#127947; Live Award Ceremony &mdash; IBM Quantum Prize</div><div class="s-speaker">Winners announced. IBM Quantum credits, certificates &amp; recognition</div></td><td>IBM Quantum &amp; QfH</td><td><span class="badge b-key">Award</span></td></tr>
+        <tr><td class="time-cell">13:30<span class="ist">IST</span></td><td><div class="s-title">Quantum for Humanity Manifesto Launch</div><div class="s-speaker">A shared commitment: open, inclusive quantum science for all</div></td><td>Dr. Vivek Kumar</td><td><span class="badge b-qfh">QfH</span></td></tr>
+        <tr><td class="time-cell">15:00<span class="ist">IST</span></td><td><div class="s-title">Community Showcase: 50+ Projects from Around the World</div><div class="s-speaker">2-minute lightning talks from community teams globally</div></td><td>Community</td><td><span class="badge b-edu">Showcase</span></td></tr>
+        <tr><td class="time-cell">16:30<span class="ist">IST</span></td><td><div class="s-title">Closing Keynote: The Quantum Decade Ahead</div><div class="s-speaker">Roadmap to 2030: quantum for humanity, powered by open science</div></td><td>IBM Quantum</td><td><span class="badge b-key">Closing</span></td></tr>
+        <tr><td class="time-cell">18:00<span class="ist">IST</span></td><td><div class="s-title">Closing Networking &amp; Discord Community Celebration</div><div class="s-speaker">Join the global community: discord.gg/UgF3PaEax</div></td><td>All</td><td><span class="badge b-edu">Community</span></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<!-- HACKATHON -->
+<section class="hackathon" id="hackathon">
+  <div class="hack-grid">
+    <div class="hack-text">
+      <div class="section-tag"><span class="tag-dot"></span>48-Hour Global Challenge</div>
+      <h2 class="sec-title">Quantum for <span class="accent">Humanity</span> Hackathon</h2>
+      <p>Build quantum solutions to real-world humanitarian problems. Teams compete using IBM Quantum hardware and Qiskit across 4 domains: healthcare, climate, education, and financial inclusion.</p>
+      <div class="hack-features">
+        <div class="hack-feat"><div class="hack-feat-icon">&#9200;</div><div class="hack-feat-title">48 Hours</div><div class="hack-feat-desc">Starts Nov 16, 16:00 IST. Finals at Day 5.</div></div>
+        <div class="hack-feat"><div class="hack-feat-icon">&#127758;</div><div class="hack-feat-title">Global &amp; Open</div><div class="hack-feat-desc">Teams from anywhere. Online &amp; in-person hybrid.</div></div>
+        <div class="hack-feat"><div class="hack-feat-icon">&#128187;</div><div class="hack-feat-title">IBM Quantum Hardware</div><div class="hack-feat-desc">Free IBM Quantum credits for every registered team.</div></div>
+        <div class="hack-feat"><div class="hack-feat-icon">&#127942;</div><div class="hack-feat-title">Prizes &amp; Recognition</div><div class="hack-feat-desc">IBM Quantum Prize, certificates, mentorship &amp; community spotlight.</div></div>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform?usp=preview" target="_blank" rel="noopener">Join the Hackathon</a>
+        <a class="btn-discord" href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener">
+          <svg class="disc-svg" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          Team Discord
+        </a>
+      </div>
+    </div>
+    <div class="hack-visual">
+      <img class="hack-badge-img" src="qff2026-badge-black.png" alt="IBM Qiskit Fall Fest 2026 Badge"/>
+      <div class="hack-sticker-row">
+        <img class="hack-sticker" src="sticker-entanglement.png" alt="Entanglement"/>
+        <img class="hack-sticker" src="sticker-wave.png" alt="Wave Function"/>
+        <img class="hack-sticker" src="sticker-eagle.png" alt="Eagle" style="border-radius:14px"/>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Official Hashtags</div>
+        <div style="font-size:17px;font-weight:700;color:#FF6B9D">#QuantumForHumanity</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.35);margin-top:4px">#QiskitFallFest2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND KIT -->
+<section class="brand-sec" id="brand" style="padding:72px 5%">
+  <div class="container">
+    <div class="center">
+      <div class="section-tag" style="margin:0 auto 16px"><span class="tag-dot"></span>Official Brand Kit</div>
+      <h2 class="sec-title center">Assets &amp; <span class="accent">Logos</span></h2>
+      <p class="sec-desc center">Official IBM Qiskit Fall Fest 2026 brand assets for social media, blogs, and community content.</p>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-card"><img src="qff2026-badge-black.png" alt="QFF Badge"/><div class="brand-label">Event Badge</div><div class="brand-sub">Dark Variant</div></div>
+      <div class="brand-card"><img src="Qiskit_03.png" alt="Qiskit Purple"/><div class="brand-label">Qiskit Logo</div><div class="brand-sub">Purple</div></div>
+      <div class="brand-card"><img src="Qiskit_01.png" alt="Qiskit Black"/><div class="brand-label">Qiskit Logo</div><div class="brand-sub">Black</div></div>
+      <div class="brand-card"><img src="fall-fest-banner.png" alt="Fall Fest Banner"/><div class="brand-label">Fall Fest Banner</div><div class="brand-sub">Official</div></div>
+      <div class="brand-card"><img src="sticker-flamingo.png" alt="Flamingo"/><div class="brand-label">Flamingo</div><div class="brand-sub">Sticker 01</div></div>
+      <div class="brand-card"><img src="sticker-birds.png" alt="Birds"/><div class="brand-label">Flying Birds</div><div class="brand-sub">Sticker 02</div></div>
+      <div class="brand-card"><img src="sticker-bluebird.png" alt="Bluebird"/><div class="brand-label">Bluebird</div><div class="brand-sub">Sticker 03</div></div>
+      <div class="brand-card"><img src="sticker-eagle.png" alt="Eagle"/><div class="brand-label">Eagle</div><div class="brand-sub">Sticker 05</div></div>
+      <div class="brand-card"><img src="sticker-entanglement.png" alt="Entanglement"/><div class="brand-label">Entanglement</div><div class="brand-sub">Sticker 08</div></div>
+      <div class="brand-card"><img src="sticker-wave.png" alt="Wave"/><div class="brand-label">Wave Function</div><div class="brand-sub">Sticker 09</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="register-sec" id="register">
+  <div class="reg-inner">
+    <div class="section-tag" style="margin:0 auto 18px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.85)"><span class="tag-dot"></span>Free Registration</div>
+    <h2>Join <span class="accent">Fall Fest 2026</span></h2>
+    <p class="sub">Two ways to join the global quantum community. Register via Google Form for full event access, or jump into our Discord server to connect with the community right now.</p>
+    <div class="reg-cards">
+      <div class="reg-card">
+        <div class="reg-card-icon">&#128203;</div>
+        <div class="reg-card-title">Register for the Event</div>
+        <div class="reg-card-desc">Complete the official registration form to secure your spot for all 5 days &mdash; sessions, workshops, the 48-hour hackathon, IBM Quantum credits, and your participation certificate. Free for everyone.</div>
+        <a class="btn-form" href="https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform?usp=preview" target="_blank" rel="noopener">Register Free &rarr;</a>
+      </div>
+      <div class="reg-card">
+        <div class="reg-card-icon">&#128172;</div>
+        <div class="reg-card-title">Join the Discord Community</div>
+        <div class="reg-card-desc">Connect with fellow quantum enthusiasts, get event announcements, find hackathon teammates, ask questions to mentors, and stay connected with the Quantum for Humanity community year-round.</div>
+        <a class="btn-disc" href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener">
+          <svg class="disc-svg" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          Join Discord &rarr;
+        </a>
+      </div>
+    </div>
+    <div class="hash-row">
+      <span class="hash">#QuantumForHumanity</span>
+      <span class="hash">#QiskitFallFest2026</span>
+      <span class="hash">#IBMQuantum</span>
+      <span class="hash">@IBMQuantum</span>
+      <span class="hash">@QuantumForHumanity</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="container">
+    <div class="section-tag"><span class="tag-dot"></span>FAQ</div>
+    <h2 class="sec-title">Frequently Asked <span class="accent">Questions</span></h2>
+    <p class="sec-desc">Everything you need to know before registering.</p>
+    <div class="faq-list">
+      <details open><summary>Is IBM Qiskit Fall Fest 2026 free?</summary><div class="faq-body">Yes &mdash; completely free. All 5 days of sessions, workshops, and the hackathon are free to attend. Register via the Google Form above to receive your confirmation, session links, IBM Quantum credits, and participation certificate.</div></details>
+      <details><summary>Do I need prior quantum computing experience?</summary><div class="faq-body">No. Day 1 is fully beginner-friendly and starts from zero. The festival is designed to take you from <strong>Beginner (Day 1)</strong> through <strong>Intermediate (Day 2)</strong>, <strong>Applied (Day 3)</strong>, all the way to <strong>Advanced (Day 4)</strong>. Content is drawn from the official <a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener" style="color:var(--purple-bright)">IBM Quantum Learning</a> platform.</div></details>
+      <details><summary>How do I register?</summary><div class="faq-body">Click the <strong>"Register Free"</strong> button anywhere on this page, or go directly to the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform?usp=preview" target="_blank" rel="noopener" style="color:var(--purple-bright)">Google Form registration</a>. Fill in your details and you will receive a confirmation email with all session links.</div></details>
+      <details><summary>How do I join the community Discord?</summary><div class="faq-body">Join the Quantum for Humanity Discord server at <a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="color:var(--discord)">discord.gg/UgF3PaEax</a>. This is where you can find hackathon teammates, ask questions to mentors, get live event updates, and stay connected with the global quantum community year-round.</div></details>
+      <details><summary>Can I attend online? Are sessions recorded?</summary><div class="faq-body">Yes. All sessions are live-streamed globally and fully recorded. You can attend from anywhere in the world. On-demand recordings will be available after each day for registered participants.</div></details>
+      <details><summary>What is the Hackathon and how do I participate?</summary><div class="faq-body">The 48-Hour Quantum for Humanity Hackathon kicks off on Day 1 (Nov 16) and finals are on Day 5 (Nov 20). Build quantum solutions to real-world humanitarian problems across 4 domains: healthcare, climate, education, and financial inclusion. All registered participants get free IBM Quantum hardware credits. Join the <a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="color:var(--discord)">Discord</a> to find a team.</div></details>
+      <details><summary>What is the connection to IBM Quantum Learning?</summary><div class="faq-body">All educational content at Fall Fest 2026 is drawn from and aligned with the <a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener" style="color:var(--purple-bright)">IBM Quantum Learning</a> platform. Participants can follow along with official IBM Quantum Learning modules and earn IBM Quantum certifications through the event workshops.</div></details>
+      <details><summary>How do I publish this website via GitHub Pages?</summary><div class="faq-body">Push the <code>QFH_QFF_2026</code> repository to GitHub. Go to <strong>Settings &rarr; Pages &rarr; Branch: main &rarr; Save</strong>. Ensure the <code>.nojekyll</code> file is included. Your site will go live within minutes at <strong>yourusername.github.io/QFH_QFF_2026/</strong>.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px">
+        <svg width="100" height="30" viewBox="0 0 100 30" fill="none">
+          <text x="0" y="12" font-family="Segoe UI,sans-serif" font-size="9" font-weight="700" fill="white" letter-spacing="2">IBM</text>
+          <text x="0" y="24" font-family="Segoe UI,sans-serif" font-size="9" font-weight="400" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">QUANTUM</text>
+          <circle cx="88" cy="15" r="10" stroke="#FF7EB6" stroke-width="1.2" fill="none"/>
+          <ellipse cx="88" cy="15" rx="10" ry="3.2" stroke="#FF7EB6" stroke-width="1.2" fill="none"/>
+          <line x1="82" y1="8" x2="94" y2="22" stroke="#FF7EB6" stroke-width="1.4"/>
+          <circle cx="82" cy="8" r="2" fill="#FF7EB6"/>
+          <circle cx="94" cy="22" r="2" fill="#8B5CF6"/>
+        </svg>
+        <div style="color:rgba(255,255,255,.25);font-size:18px">&times;</div>
+        <svg width="130" height="30" viewBox="0 0 130 30" fill="none">
+          <text x="0" y="12" font-family="Segoe UI,sans-serif" font-size="9" font-weight="700" fill="white" letter-spacing="1.5">QUANTUM FOR</text>
+          <text x="0" y="24" font-family="Segoe UI,sans-serif" font-size="9" font-weight="400" fill="rgba(255,255,255,0.55)" letter-spacing="2">HUMANITY</text>
+          <circle cx="118" cy="10" r="3" fill="#8B5CF6"/>
+          <path d="M115 14 Q115 19 118 20 Q121 19 121 14 Q119.5 12.5 118 12 Q116.5 12.5 115 14Z" fill="#8B5CF6" opacity=".9"/>
+          <path d="M115 15.5 L112 17.5 M121 15.5 L124 17.5" stroke="#8B5CF6" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>IBM Qiskit Fall Fest 2026. Presented by IBM Quantum and Quantum for Humanity Org. 5 Days &mdash; Beginner to Advanced. November 16&ndash;20, 2026. Free to all.</p>
+      <div style="margin-top:14px">
+        <a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" class="btn-disc" style="font-size:12px;padding:8px 18px;display:inline-flex">
+          <svg class="disc-svg" style="width:15px;height:15px" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          discord.gg/UgF3PaEax
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Event</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#days">Programme</a></li>
+        <li><a href="#tracks">Tracks</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener">IBM Quantum Learning</a></li>
+        <li><a href="https://qiskit.org/learn" target="_blank" rel="noopener">Qiskit Learn</a></li>
+        <li><a href="https://quantum.ibm.com" target="_blank" rel="noopener">IBM Quantum</a></li>
+        <li><a href="#hackathon">Hackathon</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener">Discord &mdash; QfH</a></li>
+        <li><a href="https://github.com/Qiskit" target="_blank" rel="noopener">GitHub / Qiskit</a></li>
+        <li><a href="https://twitter.com/IBMQuantum" target="_blank" rel="noopener">@IBMQuantum</a></li>
+        <li><a href="https://www.youtube.com/@IBMQuantum" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://ibm.co/qiskit-slack" target="_blank" rel="noopener">Qiskit Slack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 IBM Corporation &middot; IBM Qiskit Fall Fest &middot; Quantum for Humanity Org &middot; All rights reserved.</p>
+    <div class="footer-social">
+      <a class="soc-btn" href="https://twitter.com/IBMQuantum" target="_blank" rel="noopener" title="Twitter/X">X</a>
+      <a class="soc-btn" href="https://github.com/Qiskit" target="_blank" rel="noopener" title="GitHub">G</a>
+      <a class="soc-btn" href="https://www.youtube.com/@IBMQuantum" target="_blank" rel="noopener" title="YouTube">Y</a>
+      <a class="soc-btn discord-btn" href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" title="Discord">
+        <svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Countdown to Nov 16 2026 09:30 IST = 04:00 UTC
+(function(){
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var target=new Date('2026-11-16T04:00:00Z');
+    var now=new Date();
+    var diff=target-now;
+    if(diff<=0){
+      var bar=document.querySelector('.ann-bar');
+      if(bar) bar.innerHTML='&#9889; IBM Qiskit Fall Fest 2026 is LIVE! <a href="#register" style="color:var(--pink);font-weight:700">Join Now &rarr;</a>';
+      return;
+    }
+    var d=Math.floor(diff/864e5);
+    var h=Math.floor((diff%864e5)/36e5);
+    var m=Math.floor((diff%36e5)/6e4);
+    var s=Math.floor((diff%6e4)/1e3);
+    var e=document.getElementById('cd-d'); if(e)e.textContent=pad(d);
+    e=document.getElementById('cd-h'); if(e)e.textContent=pad(h);
+    e=document.getElementById('cd-m'); if(e)e.textContent=pad(m);
+    e=document.getElementById('cd-s'); if(e)e.textContent=pad(s);
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+// Day schedule tabs
+function showDay(n,el){
+  for(var i=1;i<=5;i++){
+    var d=document.getElementById('day-'+i);
+    if(d) d.style.display=(i===n)?'block':'none';
+  }
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  if(el) el.classList.add('active');
+}
+
+// Nav scroll highlight
+(function(){
+  var links=document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll',function(){
+    var pos=window.scrollY+80;
+    document.querySelectorAll('section[id]').forEach(function(s){
+      if(s.offsetTop<=pos&&s.offsetTop+s.offsetHeight>pos){
+        links.forEach(function(l){l.style.color=l.getAttribute('href')==='#'+s.id?'var(--pink)':''});
+      }
+    });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Quantum for Humanity — A global initiative harnessing quantum science to solve humanity's greatest challenges. Presented at IBM Qiskit Fall Fest 2026, New Delhi, India."/>
+<meta property="og:title" content="Quantum for Humanity | IBM Qiskit Fall Fest 2026"/>
+<meta property="og:description" content="Quantum science for healthcare, climate, agriculture, and financial inclusion. India and global mission."/>
+<title>Quantum for Humanity | IBM Qiskit Fall Fest 2026 — New Delhi, India</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:#1a0533;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --purple-deep:#2D1B69;--purple-mid:#5A3FA0;--purple-bright:#8B5CF6;
+  --purple-pale:#F0EBF9;--purple-light:#D8DCF0;
+  --pink:#FF6B9D;--blue:#6EA8FE;--dark:#0A0E1A;
+  --saffron:#FF9933;--india-green:#138808;
+  --text-body:#3B2070;--text-muted:#7C6FA0;
+}
+
+/* INDIA STRIPE */
+.india-stripe{height:6px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
+
+/* NAV */
+nav{background:rgba(10,14,26,.97);border-bottom:1px solid rgba(255,107,157,.2);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.nav-left{display:flex;align-items:center;gap:12px}
+.nav-wordmark .line1{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF6B9D}
+.nav-wordmark .line2{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.06em}
+.nav-links{display:flex;list-style:none;gap:20px}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.65);font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#FF6B9D}
+.nav-cta{background:#FF6B9D;color:#fff;font-size:13px;font-weight:700;padding:8px 20px;border-radius:999px;letter-spacing:.05em;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d0120 0%,#1a0533 40%,#2D1B69 80%,#0A0E1A 100%);min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 80px;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.orb-a{width:500px;height:500px;background:#8B5CF6;opacity:.2;top:-180px;left:-150px}
+.orb-b{width:400px;height:400px;background:#FF6B9D;opacity:.18;bottom:-120px;right:-120px}
+.orb-c{width:300px;height:300px;background:#FF9933;opacity:.08;top:40%;right:5%}
+.hero-inner{position:relative;z-index:1;max-width:860px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 20px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:28px}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#FF6B9D}
+/* QFH Logo — large inline SVG */
+.qfh-logo-hero{margin:0 auto 32px;width:clamp(120px,18vw,180px);height:clamp(120px,18vw,180px)}
+.qfh-logo-hero svg{width:100%;height:100%}
+.hero h1{font-size:clamp(38px,7vw,80px);font-weight:800;line-height:1.05;letter-spacing:-.025em;color:#fff;margin-bottom:16px}
+.hero h1 .accent{color:#FF6B9D}
+.hero h1 .accent2{color:#c4b5fd}
+.hero-tagline{font-size:clamp(16px,2.2vw,22px);font-weight:300;color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 36px;line-height:1.7}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.pill{border-radius:999px;padding:6px 18px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);background:rgba(255,255,255,.07)}
+.pill.pink{background:rgba(255,107,157,.18);border-color:rgba(255,107,157,.4);color:#FF6B9D}
+.pill.saffron{background:rgba(255,153,51,.15);border-color:rgba(255,153,51,.35);color:#FFB347}
+.pill.green{background:rgba(19,136,8,.15);border-color:rgba(19,136,8,.35);color:#4ade80}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#FF6B9D;color:#fff;font-size:15px;font-weight:700;padding:14px 36px;border-radius:999px;box-shadow:0 8px 30px rgba(255,107,157,.4);transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(255,107,157,.52)}
+.btn-outline{background:transparent;color:#fff;font-size:15px;font-weight:600;padding:14px 36px;border-radius:999px;border:2px solid rgba(255,255,255,.3);transition:background .2s}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+
+/* SECTION COMMON */
+section{padding:88px 5%}
+.container{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);border-radius:999px;padding:5px 16px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bright);margin-bottom:16px}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:#FF6B9D}
+h2.sec-title{font-size:clamp(26px,4vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--purple-deep);margin-bottom:14px}
+h2.sec-title .accent{color:#FF6B9D}
+p.sec-desc{font-size:clamp(15px,1.8vw,17px);color:var(--text-muted);max-width:620px;line-height:1.75;margin-bottom:48px}
+.center{text-align:center}
+.center .sec-desc{margin-left:auto;margin-right:auto}
+
+/* MISSION */
+.mission{background:var(--purple-pale)}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1100px;margin:0 auto}
+.mission-visual{display:flex;flex-direction:column;align-items:center;gap:20px}
+.mission-logo-big{width:clamp(160px,22vw,240px);height:clamp(160px,22vw,240px)}
+.mission-logo-big svg{width:100%;height:100%}
+.mission-badges{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.mission-badge{background:#fff;border:1px solid rgba(139,92,246,.2);border-radius:14px;padding:12px 18px;text-align:center;min-width:100px}
+.mission-badge-num{font-size:24px;font-weight:800;color:var(--purple-deep)}
+.mission-badge-label{font-size:11px;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.mission-text p{font-size:16px;color:var(--text-body);line-height:1.8;margin-bottom:18px}
+.mission-values{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.value-pill{background:#fff;border:1px solid rgba(139,92,246,.2);border-radius:999px;padding:7px 18px;font-size:13px;font-weight:600;color:var(--purple-mid)}
+
+/* PILLARS */
+.pillars{background:#fff}
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.pillar-card{border-radius:20px;padding:36px 28px;border:1px solid rgba(139,92,246,.13);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:20px 20px 0 0}
+.pillar-card.p1{background:linear-gradient(145deg,#fff8f0,#fff)}.pillar-card.p1::before{background:linear-gradient(90deg,#FF9933,#FF6B9D)}
+.pillar-card.p2{background:linear-gradient(145deg,#f0fdf0,#fff)}.pillar-card.p2::before{background:linear-gradient(90deg,#138808,#6EA8FE)}
+.pillar-card.p3{background:linear-gradient(145deg,#f5f0ff,#fff)}.pillar-card.p3::before{background:linear-gradient(90deg,#8B5CF6,#FF6B9D)}
+.pillar-card.p4{background:linear-gradient(145deg,#eff6ff,#fff)}.pillar-card.p4::before{background:linear-gradient(90deg,#6EA8FE,#8B5CF6)}
+.pillar-card.p5{background:linear-gradient(145deg,#fdf4ff,#fff)}.pillar-card.p5::before{background:linear-gradient(90deg,#FF6B9D,#8B5CF6)}
+.pillar-card.p6{background:linear-gradient(145deg,#fffbf0,#fff)}.pillar-card.p6::before{background:linear-gradient(90deg,#FF9933,#138808)}
+.pillar-card:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(45,27,105,.13)}
+.pillar-icon{font-size:36px;margin-bottom:14px}
+.pillar-title{font-size:19px;font-weight:800;color:var(--purple-deep);margin-bottom:8px}
+.pillar-desc{font-size:14px;color:var(--text-muted);line-height:1.7}
+.pillar-india{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--saffron);background:rgba(255,153,51,.1);border-radius:999px;padding:3px 12px}
+
+/* INDIA CHAPTER */
+.india-chapter{background:linear-gradient(135deg,#fff8f0 0%,#f0fdf4 100%);border-top:4px solid var(--saffron);border-bottom:4px solid var(--india-green)}
+.india-chapter-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto}
+.india-chapter-text h2{color:var(--purple-deep)}
+.india-chapter-text p{font-size:16px;color:var(--text-body);line-height:1.8;margin-bottom:16px}
+.india-hubs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.hub-card{background:#fff;border-radius:14px;padding:16px 18px;border:1px solid rgba(255,153,51,.2);border-left:4px solid var(--saffron)}
+.hub-city{font-size:14px;font-weight:700;color:var(--purple-deep)}
+.hub-place{font-size:12px;color:var(--text-muted);margin-top:2px}
+.india-flags{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.india-stat-card{background:#fff;border-radius:16px;padding:20px;text-align:center;border:1px solid rgba(139,92,246,.13)}
+.india-stat-num{font-size:28px;font-weight:800;color:var(--purple-deep)}
+.india-stat-label{font-size:11.5px;color:var(--text-muted);margin-top:4px;line-height:1.5}
+
+/* IMPACT STORIES */
+.impact{background:#fff}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.impact-card{border-radius:20px;overflow:hidden;border:1px solid rgba(139,92,246,.12);transition:transform .2s,box-shadow .2s}
+.impact-card:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(45,27,105,.12)}
+.impact-card-header{padding:28px 24px 20px;display:flex;align-items:flex-start;gap:16px}
+.impact-icon-wrap{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.ic1{background:#fff8f0}.ic2{background:#f0fdf4}.ic3{background:#f5f0ff}.ic4{background:#eff6ff}
+.impact-card-title{font-size:17px;font-weight:800;color:var(--purple-deep);margin-bottom:6px}
+.impact-card-sub{font-size:13px;color:var(--text-muted);line-height:1.5}
+.impact-card-body{padding:0 24px 24px}
+.impact-card-body p{font-size:13.5px;color:var(--text-body);line-height:1.7;margin-bottom:12px}
+.impact-stat{display:flex;align-items:center;gap:10px;background:var(--purple-pale);border-radius:12px;padding:10px 14px;margin-top:8px}
+.impact-stat-num{font-size:18px;font-weight:800;color:var(--purple-deep)}
+.impact-stat-text{font-size:12px;color:var(--text-muted);line-height:1.4}
+.impact-india-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--saffron);background:rgba(255,153,51,.1);border-radius:999px;padding:3px 12px;margin-top:10px}
+
+/* MANIFESTO */
+.manifesto{background:linear-gradient(135deg,#0d0120 0%,#1a0533 40%,#2D1B69 100%);padding:88px 5%;position:relative;overflow:hidden;text-align:center}
+.manifesto::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:32px 32px}
+.manifesto-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+.manifesto h2{font-size:clamp(28px,4vw,52px);font-weight:800;color:#fff;margin-bottom:20px}
+.manifesto h2 .accent{color:#FF6B9D}
+.manifesto-quote{font-size:clamp(18px,2.5vw,26px);font-style:italic;color:rgba(255,255,255,.8);line-height:1.65;margin:28px 0;padding:0 20px;border-left:none;position:relative}
+.manifesto-quote::before{content:'"';font-size:80px;color:rgba(255,107,157,.3);position:absolute;top:-20px;left:0;line-height:1}
+.manifesto-principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:40px 0;text-align:left}
+.principle{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px}
+.principle-num{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF6B9D;margin-bottom:6px}
+.principle-text{font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.6}
+.sign-btn{display:inline-flex;align-items:center;gap:8px;background:#FF6B9D;color:#fff;font-size:15px;font-weight:700;padding:14px 36px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 28px rgba(255,107,157,.4);transition:transform .2s}
+.sign-btn:hover{transform:translateY(-2px)}
+
+/* TEAM */
+.team{background:var(--purple-pale)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px;max-width:1100px;margin:0 auto}
+.team-card{background:#fff;border-radius:18px;padding:28px 18px;text-align:center;border:1px solid rgba(139,92,246,.12);transition:transform .2s}
+.team-card:hover{transform:translateY(-4px)}
+.team-av{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff}
+.ta1{background:linear-gradient(135deg,#8B5CF6,#FF6B9D)}
+.ta2{background:linear-gradient(135deg,#FF9933,#FF6B9D)}
+.ta3{background:linear-gradient(135deg,#138808,#6EA8FE)}
+.ta4{background:linear-gradient(135deg,#2D1B69,#8B5CF6)}
+.ta5{background:linear-gradient(135deg,#FF6B9D,#8B5CF6)}
+.ta6{background:linear-gradient(135deg,#FF9933,#138808)}
+.team-name{font-size:14px;font-weight:700;color:var(--purple-deep)}
+.team-role{font-size:12px;color:var(--text-muted);margin-top:3px;line-height:1.5}
+.team-location{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:var(--saffron);background:rgba(255,153,51,.1);border-radius:999px;padding:3px 12px}
+
+/* JOIN CTA */
+.join-cta{background:#fff;padding:88px 5%;text-align:center}
+.join-cta h2{font-size:clamp(26px,4.5vw,52px);font-weight:800;color:var(--purple-deep);margin-bottom:14px}
+.join-cta h2 .accent{color:#FF6B9D}
+.join-cta p{font-size:17px;color:var(--text-muted);max-width:560px;margin:0 auto 36px;line-height:1.7}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hash-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.hash{font-size:13px;font-weight:600;color:var(--text-muted);background:var(--purple-pale);border:1px solid rgba(139,92,246,.14);border-radius:999px;padding:5px 16px}
+
+/* FOOTER */
+footer{background:var(--dark);padding:56px 5% 32px;border-top:2px solid rgba(255,107,157,.18)}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;max-width:1100px;margin:0 auto;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07)}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.4);max-width:280px;margin-top:10px;line-height:1.7}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.55);transition:color .2s}
+.footer-col a:hover{color:#FF6B9D}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.26)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .mission-grid,.india-chapter-grid{grid-template-columns:1fr}
+  .india-hubs{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .india-flags{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="india-stripe"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <!-- QFH inline logo -->
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="16" stroke="#8B5CF6" stroke-width="1.4" fill="none"/>
+      <ellipse cx="18" cy="18" rx="16" ry="5.5" stroke="#8B5CF6" stroke-width="1.4" fill="none" transform="rotate(-30 18 18)" opacity=".7"/>
+      <ellipse cx="18" cy="18" rx="16" ry="5.5" stroke="#FF7EB6" stroke-width="1.2" fill="none" transform="rotate(30 18 18)" opacity=".6"/>
+      <circle cx="18" cy="11" r="3.2" fill="#8B5CF6"/>
+      <path d="M15 16 Q15 21.5 18 22.5 Q21 21.5 21 16 Q19.5 14.2 18 13.8 Q16.5 14.2 15 16Z" fill="#8B5CF6" opacity=".9"/>
+      <path d="M15 17.5 L9.5 20.5 M21 17.5 L26.5 20.5" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
+    </svg>
+    <div class="nav-wordmark">
+      <span class="line1">Quantum for Humanity</span>
+      <span class="line2">IBM Qiskit Fall Fest 2026 &mdash; New Delhi, India</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#pillars">Pillars</a></li>
+    <li><a href="#india">India Chapter</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="index.html">Back to Event</a></li>
+  </ul>
+  <a class="nav-cta" href="#join">Join the Mission</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span>IBM Qiskit Fall Fest 2026 &mdash; Official Initiative</div>
+
+    <!-- Large QFH Logo SVG -->
+    <div class="qfh-logo-hero">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- outer orbital rings -->
+        <circle cx="100" cy="100" r="90" stroke="#8B5CF6" stroke-width="2" opacity=".6"/>
+        <ellipse cx="100" cy="100" rx="90" ry="30" stroke="#8B5CF6" stroke-width="2" opacity=".5" transform="rotate(-30 100 100)"/>
+        <ellipse cx="100" cy="100" rx="90" ry="30" stroke="#FF7EB6" stroke-width="1.5" opacity=".45" transform="rotate(30 100 100)"/>
+        <!-- equatorial ring -->
+        <ellipse cx="100" cy="100" rx="90" ry="18" stroke="#8B5CF6" stroke-width="1" opacity=".25"/>
+        <!-- inner glow -->
+        <circle cx="100" cy="100" r="32" fill="rgba(139,92,246,.12)"/>
+        <circle cx="100" cy="100" r="32" stroke="#8B5CF6" stroke-width="1.5" opacity=".6"/>
+        <!-- human figure -->
+        <circle cx="100" cy="82" r="8" fill="#8B5CF6"/>
+        <path d="M91 94 Q91 112 100 115 Q109 112 109 94 Q105.5 90.5 100 90 Q94.5 90.5 91 94Z" fill="#8B5CF6" opacity=".9"/>
+        <!-- arms spread (humanity / embrace) -->
+        <path d="M91 97 L74 104 M109 97 L126 104" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+        <!-- orbital node dots -->
+        <circle cx="190" cy="100" r="5" fill="#8B5CF6"/>
+        <circle cx="10"  cy="100" r="5" fill="#8B5CF6"/>
+        <circle cx="138" cy="22"  r="4" fill="#FF7EB6" opacity=".9"/>
+        <circle cx="62"  cy="178" r="4" fill="#FF7EB6" opacity=".9"/>
+        <!-- particle dots -->
+        <circle cx="40"  cy="45"  r="2" fill="white" opacity=".3"/>
+        <circle cx="160" cy="155" r="2" fill="white" opacity=".3"/>
+        <circle cx="155" cy="42"  r="1.5" fill="#FF7EB6" opacity=".5"/>
+        <circle cx="45"  cy="158" r="1.5" fill="#8B5CF6" opacity=".5"/>
+      </svg>
+    </div>
+
+    <h1>Quantum for <span class="accent">Humanity</span></h1>
+    <p class="hero-tagline">
+      Harnessing the power of quantum computing to solve humanity's greatest challenges &mdash;<br/>
+      from <span style="color:#FFB347">Indian healthcare</span> to <span style="color:#4ade80">global climate</span>, from <span style="color:#c4b5fd">education</span> to <span style="color:#FF6B9D">financial inclusion</span>.
+    </p>
+    <div class="hero-pills">
+      <span class="pill pink">IBM Quantum</span>
+      <span class="pill saffron">India Chapter &mdash; New Delhi</span>
+      <span class="pill green">Open Science</span>
+      <span class="pill">Global Community</span>
+      <span class="pill">Free &amp; Inclusive</span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#join">Join the Mission</a>
+      <a class="btn-outline" href="index.html">View Fall Fest 2026</a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="mission-grid">
+    <div class="mission-visual">
+      <!-- Medium QFH Logo -->
+      <div class="mission-logo-big">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="88" stroke="#8B5CF6" stroke-width="2" opacity=".55"/>
+          <ellipse cx="100" cy="100" rx="88" ry="28" stroke="#8B5CF6" stroke-width="2" opacity=".45" transform="rotate(-30 100 100)"/>
+          <ellipse cx="100" cy="100" rx="88" ry="28" stroke="#FF7EB6" stroke-width="1.5" opacity=".4" transform="rotate(30 100 100)"/>
+          <circle cx="100" cy="100" r="30" fill="rgba(139,92,246,.1)"/>
+          <circle cx="100" cy="100" r="30" stroke="#8B5CF6" stroke-width="1.5" opacity=".55"/>
+          <circle cx="100" cy="83"  r="7.5" fill="#8B5CF6"/>
+          <path d="M92 94 Q92 111 100 114 Q108 111 108 94 Q105 91 100 90.5 Q95 91 92 94Z" fill="#8B5CF6" opacity=".9"/>
+          <path d="M92 96.5 L76 103 M108 96.5 L124 103" stroke="#8B5CF6" stroke-width="2.8" stroke-linecap="round" opacity=".8"/>
+          <circle cx="188" cy="100" r="5" fill="#8B5CF6"/>
+          <circle cx="12"  cy="100" r="5" fill="#8B5CF6"/>
+          <circle cx="136" cy="24"  r="4" fill="#FF7EB6"/>
+          <circle cx="64"  cy="176" r="4" fill="#FF7EB6"/>
+        </svg>
+      </div>
+      <div class="mission-badges">
+        <div class="mission-badge"><div class="mission-badge-num">2021</div><div class="mission-badge-label">Founded</div></div>
+        <div class="mission-badge"><div class="mission-badge-num">50+</div><div class="mission-badge-label">Countries</div></div>
+        <div class="mission-badge"><div class="mission-badge-num">100+</div><div class="mission-badge-label">Projects</div></div>
+        <div class="mission-badge"><div class="mission-badge-num">&#127470;&#127475;</div><div class="mission-badge-label">India Hub</div></div>
+      </div>
+    </div>
+    <div class="mission-text">
+      <div class="section-tag"><span class="tag-dot"></span>Our Mission</div>
+      <h2 class="sec-title">What is <span class="accent">Quantum for Humanity?</span></h2>
+      <p>Quantum for Humanity (QfH) is a global open initiative co-founded in partnership with IBM Quantum, dedicated to one belief: <strong>quantum computing must benefit all of humanity</strong> &mdash; not just those with access to cutting-edge laboratories.</p>
+      <p>We build bridges between quantum science and the real-world challenges faced by billions of people &mdash; in healthcare, food security, clean energy, education, and financial access.</p>
+      <p>The <strong>India Chapter</strong>, headquartered in New Delhi and active at IITs, IISc, and universities across Bharat, is the largest QfH chapter in the world &mdash; reflecting India's unique position at the intersection of quantum potential and humanitarian need.</p>
+      <div class="mission-values">
+        <span class="value-pill">Open Science</span>
+        <span class="value-pill">Inclusive Access</span>
+        <span class="value-pill">India-First Impact</span>
+        <span class="value-pill">Responsible Innovation</span>
+        <span class="value-pill">Community-Led</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="center">
+      <div class="section-tag" style="margin:0 auto 16px"><span class="tag-dot"></span>Six Pillars</div>
+      <h2 class="sec-title center">Our <span class="accent">Focus Areas</span></h2>
+      <p class="sec-desc center">Six pillars where quantum computing can create transformative human impact &mdash; with special focus on India's most urgent challenges.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card p1">
+        <div class="pillar-icon">&#128138;</div>
+        <div class="pillar-title">Healthcare &amp; Drug Discovery</div>
+        <div class="pillar-desc">Quantum simulation to accelerate drug development for TB, malaria, cancer, and antibiotic resistance &mdash; diseases that disproportionately affect India and the Global South.</div>
+        <span class="pillar-india">India Priority: TB &amp; Malaria</span>
+      </div>
+      <div class="pillar-card p2">
+        <div class="pillar-icon">&#127807;</div>
+        <div class="pillar-title">Agriculture &amp; Food Security</div>
+        <div class="pillar-desc">Quantum optimisation for crop yield prediction, nitrogen fixation modelling, irrigation scheduling, and supply chain efficiency to feed India's 1.4 billion people.</div>
+        <span class="pillar-india">India Priority: Farmer Welfare</span>
+      </div>
+      <div class="pillar-card p3">
+        <div class="pillar-icon">&#127774;</div>
+        <div class="pillar-title">Climate &amp; Clean Energy</div>
+        <div class="pillar-desc">Quantum algorithms for carbon capture simulation, solar cell optimisation, smart grid management, and climate modelling to accelerate India's net-zero transition by 2070.</div>
+        <span class="pillar-india">India Priority: Net Zero 2070</span>
+      </div>
+      <div class="pillar-card p4">
+        <div class="pillar-icon">&#127981;</div>
+        <div class="pillar-title">Financial Inclusion</div>
+        <div class="pillar-desc">Quantum-powered risk modelling and fraud detection to bring banking, insurance, and credit access to India's 400 million unbanked citizens through Jan Dhan and beyond.</div>
+        <span class="pillar-india">India Priority: Jan Dhan</span>
+      </div>
+      <div class="pillar-card p5">
+        <div class="pillar-icon">&#127891;</div>
+        <div class="pillar-title">Education &amp; Access</div>
+        <div class="pillar-desc">Quantum education in Hindi and regional languages. Open-source Qiskit curricula for Indian schools, ITIs, and Tier 2/3 colleges. Free IBM Quantum learning pathways for all.</div>
+        <span class="pillar-india">India Priority: Quantum Bharat</span>
+      </div>
+      <div class="pillar-card p6">
+        <div class="pillar-icon">&#128274;</div>
+        <div class="pillar-title">Cybersecurity &amp; Privacy</div>
+        <div class="pillar-desc">Post-quantum cryptography research to protect India's digital infrastructure, Aadhaar data, UPI transactions, and critical government systems from future quantum threats.</div>
+        <span class="pillar-india">India Priority: Digital India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDIA CHAPTER -->
+<section class="india-chapter" id="india">
+  <div class="india-chapter-grid">
+    <div class="india-chapter-text">
+      <div class="section-tag" style="background:rgba(255,153,51,.1);border-color:rgba(255,153,51,.3);color:#b45309"><span class="tag-dot" style="background:#FF9933"></span>India Chapter</div>
+      <h2 class="sec-title">Quantum for Humanity <span class="accent">India</span></h2>
+      <p>The India Chapter of Quantum for Humanity is the initiative's largest and most active chapter globally. Headquartered in New Delhi and operating across 30+ institutions, it is aligned with India's <strong>National Quantum Mission (NQM)</strong> &mdash; the INR 6000 Crore government programme to make India a global quantum leader by 2031.</p>
+      <p>We partner directly with IITs, IISc, TIFR, NITs, and the Department of Science &amp; Technology to translate quantum research into real Indian humanitarian outcomes.</p>
+      <div class="india-hubs">
+        <div class="hub-card"><div class="hub-city">&#127968; New Delhi</div><div class="hub-place">Vigyan Bhawan &mdash; National HQ</div></div>
+        <div class="hub-card"><div class="hub-city">&#127979; IIT Delhi</div><div class="hub-place">Hauz Khas, New Delhi</div></div>
+        <div class="hub-card"><div class="hub-city">&#127979; IIT Bombay</div><div class="hub-place">Powai, Mumbai</div></div>
+        <div class="hub-card"><div class="hub-city">&#127979; IISc Bangalore</div><div class="hub-place">CV Raman Road, Bengaluru</div></div>
+        <div class="hub-card"><div class="hub-city">&#127979; TIFR Mumbai</div><div class="hub-place">Colaba, Mumbai</div></div>
+        <div class="hub-card"><div class="hub-city">&#127758; 25+ Colleges</div><div class="hub-place">Jaipur, Guwahati, Kochi, Pune&hellip;</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="india-flags">
+        <div class="india-stat-card"><div class="india-stat-num">30+</div><div class="india-stat-label">Partner Institutions</div></div>
+        <div class="india-stat-card"><div class="india-stat-num">5K+</div><div class="india-stat-label">India Members</div></div>
+        <div class="india-stat-card"><div class="india-stat-num">28</div><div class="india-stat-label">States Reached</div></div>
+        <div class="india-stat-card"><div class="india-stat-num">&#8377;6000Cr</div><div class="india-stat-label">NQM Alignment</div></div>
+        <div class="india-stat-card"><div class="india-stat-num">3</div><div class="india-stat-label">IIT Research Labs</div></div>
+        <div class="india-stat-card"><div class="india-stat-num">2026</div><div class="india-stat-label">Fall Fest India</div></div>
+      </div>
+      <!-- Sticker images from QFF folder -->
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+        <img src="sticker-flamingo.png" alt="Sticker" style="width:72px;height:72px;border-radius:50%;object-fit:contain;background:#fff;padding:4px;box-shadow:0 4px 16px rgba(45,27,105,.1)"/>
+        <img src="sticker-birds.png"    alt="Sticker" style="width:72px;height:72px;border-radius:50%;object-fit:contain;background:#fff;padding:4px;box-shadow:0 4px 16px rgba(45,27,105,.1)"/>
+        <img src="sticker-entanglement.png" alt="Sticker" style="width:72px;height:72px;border-radius:12px;object-fit:contain;background:#c8cdd9;padding:4px"/>
+        <img src="sticker-wave.png"     alt="Sticker" style="width:72px;height:72px;border-radius:12px;object-fit:contain;background:#c8cdd9;padding:4px"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STORIES -->
+<section class="impact" id="impact">
+  <div class="container">
+    <div class="section-tag"><span class="tag-dot"></span>India Impact Stories</div>
+    <h2 class="sec-title">Quantum Science, <span class="accent">Real Outcomes</span></h2>
+    <p class="sec-desc">Community-led projects applying quantum computing to India's most pressing humanitarian challenges.</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-card-header">
+          <div class="impact-icon-wrap ic1"><span>&#128138;</span></div>
+          <div><div class="impact-card-title">Project Arogya</div><div class="impact-card-sub">IISc Bangalore &times; QfH India</div></div>
+        </div>
+        <div class="impact-card-body">
+          <p>Quantum variational algorithms to simulate the molecular dynamics of <em>Mycobacterium tuberculosis</em> drug targets &mdash; potentially cutting drug discovery timelines from 10 years to under 3.</p>
+          <div class="impact-stat"><div class="impact-stat-num">1.4M</div><div class="impact-stat-text">TB deaths annually in India that this targets</div></div>
+          <span class="impact-india-tag">&#127470;&#127475; IISc Bangalore</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-card-header">
+          <div class="impact-icon-wrap ic2"><span>&#127807;</span></div>
+          <div><div class="impact-card-title">Project Annadaata</div><div class="impact-card-sub">IIT Delhi &times; QfH India</div></div>
+        </div>
+        <div class="impact-card-body">
+          <p>Quantum optimisation model for precision irrigation scheduling across 140 million Indian farms, reducing water usage by 30% while improving crop yields through quantum-classical hybrid algorithms.</p>
+          <div class="impact-stat"><div class="impact-stat-num">140M</div><div class="impact-stat-text">Indian farms that could benefit</div></div>
+          <span class="impact-india-tag">&#127470;&#127475; IIT Delhi</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-card-header">
+          <div class="impact-icon-wrap ic3"><span>&#127981;</span></div>
+          <div><div class="impact-card-title">Project Samriddhi</div><div class="impact-card-sub">IIT Bombay &times; QfH India</div></div>
+        </div>
+        <div class="impact-card-body">
+          <p>Quantum machine learning for microfinance credit scoring &mdash; building models that extend affordable credit to rural women, small traders, and gig workers excluded by traditional banking systems.</p>
+          <div class="impact-stat"><div class="impact-stat-num">400M</div><div class="impact-stat-text">Unbanked Indians who could access credit</div></div>
+          <span class="impact-india-tag">&#127470;&#127475; IIT Bombay</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-card-header">
+          <div class="impact-icon-wrap ic4"><span>&#127774;</span></div>
+          <div><div class="impact-card-title">Project Surya</div><div class="impact-card-sub">TIFR Mumbai &times; QfH India</div></div>
+        </div>
+        <div class="impact-card-body">
+          <p>Quantum simulation of perovskite solar cell materials to design next-generation solar panels with 40%+ efficiency &mdash; supporting India's 500 GW renewable energy target by 2030.</p>
+          <div class="impact-stat"><div class="impact-stat-num">500 GW</div><div class="impact-stat-text">India's 2030 renewable energy target</div></div>
+          <span class="impact-india-tag">&#127470;&#127475; TIFR Mumbai</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-inner">
+    <div class="section-tag" style="margin:0 auto 16px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8)"><span class="tag-dot"></span>QfH India Manifesto 2026</div>
+    <h2>The Quantum for <span class="accent">Humanity</span> Pledge</h2>
+    <div class="manifesto-quote">
+      "Quantum computing is not merely a scientific achievement &mdash; it is a moral responsibility. We, the quantum community of India and the world, pledge to ensure that this technology serves all of humanity, not just the privileged few."
+    </div>
+    <div class="manifesto-principles">
+      <div class="principle"><div class="principle-num">Principle 1</div><div class="principle-text">Quantum research must address real human suffering &mdash; disease, poverty, hunger, climate.</div></div>
+      <div class="principle"><div class="principle-num">Principle 2</div><div class="principle-text">Access to quantum education must be free, multilingual, and available to every student in Bharat.</div></div>
+      <div class="principle"><div class="principle-num">Principle 3</div><div class="principle-text">Open-source quantum tools must remain open. No paywalls on humanity's most powerful science.</div></div>
+      <div class="principle"><div class="principle-num">Principle 4</div><div class="principle-text">Quantum innovation must be governed ethically, with Indian data sovereignty and citizen privacy protected.</div></div>
+      <div class="principle"><div class="principle-num">Principle 5</div><div class="principle-text">The global quantum community must actively include voices from Africa, Asia, and Latin America.</div></div>
+      <div class="principle"><div class="principle-num">Principle 6</div><div class="principle-text">We measure success not in papers published, but in lives improved by quantum science.</div></div>
+    </div>
+    <a class="sign-btn" href="#join">&#9997; Sign the Manifesto</a>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-tag"><span class="tag-dot"></span>India Leadership Team</div>
+    <h2 class="sec-title">The People Behind <span class="accent">QfH India</span></h2>
+    <p class="sec-desc">Quantum scientists, community builders, and changemakers driving Quantum for Humanity's India Chapter from New Delhi and beyond.</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-av ta1">VK</div><div class="team-name">Dr. Vivek Kumar</div><div class="team-role">Co-Founder &amp; India Chapter Lead<br/>Quantum for Humanity</div><span class="team-location">New Delhi, India</span></div>
+      <div class="team-card"><div class="team-av ta2">MS</div><div class="team-name">Dr. Meera Sharma</div><div class="team-role">Policy Advisor<br/>Dept. of Science &amp; Technology, India</div><span class="team-location">New Delhi, India</span></div>
+      <div class="team-card"><div class="team-av ta3">AK</div><div class="team-name">Dr. Aparna Kher</div><div class="team-role">Healthcare Research Lead<br/>IISc Bangalore</div><span class="team-location">Bengaluru, India</span></div>
+      <div class="team-card"><div class="team-av ta4">NB</div><div class="team-name">Nishant Baghel</div><div class="team-role">Qiskit India Education Lead<br/>IBM Quantum India</div><span class="team-location">New Delhi, India</span></div>
+      <div class="team-card"><div class="team-av ta5">PM</div><div class="team-name">Prof. Priya Mehta</div><div class="team-role">Research Director<br/>IIT Bombay Quantum Lab</div><span class="team-location">Mumbai, India</span></div>
+      <div class="team-card"><div class="team-av ta6">RS</div><div class="team-name">Rohan Sen</div><div class="team-role">Community &amp; Outreach Director<br/>QfH India</div><span class="team-location">Kolkata, India</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<section class="join-cta" id="join">
+  <h2>Join <span class="accent">Quantum for Humanity</span></h2>
+  <p>Whether you are a researcher, student, developer, policymaker, or changemaker &mdash; there is a place for you in Quantum for Humanity India. Our community is free, open, and welcoming to all.</p>
+  <div class="cta-row">
+    <a class="btn-primary" href="https://qiskit.org/events/fall-fest" target="_blank" rel="noopener">Register for Fall Fest 2026</a>
+    <a class="btn-outline" style="background:var(--purple-pale);color:var(--purple-deep);border-color:rgba(139,92,246,.25)" href="index.html">Back to IBM Qiskit Fall Fest</a>
+  </div>
+  <div class="hash-row">
+    <span class="hash">#QuantumForHumanity</span>
+    <span class="hash">#QuantumForBharat</span>
+    <span class="hash">#QiskitFallFest2026India</span>
+    <span class="hash">@IBMQuantum</span>
+    <span class="hash">@IBMIndia</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg width="44" height="44" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:10px">
+        <circle cx="100" cy="100" r="88" stroke="#8B5CF6" stroke-width="2" opacity=".5" fill="none"/>
+        <ellipse cx="100" cy="100" rx="88" ry="28" stroke="#FF7EB6" stroke-width="1.5" opacity=".4" transform="rotate(-30 100 100)"/>
+        <circle cx="100" cy="83"  r="7.5" fill="#8B5CF6"/>
+        <path d="M92 94 Q92 111 100 114 Q108 111 108 94 Q105 91 100 90.5 Q95 91 92 94Z" fill="#8B5CF6" opacity=".9"/>
+        <path d="M92 96.5 L76 103 M108 96.5 L124 103" stroke="#8B5CF6" stroke-width="2.8" stroke-linecap="round" opacity=".8"/>
+      </svg>
+      <p style="color:#fff;font-weight:700;font-size:14px;margin-bottom:6px">Quantum for Humanity</p>
+      <p>India Chapter &mdash; New Delhi. Partnered with IBM Quantum. Presented at IBM Qiskit Fall Fest 2026, November 16&ndash;20, Vigyan Bhawan.</p>
+      <div style="margin-top:12px;font-size:11px;color:rgba(255,153,51,.6);letter-spacing:.1em;text-transform:uppercase">&#127470;&#127475; Proud to be in India</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#india">India Chapter</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fall Fest 2026</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#days">Programme</a></li>
+          <li><a href="index.html#schedule">Schedule</a></li>
+          <li><a href="index.html#hackathon">Hackathon</a></li>
+          <li><a href="index.html#register">Register</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://quantum.ibm.com" target="_blank" rel="noopener">IBM Quantum</a></li>
+          <li><a href="https://qiskit.org/learn" target="_blank" rel="noopener">Qiskit Learn</a></li>
+          <li><a href="https://dst.gov.in/nqm" target="_blank" rel="noopener">India NQM</a></li>
+          <li><a href="https://github.com/vivek1233" target="_blank" rel="noopener">vivek1233 GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Quantum for Humanity &middot; IBM Quantum &middot; IBM Qiskit Fall Fest 2026 &middot; India &middot; <a href="https://github.com/vivek1233/Qiskit-Fall-Fest-2026" style="color:rgba(255,255,255,.3)">github.com/vivek1233</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
