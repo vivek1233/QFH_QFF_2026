@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Day 5 — Hackathon Finals, Showcase &amp; Quantum Roadmap 2030 | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#FFB347;--accent2:#8B5CF6;--accent3:#34D399;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  .site-header{background:linear-gradient(135deg,#1a1200 0%,#1a0a00 50%,#0a0a1a 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  .day-badge{display:inline-block;background:rgba(255,179,71,.18);border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-left:10px;vertical-align:middle;}
+  h1.doc-title{font-size:2.1rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#fcd34d 60%,#FFB347 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1rem;margin-bottom:18px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--muted);}
+  .meta-row span{background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:6px;}
+  .container{max-width:960px;margin:0 auto;padding:40px 32px 80px;}
+  .toc{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:24px 28px;margin-bottom:40px;}
+  .toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin-bottom:14px;}
+  .toc ol{padding-left:20px;}
+  .toc li{margin-bottom:6px;font-size:.93rem;}
+  .section{margin-bottom:52px;}
+  h2.sec-title{font-size:1.45rem;font-weight:700;color:#fff;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+  h2.sec-title .icon{font-size:1.2rem;}
+  h3.sub-title{font-size:1.05rem;font-weight:700;color:var(--accent);margin:28px 0 12px;}
+  p{margin-bottom:14px;color:#cccce0;}
+  ul,ol{padding-left:22px;margin-bottom:14px;}
+  li{margin-bottom:6px;color:#cccce0;}
+  .callout{border-radius:10px;padding:18px 22px;margin:20px 0;border-left:4px solid;}
+  .callout.info{background:rgba(255,179,71,.08);border-color:var(--accent);}
+  .callout.tip{background:rgba(52,211,153,.1);border-color:var(--accent3);}
+  .callout.warning{background:rgba(139,92,246,.08);border-color:var(--accent2);}
+  .callout.key{background:rgba(51,177,255,.08);border-color:#33B1FF;}
+  .callout-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+  .callout.info .callout-title{color:var(--accent);}
+  .callout.tip .callout-title{color:var(--accent3);}
+  .callout.warning .callout-title{color:var(--accent2);}
+  .callout.key .callout-title{color:#33B1FF;}
+  pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:20px 22px;overflow-x:auto;margin:18px 0;}
+  code{font-family:"Fira Code","Consolas",monospace;font-size:.87rem;color:#fcd34d;}
+  p code,li code{background:rgba(255,179,71,.12);padding:2px 6px;border-radius:4px;font-size:.85rem;}
+  .table-wrap{overflow-x:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  th{background:var(--card);color:var(--accent);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  td{padding:9px 14px;border-bottom:1px solid var(--border);color:#cccce0;}
+  tr:hover td{background:rgba(255,179,71,.05);}
+  .eq{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:14px 20px;margin:14px 0;font-family:"Fira Code",monospace;font-size:.95rem;color:#fcd34d;text-align:center;}
+  .timeline{position:relative;padding:0 0 0 28px;margin:24px 0;}
+  .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border);}
+  .tl-item{position:relative;margin-bottom:28px;}
+  .tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+  .tl-year{font-size:.78rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .tl-title{font-weight:700;color:#fff;margin-bottom:4px;}
+  .tl-desc{font-size:.88rem;color:var(--muted);}
+  .prize-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0;}
+  .prize-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center;}
+  .prize-card .rank{font-size:1.8rem;margin-bottom:8px;}
+  .prize-card h4{font-size:.95rem;font-weight:700;color:var(--accent);margin-bottom:6px;}
+  .prize-card p{font-size:.82rem;color:var(--muted);margin:0;}
+  .quiz-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 26px;margin:24px 0;}
+  .quiz-box .q{font-weight:700;color:#fff;margin-bottom:10px;}
+  .quiz-box .opts li{list-style:lower-alpha;color:#cccce0;}
+  .quiz-box .answer{margin-top:12px;font-size:.88rem;color:#34D399;border-top:1px solid var(--border);padding-top:10px;}
+  .ref-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:52px;}
+  .ref-section h2{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .ref-list{list-style:none;padding:0;}
+  .ref-list li{padding:10px 0;border-bottom:1px solid rgba(42,42,61,.7);font-size:.88rem;display:grid;grid-template-columns:36px 1fr;gap:8px;}
+  .ref-list li:last-child{border-bottom:none;}
+  .ref-num{color:var(--accent);font-weight:700;font-size:.85rem;}
+  .ref-text{color:#aaaacc;}
+  .ref-text a{color:var(--accent3);}
+  .ref-tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:600;}
+  .ref-tag.ibm{background:rgba(51,177,255,.15);color:#33B1FF;}
+  .ref-tag.academic{background:rgba(139,92,246,.15);color:var(--accent2);}
+  .ref-tag.book{background:rgba(255,126,182,.15);color:#FF7EB6;}
+  .ref-tag.oss{background:rgba(52,211,153,.15);color:var(--accent3);}
+  .ref-tag.policy{background:rgba(255,179,71,.15);color:var(--accent);}
+  .page-footer{text-align:center;margin-top:60px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;}
+  .manifesto{background:linear-gradient(135deg,rgba(255,179,71,.08),rgba(139,92,246,.08));border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:24px 0;}
+  .manifesto h3{color:var(--accent);margin-bottom:16px;}
+  .manifesto ol{color:#cccce0;}
+  .manifesto li{margin-bottom:10px;padding-left:8px;}
+  .certif-box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:24px 28px;margin:20px 0;text-align:center;}
+  .certif-box h3{color:var(--accent);font-size:1.1rem;margin-bottom:10px;}
+  .certif-box p{color:var(--muted);font-size:.9rem;margin:0;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="event-tag">IBM Qiskit Fall Fest 2026</div>
+  <span class="day-badge">Day 5 of 5</span>
+  <h1 class="doc-title">Hackathon Finals, Showcase &amp; Quantum Roadmap 2030</h1>
+  <p class="doc-subtitle">48-hour hackathon culmination, community lightning talks, QfH Manifesto launch, and the global quantum roadmap through 2030</p>
+  <div class="meta-row">
+    <span>📅 November 20, 2026</span>
+    <span>⏱ Full Day — 09:30–18:00 IST</span>
+    <span>🎯 All Levels — Celebration</span>
+    <span>📖 ~55 min read</span>
+    <span>✍ IBM Quantum × Quantum for Humanity</span>
+  </div>
+</header>
+
+<div class="container">
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Hackathon Guide — Problem Statements &amp; Rubrics</a></li>
+      <li><a href="#s2">Building a Winning Hackathon Submission</a></li>
+      <li><a href="#s3">QFF 2026 Prizes &amp; Recognition</a></li>
+      <li><a href="#s4">Community Project Showcase — 50+ World Projects</a></li>
+      <li><a href="#s5">Quantum for Humanity Manifesto</a></li>
+      <li><a href="#s6">IBM Quantum Roadmap 2026–2033 — Complete Picture</a></li>
+      <li><a href="#s7">The Quantum Computing Landscape 2030 — Global Forecast</a></li>
+      <li><a href="#s8">Career Pathways in Quantum Computing</a></li>
+      <li><a href="#s9">Next Steps — Continuing Your Quantum Journey</a></li>
+      <li><a href="#s10">Day 5 Reflection &amp; Final Assessment</a></li>
+      <li><a href="#refs">References &amp; Further Reading</a></li>
+    </ol>
+  </div>
+
+  <!-- S1 -->
+  <div class="section" id="s1">
+    <h2 class="sec-title"><span class="icon">🏆</span> 1. Hackathon Guide — Problem Statements &amp; Rubrics</h2>
+    <p>The QFF 2026 Hackathon (48 hours, Nov 16–18) challenges teams to build quantum computing solutions to real humanitarian problems. Teams of 2–5 participants address one of four tracks:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Track</th><th>Challenge Statement</th><th>Suggested Tools</th></tr></thead>
+        <tbody>
+          <tr><td>🏥 Healthcare</td><td>Use quantum simulation or ML to identify drug targets or predict disease outcomes for infectious diseases affecting low-income populations (TB, Malaria, HIV, Dengue)</td><td>Qiskit Nature, VQE, QML</td></tr>
+          <tr><td>🌾 Agriculture</td><td>Optimise water allocation, crop yield prediction, or supply chain logistics for smallholder farmers using QAOA or quantum sensing data</td><td>QAOA, Qiskit Optimisation</td></tr>
+          <tr><td>📚 Education</td><td>Build a quantum-powered adaptive learning tool, quantum literacy assessment, or an open quantum curriculum resource for underserved communities</td><td>QNN, Qiskit, any framework</td></tr>
+          <tr><td>💹 Finance</td><td>Design a quantum-assisted financial inclusion model — micro-credit scoring, risk-free savings products, or remittance optimisation for the unbanked</td><td>Qiskit Finance, QML, QAOA</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">1.1 Judging Rubric (100 points)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Criterion</th><th>Points</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Technical Depth</td><td>30</td><td>Correct use of quantum algorithms; circuit design; fidelity-awareness</td></tr>
+          <tr><td>Impact Potential</td><td>25</td><td>Realistic humanitarian impact; addressable population; SDG alignment</td></tr>
+          <tr><td>Innovation</td><td>20</td><td>Novel application of quantum methods; creative problem framing</td></tr>
+          <tr><td>Presentation</td><td>15</td><td>Clarity of demo, storytelling, 5-minute pitch quality</td></tr>
+          <tr><td>Reproducibility</td><td>10</td><td>GitHub repo, README, open-source, runnable code</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="section" id="s2">
+    <h2 class="sec-title"><span class="icon">🛠</span> 2. Building a Winning Hackathon Submission</h2>
+    <h3 class="sub-title">2.1 Project Structure Template</h3>
+    <pre><code>my-quantum-project/
+├── README.md              # Problem statement, approach, results, how to run
+├── requirements.txt       # Python dependencies
+├── src/
+│   ├── __init__.py
+│   ├── quantum_model.py   # Core quantum circuit / algorithm
+│   ├── classical_pre.py   # Data preprocessing (classical)
+│   └── evaluation.py      # Results, benchmarks, metrics
+├── notebooks/
+│   ├── 01_exploration.ipynb  # Problem framing and data
+│   ├── 02_quantum_dev.ipynb  # Circuit design and testing
+│   └── 03_results.ipynb      # Final results and visualisations
+├── data/
+│   └── README.md             # Data sources and licenses
+└── presentation/
+    └── slides.pdf             # 5-minute pitch deck</code></pre>
+
+    <h3 class="sub-title">2.2 Checklist Before Submission</h3>
+    <ul>
+      <li>✅ <strong>Quantum circuit is correct</strong> — tested on AerSimulator at minimum</li>
+      <li>✅ <strong>Error mitigation applied</strong> if running on real hardware</li>
+      <li>✅ <strong>Classical baseline compared</strong> — show what's different vs classical approach</li>
+      <li>✅ <strong>Impact quantified</strong> — how many people affected, measurable metric</li>
+      <li>✅ <strong>Code is open source</strong> — MIT or Apache 2.0 license in repo</li>
+      <li>✅ <strong>README is complete</strong> — installation, usage, results summary</li>
+      <li>✅ <strong>Data attribution</strong> — all datasets cited, licences noted</li>
+      <li>✅ <strong>Limitations acknowledged</strong> — honest about current hardware constraints</li>
+    </ul>
+
+    <h3 class="sub-title">2.3 Sample Winning Project Pattern — Quantum Drug Screening</h3>
+    <pre><code># Example: Quantum-assisted TB drug screening (simplified)
+from qiskit_nature.second_q.drivers import PySCFDriver
+from qiskit_algorithms import VQE
+from qiskit_algorithms.optimizers import COBYLA
+from qiskit.circuit.library import EfficientSU2
+from qiskit.primitives import Estimator
+from qiskit_nature.second_q.mappers import JordanWignerMapper
+from qiskit_nature.second_q.algorithms import GroundStateEigensolver
+
+# Drug candidate: isoniazid (INH) — first-line TB drug
+# Simulate interaction with InhA enzyme active site model
+# (Simplified: only small fragment, not full protein)
+
+def screen_drug_candidate(smiles: str, energy_threshold: float = -1.5) -> dict:
+    """
+    Quantum screening pipeline for TB drug candidates.
+    Returns: binding feasibility estimate
+    """
+    # In real system: parse SMILES → PySCF geometry
+    # Here: use H2 as proxy for demonstration
+    driver = PySCFDriver(atom="H .0 .0 .0; H .0 .0 0.735", basis="sto-3g")
+    problem = driver.run()
+    
+    mapper = JordanWignerMapper()
+    ansatz = EfficientSU2(num_qubits=2, reps=2)
+    estimator = Estimator()
+    vqe = VQE(estimator=estimator, ansatz=ansatz, optimizer=COBYLA())
+    solver = GroundStateEigensolver(mapper, vqe)
+    result = solver.solve(problem)
+    
+    ground_energy = result.total_energies[0].real
+    is_promising = ground_energy < energy_threshold
+    
+    return {
+        "smiles": smiles,
+        "ground_energy_Ha": ground_energy,
+        "binding_promising": is_promising,
+        "confidence": "NISQ approximation — validate with classical CCSD(T)"
+    }
+
+# Screen isoniazid model fragment
+result = screen_drug_candidate("CC(=O)Nc1ccccc1", energy_threshold=-1.1)
+print(f"Drug screening result: {result}")
+print("\nNote: Real application requires full protein active site simulation")
+print("This is achievable with 100+ logical qubits (~2030+ fault-tolerant device)")</code></pre>
+  </div>
+
+  <!-- S3 -->
+  <div class="section" id="s3">
+    <h2 class="sec-title"><span class="icon">🥇</span> 3. QFF 2026 Prizes &amp; Recognition</h2>
+    <div class="prize-grid">
+      <div class="prize-card">
+        <div class="rank">🥇</div>
+        <h4>Grand Prize</h4>
+        <p>IBM Quantum credits ($10,000) + IBM Quantum Network membership + Certificate + Mentorship with IBM Quantum team</p>
+      </div>
+      <div class="prize-card">
+        <div class="rank">🥈</div>
+        <h4>Runner-Up</h4>
+        <p>IBM Quantum credits ($5,000) + Signed QFF certificate + Publication opportunity in QfH open journal</p>
+      </div>
+      <div class="prize-card">
+        <div class="rank">🥉</div>
+        <h4>Third Place</h4>
+        <p>IBM Quantum credits ($2,500) + Certificate + Featured in QfH showcase gallery</p>
+      </div>
+      <div class="prize-card">
+        <div class="rank">💚</div>
+        <h4>Impact Award</h4>
+        <p>Special recognition for highest humanitarian impact score regardless of technical score</p>
+      </div>
+      <div class="prize-card">
+        <div class="rank">🌍</div>
+        <h4>Global Inclusion Award</h4>
+        <p>For team with most diverse global membership or project targeting most underserved population</p>
+      </div>
+      <div class="prize-card">
+        <div class="rank">🎓</div>
+        <h4>Best Beginner Team</h4>
+        <p>For team where all members started the event week at beginner level — recognising learning journey</p>
+      </div>
+    </div>
+    <div class="certif-box">
+      <h3>🎖 QFF 2026 Participation Certificate</h3>
+      <p>All registered participants who complete at least one workshop lab and engage in Discord community discussions receive a Quantum for Humanity &amp; IBM Qiskit Fall Fest 2026 participation certificate — shareable on LinkedIn and GitHub profiles.</p>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="section" id="s4">
+    <h2 class="sec-title"><span class="icon">🌍</span> 4. Community Project Showcase — 50+ World Projects</h2>
+    <p>The Day 5 showcase features 2-minute lightning talks from community teams around the world presenting quantum projects for humanity. This is not a competition — it is a celebration of global quantum community building.</p>
+    <h3 class="sub-title">4.1 Past QFF Community Project Categories</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Example Projects</th><th>Tools Used</th></tr></thead>
+        <tbody>
+          <tr><td>Quantum Chemistry</td><td>Ligand binding for dengue fever, solar cell dye simulation, CO₂ capture MOF design</td><td>Qiskit Nature, VQE, PySCF</td></tr>
+          <tr><td>Quantum Optimisation</td><td>School bus routing in Lagos, water distribution in Chennai, food supply chain Egypt</td><td>QAOA, Qiskit Optimisation</td></tr>
+          <tr><td>Quantum ML</td><td>Malaria slide image classification, chest X-ray TB detection, crop disease ID</td><td>QNN, VQC, Qiskit ML</td></tr>
+          <tr><td>Quantum Education</td><td>Swahili Qiskit tutorials, quantum comic books for children, STEM camps in rural India</td><td>IBM Quantum Learning, Qiskit</td></tr>
+          <tr><td>Quantum Sensing</td><td>NV-centre magnetometry for water quality, quantum gravimetry for aquifer mapping</td><td>Hardware experiments</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">4.2 How to Submit Your Lightning Talk</h3>
+    <ol>
+      <li>Prepare a 2-minute video or live demo (max 3 slides)</li>
+      <li>Submit via the Discord <code>#showcase-submissions</code> channel by Day 4 23:59 IST</li>
+      <li>Include: project name, team, country/region, problem addressed, tool used, GitHub link</li>
+      <li>Accepted projects are listed in the QFF 2026 showcase gallery at the event website</li>
+    </ol>
+  </div>
+
+  <!-- S5 -->
+  <div class="section" id="s5">
+    <h2 class="sec-title"><span class="icon">📜</span> 5. Quantum for Humanity Manifesto</h2>
+    <p>On Day 5, Quantum for Humanity Org launches its founding manifesto — a shared commitment to open, inclusive, and ethical quantum science.</p>
+    <div class="manifesto">
+      <h3>The Quantum for Humanity Manifesto (2026)</h3>
+      <ol>
+        <li><strong>Open Science</strong>: All quantum research funded for humanitarian purposes must be published as open access. No paywalls for humanity's most urgent problems.</li>
+        <li><strong>Inclusive Access</strong>: Quantum computing tools and training must be available without cost to researchers and students in low- and middle-income countries.</li>
+        <li><strong>Community Sovereignty</strong>: Communities most affected by the problems we solve must define the problem statements, not just receive the solutions.</li>
+        <li><strong>Transparency</strong>: Quantum AI and optimisation systems used in public services (healthcare, welfare, criminal justice) must be explainable and auditable.</li>
+        <li><strong>Non-Weaponisation</strong>: This community will not knowingly contribute quantum computing capabilities to weapons of mass destruction or mass surveillance systems.</li>
+        <li><strong>Intergenerational Equity</strong>: Quantum benefits must be distributed across generations. The power to cure, feed, and protect must not be concentrated in the hands of the few.</li>
+        <li><strong>Cultural Respect</strong>: Quantum knowledge builds on centuries of global scientific tradition. We acknowledge all contributors and resist erasure of non-Western contributions to science.</li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">💡 Sign the Manifesto</div>
+      Individuals and organisations can sign the Quantum for Humanity Manifesto at <strong>discord.gg/UgF3PaEax</strong> — the Quantum for Humanity Discord community. All signatories are listed in the QfH open registry.
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="section" id="s6">
+    <h2 class="sec-title"><span class="icon">🗺</span> 6. IBM Quantum Roadmap 2026–2033 — Complete Picture</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023</div>
+        <div class="tl-title">Quantum Utility Demonstrated</div>
+        <div class="tl-desc">IBM Heron r1 (133Q), Eagle 127Q. Kim et al. Nature 2023 paper shows quantum computer produces results classical methods cannot efficiently verify. CLOPS benchmark established.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024</div>
+        <div class="tl-title">Heron r2 &amp; Error Correction Break-Even</div>
+        <div class="tl-desc">IBM Heron r2 (156Q) achieves 2Q gate fidelity &gt;99.9%. Distance-5 surface code logical error rate below physical rate ("break-even"). NIST post-quantum standards finalised (Kyber, Dilithium).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title">Flamingo — Multi-Chip Quantum Systems</div>
+        <div class="tl-desc">IBM Flamingo processor enables communication between quantum chips via quantum interconnects. First modular quantum system. ~10 error-corrected logical qubits demonstrated.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2026</div>
+        <div class="tl-title">Kookaburra — 4,158 Qubits</div>
+        <div class="tl-desc">IBM Kookaburra: 3-chip system (1,386Q × 3). First ~100 logical qubit demonstrations. Quantum-centric supercomputing paradigm — tightly coupled classical HPC + quantum. This event: QFF 2026!</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2028–2029</div>
+        <div class="tl-title">Early Fault-Tolerant Applications</div>
+        <div class="tl-desc">~1,000 logical qubits. First demonstrated advantage in molecular simulation (active pharmaceutical ingredients). Quantum network repeaters deployed in metropolitan areas. Post-quantum migration complete in US Federal infrastructure.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2033</div>
+        <div class="tl-title">100,000-Qubit Fault-Tolerant System</div>
+        <div class="tl-desc">IBM target: 100,000 physical qubits → ~100 fully error-corrected logical qubits at 10⁻¹⁰ logical error rate. First fault-tolerant quantum chemistry: FeMo-co nitrogen fixation simulation. Shor's algorithm for RSA-2048 within reach.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7 -->
+  <div class="section" id="s7">
+    <h2 class="sec-title"><span class="icon">🌐</span> 7. The Quantum Computing Landscape 2030 — Global Forecast</h2>
+    <h3 class="sub-title">7.1 Market &amp; Investment Projections</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>2023 (Actual)</th><th>2030 (Forecast)</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Global quantum market size</td><td>$1.3 billion</td><td>$45–100 billion</td><td>McKinsey 2023, BCG 2022</td></tr>
+          <tr><td>Quantum workforce needed</td><td>~30,000 globally</td><td>~2.5 million globally</td><td>WEF 2023</td></tr>
+          <tr><td>Government investment (global)</td><td>~$35 billion cumulative</td><td>~$100B+ cumulative</td><td>McKinsey 2023</td></tr>
+          <tr><td>Quantum-safe migration cost (enterprise)</td><td>Early adopters only</td><td>$2–6 trillion required</td><td>ITIF 2022</td></tr>
+          <tr><td>Pharmaceutical value from quantum</td><td>—</td><td>$50–100 billion/year</td><td>BCG 2022</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">7.2 National Quantum Programs — Key Players</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Country/Region</th><th>Investment</th><th>Key Focus</th><th>Key Player</th></tr></thead>
+        <tbody>
+          <tr><td>United States</td><td>$1.8B (NQI) + private</td><td>Computing, security, sensing</td><td>IBM, Google, IonQ, Microsoft</td></tr>
+          <tr><td>European Union</td><td>€1B (Quantum Flagship)</td><td>Communications, standards</td><td>Pasqal, IQM, QuTech</td></tr>
+          <tr><td>China</td><td>~$15B est.</td><td>QKD networks, computing</td><td>Origin Quantum, USTC</td></tr>
+          <tr><td>India</td><td>₹6,000 Cr (~$730M)</td><td>Computing, communications</td><td>C-DAC, TIFR, IISc, startups</td></tr>
+          <tr><td>UK</td><td>£2.5B</td><td>Sensing, computing, communications</td><td>Oxford Ionics, Nu Quantum</td></tr>
+          <tr><td>Canada</td><td>C$360M</td><td>Photonics, software, security</td><td>Xanadu, D-Wave, Zapata</td></tr>
+          <tr><td>Japan</td><td>¥63B (~$420M)</td><td>Superconducting, topological</td><td>Fujitsu, Toshiba, RIKEN</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout info">
+      <div class="callout-title">📌 The Quantum Divide — A Moral Challenge</div>
+      Only 6 of the world's 195 countries have published national quantum strategies. Africa, most of Southeast Asia, and Latin America have near-zero quantum hardware. Unless deliberate action is taken — free cloud access, language-localised education, technology transfer — quantum computing will deepen global inequality before it reduces it. Quantum for Humanity exists to ensure this doesn't happen.
+    </div>
+  </div>
+
+  <!-- S8 -->
+  <div class="section" id="s8">
+    <h2 class="sec-title"><span class="icon">💼</span> 8. Career Pathways in Quantum Computing</h2>
+    <h3 class="sub-title">8.1 Quantum Career Map</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Role</th><th>Background</th><th>Core Skills</th><th>Where to Start</th></tr></thead>
+        <tbody>
+          <tr><td>Quantum Software Engineer</td><td>CS / Software Eng.</td><td>Qiskit, Python, circuits, algorithms</td><td>IBM Quantum Learning, Qiskit courses</td></tr>
+          <tr><td>Quantum Algorithm Researcher</td><td>Physics / Math (PhD)</td><td>QFT, VQE, QAOA, complexity theory</td><td>arXiv quant-ph, academic research groups</td></tr>
+          <tr><td>Quantum Hardware Engineer</td><td>EE / Physics (PhD)</td><td>Transmon physics, dilution refrigerators, microwave</td><td>IBM Zurich, Google, IQM internships</td></tr>
+          <tr><td>Quantum Application Specialist</td><td>Chemistry / Finance / Biology</td><td>Domain expertise + Qiskit Nature/Finance</td><td>Industry hackathons, IBM Quantum Network</td></tr>
+          <tr><td>Quantum Policy Analyst</td><td>Policy / International Relations</td><td>Quantum literacy, NIST standards, geopolitics</td><td>WEF, RAND, Georgetown QSI programs</td></tr>
+          <tr><td>Quantum Educator / Advocate</td><td>Any background</td><td>Communication, pedagogy, community building</td><td>Qiskit Advocates program, QfH community</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">8.2 Certification &amp; Recognition Pathways</h3>
+    <ul>
+      <li><strong>IBM Certified Associate Developer — Quantum Computation using Qiskit v0.2X</strong> — IBM official certification, highly regarded</li>
+      <li><strong>Qiskit Advocate</strong> — Community leadership program for quantum enthusiasts with demonstrated contributions</li>
+      <li><strong>QFF 2026 Certificate</strong> — Participation/completion certificate from this event</li>
+      <li><strong>MIT xPRO Quantum Computing Certificate</strong> — Professional development, 4-week program</li>
+      <li><strong>Google Quantum AI Research</strong> — Open research positions (PhD required)</li>
+      <li><strong>Quantum for Humanity Fellowship</strong> — Annual fellowship for humanitarian quantum projects (future programme)</li>
+    </ul>
+  </div>
+
+  <!-- S9 -->
+  <div class="section" id="s9">
+    <h2 class="sec-title"><span class="icon">🚀</span> 9. Next Steps — Continuing Your Quantum Journey</h2>
+    <h3 class="sub-title">9.1 Your Learning Pathway After QFF 2026</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Level</th><th>Next Action</th><th>Resource</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Beginner</td><td>Complete IBM Quantum Learning beginner course</td><td><a href="https://learning.quantum.ibm.com" target="_blank">learning.quantum.ibm.com</a></td><td>4–6 weeks</td></tr>
+          <tr><td>Beginner+</td><td>Work through Qiskit textbook Chapter 1–3</td><td><a href="https://qiskit.org/learn" target="_blank">qiskit.org/learn</a></td><td>4 weeks</td></tr>
+          <tr><td>Intermediate</td><td>Complete "Quantum Circuits" and "Variational Algorithms" courses on IBM Learning</td><td>IBM Quantum Learning</td><td>6–8 weeks</td></tr>
+          <tr><td>Advanced</td><td>Reproduce one arXiv paper using Qiskit — submit your notebook to GitHub</td><td>arXiv quant-ph</td><td>Ongoing</td></tr>
+          <tr><td>Expert</td><td>Submit a Qiskit pull request — fix a bug, add a feature, improve docs</td><td><a href="https://github.com/Qiskit/qiskit" target="_blank">github.com/Qiskit</a></td><td>Ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">9.2 Stay Connected</h3>
+    <ul>
+      <li><strong>Discord Community</strong>: <a href="https://discord.gg/UgF3PaEax" target="_blank">discord.gg/UgF3PaEax</a> — post your projects, ask questions, find collaborators</li>
+      <li><strong>GitHub</strong>: Share your QFF 2026 projects and notebooks publicly — tag with <code>#QFF2026</code> and <code>#QuantumForHumanity</code></li>
+      <li><strong>IBM Quantum Network</strong>: Apply to join for extended hardware access and IBM research collaboration</li>
+      <li><strong>Qiskit Advocates</strong>: Apply at qiskit.org/advocates — monthly cohorts, global community of 500+ quantum advocates</li>
+      <li><strong>QFF 2027</strong>: Stay tuned! Quantum for Humanity aims to make this an annual global event</li>
+    </ul>
+    <div class="callout tip">
+      <div class="callout-title">💡 The Best Quantum Advice</div>
+      Start building. Don't wait until you understand everything perfectly. Run a circuit on a real IBM Quantum computer today. The learning that comes from seeing your first Bell state measurement on real hardware is worth more than 10 more hours of reading. Quantum computing is learned by doing — and the hardware is free on IBM Quantum.
+    </div>
+  </div>
+
+  <!-- S10 -->
+  <div class="section" id="s10">
+    <h2 class="sec-title"><span class="icon">📝</span> 10. Day 5 Reflection &amp; Final Assessment</h2>
+    <div class="quiz-box">
+      <div class="q">Q1. Looking back at all 5 days — what is the single most important insight you gained about the relationship between quantum computing and global humanitarian challenges?</div>
+      <div class="answer">Open-ended reflection question. Strong answers might address: the timeline realism gap (NISQ vs fault-tolerant), the quantum literacy divide as the most immediate barrier, or a specific application (drug discovery, nitrogen fixation, post-quantum cryptography) that inspired them most.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="q">Q2. What is "quantum-centric supercomputing" and how does it differ from standalone quantum computing?</div>
+      <div class="answer">✅ Answer: Quantum-centric supercomputing (QCS) is IBM's architectural vision where quantum processors are tightly integrated as accelerators within classical HPC infrastructure — similar to how GPUs accelerate classical AI training. In QCS, quantum processors handle computationally hard subroutines (molecular Hamiltonians, optimisation oracles) while classical hardware handles data I/O, pre/post-processing, and optimisation loops. This hybrid paradigm makes practical quantum advantage achievable sooner than standalone quantum computing because it leverages the best of both technologies.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="q">Q3. A team in your track won the Impact Award but placed 4th on technical merit. Argue whether this is the right outcome.</div>
+      <div class="answer">Open-ended ethical reasoning question. Strong arguments acknowledge: technical excellence without impact is less valuable than impactful work with reasonable technical quality; however, incentivising low technical quality in the name of impact could undermine the credibility of quantum solutions; balance requires ensuring both technical and impact standards are high, and that separate awards (technical prize vs impact award) celebrate both dimensions without diminishing either.</div>
+    </div>
+
+    <h3 class="sub-title">Final Project — Build &amp; Share</h3>
+    <p>Your final task: build one quantum project that means something to you personally. It can be a single-notebook experiment, a circuit visualisation, a tiny VQE calculation, or a community tutorial in your language. Publish it on GitHub and share in the Discord community with <code>#MyQuantumProject</code>.</p>
+    <pre><code># Final project template: "My First Quantum for Humanity Notebook"
+"""
+Project: [Your Project Title]
+Author: [Your Name]
+Team: [Your Team Name (if applicable)]
+Problem: [One sentence: what humanitarian challenge does this address?]
+Approach: [One sentence: what quantum method do you use?]
+Impact: [One sentence: who benefits and how?]
+Event: IBM Qiskit Fall Fest 2026 — QFF2026
+"""
+
+from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+
+# ---- YOUR QUANTUM CODE HERE ----
+# Start simple. Build something that runs.
+# The quantum future starts with your first commit.
+
+qc = QuantumCircuit(2, 2)
+qc.h(0)
+qc.cx(0, 1)
+qc.measure([0,1],[0,1])
+
+sim = AerSimulator()
+result = sim.run(qc, shots=1024).result()
+print("My quantum for humanity project:")
+print(f"Results: {result.get_counts()}")
+print("The quantum decade starts now.")</code></pre>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="ref-section" id="refs">
+    <h2>📚 References &amp; Further Reading</h2>
+    <ul class="ref-list">
+      <li><span class="ref-num">[1]</span><span class="ref-text">IBM Quantum. <em>IBM Quantum Development Roadmap</em>. IBM, 2024. <a href="https://www.ibm.com/quantum/roadmap" target="_blank">ibm.com/quantum/roadmap</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[2]</span><span class="ref-text">McKinsey &amp; Company. <em>Quantum Technology Monitor</em>. McKinsey Global Institute, April 2023. <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/quantum-technology-monitor" target="_blank">mckinsey.com</a> <span class="ref-tag policy">Policy</span></span></li>
+      <li><span class="ref-num">[3]</span><span class="ref-text">World Economic Forum. <em>The Quantum Economy Blueprint</em>. WEF White Paper, 2023. <a href="https://www.weforum.org/publications/the-quantum-economy-blueprint/" target="_blank">weforum.org</a> <span class="ref-tag policy">Policy</span></span></li>
+      <li><span class="ref-num">[4]</span><span class="ref-text">IBM Quantum Learning. <em>Quantum Computing Learning Path</em>. IBM, 2024. <a href="https://learning.quantum.ibm.com" target="_blank">learning.quantum.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[5]</span><span class="ref-text">BCG. <em>The Coming Quantum Leap in Computing</em>. Boston Consulting Group, 2021. <a href="https://www.bcg.com/publications/2021/building-quantum-advantage" target="_blank">bcg.com</a> <span class="ref-tag policy">Policy</span></span></li>
+      <li><span class="ref-num">[6]</span><span class="ref-text">Preskill, J. <em>Quantum Computing in the NISQ era and beyond</em>. Quantum 2, 79, 2018. doi:10.22331/q-2018-08-06-79 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[7]</span><span class="ref-text">Qiskit Advocates Program. <em>Become a Qiskit Advocate</em>. IBM, 2024. <a href="https://qiskit.org/advocates" target="_blank">qiskit.org/advocates</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[8]</span><span class="ref-text">Quantum Economic Development Consortium (QED-C). <em>Quantum Workforce Report</em>. NIST, 2022. <a href="https://www.quantumconsortium.org" target="_blank">quantumconsortium.org</a> <span class="ref-tag policy">Policy</span></span></li>
+      <li><span class="ref-num">[9]</span><span class="ref-text">Kim, Y. et al. <em>Evidence for the utility of quantum computing before fault tolerance</em>. Nature 618, 500–505, 2023. doi:10.1038/s41586-023-06096-3 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[10]</span><span class="ref-text">India National Quantum Mission. <em>NQM Mission Document</em>. DST, Government of India, 2023. <a href="https://dst.gov.in/national-quantum-mission" target="_blank">dst.gov.in</a> <span class="ref-tag policy">Policy</span></span></li>
+      <li><span class="ref-num">[11]</span><span class="ref-text">IBM Research. <em>Quantum-centric supercomputing</em>. IBM Research Blog, 2023. <a href="https://research.ibm.com/blog/quantum-centric-supercomputing" target="_blank">research.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[12]</span><span class="ref-text">Gambetta, J. M. et al. <em>Building logical qubits in a superconducting quantum computing system</em>. npj Quantum Information 3, 2, 2017. doi:10.1038/s41534-016-0004-0 <span class="ref-tag ibm">IBM</span></span></li>
+    </ul>
+  </div>
+</div>
+<div class="page-footer">
+  IBM Qiskit Fall Fest 2026 &nbsp;·&nbsp; Quantum for Humanity Org &nbsp;·&nbsp; Day 5 Study Material &nbsp;·&nbsp; November 20, 2026<br/>
+  Content based on IBM Quantum Learning (CC BY 4.0) and referenced academic sources. Independent community event — not an official IBM publication.
+</div>
+</body>
+</html>

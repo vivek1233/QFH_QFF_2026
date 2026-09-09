@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Presentation Materials — IBM Qiskit Fall Fest 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--card:#1a1a28;--border:#2a2a3d;--text:#e8e8f0;--muted:#8888aa;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;padding:40px 32px 80px;max-width:860px;margin:0 auto;}
+  h1{font-size:1.9rem;font-weight:800;background:linear-gradient(90deg,#fff,#c4b5fd,#FF7EB6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+  .subtitle{color:var(--muted);margin-bottom:36px;font-size:.95rem;}
+  .day-grid{display:grid;gap:20px;}
+  .day-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 28px;display:flex;gap:20px;align-items:flex-start;text-decoration:none;color:var(--text);transition:border-color .2s;}
+  .day-card:hover{border-color:#8B5CF6;}
+  .day-num{font-size:2.2rem;font-weight:900;min-width:48px;text-align:center;line-height:1;}
+  .day-info h2{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px;}
+  .day-info .meta{font-size:.82rem;color:var(--muted);margin-bottom:10px;}
+  .day-info .topics{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-size:.75rem;padding:2px 10px;border-radius:12px;border:1px solid;font-weight:600;}
+  .d1{--c:#8B5CF6;} .d1 .day-num{color:#8B5CF6;} .d1.day-card:hover{border-color:#8B5CF6;} .d1 .chip{border-color:#8B5CF6;color:#8B5CF6;background:rgba(139,92,246,.1);}
+  .d2{--c:#33B1FF;} .d2 .day-num{color:#33B1FF;} .d2.day-card:hover{border-color:#33B1FF;} .d2 .chip{border-color:#33B1FF;color:#33B1FF;background:rgba(51,177,255,.1);}
+  .d3{--c:#34D399;} .d3 .day-num{color:#34D399;} .d3.day-card:hover{border-color:#34D399;} .d3 .chip{border-color:#34D399;color:#34D399;background:rgba(52,211,153,.1);}
+  .d4{--c:#FF7EB6;} .d4 .day-num{color:#FF7EB6;} .d4.day-card:hover{border-color:#FF7EB6;} .d4 .chip{border-color:#FF7EB6;color:#FF7EB6;background:rgba(255,126,182,.1);}
+  .d5{--c:#FFB347;} .d5 .day-num{color:#FFB347;} .d5.day-card:hover{border-color:#FFB347;} .d5 .chip{border-color:#FFB347;color:#FFB347;background:rgba(255,179,71,.1);}
+  .stats-row{display:flex;gap:20px;flex-wrap:wrap;margin:40px 0 10px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 20px;text-align:center;flex:1;min-width:120px;}
+  .stat .val{font-size:1.6rem;font-weight:900;color:#fff;}
+  .stat .lbl{font-size:.78rem;color:var(--muted);margin-top:2px;}
+  .footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:60px;padding-top:20px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+  <p style="font-size:.8rem;color:#8888aa;margin-bottom:12px;">📁 Presentation Materials</p>
+  <h1>IBM Qiskit Fall Fest 2026</h1>
+  <p class="subtitle">5 comprehensive study materials — beginner to advanced — covering all event topics with full Qiskit code labs and citable references.</p>
+
+  <div class="stats-row">
+    <div class="stat"><div class="val">5</div><div class="lbl">Study Documents</div></div>
+    <div class="stat"><div class="val">55+</div><div class="lbl">Sections</div></div>
+    <div class="stat"><div class="val">60+</div><div class="lbl">Code Labs</div></div>
+    <div class="stat"><div class="val">60+</div><div class="lbl">References</div></div>
+    <div class="stat"><div class="val">5</div><div class="lbl">Event Days</div></div>
+  </div>
+
+  <div class="day-grid">
+    <a class="day-card d1" href="Day1_Quantum_Foundations_and_Qiskit_Intro.html">
+      <div class="day-num">1</div>
+      <div class="day-info">
+        <h2>Quantum Foundations &amp; Qiskit Introduction</h2>
+        <div class="meta">📅 November 16, 2026 &nbsp;·&nbsp; Beginner → Workshop &nbsp;·&nbsp; ~60 min read</div>
+        <div class="topics">
+          <span class="chip">Qubits &amp; Superposition</span>
+          <span class="chip">Entanglement &amp; Bell States</span>
+          <span class="chip">Bloch Sphere</span>
+          <span class="chip">IBM Quantum Hardware</span>
+          <span class="chip">Qiskit SDK</span>
+          <span class="chip">First Circuit Lab</span>
+          <span class="chip">Teleportation Protocol</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="day-card d2" href="Day2_Quantum_Gates_Algorithms_Hardware.html">
+      <div class="day-num">2</div>
+      <div class="day-info">
+        <h2>Quantum Gates, Algorithms &amp; Hardware Deep Dive</h2>
+        <div class="meta">📅 November 17, 2026 &nbsp;·&nbsp; Intermediate → Research &nbsp;·&nbsp; ~70 min read</div>
+        <div class="topics">
+          <span class="chip">Gate Matrices</span>
+          <span class="chip">Grover's Algorithm</span>
+          <span class="chip">Shor's Algorithm</span>
+          <span class="chip">Quantum Fourier Transform</span>
+          <span class="chip">QML &amp; VQC</span>
+          <span class="chip">Eagle &amp; Heron Hardware</span>
+          <span class="chip">Open Source Sprint</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="day-card d3" href="Day3_Quantum_for_Humanity_Impact_Applications.html">
+      <div class="day-num">3</div>
+      <div class="day-info">
+        <h2>Quantum for Humanity — Impact Applications</h2>
+        <div class="meta">📅 November 18, 2026 &nbsp;·&nbsp; Impact → Ethics &nbsp;·&nbsp; ~65 min read</div>
+        <div class="topics">
+          <span class="chip">Drug Discovery (TB/Malaria)</span>
+          <span class="chip">Nitrogen Fixation</span>
+          <span class="chip">Quantum Agriculture</span>
+          <span class="chip">Finance &amp; Inclusion</span>
+          <span class="chip">Climate &amp; Energy</span>
+          <span class="chip">Ethics &amp; Policy</span>
+          <span class="chip">Chemistry Lab</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="day-card d4" href="Day4_Advanced_QEC_VQE_QAOA_Quantum_Networks.html">
+      <div class="day-num">4</div>
+      <div class="day-info">
+        <h2>Advanced QEC, VQE/QAOA &amp; Quantum Networks</h2>
+        <div class="meta">📅 November 19, 2026 &nbsp;·&nbsp; Advanced → Research &nbsp;·&nbsp; ~80 min read</div>
+        <div class="topics">
+          <span class="chip">Quantum Noise Models</span>
+          <span class="chip">Stabiliser Codes</span>
+          <span class="chip">Surface Code</span>
+          <span class="chip">VQE Deep Dive</span>
+          <span class="chip">QAOA MAX-CUT</span>
+          <span class="chip">Fault Tolerance</span>
+          <span class="chip">QKD &amp; BB84</span>
+          <span class="chip">Quantum Internet</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="day-card d5" href="Day5_Hackathon_Showcase_Quantum_Roadmap_2030.html">
+      <div class="day-num">5</div>
+      <div class="day-info">
+        <h2>Hackathon Finals, Showcase &amp; Quantum Roadmap 2030</h2>
+        <div class="meta">📅 November 20, 2026 &nbsp;·&nbsp; All Levels &nbsp;·&nbsp; ~55 min read</div>
+        <div class="topics">
+          <span class="chip">Hackathon Rubrics</span>
+          <span class="chip">Winning Project Guide</span>
+          <span class="chip">Community Showcase</span>
+          <span class="chip">QfH Manifesto</span>
+          <span class="chip">IBM 2033 Roadmap</span>
+          <span class="chip">Career Pathways</span>
+          <span class="chip">Global Quantum 2030</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="footer">
+    IBM Qiskit Fall Fest 2026 &nbsp;·&nbsp; Quantum for Humanity Org &nbsp;·&nbsp; Presentation Materials<br/>
+    Content based on IBM Quantum Learning (CC BY 4.0) and peer-reviewed academic sources.<br/>
+    Independent community event — not an official IBM publication. Made with IBM Bob.
+  </div>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Day 4 — Advanced QEC, VQE/QAOA &amp; Quantum Networks | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#FF7EB6;--accent2:#8B5CF6;--accent3:#33B1FF;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  .site-header{background:linear-gradient(135deg,#1a0a1a 0%,#200a30 50%,#0a0a2a 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  .day-badge{display:inline-block;background:rgba(255,126,182,.18);border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-left:10px;vertical-align:middle;}
+  h1.doc-title{font-size:2.1rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#f9a8d4 60%,#FF7EB6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1rem;margin-bottom:18px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--muted);}
+  .meta-row span{background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:6px;}
+  .container{max-width:960px;margin:0 auto;padding:40px 32px 80px;}
+  .toc{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:24px 28px;margin-bottom:40px;}
+  .toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin-bottom:14px;}
+  .toc ol{padding-left:20px;}
+  .toc li{margin-bottom:6px;font-size:.93rem;}
+  .section{margin-bottom:52px;}
+  h2.sec-title{font-size:1.45rem;font-weight:700;color:#fff;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+  h2.sec-title .icon{font-size:1.2rem;}
+  h3.sub-title{font-size:1.05rem;font-weight:700;color:var(--accent);margin:28px 0 12px;}
+  p{margin-bottom:14px;color:#cccce0;}
+  ul,ol{padding-left:22px;margin-bottom:14px;}
+  li{margin-bottom:6px;color:#cccce0;}
+  .callout{border-radius:10px;padding:18px 22px;margin:20px 0;border-left:4px solid;}
+  .callout.info{background:rgba(51,177,255,.08);border-color:var(--accent3);}
+  .callout.tip{background:rgba(139,92,246,.1);border-color:var(--accent2);}
+  .callout.warning{background:rgba(255,126,182,.08);border-color:var(--accent);}
+  .callout.key{background:rgba(52,211,153,.08);border-color:#34D399;}
+  .callout-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+  .callout.info .callout-title{color:var(--accent3);}
+  .callout.tip .callout-title{color:var(--accent2);}
+  .callout.warning .callout-title{color:var(--accent);}
+  .callout.key .callout-title{color:#34D399;}
+  pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:20px 22px;overflow-x:auto;margin:18px 0;}
+  code{font-family:"Fira Code","Consolas",monospace;font-size:.87rem;color:#f9a8d4;}
+  p code,li code{background:rgba(255,126,182,.12);padding:2px 6px;border-radius:4px;font-size:.85rem;}
+  .table-wrap{overflow-x:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  th{background:var(--card);color:var(--accent);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  td{padding:9px 14px;border-bottom:1px solid var(--border);color:#cccce0;}
+  tr:hover td{background:rgba(255,126,182,.05);}
+  .eq{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:14px 20px;margin:14px 0;font-family:"Fira Code",monospace;font-size:.95rem;color:#f9a8d4;text-align:center;}
+  .quiz-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 26px;margin:24px 0;}
+  .quiz-box .q{font-weight:700;color:#fff;margin-bottom:10px;}
+  .quiz-box .opts li{list-style:lower-alpha;color:#cccce0;}
+  .quiz-box .answer{margin-top:12px;font-size:.88rem;color:#34D399;border-top:1px solid var(--border);padding-top:10px;}
+  .ref-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:52px;}
+  .ref-section h2{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .ref-list{list-style:none;padding:0;}
+  .ref-list li{padding:10px 0;border-bottom:1px solid rgba(42,42,61,.7);font-size:.88rem;display:grid;grid-template-columns:36px 1fr;gap:8px;}
+  .ref-list li:last-child{border-bottom:none;}
+  .ref-num{color:var(--accent);font-weight:700;font-size:.85rem;}
+  .ref-text{color:#aaaacc;}
+  .ref-text a{color:var(--accent3);}
+  .ref-tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:600;}
+  .ref-tag.ibm{background:rgba(51,177,255,.15);color:var(--accent3);}
+  .ref-tag.academic{background:rgba(139,92,246,.15);color:var(--accent2);}
+  .ref-tag.book{background:rgba(255,126,182,.15);color:var(--accent);}
+  .ref-tag.oss{background:rgba(52,211,153,.15);color:#34D399;}
+  .page-footer{text-align:center;margin-top:60px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="event-tag">IBM Qiskit Fall Fest 2026</div>
+  <span class="day-badge">Day 4 of 5</span>
+  <h1 class="doc-title">Advanced QEC, VQE/QAOA &amp; Quantum Networks</h1>
+  <p class="doc-subtitle">Quantum error correction at scale, variational algorithms, fault-tolerant roadmaps, quantum networking and post-quantum cryptography</p>
+  <div class="meta-row">
+    <span>📅 November 19, 2026</span>
+    <span>⏱ Full Day — 09:30–17:30 IST</span>
+    <span>🎯 Advanced → Research</span>
+    <span>📖 ~80 min read</span>
+    <span>✍ IBM Quantum × Quantum for Humanity</span>
+  </div>
+</header>
+
+<div class="container">
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Quantum Noise — A Formal Treatment</a></li>
+      <li><a href="#s2">Quantum Error Correction — Foundations</a></li>
+      <li><a href="#s3">Stabiliser Codes — Shor, Steane &amp; Surface Codes</a></li>
+      <li><a href="#s4">The Surface Code — IBM's Path to Fault Tolerance</a></li>
+      <li><a href="#s5">VQE — Variational Quantum Eigensolver Deep Dive</a></li>
+      <li><a href="#s6">QAOA — Quantum Approximate Optimisation Algorithm</a></li>
+      <li><a href="#s7">Fault-Tolerant Quantum Computing — The Next Decade</a></li>
+      <li><a href="#s8">Quantum Networking &amp; the Quantum Internet</a></li>
+      <li><a href="#s9">Quantum Key Distribution &amp; Post-Quantum Cryptography</a></li>
+      <li><a href="#s10">Day 4 Quiz &amp; Exercises</a></li>
+      <li><a href="#refs">References &amp; Further Reading</a></li>
+    </ol>
+  </div>
+
+  <!-- S1 -->
+  <div class="section" id="s1">
+    <h2 class="sec-title"><span class="icon">🌊</span> 1. Quantum Noise — A Formal Treatment</h2>
+    <p>Quantum noise describes unintended interactions between a quantum system and its environment. Unlike classical bit-flip errors, quantum errors are continuous — they can corrupt both amplitude (magnitude) and phase of quantum states.</p>
+    <h3 class="sub-title">1.1 Quantum Error Types</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Error Type</th><th>Mathematical Form</th><th>Physical Cause</th></tr></thead>
+        <tbody>
+          <tr><td>Bit-flip (X error)</td><td>ρ → XρX†</td><td>Energy relaxation: |1⟩ decays to |0⟩</td></tr>
+          <tr><td>Phase-flip (Z error)</td><td>ρ → ZρZ†</td><td>Dephasing: random Z rotations from environment</td></tr>
+          <tr><td>Bit+Phase (Y error)</td><td>ρ → YρY† = iXZ|ψ⟩</td><td>Combined energy+dephasing</td></tr>
+          <tr><td>Depolarising</td><td>ρ → (1-p)ρ + p/3(XρX+YρY+ZρZ)</td><td>Generic symmetric noise</td></tr>
+          <tr><td>Amplitude damping</td><td>Kraus operators K₀,K₁ for T1</td><td>Spontaneous emission (|1⟩→|0⟩)</td></tr>
+          <tr><td>Phase damping</td><td>Kraus operators for T2</td><td>Random phase kicks (decoherence)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">1.2 Simulating Noise with Qiskit Aer</h3>
+    <pre><code>from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
+from qiskit_aer.noise import (NoiseModel, depolarizing_error,
+                               thermal_relaxation_error, ReadoutError)
+import numpy as np
+
+# Build a realistic IBM-like noise model
+noise_model = NoiseModel()
+
+# 1-qubit gate errors (depolarising)
+error_1q = depolarizing_error(0.001, 1)  # 0.1% depolarising
+noise_model.add_all_qubit_quantum_error(error_1q, ['u1', 'u2', 'u3', 'sx', 'x'])
+
+# 2-qubit gate errors (higher error rate)
+error_2q = depolarizing_error(0.005, 2)  # 0.5% depolarising on CNOT
+noise_model.add_all_qubit_quantum_error(error_2q, ['cx', 'ecr'])
+
+# T1/T2 thermal relaxation (assuming 200µs T1, 150µs T2, gate time 50ns)
+t1, t2, gate_time = 200e3, 150e3, 50  # ns units
+thermal_error = thermal_relaxation_error(t1, t2, gate_time)
+noise_model.add_all_qubit_quantum_error(thermal_error, ['sx', 'x'])
+
+# Readout error matrix [[P(0|0), P(1|0)], [P(0|1), P(1|1)]]
+readout_error = ReadoutError([[0.985, 0.015], [0.020, 0.980]])
+noise_model.add_all_qubit_readout_error(readout_error)
+
+# Run noisy simulation
+qc = QuantumCircuit(2, 2)
+qc.h(0); qc.cx(0, 1); qc.measure([0,1],[0,1])
+
+sim_noisy = AerSimulator(noise_model=noise_model)
+result = sim_noisy.run(transpile(qc, sim_noisy), shots=4096).result()
+counts = result.get_counts()
+print("Noisy Bell state:", counts)
+# Ideal: {'00':~2048, '11':~2048}. Noise adds '01' and '10' counts</code></pre>
+  </div>
+
+  <!-- S2 -->
+  <div class="section" id="s2">
+    <h2 class="sec-title"><span class="icon">🛡</span> 2. Quantum Error Correction — Foundations</h2>
+    <p>QEC solves what seemed impossible: protecting quantum information from noise without violating the no-cloning theorem. The key insight (Shor 1995, Steane 1996) is that you don't need to copy the qubit — you can <strong>spread entanglement</strong> across many physical qubits so errors on individual qubits can be detected and corrected by measuring <em>syndromes</em> without collapsing the logical qubit.</p>
+    <h3 class="sub-title">2.1 The Three Pillars of QEC</h3>
+    <ol>
+      <li><strong>Redundancy</strong> — Encode 1 logical qubit in N physical qubits (overhead)</li>
+      <li><strong>Syndrome measurement</strong> — Measure error syndromes (parity checks) without measuring the logical qubit itself</li>
+      <li><strong>Correction</strong> — Apply recovery operations based on syndrome measurement outcome</li>
+    </ol>
+    <h3 class="sub-title">2.2 The 3-Qubit Bit-Flip Code (Simplest QEC)</h3>
+    <div class="eq">|0⟩_L = |000⟩    |1⟩_L = |111⟩</div>
+    <p>Encode: |ψ⟩ = α|0⟩+β|1⟩ → α|000⟩+β|111⟩ using 2 CNOT gates</p>
+    <p>Error: if qubit 1 flips → α|010⟩+β|101⟩</p>
+    <p>Syndrome: measure Z₀Z₁ and Z₁Z₂ → (−1, +1) → qubit 1 flipped → apply X₁</p>
+    <pre><code>from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+
+def encode_bit_flip(qc, data, ancillas):
+    """Encode logical |ψ⟩ into 3-qubit bit-flip code."""
+    qc.cx(data, ancillas[0])
+    qc.cx(data, ancillas[1])
+    return qc
+
+def syndrome_measurement(qc, data_qubits, syndrome_qubits):
+    """Measure Z₀Z₁ and Z₁Z₂ syndromes without disturbing logical qubit."""
+    qc.cx(data_qubits[0], syndrome_qubits[0])
+    qc.cx(data_qubits[1], syndrome_qubits[0])
+    qc.cx(data_qubits[1], syndrome_qubits[1])
+    qc.cx(data_qubits[2], syndrome_qubits[1])
+    return qc
+
+# Full 3-qubit code circuit
+from qiskit import ClassicalRegister, QuantumRegister
+data = QuantumRegister(3, 'data')
+syndrome = QuantumRegister(2, 'syndrome')
+c_syn = ClassicalRegister(2, 'c_syn')
+c_out = ClassicalRegister(3, 'c_out')
+qc = QuantumCircuit(data, syndrome, c_syn, c_out)
+
+# Prepare logical |+⟩ = (|0⟩+|1⟩)/√2
+qc.h(data[0])
+qc.barrier()
+
+# Encode into logical qubit
+encode_bit_flip(qc, data[0], [data[1], data[2]])
+qc.barrier()
+
+# Inject error on qubit 1 (simulating a bit-flip)
+qc.x(data[1])
+qc.barrier()
+
+# Measure syndromes
+syndrome_measurement(qc, [data[0], data[1], data[2]], [syndrome[0], syndrome[1]])
+qc.measure(syndrome, c_syn)
+qc.barrier()
+
+# Conditional correction based on syndromes (classically controlled)
+# Syndrome '01' → qubit 2 flipped; '10' → qubit 0 flipped; '11' → qubit 1 flipped
+# (Simplified — use if_test in real dynamic circuit)
+qc.x(data[1])  # Correct the injected error
+
+qc.measure(data, c_out)
+sim = AerSimulator()
+result = sim.run(qc, shots=1024).result()
+print("Corrected output:", result.get_counts())</code></pre>
+  </div>
+
+  <!-- S3 -->
+  <div class="section" id="s3">
+    <h2 class="sec-title"><span class="icon">🔷</span> 3. Stabiliser Codes — Shor, Steane &amp; Surface Codes</h2>
+    <h3 class="sub-title">3.1 The Shor Code (9 Physical Qubits)</h3>
+    <p>Peter Shor's 1995 code was the first to correct <em>all</em> single-qubit errors by combining the 3-qubit bit-flip code and 3-qubit phase-flip code:</p>
+    <div class="eq">|0⟩_L = (|000⟩+|111⟩)⊗³ / 2√2</div>
+    <div class="eq">|1⟩_L = (|000⟩−|111⟩)⊗³ / 2√2</div>
+    <p>The Shor code uses 9 physical qubits to encode 1 logical qubit — distance 3 code that corrects any single-qubit error.</p>
+
+    <h3 class="sub-title">3.2 The Steane [[7,1,3]] Code</h3>
+    <p>The Steane code (1996) uses just <strong>7 physical qubits</strong> to protect 1 logical qubit and correct any single-qubit error. It is a CSS (Calderbank-Shor-Steane) code built from the classical [7,4] Hamming code.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Code</th><th>[[n,k,d]]</th><th>Physical per Logical</th><th>Corrects</th></tr></thead>
+        <tbody>
+          <tr><td>3-qubit bit-flip</td><td>[[3,1,1]]</td><td>3</td><td>Bit-flip only</td></tr>
+          <tr><td>Shor code</td><td>[[9,1,3]]</td><td>9</td><td>Any single-qubit error</td></tr>
+          <tr><td>Steane code</td><td>[[7,1,3]]</td><td>7</td><td>Any single-qubit error</td></tr>
+          <tr><td>Surface code d=5</td><td>[[25,1,5]]</td><td>25</td><td>Any 2-qubit error</td></tr>
+          <tr><td>Surface code d=7</td><td>[[49,1,7]]</td><td>49</td><td>Any 3-qubit error</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="section" id="s4">
+    <h2 class="sec-title"><span class="icon">📐</span> 4. The Surface Code — IBM's Path to Fault Tolerance</h2>
+    <p>The <strong>toric/surface code</strong> (Kitaev 1997, Fowler et al. 2012) is the leading candidate for fault-tolerant quantum computing. It arranges qubits on a 2D grid and uses local stabiliser measurements (only nearest-neighbour interactions) — compatible with the heavy-hex lattice.</p>
+    <h3 class="sub-title">4.1 Surface Code Key Properties</h3>
+    <ul>
+      <li><strong>Distance d</strong>: A d×d grid encodes 1 logical qubit in d² physical qubits, corrects ⌊(d-1)/2⌋ errors</li>
+      <li><strong>Threshold</strong>: Logical error rate drops exponentially once physical error rate &lt; ~1% (threshold)</li>
+      <li><strong>CNOT count</strong>: Each syndrome cycle requires 4 CNOTs per stabiliser measurement — minimal for 2D local code</li>
+      <li><strong>Overhead</strong>: ~1,000 physical qubits per logical qubit for target logical error rate of 10⁻¹⁰</li>
+    </ul>
+    <div class="eq">P_logical ≈ A · (p/p_th)^⌈d/2⌉  where p = physical error rate, p_th ≈ 1%</div>
+    <h3 class="sub-title">4.2 IBM Quantum QEC Experiments</h3>
+    <ul>
+      <li><strong>2023</strong>: IBM demonstrated a distance-3 [[7,1,3]] code on Eagle processor, observing exponential suppression of logical error rate with code distance</li>
+      <li><strong>2024</strong>: Heron r2 demonstrations showed distance-5 surface code with logical error rates below physical error rates — <em>"break-even"</em> achieved</li>
+      <li><strong>2025 target</strong>: Distance-7 code with logical error rate &lt;10⁻⁶</li>
+      <li><strong>2033 target</strong>: 100 logical qubits at 10⁻¹⁰ error rate for fault-tolerant applications</li>
+    </ul>
+    <pre><code># Simulating a basic repetition code (classical analogue of surface code)
+from qiskit import QuantumCircuit
+from qiskit.circuit.library import RepetitionCode
+# Note: Full surface code simulation requires Stim (specialized QEC simulator)
+
+# Simplified: distance-3 repetition code
+def repetition_code_d3():
+    """[[3,1,1]] repetition code — simplest stabiliser code."""
+    qc = QuantumCircuit(5, 3)  # 3 data + 2 syndrome qubits
+    
+    # Encode logical |0⟩ = |000⟩
+    # (already initialised to |000⟩)
+    
+    # Z stabilisers: Z₀Z₁ and Z₁Z₂
+    qc.cx(0, 3)   # syndrome qubit 3 measures Z₀Z₁
+    qc.cx(1, 3)
+    qc.cx(1, 4)   # syndrome qubit 4 measures Z₁Z₂
+    qc.cx(2, 4)
+    
+    qc.measure([3, 4], [0, 1])
+    qc.measure(0, 2)  # Decode logical qubit
+    return qc
+
+print(repetition_code_d3().draw('text'))
+
+# For serious surface code simulation, use the Stim library:
+print("""
+# Install: pip install stim
+import stim
+# Create distance-5 surface code circuit
+circuit = stim.Circuit.generated(
+    "surface_code:rotated_memory_z",
+    rounds=10,
+    distance=5,
+    after_clifford_depolarization=0.001,
+    after_reset_flip_probability=0.001,
+    before_measure_flip_probability=0.001
+)
+print(f"Circuit has {len(circuit)} instructions")
+print(f"Qubits needed: {circuit.num_qubits}")
+""")</code></pre>
+  </div>
+
+  <!-- S5 -->
+  <div class="section" id="s5">
+    <h2 class="sec-title"><span class="icon">⚛</span> 5. VQE — Variational Quantum Eigensolver Deep Dive</h2>
+    <p>VQE (Peruzzo et al., 2014) finds the ground state energy of a Hamiltonian using a hybrid quantum-classical loop. It is the workhorse algorithm for NISQ-era quantum chemistry and materials simulation.</p>
+    <h3 class="sub-title">5.1 Algorithm Architecture</h3>
+    <ol>
+      <li><strong>Hamiltonian mapping</strong>: Map the physical Hamiltonian H to qubit Pauli operators via Jordan-Wigner, Bravyi-Kitaev, or Parity mapping</li>
+      <li><strong>Ansatz construction</strong>: Choose a parameterised circuit U(θ) — UCCSD (chemistry), hardware-efficient, or ADAPT-VQE</li>
+      <li><strong>Expectation estimation</strong>: Measure ⟨ψ(θ)|H|ψ(θ)⟩ by decomposing H into Pauli strings and measuring each</li>
+      <li><strong>Classical optimisation</strong>: Update θ using SPSA, COBYLA, L-BFGS-B, or gradient methods (parameter shift rule)</li>
+      <li><strong>Convergence check</strong>: Stop when energy converges to chemical accuracy (1 kcal/mol = 1.6 mHartree)</li>
+    </ol>
+    <h3 class="sub-title">5.2 Ansatz Strategies</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ansatz</th><th>Type</th><th>Circuit Depth</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td>UCCSD</td><td>Chemistry-motivated</td><td>Deep (O(N⁴))</td><td>Chemical accuracy, small molecules</td></tr>
+          <tr><td>UCCGSD</td><td>Generalised singles+doubles</td><td>Very deep</td><td>Strongly correlated systems</td></tr>
+          <tr><td>Hardware Efficient (HEA)</td><td>Hardware-native</td><td>Shallow</td><td>NISQ devices, noise tolerance</td></tr>
+          <tr><td>ADAPT-VQE</td><td>Adaptive growth</td><td>Compact</td><td>Optimal depth for given accuracy</td></tr>
+          <tr><td>Qubit ADAPT-VQE</td><td>Pauli-based adaptive</td><td>Very compact</td><td>High-qubit count problems</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <pre><code>from qiskit_algorithms import VQE, NumPyMinimumEigensolver
+from qiskit_algorithms.optimizers import SPSA, L_BFGS_B, COBYLA
+from qiskit.circuit.library import EfficientSU2, TwoLocal
+from qiskit.quantum_info import SparsePauliOp
+from qiskit.primitives import Estimator
+import numpy as np
+
+# Define a simple 2-qubit Ising Hamiltonian: H = -Z₀Z₁ - h(X₀+X₁)
+h = 0.5  # Transverse field strength
+hamiltonian = SparsePauliOp.from_list([
+    ("ZZ", -1.0),   # ZZ interaction
+    ("XI", -h),     # Transverse field on qubit 0
+    ("IX", -h),     # Transverse field on qubit 1
+])
+print(f"Hamiltonian: {hamiltonian}")
+
+# Build ansatz: 2-qubit hardware efficient circuit
+ansatz = TwoLocal(num_qubits=2, rotation_blocks=['ry', 'rz'],
+                   entanglement_blocks='cx', reps=3)
+print(f"Ansatz parameters: {ansatz.num_parameters}")
+
+# Run VQE with SPSA optimizer (noise-robust)
+estimator = Estimator()
+vqe = VQE(
+    estimator=estimator,
+    ansatz=ansatz,
+    optimizer=SPSA(maxiter=300),
+    initial_point=np.random.uniform(-np.pi, np.pi, ansatz.num_parameters)
+)
+result = vqe.compute_minimum_eigenvalue(hamiltonian)
+
+# Classical reference
+numpy_solver = NumPyMinimumEigensolver()
+exact_result = numpy_solver.compute_minimum_eigenvalue(hamiltonian)
+
+print(f"\nVQE ground state energy:   {result.eigenvalue:.6f}")
+print(f"Exact ground state energy: {exact_result.eigenvalue:.6f}")
+print(f"Error: {abs(result.eigenvalue - exact_result.eigenvalue)*1000:.3f} mHa")
+print(f"Optimal parameters: {result.optimal_point}")</code></pre>
+  </div>
+
+  <!-- S6 -->
+  <div class="section" id="s6">
+    <h2 class="sec-title"><span class="icon">🎯</span> 6. QAOA — Quantum Approximate Optimisation Algorithm</h2>
+    <p>QAOA (Farhi, Goldstone, Gutmann 2014) is a variational algorithm for combinatorial optimisation problems. It alternates between a <strong>cost Hamiltonian</strong> U_C(γ) (encoding the objective) and a <strong>mixer Hamiltonian</strong> U_B(β) (exploring the search space).</p>
+    <div class="eq">|ψ(γ,β)⟩ = U_B(βₚ)U_C(γₚ)...U_B(β₁)U_C(γ₁)|+⟩⊗ⁿ</div>
+    <p>As p→∞, QAOA converges to the exact optimal solution. For p=1, it gives a provable approximation ratio for MAX-CUT: ≥0.6924 (vs best classical algorithm 0.8785 for random 3-regular graphs).</p>
+    <h3 class="sub-title">6.1 MAX-CUT with QAOA</h3>
+    <pre><code>import networkx as nx
+import numpy as np
+from qiskit.circuit.library import QAOAAnsatz
+from qiskit.quantum_info import SparsePauliOp
+from qiskit_algorithms import QAOA, NumPyMinimumEigensolver
+from qiskit_algorithms.optimizers import COBYLA
+from qiskit.primitives import Sampler
+from qiskit_optimization.applications import Maxcut
+from qiskit_optimization.converters import QuadraticProgramToQubo
+
+# Create a 4-node random graph
+G = nx.Graph()
+G.add_edges_from([(0,1),(0,3),(1,2),(2,3),(1,3)])
+print(f"Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
+
+# Formulate MAX-CUT as optimisation problem
+maxcut = Maxcut(G)
+qp = maxcut.to_quadratic_program()
+print(f"Objective: {qp.objective}")
+
+# Convert to QUBO (Quadratic Unconstrained Binary Optimisation)
+converter = QuadraticProgramToQubo()
+qubo = converter.convert(qp)
+qubitOp, offset = qubo.to_ising()
+print(f"Qubit Hamiltonian: {qubitOp.num_qubits} qubits")
+
+# Solve exactly for reference
+numpy_solver = NumPyMinimumEigensolver()
+exact_result = numpy_solver.compute_minimum_eigenvalue(qubitOp)
+print(f"\nExact MAX-CUT value: {maxcut.interpret(exact_result)}")
+
+# Solve with QAOA (p=2 layers)
+sampler = Sampler()
+qaoa = QAOA(sampler=sampler, optimizer=COBYLA(maxiter=200), reps=2)
+qaoa_result = qaoa.compute_minimum_eigenvalue(qubitOp)
+x = maxcut.interpret(qaoa_result)
+print(f"QAOA MAX-CUT value: {x}")
+print(f"QAOA cut edges: {maxcut.to_quadratic_program().objective.evaluate(x)}")</code></pre>
+
+    <h3 class="sub-title">6.2 QAOA Applications</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Application Domain</th><th>Problem Type</th><th>Formulation</th></tr></thead>
+        <tbody>
+          <tr><td>Logistics</td><td>Vehicle routing (VRP)</td><td>QUBO with distance + capacity constraints</td></tr>
+          <tr><td>Finance</td><td>Portfolio optimisation</td><td>Markowitz QUBO: minimise risk, maximise return</td></tr>
+          <tr><td>Chemistry</td><td>Molecular docking</td><td>Energy minimisation over discrete conformations</td></tr>
+          <tr><td>Telecoms</td><td>Network flow / bandwidth allocation</td><td>MAX-FLOW as QUBO</td></tr>
+          <tr><td>Agriculture</td><td>Crop rotation scheduling</td><td>Constraint satisfaction QUBO</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- S7 -->
+  <div class="section" id="s7">
+    <h2 class="sec-title"><span class="icon">🗺</span> 7. Fault-Tolerant Quantum Computing — The Next Decade</h2>
+    <h3 class="sub-title">7.1 IBM Quantum Roadmap 2026–2033</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Year</th><th>Milestone</th><th>Physical Qubits</th><th>Logical Qubits Target</th></tr></thead>
+        <tbody>
+          <tr><td>2023</td><td>Heron r1 — 133Q, quantum utility demonstrated</td><td>133</td><td>—</td></tr>
+          <tr><td>2024</td><td>Heron r2 — 156Q, 2Q fidelity 99.9%</td><td>156</td><td>—</td></tr>
+          <tr><td>2025</td><td>Flamingo — multi-chip communication</td><td>1,386×1</td><td>~10 logical</td></tr>
+          <tr><td>2026</td><td>Kookaburra — 4,158 total (3 chips)</td><td>4,158</td><td>~100 logical</td></tr>
+          <tr><td>2029</td><td>Classical-quantum integration</td><td>~10,000+</td><td>~1,000 logical</td></tr>
+          <tr><td>2033</td><td>100,000-qubit fault-tolerant system</td><td>100,000</td><td>~100 error-free logical</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">7.2 Magic State Distillation</h3>
+    <p>Clifford gates are transversal (can be applied fault-tolerantly to code states directly). But T gates are not. <strong>Magic state distillation</strong> produces high-fidelity "magic states" |T⟩ = (|0⟩+e^(iπ/4)|1⟩)/√2 using noisy T gates and Clifford distillation circuits:</p>
+    <ul>
+      <li>Distillation protocol: consume 15 noisy magic states at error p → 1 state at error O(p³)</li>
+      <li>Resource cost: ~1,000:1 ratio of physical to logical magic states</li>
+      <li>This is why fault-tolerant T-gate cost dominates: 1 logical T gate may need ~10,000 physical operations</li>
+    </ul>
+    <div class="callout key">
+      <div class="callout-title">🔑 Threshold Theorem</div>
+      If physical error rates are below the fault-tolerance threshold (~1% for surface code), then the logical error rate can be made arbitrarily small by increasing code distance — with only polylogarithmic overhead in computation time. This is the theoretical foundation for scalable quantum computing.
+    </div>
+  </div>
+
+  <!-- S8 -->
+  <div class="section" id="s8">
+    <h2 class="sec-title"><span class="icon">🌐</span> 8. Quantum Networking &amp; the Quantum Internet</h2>
+    <h3 class="sub-title">8.1 Quantum Network Stack</h3>
+    <p>The quantum internet enables distributed quantum computing, quantum key distribution, and blind quantum computation. It requires a layered architecture analogous to the classical TCP/IP stack:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Layer</th><th>Function</th><th>Key Technology</th></tr></thead>
+        <tbody>
+          <tr><td>Physical</td><td>Transmit qubits over optical fibre / free space</td><td>Single photon sources, detectors, fibres</td></tr>
+          <tr><td>Link</td><td>Generate entanglement between adjacent nodes</td><td>Bell state measurements, BSM</td></tr>
+          <tr><td>Network</td><td>Route entanglement across multiple hops</td><td>Quantum repeaters, entanglement swapping</td></tr>
+          <tr><td>Transport</td><td>Reliable end-to-end entanglement</td><td>Purification, entanglement distillation</td></tr>
+          <tr><td>Application</td><td>QKD, distributed QC, quantum sensing</td><td>BB84, E91, teleportation protocols</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">8.2 Quantum Repeaters</h3>
+    <p>Photons in optical fibre lose ~3 dB per 10 km — classical amplifiers don't work for quantum signals (no-cloning). Quantum repeaters use <strong>entanglement swapping</strong> and <strong>quantum memory</strong> to extend range:</p>
+    <ol>
+      <li>Create entanglement between A–B and B–C</li>
+      <li>Node B performs Bell state measurement on its two halves</li>
+      <li>This "swaps" entanglement to A–C without transmitting qubits through B</li>
+      <li>Repeat hierarchically to span continental distances</li>
+    </ol>
+    <h3 class="sub-title">8.3 Quantum Internet Alliance Milestones</h3>
+    <ul>
+      <li><strong>Stage 1 (2020–2025)</strong>: Trusted-node QKD networks (fibre, 100 km range) — Beijing-Shanghai link (2020)</li>
+      <li><strong>Stage 2 (2025–2030)</strong>: Prepare-and-measure quantum networks with basic entanglement</li>
+      <li><strong>Stage 3 (2030–2035)</strong>: Few-qubit quantum repeaters, entanglement distribution at scale</li>
+      <li><strong>Stage 4 (2035+)</strong>: Quantum-memory-enabled repeaters, distributed quantum computing</li>
+    </ul>
+  </div>
+
+  <!-- S9 -->
+  <div class="section" id="s9">
+    <h2 class="sec-title"><span class="icon">🔒</span> 9. Quantum Key Distribution &amp; Post-Quantum Cryptography</h2>
+    <h3 class="sub-title">9.1 BB84 — The First QKD Protocol</h3>
+    <p>BB84 (Bennett &amp; Brassard, 1984) uses quantum mechanics to distribute a secret key with information-theoretic security:</p>
+    <ol>
+      <li>Alice sends random bits encoded in random bases (+/×)</li>
+      <li>Bob measures in random bases</li>
+      <li>They publicly announce which bases they used (not the bits)</li>
+      <li>Keep only bits where they agree on basis → raw key</li>
+      <li>Any eavesdropping (Eve) disturbs the qubits and is detectable via error rate check</li>
+    </ol>
+    <pre><code>import numpy as np
+
+def simulate_bb84(n_bits=100, noise_level=0.0):
+    """Simulate BB84 quantum key distribution protocol."""
+    np.random.seed(42)
+    
+    # Alice: random bits + bases
+    alice_bits = np.random.randint(0, 2, n_bits)
+    alice_bases = np.random.randint(0, 2, n_bits)  # 0=rectilinear (+), 1=diagonal (×)
+    
+    # Bob: random bases
+    bob_bases = np.random.randint(0, 2, n_bits)
+    
+    # Transmission (with optional noise / eavesdropping)
+    bob_results = np.zeros(n_bits, dtype=int)
+    for i in range(n_bits):
+        if alice_bases[i] == bob_bases[i]:
+            # Same basis → correct measurement
+            bob_results[i] = alice_bits[i]
+        else:
+            # Different basis → random result (quantum mechanics)
+            bob_results[i] = np.random.randint(0, 2)
+        
+        # Add noise (simulates eavesdropping or channel noise)
+        if np.random.random() < noise_level:
+            bob_results[i] = 1 - bob_results[i]
+    
+    # Sifting: keep bits where bases match
+    matching_bases = alice_bases == bob_bases
+    sifted_alice = alice_bits[matching_bases]
+    sifted_bob = bob_results[matching_bases]
+    
+    # Error rate estimation (using a sample subset)
+    sample_size = min(20, len(sifted_alice) // 4)
+    sample_errors = np.sum(sifted_alice[:sample_size] != sifted_bob[:sample_size])
+    qber = sample_errors / sample_size  # Quantum Bit Error Rate
+    
+    # Final key (remaining after QBER check)
+    final_alice = sifted_alice[sample_size:]
+    final_bob = sifted_bob[sample_size:]
+    
+    print(f"BB84 Simulation ({n_bits} bits)")
+    print(f"Sifted key length: {len(sifted_alice)} bits")
+    print(f"QBER: {qber:.2%}")
+    print(f"Final key length: {len(final_alice)} bits")
+    print(f"Key match: {np.all(final_alice == final_bob)}")
+    
+    return final_alice if np.all(final_alice == final_bob) else None
+
+# No eavesdropping
+key = simulate_bb84(200, noise_level=0.0)
+print(f"\nSecure key: {key[:20]}...")
+
+# With 25% eavesdropping → detectable
+print("\n--- With eavesdropping ---")
+simulate_bb84(200, noise_level=0.25)</code></pre>
+
+    <h3 class="sub-title">9.2 Post-Quantum Cryptography (NIST 2024 Standards)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Algorithm</th><th>FIPS</th><th>Type</th><th>Based On</th><th>Use Case</th></tr></thead>
+        <tbody>
+          <tr><td>CRYSTALS-Kyber (ML-KEM)</td><td>203</td><td>KEM</td><td>Module LWE</td><td>Key exchange, TLS</td></tr>
+          <tr><td>CRYSTALS-Dilithium (ML-DSA)</td><td>204</td><td>Signature</td><td>Module LWE</td><td>Digital signatures</td></tr>
+          <tr><td>FALCON (FN-DSA)</td><td>206</td><td>Signature</td><td>NTRU lattices</td><td>Compact signatures</td></tr>
+          <tr><td>SPHINCS+ (SLH-DSA)</td><td>205</td><td>Signature</td><td>Hash functions</td><td>Stateless, conservative</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- S10 -->
+  <div class="section" id="s10">
+    <h2 class="sec-title"><span class="icon">📝</span> 10. Day 4 Quiz &amp; Exercises</h2>
+    <div class="quiz-box">
+      <div class="q">Q1. What is the "threshold theorem" in quantum error correction and why is it the theoretical foundation for fault-tolerant computing?</div>
+      <div class="answer">✅ Answer: The threshold theorem states that if the physical error rate of each gate and qubit is below a critical threshold (typically ~1% for the surface code), then by using a quantum error-correcting code with sufficiently large distance d, the logical error rate can be made exponentially small: P_logical ≈ (p/p_th)^(d/2). This means arbitrarily reliable quantum computation is achievable with finite overhead in physical qubits — making scalable quantum computing theoretically possible.</div>
+    </div>
+    <div class="quiz-box">
+      <div class="q">Q2. Why does QAOA with p→∞ give the exact optimal solution, and what is the tradeoff with finite p?</div>
+      <div class="answer">✅ Answer: QAOA with p layers is equivalent to evolving under the Hamiltonian H = γ₁H_C + β₁H_B + ... for p steps. As p→∞ with decreasing step sizes, this becomes the continuous quantum annealing evolution, which reaches the ground state of H_C (the optimal solution) via the adiabatic theorem. For finite p, QAOA gives a sub-optimal approximation — the quality improves with p but circuit depth (and noise on NISQ hardware) increases proportionally. The QAOA tradeoff is expressibility vs circuit depth.</div>
+    </div>
+    <h3 class="sub-title">Exercises</h3>
+    <ol>
+      <li>Implement the Shor 9-qubit code in Qiskit and verify it corrects a random single-qubit Pauli error</li>
+      <li>Run QAOA (p=1,2,3) on MAX-CUT for a 5-node graph — plot approximation ratio vs layers</li>
+      <li>Compare VQE energy convergence for UCCSD vs HEA ansatz for H₂ at 3 bond lengths</li>
+      <li>Simulate BB84 with 10%, 20%, 30% noise levels — find the maximum tolerable QBER</li>
+      <li>Read the Gidney &amp; Ekerå paper (arXiv:1905.09749) — summarise the 3 key innovations that reduced qubit count for Shor's algorithm</li>
+    </ol>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="ref-section" id="refs">
+    <h2>📚 References &amp; Further Reading</h2>
+    <ul class="ref-list">
+      <li><span class="ref-num">[1]</span><span class="ref-text">IBM Quantum Learning. <em>Error Correction and Fault Tolerance</em>. IBM, 2024. <a href="https://learning.quantum.ibm.com/course/error-correction-and-fault-tolerance" target="_blank">learning.quantum.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[2]</span><span class="ref-text">Fowler, A. G. et al. <em>Surface codes: Towards practical large-scale quantum computation</em>. PRA 86, 032324, 2012. doi:10.1103/PhysRevA.86.032324 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[3]</span><span class="ref-text">Peruzzo, A. et al. <em>A variational eigenvalue solver on a photonic quantum processor</em>. Nature Communications 5, 4213, 2014. doi:10.1038/ncomms5213 (VQE original paper) <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[4]</span><span class="ref-text">Farhi, E., Goldstone, J. &amp; Gutmann, S. <em>A Quantum Approximate Optimization Algorithm</em>. arXiv:1411.4028, 2014. <a href="https://arxiv.org/abs/1411.4028" target="_blank">arXiv:1411.4028</a> <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[5]</span><span class="ref-text">Shor, P. W. <em>Fault-tolerant quantum computation</em>. FOCS 1996. arXiv:quant-ph/9605011 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[6]</span><span class="ref-text">Steane, A. M. <em>Error Correcting Codes in Quantum Theory</em>. PRL 77, 793, 1996. doi:10.1103/PhysRevLett.77.793 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[7]</span><span class="ref-text">Bennett, C. H. &amp; Brassard, G. <em>Quantum cryptography: Public key distribution and coin tossing</em>. Proc. IEEE ICCSSP, 175–179, 1984. (BB84 original) <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[8]</span><span class="ref-text">IBM Research. <em>The IBM Quantum Development Roadmap</em>. IBM, 2024. <a href="https://www.ibm.com/quantum/roadmap" target="_blank">ibm.com/quantum/roadmap</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[9]</span><span class="ref-text">Qiskit Algorithms Documentation. <em>VQE, QAOA implementations</em>. IBM, 2024. <a href="https://qiskit-community.github.io/qiskit-algorithms/" target="_blank">qiskit-community.github.io/qiskit-algorithms</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[10]</span><span class="ref-text">Nielsen, M. A. &amp; Chuang, I. L. <em>Quantum Computation and Quantum Information</em>. Cambridge UP, 2010. Chapter 10 (QEC), Chapter 12 (Fault Tolerance). <span class="ref-tag book">Book</span></span></li>
+      <li><span class="ref-num">[11]</span><span class="ref-text">Quantum Internet Alliance. <em>A Quantum Internet Vision</em>. 2020. <a href="https://quantum-internet.team" target="_blank">quantum-internet.team</a> <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[12]</span><span class="ref-text">Cerezo, M. et al. <em>Variational quantum algorithms</em>. Nature Reviews Physics 3, 625–644, 2021. doi:10.1038/s42254-021-00348-9 <span class="ref-tag academic">Academic</span></span></li>
+    </ul>
+  </div>
+</div>
+<div class="page-footer">
+  IBM Qiskit Fall Fest 2026 &nbsp;·&nbsp; Quantum for Humanity Org &nbsp;·&nbsp; Day 4 Study Material &nbsp;·&nbsp; November 19, 2026<br/>
+  Content based on IBM Quantum Learning (CC BY 4.0) and referenced academic sources. Independent community event — not an official IBM publication.
+</div>
+</body>
+</html>

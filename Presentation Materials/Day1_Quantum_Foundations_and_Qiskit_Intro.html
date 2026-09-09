@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Day 1 — Quantum Foundations & Qiskit Introduction | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#8B5CF6;--accent2:#FF7EB6;--accent3:#33B1FF;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  /* Header */
+  .site-header{background:linear-gradient(135deg,#1a0a2e 0%,#0d1a3a 50%,#0a1a0d 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  .day-badge{display:inline-block;background:rgba(139,92,246,.18);border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-left:10px;vertical-align:middle;}
+  h1.doc-title{font-size:2.1rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#c4b5fd 60%,#FF7EB6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1rem;margin-bottom:18px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--muted);}
+  .meta-row span{background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:6px;}
+  /* Layout */
+  .container{max-width:960px;margin:0 auto;padding:40px 32px 80px;}
+  /* TOC */
+  .toc{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:24px 28px;margin-bottom:40px;}
+  .toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin-bottom:14px;}
+  .toc ol{padding-left:20px;}
+  .toc li{margin-bottom:6px;font-size:.93rem;}
+  /* Sections */
+  .section{margin-bottom:52px;}
+  h2.sec-title{font-size:1.45rem;font-weight:700;color:#fff;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+  h2.sec-title .icon{font-size:1.2rem;}
+  h3.sub-title{font-size:1.05rem;font-weight:700;color:var(--accent);margin:28px 0 12px;}
+  h4.q-title{font-size:.95rem;font-weight:700;color:var(--accent2);margin:20px 0 8px;}
+  p{margin-bottom:14px;color:#cccce0;}
+  ul,ol{padding-left:22px;margin-bottom:14px;}
+  li{margin-bottom:6px;color:#cccce0;}
+  /* Callout boxes */
+  .callout{border-radius:10px;padding:18px 22px;margin:20px 0;border-left:4px solid;}
+  .callout.info{background:rgba(51,177,255,.08);border-color:var(--accent3);}
+  .callout.tip{background:rgba(139,92,246,.1);border-color:var(--accent);}
+  .callout.warning{background:rgba(255,126,182,.08);border-color:var(--accent2);}
+  .callout.key{background:rgba(52,211,153,.08);border-color:#34D399;}
+  .callout-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+  .callout.info .callout-title{color:var(--accent3);}
+  .callout.tip .callout-title{color:var(--accent);}
+  .callout.warning .callout-title{color:var(--accent2);}
+  .callout.key .callout-title{color:#34D399;}
+  /* Code */
+  pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:20px 22px;overflow-x:auto;margin:18px 0;}
+  code{font-family:"Fira Code","Consolas",monospace;font-size:.87rem;color:#c4b5fd;}
+  p code,li code{background:rgba(139,92,246,.15);padding:2px 6px;border-radius:4px;font-size:.85rem;}
+  /* Tables */
+  .table-wrap{overflow-x:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  th{background:var(--card);color:var(--accent);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  td{padding:9px 14px;border-bottom:1px solid var(--border);color:#cccce0;}
+  tr:hover td{background:rgba(139,92,246,.06);}
+  /* Equation */
+  .eq{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:14px 20px;margin:14px 0;font-family:"Fira Code",monospace;font-size:.95rem;color:#c4b5fd;text-align:center;}
+  /* Quiz */
+  .quiz-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 26px;margin:24px 0;}
+  .quiz-box .q{font-weight:700;color:#fff;margin-bottom:10px;}
+  .quiz-box .opts li{list-style:lower-alpha;color:#cccce0;}
+  .quiz-box .answer{margin-top:12px;font-size:.88rem;color:#34D399;border-top:1px solid var(--border);padding-top:10px;}
+  /* References */
+  .ref-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:52px;}
+  .ref-section h2{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .ref-list{list-style:none;padding:0;}
+  .ref-list li{padding:10px 0;border-bottom:1px solid rgba(42,42,61,.7);font-size:.88rem;display:grid;grid-template-columns:36px 1fr;gap:8px;}
+  .ref-list li:last-child{border-bottom:none;}
+  .ref-num{color:var(--accent);font-weight:700;font-size:.85rem;}
+  .ref-text{color:#aaaacc;}
+  .ref-text a{color:var(--accent3);}
+  .ref-tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:600;}
+  .ref-tag.ibm{background:rgba(51,177,255,.15);color:var(--accent3);}
+  .ref-tag.academic{background:rgba(139,92,246,.15);color:var(--accent);}
+  .ref-tag.book{background:rgba(255,126,182,.15);color:var(--accent2);}
+  .ref-tag.oss{background:rgba(52,211,153,.15);color:#34D399;}
+  /* Footer */
+  .page-footer{text-align:center;margin-top:60px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
+  .badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.78rem;font-weight:700;}
+  .badge.beginner{background:rgba(52,211,153,.15);color:#34D399;border:1px solid rgba(52,211,153,.3);}
+  .badge.intermediate{background:rgba(51,177,255,.15);color:var(--accent3);border:1px solid rgba(51,177,255,.3);}
+  .badge.advanced{background:rgba(255,126,182,.15);color:var(--accent2);border:1px solid rgba(255,126,182,.3);}
+  .badge.workshop{background:rgba(139,92,246,.15);color:var(--accent);border:1px solid rgba(139,92,246,.3);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="event-tag">IBM Qiskit Fall Fest 2026</div>
+  <span class="day-badge">Day 1 of 5</span>
+  <h1 class="doc-title">Quantum Foundations &amp; Qiskit Introduction</h1>
+  <p class="doc-subtitle">From zero to your first quantum circuit — understanding qubits, superposition, entanglement and the Qiskit SDK</p>
+  <div class="meta-row">
+    <span>📅 November 16, 2026</span>
+    <span>⏱ Full Day — 09:30–18:00 IST</span>
+    <span>🎯 Beginner → Workshop</span>
+    <span>📖 ~60 min read</span>
+    <span>✍ IBM Quantum × Quantum for Humanity</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">The Classical–Quantum Boundary</a></li>
+      <li><a href="#s2">The Qubit — Mathematical Foundations</a></li>
+      <li><a href="#s3">Superposition, Bloch Sphere &amp; Measurement</a></li>
+      <li><a href="#s4">Entanglement &amp; Bell States</a></li>
+      <li><a href="#s5">Quantum Interference</a></li>
+      <li><a href="#s6">IBM Quantum Hardware Overview</a></li>
+      <li><a href="#s7">The Qiskit SDK — Architecture &amp; Installation</a></li>
+      <li><a href="#s8">Your First Quantum Circuit — Step-by-Step Lab</a></li>
+      <li><a href="#s9">Running on Real IBM Quantum Hardware</a></li>
+      <li><a href="#s10">Day 1 Quiz &amp; Exercises</a></li>
+      <li><a href="#refs">References &amp; Further Reading</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <h2 class="sec-title"><span class="icon">⚡</span> 1. The Classical–Quantum Boundary</h2>
+    <p>Classical computers encode every piece of information as a <strong>bit</strong> — a physical switch that is either OFF (0) or ON (1). Every computation, from spreadsheets to AI training, reduces to manipulating billions of such binary switches.</p>
+    <p>Quantum computers exploit the laws of <strong>quantum mechanics</strong> — the physics governing particles at atomic and sub-atomic scales — to process information in fundamentally different ways. The key departure points are:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Property</th><th>Classical Bit</th><th>Quantum Bit (Qubit)</th></tr></thead>
+        <tbody>
+          <tr><td>States</td><td>Exactly 0 or 1</td><td>Continuous superposition of |0⟩ and |1⟩</td></tr>
+          <tr><td>Copying</td><td>Freely cloneable</td><td>No-cloning theorem prevents copying</td></tr>
+          <tr><td>Parallelism</td><td>One state at a time</td><td>Exponential state space simultaneously</td></tr>
+          <tr><td>Correlation</td><td>Independent bits</td><td>Entanglement — non-local correlations</td></tr>
+          <tr><td>Reversibility</td><td>Most gates are irreversible</td><td>All gates are unitary (reversible)</td></tr>
+          <tr><td>Error model</td><td>Bit-flip errors</td><td>Continuous amplitude + phase errors</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout info">
+      <div class="callout-title">📌 Why Quantum Now?</div>
+      IBM's 2023 utility-scale experiments demonstrated that quantum processors can produce results classical computers cannot efficiently verify — a landmark known as <strong>"quantum utility"</strong>. The IBM Quantum roadmap targets <strong>100,000 physical qubits</strong> by 2033 on a path to fault-tolerant computation.
+    </div>
+    <h3 class="sub-title">1.1 Problems Where Quantum Excels</h3>
+    <ul>
+      <li><strong>Quantum simulation</strong> — Modelling molecular and material properties (drug discovery, battery design)</li>
+      <li><strong>Optimisation</strong> — Supply chains, financial portfolio, logistics (QAOA)</li>
+      <li><strong>Cryptanalysis</strong> — Shor's algorithm breaks RSA/ECC in polynomial time</li>
+      <li><strong>Search</strong> — Grover's algorithm gives quadratic speedup over unstructured search</li>
+      <li><strong>Machine learning</strong> — Quantum kernels and quantum neural networks on high-dimensional data</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <h2 class="sec-title"><span class="icon">🔵</span> 2. The Qubit — Mathematical Foundations</h2>
+    <p>A <strong>qubit</strong> is the fundamental unit of quantum information. Mathematically, a qubit's state lives in a two-dimensional complex Hilbert space ℂ².</p>
+    <h3 class="sub-title">2.1 Dirac (Bra-Ket) Notation</h3>
+    <p>The two orthonormal <strong>computational basis states</strong> are written as:</p>
+    <div class="eq">|0⟩ = [1, 0]ᵀ    and    |1⟩ = [0, 1]ᵀ</div>
+    <p>A general qubit state is a <strong>linear superposition</strong>:</p>
+    <div class="eq">|ψ⟩ = α|0⟩ + β|1⟩    where α, β ∈ ℂ  and  |α|² + |β|² = 1</div>
+    <p>Here α and β are called <strong>probability amplitudes</strong>. The normalisation condition ensures total probability = 1. The values |α|² and |β|² give the <em>probabilities</em> of measuring 0 or 1 respectively.</p>
+    <h3 class="sub-title">2.2 Physical Implementations of Qubits</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Technology</th><th>Qubit Encoding</th><th>Key Player</th><th>Coherence Time</th></tr></thead>
+        <tbody>
+          <tr><td>Superconducting</td><td>Charge/flux/phase in Josephson junction</td><td>IBM, Google, Rigetti</td><td>~100–500 µs</td></tr>
+          <tr><td>Trapped Ion</td><td>Electronic energy levels of Ca⁺/Yb⁺</td><td>IonQ, Quantinuum</td><td>Seconds–minutes</td></tr>
+          <tr><td>Photonic</td><td>Photon polarisation/path</td><td>PsiQuantum, Xanadu</td><td>Very long (photon)</td></tr>
+          <tr><td>Neutral Atom</td><td>Ground/Rydberg states</td><td>Pasqal, QuEra, Atom Computing</td><td>~1–10 s</td></tr>
+          <tr><td>Spin (Silicon)</td><td>Electron/nuclear spin</td><td>Intel, SQD (IBM)</td><td>Milliseconds</td></tr>
+          <tr><td>Topological</td><td>Non-Abelian anyons (Majorana)</td><td>Microsoft</td><td>Theoretically very long</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>IBM uses <strong>transmon qubits</strong> — a type of superconducting qubit cooled to ~15 millikelvin (colder than outer space) to suppress thermal noise and maintain quantum coherence.</p>
+    <div class="callout key">
+      <div class="callout-title">🔑 Key Concept</div>
+      <strong>No-Cloning Theorem (Wootters &amp; Zurek, 1982):</strong> It is impossible to create an identical copy of an arbitrary unknown quantum state. This is why quantum information cannot be simply "backed up" but also why quantum cryptography is unconditionally secure.
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <h2 class="sec-title"><span class="icon">🌐</span> 3. Superposition, Bloch Sphere &amp; Measurement</h2>
+    <h3 class="sub-title">3.1 Superposition</h3>
+    <p>Superposition is not the same as a coin spinning in the air (classical probability). A qubit in superposition genuinely exists in <em>both</em> states simultaneously — its amplitudes can interfere constructively or destructively with each other. This is a <strong>quantum mechanical fact</strong>, not a metaphor.</p>
+    <p>The <strong>equal superposition</strong> state (created by the Hadamard gate) is:</p>
+    <div class="eq">|+⟩ = (|0⟩ + |1⟩) / √2    →  P(0) = P(1) = 50%</div>
+    <div class="eq">|−⟩ = (|0⟩ − |1⟩) / √2    →  P(0) = P(1) = 50%  (but different phase!)</div>
+    <h3 class="sub-title">3.2 The Bloch Sphere</h3>
+    <p>Every pure single-qubit state can be mapped to a point on the surface of the <strong>Bloch sphere</strong> using two angles:</p>
+    <div class="eq">|ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sin(θ/2)|1⟩    where  θ ∈ [0,π],  φ ∈ [0,2π)</div>
+    <ul>
+      <li><strong>North pole</strong> → |0⟩  (θ=0)</li>
+      <li><strong>South pole</strong> → |1⟩  (θ=π)</li>
+      <li><strong>+X axis</strong> → |+⟩  (θ=π/2, φ=0)</li>
+      <li><strong>−X axis</strong> → |−⟩  (θ=π/2, φ=π)</li>
+      <li><strong>+Y axis</strong> → |i⟩  (θ=π/2, φ=π/2)</li>
+    </ul>
+    <p>Quantum gates rotate the state vector around axes of the Bloch sphere. Mixed states (partially decohered) live <em>inside</em> the sphere.</p>
+    <h3 class="sub-title">3.3 Measurement &amp; Wave-Function Collapse</h3>
+    <p>Measuring a qubit in superposition <strong>collapses</strong> it irreversibly to either |0⟩ or |1⟩ with probabilities |α|² and |β|² respectively. This is described by the <strong>Born Rule</strong> (Max Born, 1926).</p>
+    <div class="callout warning">
+      <div class="callout-title">⚠️ Measurement Destroys Superposition</div>
+      You can only extract classical information from a qubit by measuring it. After measurement the quantum state is gone. This is why quantum algorithms must be designed carefully — you compute in superposition, but ultimately extract classical answers.
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <h2 class="sec-title"><span class="icon">🔗</span> 4. Entanglement &amp; Bell States</h2>
+    <p><strong>Quantum entanglement</strong> occurs when two or more qubits become correlated such that the quantum state of each cannot be described independently — even when separated by large distances. Einstein famously called this "spooky action at a distance" (spukhafte Fernwirkung).</p>
+    <h3 class="sub-title">4.1 The Four Bell States</h3>
+    <p>The maximally entangled two-qubit states (Bell basis) are:</p>
+    <div class="eq">|Φ⁺⟩ = (|00⟩ + |11⟩) / √2</div>
+    <div class="eq">|Φ⁻⟩ = (|00⟩ − |11⟩) / √2</div>
+    <div class="eq">|Ψ⁺⟩ = (|01⟩ + |10⟩) / √2</div>
+    <div class="eq">|Ψ⁻⟩ = (|01⟩ − |10⟩) / √2</div>
+    <p>To create |Φ⁺⟩ in a circuit: apply <strong>Hadamard (H)</strong> to qubit 0, then a <strong>CNOT</strong> with qubit 0 as control and qubit 1 as target.</p>
+    <h3 class="sub-title">4.2 Why Entanglement Matters</h3>
+    <ul>
+      <li><strong>Quantum teleportation</strong> — Transfer quantum states using entanglement + classical communication</li>
+      <li><strong>Superdense coding</strong> — Transmit 2 classical bits using 1 qubit + 1 ebit</li>
+      <li><strong>Quantum key distribution (QKD)</strong> — Unconditionally secure communication</li>
+      <li><strong>Quantum computing power</strong> — Entanglement creates the exponential state space that classical computers cannot simulate efficiently</li>
+    </ul>
+    <div class="callout info">
+      <div class="callout-title">📌 CHSH Inequality &amp; Loophole-Free Bell Tests</div>
+      The CHSH inequality (Clauser, Horne, Shimony, Holt 1969) provides an experimental test for quantum entanglement. Loophole-free Bell tests (Hensen et al., Nature 2015; Giustina et al., PRL 2015; Shalm et al., PRL 2015) conclusively prove quantum mechanics is non-local — ruling out all local hidden-variable theories.
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <h2 class="sec-title"><span class="icon">🌊</span> 5. Quantum Interference</h2>
+    <p><strong>Quantum interference</strong> is the mechanism by which quantum algorithms achieve speedup. Just as light waves can interfere constructively (amplifying) or destructively (cancelling), quantum probability amplitudes interfere.</p>
+    <p>A well-designed quantum algorithm:</p>
+    <ol>
+      <li>Initialises qubits in superposition to explore many paths simultaneously</li>
+      <li>Applies gates that <strong>amplify</strong> amplitudes leading to correct answers</li>
+      <li>Applies gates that <strong>suppress</strong> amplitudes leading to wrong answers</li>
+      <li>Measures to extract the correct answer with high probability</li>
+    </ol>
+    <p>This is precisely what <strong>Grover's algorithm</strong> and the <strong>Quantum Fourier Transform</strong> exploit. Without interference, quantum computing reduces to randomised classical computing.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <h2 class="sec-title"><span class="icon">💻</span> 6. IBM Quantum Hardware Overview</h2>
+    <h3 class="sub-title">6.1 IBM Quantum Processor Generations</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Processor</th><th>Qubits</th><th>Year</th><th>Key Feature</th></tr></thead>
+        <tbody>
+          <tr><td>IBM Falcon</td><td>27</td><td>2019</td><td>Heavy-hex topology</td></tr>
+          <tr><td>IBM Eagle</td><td>127</td><td>2021</td><td>First 100+ qubit device</td></tr>
+          <tr><td>IBM Osprey</td><td>433</td><td>2022</td><td>Largest at launch</td></tr>
+          <tr><td>IBM Condor</td><td>1,121</td><td>2023</td><td>First 1,000+ qubit processor</td></tr>
+          <tr><td>IBM Heron r1</td><td>133</td><td>2023</td><td>2× better error rates, tunable coupling</td></tr>
+          <tr><td>IBM Heron r2</td><td>156</td><td>2024</td><td>Improved 2-qubit gate fidelity ~99.9%</td></tr>
+          <tr><td>IBM Flamingo</td><td>156+</td><td>2025</td><td>Multi-chip communication</td></tr>
+          <tr><td>IBM Kookaburra (planned)</td><td>1,386×3</td><td>2026</td><td>Multi-chip, 4,158 total</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">6.2 Heavy-Hex Topology</h3>
+    <p>IBM processors use a <strong>heavy-hex lattice</strong> topology — a sparse graph where each qubit connects to at most 3 neighbours. This reduces the number of potential crosstalk error paths while still allowing universal quantum computation. The connectivity map must be respected when writing quantum circuits (transpilation handles this automatically in Qiskit).</p>
+    <h3 class="sub-title">6.3 Key Hardware Metrics</h3>
+    <ul>
+      <li><strong>T1 (relaxation time)</strong> — Time for an excited |1⟩ qubit to decay to |0⟩. Typical: 100–300 µs</li>
+      <li><strong>T2 (dephasing time)</strong> — Time for a superposition to lose phase coherence. Typical: 100–200 µs</li>
+      <li><strong>Gate fidelity</strong> — 1-qubit gates: ~99.9%; 2-qubit (CNOT/CZ): ~99.5% (Heron r2)</li>
+      <li><strong>CLOPS</strong> — Circuit Layer Operations Per Second: measures throughput</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <h2 class="sec-title"><span class="icon">🛠</span> 7. The Qiskit SDK — Architecture &amp; Installation</h2>
+    <p>Qiskit (Quantum Information Science Kit) is IBM's open-source Python SDK for quantum computing. It is the most widely used quantum software framework in the world with over <strong>550,000 registered users</strong> and 500+ contributors as of 2024.</p>
+    <h3 class="sub-title">7.1 Qiskit Package Architecture (v1.x)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Package</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>qiskit</code></td><td>Core circuit model, gates, transpiler, primitives</td></tr>
+          <tr><td><code>qiskit-ibm-runtime</code></td><td>Connect to IBM Quantum systems, access Sampler/Estimator primitives</td></tr>
+          <tr><td><code>qiskit-aer</code></td><td>High-performance classical simulators (statevector, QASM, noise models)</td></tr>
+          <tr><td><code>qiskit-nature</code></td><td>Quantum chemistry, molecular simulation</td></tr>
+          <tr><td><code>qiskit-finance</code></td><td>Portfolio optimisation, option pricing, risk analysis</td></tr>
+          <tr><td><code>qiskit-machine-learning</code></td><td>QNNs, quantum kernels, variational classifiers</td></tr>
+          <tr><td><code>qiskit-optimization</code></td><td>QUBO formulations, QAOA, minimum eigen solvers</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-title">7.2 Installation</h3>
+    <pre><code># Create a dedicated virtual environment (recommended)
+python -m venv qiskit-env
+source qiskit-env/bin/activate      # macOS/Linux
+# qiskit-env\Scripts\activate       # Windows
+
+# Install Qiskit core + IBM Runtime + Aer simulator
+pip install qiskit qiskit-ibm-runtime qiskit-aer
+
+# Verify installation
+python -c "import qiskit; print(qiskit.__version__)"
+
+# Optional: Jupyter for interactive notebooks
+pip install jupyter notebook
+jupyter notebook</code></pre>
+    <h3 class="sub-title">7.3 IBM Quantum Account Setup</h3>
+    <pre><code>from qiskit_ibm_runtime import QiskitRuntimeService
+
+# One-time account save (uses your IBM Quantum API token)
+QiskitRuntimeService.save_account(
+    channel="ibm_quantum",
+    token="YOUR_IBM_QUANTUM_API_TOKEN",  # from quantum.ibm.com
+    overwrite=True
+)
+
+# Load saved account
+service = QiskitRuntimeService(channel="ibm_quantum")
+
+# List available backends
+backends = service.backends()
+for b in backends:
+    print(f"{b.name:30s}  qubits={b.num_qubits}  status={b.status().status_msg}")</code></pre>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="s8">
+    <h2 class="sec-title"><span class="icon">🔬</span> 8. Your First Quantum Circuit — Step-by-Step Lab</h2>
+    <div class="badge-row">
+      <span class="badge workshop">Hands-On Lab</span>
+      <span class="badge beginner">Beginner</span>
+    </div>
+    <h3 class="sub-title">8.1 Lab 1 — Single Qubit Superposition</h3>
+    <pre><code>from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+from qiskit.visualization import plot_histogram
+
+# Step 1: Create a circuit with 1 qubit and 1 classical bit
+qc = QuantumCircuit(1, 1)
+
+# Step 2: Apply Hadamard gate to put qubit in superposition
+qc.h(0)
+
+# Step 3: Measure the qubit into the classical bit
+qc.measure(0, 0)
+
+# Step 4: Draw the circuit
+print(qc.draw(output='text'))
+
+# Step 5: Simulate 1024 shots
+simulator = AerSimulator()
+job = simulator.run(qc, shots=1024)
+result = job.result()
+counts = result.get_counts()
+
+print("Measurement results:", counts)
+# Expected: approximately {'0': 512, '1': 512}
+# plot_histogram(counts)  # In Jupyter</code></pre>
+
+    <h3 class="sub-title">8.2 Lab 2 — Creating a Bell State (Entanglement)</h3>
+    <pre><code>from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+
+# Two-qubit circuit
+qc = QuantumCircuit(2, 2)
+
+# H on qubit 0 → superposition
+qc.h(0)
+
+# CNOT with control=0, target=1 → entanglement
+qc.cx(0, 1)
+
+# Measure both qubits
+qc.measure([0, 1], [0, 1])
+
+print(qc.draw(output='text'))
+
+simulator = AerSimulator()
+job = simulator.run(qc, shots=2048)
+counts = job.result().get_counts()
+print("Bell state measurements:", counts)
+# Expected: approximately {'00': 1024, '11': 1024}
+# Note: '01' and '10' should be ~0 — this proves entanglement!</code></pre>
+
+    <h3 class="sub-title">8.3 Lab 3 — Quantum Teleportation Protocol</h3>
+    <pre><code>from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister
+from qiskit_aer import AerSimulator
+
+# 3 qubits: q0=message, q1=Alice's half of Bell pair, q2=Bob's half
+q = QuantumRegister(3, 'q')
+c = ClassicalRegister(3, 'c')
+qc = QuantumCircuit(q, c)
+
+# Step 1: Prepare message qubit in arbitrary state (e.g. |+⟩)
+qc.h(q[0])
+
+qc.barrier()
+
+# Step 2: Create Bell pair between q1 and q2
+qc.h(q[1])
+qc.cx(q[1], q[2])
+
+qc.barrier()
+
+# Step 3: Alice's operations (CNOT + H)
+qc.cx(q[0], q[1])
+qc.h(q[0])
+
+qc.barrier()
+
+# Step 4: Alice measures and sends classical bits to Bob
+qc.measure(q[0], c[0])
+qc.measure(q[1], c[1])
+
+qc.barrier()
+
+# Step 5: Bob applies corrections based on Alice's measurement
+qc.cx(q[1], q[2])  # controlled on c[1]
+qc.cz(q[0], q[2])  # controlled on c[0]
+
+# Step 6: Bob measures his qubit (should match original state)
+qc.measure(q[2], c[2])
+
+print(qc.draw(output='text'))
+simulator = AerSimulator()
+result = simulator.run(qc, shots=1024).result()
+print(result.get_counts())</code></pre>
+
+    <div class="callout tip">
+      <div class="callout-title">💡 Pro Tip</div>
+      Use <code>qc.draw(output='mpl')</code> in Jupyter to get beautiful matplotlib circuit diagrams. Use <code>qc.decompose()</code> to see how high-level gates decompose to basis gates.
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section" id="s9">
+    <h2 class="sec-title"><span class="icon">☁️</span> 9. Running on Real IBM Quantum Hardware</h2>
+    <pre><code>from qiskit import QuantumCircuit, transpile
+from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
+
+# Load saved account
+service = QiskitRuntimeService(channel="ibm_quantum")
+
+# Select least busy backend with >= 2 qubits
+backend = service.least_busy(
+    operational=True,
+    simulator=False,
+    min_num_qubits=2
+)
+print(f"Using backend: {backend.name}")
+
+# Build Bell state circuit
+qc = QuantumCircuit(2, 2)
+qc.h(0)
+qc.cx(0, 1)
+qc.measure([0, 1], [0, 1])
+
+# Transpile for the specific backend (maps to hardware topology + basis gates)
+qc_transpiled = transpile(qc, backend=backend, optimization_level=3)
+print(f"Transpiled circuit depth: {qc_transpiled.depth()}")
+print(f"2-qubit gate count: {qc_transpiled.num_nonlocal_gates()}")
+
+# Run using Sampler primitive (recommended for measurement-based circuits)
+sampler = Sampler(backend)
+job = sampler.run([qc_transpiled], shots=1024)
+print(f"Job ID: {job.job_id()}")
+
+# Wait and retrieve results
+result = job.result()
+pub_result = result[0]
+counts = pub_result.data.c.get_counts()
+print("Hardware results:", counts)</code></pre>
+    <h3 class="sub-title">9.1 Understanding Transpilation</h3>
+    <p>Transpilation converts your abstract circuit into a hardware-executable circuit by:</p>
+    <ol>
+      <li><strong>Layout</strong> — Mapping virtual qubits to physical qubits based on connectivity</li>
+      <li><strong>Routing</strong> — Inserting SWAP gates where qubits aren't directly connected</li>
+      <li><strong>Basis translation</strong> — Converting all gates to the hardware's native gate set</li>
+      <li><strong>Optimisation</strong> — Reducing circuit depth and gate count (levels 0–3)</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section" id="s10">
+    <h2 class="sec-title"><span class="icon">📝</span> 10. Day 1 Quiz &amp; Exercises</h2>
+    <div class="quiz-box">
+      <div class="q">Q1. A qubit is in state |ψ⟩ = (3/5)|0⟩ + (4/5)|1⟩. What is the probability of measuring |1⟩?</div>
+      <ul class="opts"><li>9/25 = 36%</li><li>16/25 = 64%</li><li>4/5 = 80%</li><li>1/2 = 50%</li></ul>
+      <div class="answer">✅ Answer: (b) 16/25 = 64%  — because P(1) = |4/5|² = 16/25. Note: |3/5|² + |4/5|² = 9/25 + 16/25 = 1 ✓</div>
+    </div>
+    <div class="quiz-box">
+      <div class="q">Q2. Which gate creates an equal superposition when applied to |0⟩?</div>
+      <ul class="opts"><li>Pauli-X (NOT gate)</li><li>CNOT gate</li><li>Hadamard (H) gate</li><li>Toffoli gate</li></ul>
+      <div class="answer">✅ Answer: (c) Hadamard gate — H|0⟩ = (|0⟩ + |1⟩)/√2 = |+⟩</div>
+    </div>
+    <div class="quiz-box">
+      <div class="q">Q3. Write a Qiskit circuit that creates the Bell state |Ψ⁺⟩ = (|01⟩ + |10⟩)/√2</div>
+      <div class="answer">✅ Answer: Start with |0⟩|1⟩ (apply X to qubit 1 first), then H on qubit 0, then CNOT(0→1):
+<br><code>qc = QuantumCircuit(2); qc.x(1); qc.h(0); qc.cx(0,1)</code>
+<br>Alternatively: Start with |00⟩, H on 0, CNOT(0→1) gives |Φ⁺⟩; to get |Ψ⁺⟩ apply X to qubit 1 after.</div>
+    </div>
+    <h3 class="sub-title">Homework Exercises</h3>
+    <ol>
+      <li>Create a 3-qubit GHZ state: |GHZ⟩ = (|000⟩ + |111⟩)/√2 and verify with simulation</li>
+      <li>Use <code>StatevectorSimulator</code> to visualise the Bloch sphere of H|0⟩ vs H|1⟩</li>
+      <li>Compare measurement results at 100, 1000, and 10000 shots — observe convergence to theoretical probabilities</li>
+      <li>Look up the T1 and T2 values for any real IBM Quantum backend at <a href="https://quantum.ibm.com">quantum.ibm.com</a></li>
+    </ol>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="ref-section" id="refs">
+    <h2>📚 References &amp; Further Reading</h2>
+    <ul class="ref-list">
+      <li><span class="ref-num">[1]</span><span class="ref-text">IBM Quantum Learning. <em>Basics of Quantum Information — Course</em>. IBM Corporation, 2024. <a href="https://learning.quantum.ibm.com/course/basics-of-quantum-information" target="_blank">learning.quantum.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[2]</span><span class="ref-text">IBM Quantum Learning. <em>Understanding Quantum Information and Computation</em>. IBM Corporation, 2024. <a href="https://learning.quantum.ibm.com/course/fundamentals-of-quantum-algorithms" target="_blank">learning.quantum.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[3]</span><span class="ref-text">Qiskit Documentation. <em>Qiskit SDK v1.x — Getting Started</em>. IBM, 2024. <a href="https://docs.quantum.ibm.com" target="_blank">docs.quantum.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[4]</span><span class="ref-text">Nielsen, M. A. &amp; Chuang, I. L. <em>Quantum Computation and Quantum Information</em>. Cambridge University Press, 2010. ISBN 978-1107002173. <span class="ref-tag book">Book</span></span></li>
+      <li><span class="ref-num">[5]</span><span class="ref-text">Preskill, J. <em>Lecture Notes on Quantum Computation</em>. Caltech, 2022. <a href="http://www.theory.caltech.edu/~preskill/ph229/" target="_blank">theory.caltech.edu/~preskill/ph229/</a> <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[6]</span><span class="ref-text">IBM Quantum. <em>IBM Quantum System Two &amp; Heron Processor</em>. IBM Research Blog, 2023. <a href="https://research.ibm.com/blog/quantum-heron" target="_blank">research.ibm.com</a> <span class="ref-tag ibm">IBM</span></span></li>
+      <li><span class="ref-num">[7]</span><span class="ref-text">Wootters, W. K. &amp; Zurek, W. H. <em>A single quantum cannot be cloned</em>. Nature, 299, 802–803, 1982. doi:10.1038/299802a0 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[8]</span><span class="ref-text">Hensen, B. et al. <em>Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres</em>. Nature 526, 682–686, 2015. doi:10.1038/nature15759 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[9]</span><span class="ref-text">Kim, Y. et al. <em>Evidence for the utility of quantum computing before fault tolerance</em>. Nature 618, 500–505, 2023. doi:10.1038/s41586-023-06096-3 <span class="ref-tag academic">Academic</span></span></li>
+      <li><span class="ref-num">[10]</span><span class="ref-text">Wilde, M. M. <em>Quantum Information Theory</em>, 2nd ed. Cambridge University Press, 2017. Also freely available: <a href="https://arxiv.org/abs/1106.1445" target="_blank">arXiv:1106.1445</a> <span class="ref-tag book">Book</span></span></li>
+      <li><span class="ref-num">[11]</span><span class="ref-text">Qiskit GitHub Repository. <em>Qiskit/qiskit</em>. Open Source, Apache 2.0. <a href="https://github.com/Qiskit/qiskit" target="_blank">github.com/Qiskit/qiskit</a> <span class="ref-tag oss">Open Source</span></span></li>
+      <li><span class="ref-num">[12]</span><span class="ref-text">IBM Quantum Roadmap 2025. <em>The IBM Quantum Development Roadmap</em>. IBM, 2024. <a href="https://www.ibm.com/quantum/roadmap" target="_blank">ibm.com/quantum/roadmap</a> <span class="ref-tag ibm">IBM</span></span></li>
+    </ul>
+  </div>
+
+</div>
+<div class="page-footer">
+  IBM Qiskit Fall Fest 2026 &nbsp;·&nbsp; Quantum for Humanity Org &nbsp;·&nbsp; Day 1 Study Material &nbsp;·&nbsp; November 16, 2026<br/>
+  Content based on IBM Quantum Learning (CC BY 4.0) and referenced academic sources. Independent community event — not an official IBM publication.
+</div>
+</body>
+</html>
