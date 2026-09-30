@@ -152,6 +152,9 @@ p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:62
 .speaker-name{font-size:14px;font-weight:700;color:var(--purple-deep)}
 .speaker-role{font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.5}
 .speaker-topic{display:inline-block;margin-top:10px;background:rgba(255,107,157,.1);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:.06em;padding:3px 12px;border-radius:999px}
+.speaker-confirmed{display:inline-block;margin-top:7px;margin-left:5px;background:rgba(19,136,8,.12);color:#138808;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 9px;border-radius:999px;border:1px solid rgba(19,136,8,.3)}
+.speaker-card.confirmed{border:1.5px solid rgba(19,136,8,.35);box-shadow:0 2px 14px rgba(19,136,8,.08)}
+.speaker-av-initials{width:72px;height:72px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;letter-spacing:.03em}
 
 /* SCHEDULE */
 .schedule-sec{background:#fff}
@@ -325,6 +328,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <li><a href="#hackathon">Hackathon</a></li>
     <li><a href="#register">Register</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="quantum-video-script.html" style="color:#c4b5fd">&#127909; Intro Video</a></li>
   </ul>
   <a class="nav-cta" href="#register">Register Free</a>
 </nav>
@@ -407,6 +411,20 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <div class="stat"><div class="stat-num">&#127758;</div><div class="stat-label">Global</div></div>
   </div>
 </section>
+
+<!-- VIDEO INTRODUCTION BANNER -->
+<div style="background:linear-gradient(135deg,#0d0120,#1c0040);border-top:1px solid rgba(139,92,246,.2);border-bottom:1px solid rgba(139,92,246,.2);padding:36px 5%">
+  <div style="max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,rgba(139,92,246,.3),rgba(255,107,157,.3));border:2px solid rgba(255,107,157,.4);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">&#127909;</div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,107,157,.9);margin-bottom:4px">&#11044; Video Introduction</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.3">Quantum Computing — From Origin to Today<br/><span style="font-size:13px;font-weight:400;color:rgba(255,255,255,.5)">A short video introduction in the presenter's voice, covering the history &amp; full 5-day agenda</span></div>
+      </div>
+    </div>
+    <a href="quantum-video-script.html" style="background:var(--purple-bright);color:#fff;font-size:13px;font-weight:700;padding:12px 28px;border-radius:999px;letter-spacing:.05em;white-space:nowrap;display:inline-block;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Open Teleprompter &amp; Script &rarr;</a>
+  </div>
+</div>
 
 <!-- PARTNERSHIP BANNER -->
 <div class="india-banner" id="partners">
@@ -600,7 +618,13 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <div class="speakers-grid">
       <div class="speaker-card"><div class="speaker-av av1" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">IBM Quantum<br/>Opening Keynote</div><span class="speaker-topic">Opening Keynote</span></div>
       <div class="speaker-card"><div class="speaker-av av2" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">IBM Quantum<br/>Research</div><span class="speaker-topic">Error Correction</span></div>
-      <div class="speaker-card"><div class="speaker-av av3" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">Quantum ML<br/>Academia</div><span class="speaker-topic">Quantum ML</span></div>
+      <div class="speaker-card confirmed">
+        <div class="speaker-av-initials av3">SR</div>
+        <div class="speaker-name">Subarna Roy</div>
+        <div class="speaker-role">IBM Quantum<br/>Researcher &amp; Educator</div>
+        <span class="speaker-topic">Quantum Circuits &amp; QML</span>
+        <span class="speaker-confirmed">✓ Confirmed</span>
+      </div>
       <div class="speaker-card"><div class="speaker-av av4" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">Quantum for Humanity<br/>Org</div><span class="speaker-topic">QfH Vision</span></div>
       <div class="speaker-card"><div class="speaker-av av5" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">Quantum Chemistry<br/>Research Institute</div><span class="speaker-topic">Drug Discovery</span></div>
       <div class="speaker-card"><div class="speaker-av av6" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">IBM Quantum<br/>Education</div><span class="speaker-topic">Qiskit &amp; Education</span></div>
