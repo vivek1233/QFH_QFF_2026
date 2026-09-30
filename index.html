@@ -167,6 +167,8 @@ p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:62
 .organizer-badge{display:inline-block;margin-top:10px;background:linear-gradient(135deg,var(--purple-mid),var(--purple-bright));color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 14px;border-radius:999px}
 .organizer-linkedin{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:600;color:#0A66C2;text-decoration:none}
 .organizer-linkedin:hover{text-decoration:underline}
+.organizer-card.lead{border:2px solid var(--purple-bright);box-shadow:0 4px 20px rgba(139,92,246,.18);background:linear-gradient(160deg,#f3eeff 0%,var(--purple-pale) 100%)}
+.organizer-badge-lead{display:inline-block;margin-top:10px;background:linear-gradient(135deg,var(--purple-deep),var(--pink));color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:4px 14px;border-radius:999px}
 
 /* SCHEDULE */
 .schedule-sec{background:#fff}
@@ -701,7 +703,15 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <span class="speaker-confirmed">✓ Confirmed</span>
         </a>
       </div>
-      <div class="speaker-card"><div class="speaker-av av8" style="font-size:18px">🎤</div><div class="speaker-name">Speaker TBA</div><div class="speaker-role">Quantum Algorithms<br/>Research</div><span class="speaker-topic">QAOA &amp; VQE</span></div>
+      <div class="speaker-card confirmed">
+        <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+          <img src="Organizers/Vivekanand Triloknath Choudhry.jpg" alt="Vivekanand Choudhry" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+        </div>
+        <div class="speaker-name">Vivekanand Choudhry</div>
+        <div class="speaker-role">Senior Solution Manager, IBM<br/>Lead Quantum Fall Fest Mentor</div>
+        <span class="speaker-topic">Quantum for Humanity</span>
+        <span class="speaker-confirmed">✓ Confirmed</span>
+      </div>
     </div>
   </div>
 </section>
@@ -713,6 +723,12 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <h2 class="sec-title">Event <span class="accent">Organizers</span></h2>
     <p class="sec-desc">The passionate team behind IBM Qiskit Fall Fest 2026 — bringing quantum computing to learners across the globe.</p>
     <div class="organizers-grid">
+      <div class="organizer-card lead">
+        <img src="Organizers/Vivekanand Triloknath Choudhry.jpg" alt="Vivekanand Choudhry" class="organizer-photo"/>
+        <div class="organizer-name">Vivekanand Choudhry</div>
+        <div class="organizer-title">Senior Solution Manager, IBM<br/>Lead Quantum Fall Fest Mentor</div>
+        <div class="organizer-badge-lead">⭐ Lead Organizer</div>
+      </div>
       <div class="organizer-card">
         <img src="Organizers/AK-Profile Pic.jpg" alt="Amit Kumar" class="organizer-photo"/>
         <div class="organizer-name">Amit Kumar</div>
