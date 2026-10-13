@@ -17,9 +17,36 @@ html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 a{color:var(--purple);text-decoration:none}
 
+/* ─── AUTH GATE ────────────────────────────────────────────────── */
+#auth-gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:radial-gradient(ellipse 90% 70% at 50% 30%,rgba(139,92,246,.25),transparent 70%),#0a0818}
+.auth-card{background:var(--surface);border:1px solid rgba(139,92,246,.35);border-radius:24px;max-width:480px;width:100%;padding:40px 32px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.6);position:relative;overflow:hidden}
+.auth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--pink))}
+.auth-avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:center top;margin:0 auto 16px;border:3px solid var(--purple);box-shadow:0 0 30px rgba(139,92,246,.4);display:block}
+.auth-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,157,.12);border:1px solid rgba(255,107,157,.35);color:var(--pink);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:14px}
+.auth-title{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px}
+.auth-lead-name{font-size:16px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.auth-lead-role{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.4}
+.auth-desc{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:24px}
+.auth-form{display:flex;flex-direction:column;gap:12px}
+.auth-input{background:rgba(255,255,255,.06);border:1.5px solid rgba(139,92,246,.35);border-radius:12px;padding:12px 18px;font-size:14px;color:#fff;outline:none;text-align:center;letter-spacing:.05em;transition:border-color .2s}
+.auth-input:focus{border-color:var(--pink);box-shadow:0 0 16px rgba(255,107,157,.25)}
+.auth-btn{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;border-radius:12px;padding:13px 20px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.04em;transition:transform .15s,box-shadow .2s}
+.auth-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,107,157,.35)}
+.auth-err{color:#ff6b6b;font-size:12.5px;font-weight:600;margin-top:6px;min-height:18px}
+.auth-back-link{margin-top:20px;display:inline-block;font-size:12px;color:var(--muted);text-decoration:none}
+.auth-back-link:hover{color:#fff;text-decoration:underline}
+
 /* ─── TOP BAR ──────────────────────────────────────────────────── */
 .topbar{background:linear-gradient(90deg,#1c0040,#2D1B69);border-bottom:2px solid var(--pink);padding:12px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.topbar-title{font-size:13px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+.topbar-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.topbar-title{font-size:13px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.85)}
+.topbar-lead-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,179,71,.15);border:1px solid rgba(255,179,71,.4);color:var(--gold);font-size:11px;font-weight:700;padding:3px 12px;border-radius:999px}
+.topbar-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar-btn{font-size:12px;font-weight:600;border-radius:999px;padding:5px 14px;cursor:pointer;border:none;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-share{background:rgba(139,92,246,.25);color:#c4b5fd;border:1px solid rgba(139,92,246,.5)}
+.btn-share:hover{background:rgba(139,92,246,.45);color:#fff}
+.btn-lock{background:rgba(255,255,255,.08);color:var(--muted);border:1px solid var(--border)}
+.btn-lock:hover{background:rgba(255,107,157,.15);color:var(--pink)}
 .topbar-back{font-size:12px;font-weight:600;color:var(--pink);border:1px solid rgba(255,107,157,.35);border-radius:999px;padding:5px 16px;transition:background .2s}
 .topbar-back:hover{background:rgba(255,107,157,.12)}
 
@@ -125,10 +152,40 @@ a{color:var(--purple);text-decoration:none}
 </head>
 <body>
 
+<!-- AUTH GATE (SHOWN WHEN LOCKED) -->
+<div id="auth-gate">
+  <div class="auth-card">
+    <img src="Organizers/Vivekanand Triloknath Choudhry.jpg" alt="Vivekanand Choudhry" class="auth-avatar"/>
+    <div class="auth-badge">&#128274; Restricted Access</div>
+    <h2 class="auth-title">Lead Organizer Portal</h2>
+    <div class="auth-lead-name">Vivekanand Triloknath Choudhry</div>
+    <div class="auth-lead-role">Lead Organizer &amp; Mentor &bull; IBM Qiskit Fall Fest 2026</div>
+    <p class="auth-desc">This Video Introduction &amp; Teleprompter workspace is reserved for Vivekanand Triloknath Choudhry and permitted delegates.</p>
+    
+    <form class="auth-form" onsubmit="handleAuthSubmit(event)">
+      <input type="password" id="pass-input" class="auth-input" placeholder="Enter Organizer Passcode" autocomplete="current-password" autofocus/>
+      <button type="submit" class="auth-btn">&#128275; Unlock Teleprompter</button>
+      <div id="auth-err" class="auth-err"></div>
+    </form>
+    
+    <a href="index.html" class="auth-back-link">&larr; Return to Public Website</a>
+  </div>
+</div>
+
+<!-- PROTECTED WORKSPACE CONTENT (SHOWN WHEN UNLOCKED) -->
+<div id="protected-workspace" style="display:none">
+
 <!-- TOP BAR -->
 <div class="topbar">
-  <span class="topbar-title">&#127909; IBM Qiskit Fall Fest 2026 — Video Introduction Script</span>
-  <a class="topbar-back" href="index.html">&larr; Back to Website</a>
+  <div class="topbar-left">
+    <span class="topbar-title">&#127909; IBM Qiskit Fall Fest 2026 — Video Introduction Script</span>
+    <span class="topbar-lead-tag">&#11088; Vivekanand Triloknath Choudhry (Lead Organizer)</span>
+  </div>
+  <div class="topbar-actions">
+    <button class="topbar-btn btn-share" onclick="shareAccessLink()" title="Copy authorized link to grant access to others">&#128279; Share Access Link</button>
+    <button class="topbar-btn btn-lock" onclick="lockWorkspace()" title="Lock this page">&#128274; Lock</button>
+    <a class="topbar-back" href="index.html">&larr; Back to Website</a>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -493,8 +550,100 @@ function copyScript() {
 </script>
 
 <footer style="text-align:center;padding:32px 5%;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">
-  IBM Qiskit Fall Fest 2026 &mdash; Quantum for Humanity Org &mdash; <a href="index.html">Back to main site</a>
+  IBM Qiskit Fall Fest 2026 &mdash; Quantum for Humanity Org &mdash; Authorized for Vivekanand Triloknath Choudhry &mdash; <a href="index.html">Back to main site</a>
 </footer>
+
+</div><!-- /protected-workspace -->
+
+<script>
+/* ─── ACCESS CONTROL LOGIC ─────────────────────────────────────────── */
+const VALID_KEYS = [
+  'vtchoudhry2026',
+  'vivekanand2026',
+  'vivekanand@qff2026',
+  'qff2026-lead',
+  'vtc2026'
+];
+
+function checkAuthorized() {
+  // Check URL parameters for direct shareable link (e.g. ?key=VTChoudhry2026 or ?auth=...)
+  const params = new URLSearchParams(window.location.search);
+  const urlKey = (params.get('key') || params.get('auth') || params.get('token') || params.get('pass') || '').trim().toLowerCase();
+  
+  if (urlKey && VALID_KEYS.includes(urlKey)) {
+    sessionStorage.setItem('qff_organizer_auth', 'granted');
+    return true;
+  }
+
+  // Check session / local storage
+  if (sessionStorage.getItem('qff_organizer_auth') === 'granted' || localStorage.getItem('qff_organizer_auth') === 'granted') {
+    return true;
+  }
+  return false;
+}
+
+function unlockUI() {
+  document.getElementById('auth-gate').style.display = 'none';
+  document.getElementById('protected-workspace').style.display = 'block';
+  if (!window._scriptInitialized) {
+    window._scriptInitialized = true;
+    initScript();
+  }
+}
+
+function lockWorkspace() {
+  sessionStorage.removeItem('qff_organizer_auth');
+  localStorage.removeItem('qff_organizer_auth');
+  // Clear url param without reloading
+  if (window.location.search) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+  document.getElementById('protected-workspace').style.display = 'none';
+  document.getElementById('auth-gate').style.display = 'flex';
+  const passIn = document.getElementById('pass-input');
+  if (passIn) {
+    passIn.value = '';
+    passIn.focus();
+  }
+}
+
+function handleAuthSubmit(e) {
+  if (e) e.preventDefault();
+  const input = document.getElementById('pass-input');
+  const err = document.getElementById('auth-err');
+  const val = (input.value || '').trim().toLowerCase();
+
+  if (VALID_KEYS.includes(val)) {
+    sessionStorage.setItem('qff_organizer_auth', 'granted');
+    localStorage.setItem('qff_organizer_auth', 'granted');
+    err.textContent = '';
+    unlockUI();
+  } else {
+    err.textContent = 'Invalid passcode. Access restricted to Lead Organizer.';
+    input.focus();
+    input.select();
+  }
+}
+
+function shareAccessLink() {
+  const shareUrl = window.location.origin + window.location.pathname + '?key=VTChoudhry2026';
+  navigator.clipboard.writeText(shareUrl).then(() => {
+    alert('Authorized access link copied to clipboard!\n\nAnyone with this link can view the teleprompter:\n' + shareUrl);
+  }).catch(() => {
+    prompt('Copy this authorized link to share:', shareUrl);
+  });
+}
+
+// Initial authorization check
+document.addEventListener('DOMContentLoaded', function() {
+  if (checkAuthorized()) {
+    unlockUI();
+  } else {
+    document.getElementById('auth-gate').style.display = 'flex';
+    document.getElementById('protected-workspace').style.display = 'none';
+  }
+});
+</script>
 
 </body>
 </html>
