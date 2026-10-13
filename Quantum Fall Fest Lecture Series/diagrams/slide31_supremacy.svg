@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="900" height="120">
+  <rect width="900" height="120" fill="#0A1628" rx="8"/>
+  <text x="14" y="18" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">QUANTUM SUPREMACY vs. QUANTUM ADVANTAGE  &#x2014;  Clear Definitions</text>
+  <!-- Supremacy box -->
+  <rect x="14" y="26" width="380" height="82" rx="6" fill="#1E3A5F" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="204" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">Quantum SUPREMACY</text>
+  <text x="24" y="58" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Quantum does ANY task no classical can do in practice</text>
+  <text x="24" y="72" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Google 2019: random circuit sampling in 200s</text>
+  <text x="24" y="86" font-family="Calibri,sans-serif" font-size="10" fill="#FFE082">&#x25AA; IBM rebuttal: classical simulation revised to 2.5 days</text>
+  <text x="24" y="100" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">Narrow artificial task — commercially irrelevant</text>
+  <!-- VS -->
+  <text x="406" y="72" text-anchor="middle" font-family="Calibri,sans-serif" font-size="22" fill="#FFD54F">VS</text>
+  <!-- Advantage box -->
+  <rect x="428" y="26" width="458" height="82" rx="6" fill="#1B5E20" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="657" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#A5D6A7" font-weight="bold">Quantum ADVANTAGE (the real goal)</text>
+  <text x="438" y="58" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Quantum solves a PRACTICALLY USEFUL problem faster/better</text>
+  <text x="438" y="72" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Status: NOT YET DEMONSTRATED for commercial applications</text>
+  <text x="438" y="86" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">&#x25AA; Near-term target: quantum chemistry, optimization sub-routines</text>
+  <text x="438" y="100" font-family="Calibri,sans-serif" font-size="9" fill="#90CAF9">IBM 2023: &quot;Quantum Utility&quot; — beyond classical simulation for Ising model</text>
+</svg>

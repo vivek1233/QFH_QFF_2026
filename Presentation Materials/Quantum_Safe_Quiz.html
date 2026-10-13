@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Quantum Safe Comprehensive Quiz | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#8B5CF6;--accent2:#FF6B9D;--accent3:#33B1FF;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  /* Header */
+  .site-header{background:linear-gradient(135deg,#1a0a2e 0%,#0d1a3a 50%,#0a1a0d 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  .day-badge{display:inline-block;background:rgba(139,92,246,.18);border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-left:10px;vertical-align:middle;}
+  h1.doc-title{font-size:2.1rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#c4b5fd 60%,#FF6B9D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1rem;margin-bottom:18px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--muted);}
+  .meta-row span{background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:6px;}
+  /* Layout */
+  .container{max-width:960px;margin:0 auto;padding:40px 32px 80px;}
+  /* Quiz Box */
+  .quiz-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 26px;margin:24px 0;}
+  .quiz-box .q{font-weight:700;color:#fff;margin-bottom:12px;font-size:1.05rem;}
+  .quiz-box .opts{list-style:none;padding-left:0;margin-bottom:12px;}
+  .quiz-box .opts li{padding:6px 12px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:6px;margin-bottom:6px;color:#cccce0;}
+  .quiz-box .answer{margin-top:12px;font-size:.9rem;color:#34D399;border-top:1px solid var(--border);padding-top:10px;line-height:1.6;}
+  /* Level Banner */
+  .level-banner{background:linear-gradient(90deg,var(--card) 0%,rgba(139,92,246,0.15) 100%);border-left:4px solid var(--accent);padding:14px 20px;border-radius:6px;margin-top:40px;font-weight:800;font-size:1.15rem;color:#fff;}
+  .level-banner.intermediate{border-left-color:var(--accent3);background:linear-gradient(90deg,var(--card) 0%,rgba(51,177,255,0.15) 100%);}
+  .level-banner.advanced{border-left-color:var(--accent2);background:linear-gradient(90deg,var(--card) 0%,rgba(255,107,157,0.15) 100%);}
+  /* Back link */
+  .back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--accent3);font-weight:600;margin-bottom:20px;font-size:14px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="event-tag">IBM Quantum Safe</div>
+  <span class="day-badge">Comprehensive Quiz</span>
+  <h1 class="doc-title">IBM Quantum Safe Practice Quiz &amp; Mastery Assessment</h1>
+  <p class="doc-subtitle">Test and expand your understanding of Shor's/Grover's algorithms, finalized NIST standards (FIPS 203/204/205), CBOM specifications, hybrid cryptography pipelines, and crypto-agility.</p>
+  <div class="meta-row">
+    <span>🧠 Levels: Beginner, Intermediate &amp; Advanced</span>
+    <span>📝 Total: 15 Core Practice Questions with Detailed Explanations</span>
+    <span>🎓 Sourced from: IBM Quantum Learning Curriculum</span>
+  </div>
+</header>
+
+<div class="container">
+  <a href="index.html" class="back-btn">&larr; Back to Presentation Hub</a>
+
+  <!-- LEVEL 1: BEGINNER -->
+  <div class="level-banner">🟢 Beginner Learner — Core Concepts &amp; Threats</div>
+  
+  <div class="quiz-box">
+    <div class="q">Q1. Why does Shor's algorithm present an existential threat to modern secure communications?</div>
+    <ul class="opts">
+      <li>(a) It accelerates symmetric key search quadratic times, breaking AES-256 instantly.</li>
+      <li>(b) It provides an exponential speedup in solving integer factorization and discrete logarithms, completely breaking RSA and ECC.</li>
+      <li>(c) It intercepts and decrypts ongoing radio signals dynamically.</li>
+      <li>(d) It introduces hardware-level physical attacks on fiber optic channels.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> Shor's algorithm provides an exponential speedup for factoring large integers and computing discrete logarithms. Standard public-key cryptographic systems (RSA, Diffie-Hellman, ECDH, ECDSA) rely directly on the difficulty of these mathematical problems. A cryptanalytically relevant quantum computer (CRQC) executing Shor's algorithm can solve them in cubic time, completely breaking classical asymmetric security.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q2. What is the quantum threat posed by Grover's algorithm to symmetric ciphers like AES?</div>
+    <ul class="opts">
+      <li>(a) It offers an exponential speedup, reducing AES-256 key strength to 0 bits.</li>
+      <li>(b) It breaks public keys, making AES dependent on RSA safety.</li>
+      <li>(c) It provides a quadratic speedup for searching unstructured databases, effectively halving the security strength from N to N/2 bits.</li>
+      <li>(d) It makes symmetric ciphers vulnerable to man-in-the-middle packet spoofing.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (c)</strong>
+      <br><strong>Explanation:</strong> Grover's algorithm reduces the effective brute-force security of symmetric encryption by half. AES-128 drops to an insecure 64-bit strength, whereas <strong>AES-256 remains secure as it retains a 128-bit quantum security strength</strong>, which is mathematically impossible to brute-force with any conceivable physical computer.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q3. What is "Harvest Now, Decrypt Later" (HNDL) and why does it mean the quantum threat is immediate?</div>
+    <ul class="opts">
+      <li>(a) Adversaries are taking over physical quantum datacenters today to decrypt traffic.</li>
+      <li>(b) Adversaries are stealing physical hardware chips to read security registers.</li>
+      <li>(c) Adversaries are recording encrypted enterprise traffic today with plans to decrypt it as soon as a CRQC becomes available.</li>
+      <li>(d) It describes a database backup vulnerability that wipes files every autumn.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (c)</strong>
+      <br><strong>Explanation:</strong> Under HNDL, adversaries collect and archive encrypted corporate and government network telemetry today. Even though they cannot decrypt it now, they will do so retroactively once a CRQC arrives. Therefore, any data with a high shelf life (>10 years), such as classified defense materials, healthcare archives, or core trade intellectual property, is at risk <strong>today</strong> unless protected by quantum-safe algorithms.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q4. What is the meaning of "Post-Quantum Cryptography" (PQC)?</div>
+    <ul class="opts">
+      <li>(a) Cryptographic algorithms that run exclusively on physical quantum hardware platforms.</li>
+      <li>(b) Cryptographic algorithms that run on classical computers today but are mathematically resistant to attacks from both classical and quantum computers.</li>
+      <li>(c) Advanced fiber networks that transmit qubits rather than standard data bits.</li>
+      <li>(d) Classical encryption algorithms designed to prevent physical malware injections.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> PQC algorithms are standard mathematical codes designed to run on the classical computers, networks, and servers we use today. However, their underlying mathematical problems (e.g., lattice algebra) are chosen because they are extremely difficult to solve for both classical and quantum computers.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q5. Which standard finalized in August 2024 is the primary recommended standard for general enterprise encryption and key exchange?</div>
+    <ul class="opts">
+      <li>(a) NIST FIPS 204 (ML-DSA)</li>
+      <li>(b) NIST FIPS 205 (SLH-DSA)</li>
+      <li>(c) NIST FIPS 203 (ML-KEM)</li>
+      <li>(d) RSA-4096 with SHA-256</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (c)</strong>
+      <br><strong>Explanation:</strong> NIST finalized FIPS 203 in August 2024, designating <strong>ML-KEM</strong> (Module-Lattice-Based Key-Encapsulation Mechanism, co-designed by IBM researchers) as the primary standard for general encryption and key exchange, replacing ECDH and classical RSA key transport.
+    </div>
+  </div>
+
+
+  <!-- LEVEL 2: INTERMEDIATE -->
+  <div class="level-banner intermediate">🔵 Intermediate Learner — Standards, Sizing &amp; Architectures</div>
+
+  <div class="quiz-box">
+    <div class="q">Q6. On what mathematical foundation are FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA) based?</div>
+    <ul class="opts">
+      <li>(a) Supersingular Isogeny Diffie-Hellman (SIDH)</li>
+      <li>(b) Module-Lattice-Based Cryptography (Module Learning with Errors - M-LWE)</li>
+      <li>(c) Elliptic Curve Cryptography using SECP256k1</li>
+      <li>(d) Quadratic Sieve and General Number Field Sieve prime generation</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> FIPS 203 and 204 algorithms are based on Module Learning with Errors (M-LWE), a variant of lattice-based cryptography. This mathematical framework represents keys as multi-dimensional geometric lattice points, and breaking them requires finding the closest vector in an extremely high-dimensional space, which is computationally intractable for quantum computers.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q7. What is the key functional difference between FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA)?</div>
+    <ul class="opts">
+      <li>(a) ML-KEM is used for digital signatures; ML-DSA is used for key exchange.</li>
+      <li>(b) ML-KEM is used for key encapsulation/encryption; ML-DSA is used for digital signatures.</li>
+      <li>(c) ML-KEM works exclusively on mainframes; ML-DSA works exclusively on Cloud.</li>
+      <li>(d) ML-KEM represents symmetric ciphers; ML-DSA represents hash functions.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> ML-KEM (Key-Encapsulation Mechanism) is used to securely exchange symmetric session keys over untrusted networks (replacing ECDH). ML-DSA (Digital Signature Algorithm) is used to verify identities and prove authenticity (replacing RSA-signing and ECDSA), forming the backbone of post-quantum PKI and certificates.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q8. Why do post-quantum algorithms present network overhead and buffer challenges compared to classical ECC?</div>
+    <ul class="opts">
+      <li>(a) PQC algorithms require heavy fiber cables and liquid helium cooling structures.</li>
+      <li>(b) PQC keys are represented in base64 strings that cause character-set conversion crashes.</li>
+      <li>(c) PQC keys and signatures are orders of magnitude larger than classical counterparts, potentially overflowing hardcoded network buffers.</li>
+      <li>(d) They are slow and require thousands of CPU nodes for a single key derivation.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (c)</strong>
+      <br><strong>Explanation:</strong> Classical Elliptic Curve signatures (ECDSA) are highly compact (64 bytes). In contrast, FIPS 204 **ML-DSA-65 signatures are 3,293 bytes** and FIPS 203 **ML-KEM-768 public keys are 1,184 bytes**. Injesting these larger keys can overflow legacy network packet buffers, requiring network engineers to scale buffer sizes and TCP/UDP segment queues.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q9. What is a "Cryptographic Bill of Materials" (CBOM) under the OWASP CycloneDX standard?</div>
+    <ul class="opts">
+      <li>(a) A financial spreadsheet detailing the physical cost of ordering hardware HSM cards.</li>
+      <li>(b) An extension of SBOM that catalogs all cryptographic assets, algorithms, keys, and locations in software codebases.</li>
+      <li>(c) A license document required to import cryptography software into different nations.</li>
+      <li>(d) A specialized mainframe backup file recording system user logins.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> A CBOM is a structured, standard JSON file based on OWASP CycloneDX. It details all cryptographic elements in an enterprise ecosystem, specifying the algorithm, key size, OID, vulnerabilities, source file, line number, and regulatory compliance, allowing security architects to audit and discover vulnerabilities instantly.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q10. Why is "Hybrid Cryptography" recommended as the gold standard for migrating enterprise security layers?</div>
+    <ul class="opts">
+      <li>(a) It combines classical algorithms (e.g. ECDH) with a post-quantum algorithm (e.g. ML-KEM) to guarantee security even if a mathematical vulnerability is found in lattice math.</li>
+      <li>(b) It translates classical strings into binary qubits dynamically.</li>
+      <li>(c) It allows the software to execute both on Windows and Linux machines simultaneously.</li>
+      <li>(d) It uses a mixture of hardware HSMs and software keys to speed up hashing.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (a)</strong>
+      <br><strong>Explanation:</strong> Hybrid cryptography runs a classical algorithm (like ECDH P-256) and a post-quantum algorithm (like ML-KEM-768) in parallel. The session key is derived by combining both secrets. If a vulnerability or design flaw is discovered in the relatively new lattice-based math, the connection remains fully protected by the classical layer, and vice-versa.
+    </div>
+  </div>
+
+
+  <!-- LEVEL 3: ADVANCED -->
+  <div class="level-banner advanced">🔴 Advanced Learner — Engineering, Implementations &amp; Mainframes</div>
+
+  <div class="quiz-box">
+    <div class="q">Q11. In a hybrid key exchange, how are the classical secret and the ML-KEM post-quantum secret safely combined using HKDF?</div>
+    <ul class="opts">
+      <li>(a) By executing an XOR operation directly on the public keys.</li>
+      <li>(b) By passing both keys directly to an AES block encryptor without hashing.</li>
+      <li>(c) By concatenating the secrets and applying HMAC-SHA256 based HKDF-Extract-and-Expand to derive a secure 32-byte key.</li>
+      <li>(d) By converting the keys to integer strings and using RSA multiplication.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (c)</strong>
+      <br><strong>Explanation:</strong> To securely mix classical and quantum-safe keys, you concatenate the classical shared secret with the post-quantum encapsulated secret. Then, you execute HKDF (HMAC-based Key Derivation Function) with an optional salt to extract a pseudorandom key (PRK), and expand it with an application-specific label to output the final symmetric key:
+      <br><code>PRK = HMAC-SHA256(salt, classical_secret || pq_secret)</code>
+      <br><code>Derived_Key = HMAC-SHA256(PRK, label || \x01)</code>
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q12. What are the strict byte-length structural bounds that must be verified when enforcing FIPS 204 ML-DSA-65 signatures?</div>
+    <ul class="opts">
+      <li>(a) Signature size must be exactly 64 bytes; Public Key must be 32 bytes.</li>
+      <li>(b) Signature size must be exactly 3,293 bytes; Public Key must be 1,952 bytes.</li>
+      <li>(c) Signature size must be exactly 1,184 bytes; Public Key must be 2,420 bytes.</li>
+      <li>(d) Signature size must be exactly 2,048 bits; Public Key must be 256 bits.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> In ML-DSA-65 (FIPS 204 Level 3), signatures are structurally defined at exactly <strong>3,293 bytes</strong> and the corresponding public key is exactly <strong>1,952 bytes</strong>. Verifying these bounds programmatically is crucial before performing verification calculations to block malformed packet or memory overflow exploits.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q13. How does a "Crypto-Agile Security Engine" handle zero-downtime cipher hot-swapping?</div>
+    <ul class="opts">
+      <li>(a) It compiles separate binary files for each operating system.</li>
+      <li>(b) It utilizes decoupled high-level abstractions and configuration-driven state management to switch active cipher suites dynamically without rebuilding code.</li>
+      <li>(c) It forces a remote server reboot whenever a client requests a different key.</li>
+      <li>(d) It utilizes multi-threading to run classical and quantum codes on separate CPU cores.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (b)</strong>
+      <br><strong>Explanation:</strong> Crypto-agility is achieved by decoupling applications from concrete cipher implementations. A stateful engine (e.g., an Agile Security Engine) stores active configuration states (e.g., 'CLASSICAL', 'HYBRID', 'POST_QUANTUM') and loads the corresponding mapping dynamically based on configuration updates (like YAML or JSON rules) without application recompilation or service downtime.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q14. How does IBM Z Crypto Discovery &amp; Inventory (zCDI) simplify mainframe post-quantum migration?</div>
+    <ul class="opts">
+      <li>(a) It blocks classical network connections instantly to force developers to migrate.</li>
+      <li>(b) It automatically translates COBOL code into Python code.</li>
+      <li>(c) It ingests SMF records and network telemetry to automatically discover, catalog, and map active cryptographic calls to z/OS jobs.</li>
+      <li>(d) It executes real-time quantum factoring on classical mainframe processors.</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (c)</strong>
+      <br><strong>Explanation:</strong> In a z/OS mainframe environment, IBM zCDI ingests System Management Facility (SMF) logs and network statistics. It automatically processes these data streams to pinpoint which jobs, applications, and network endpoints use outdated or non-compliant ciphers (e.g., legacy RSA or TLS versions), outputting a real-time compliance dashboard and inventory list.
+    </div>
+  </div>
+
+  <div class="quiz-box">
+    <div class="q">Q15. Which hardware module on IBM z16 and LinuxONE 4 mainframes provides native cryptographic acceleration for Kyber (ML-KEM) and Dilithium (ML-DSA)?</div>
+    <ul class="opts">
+      <li>(a) Crypto Express 8S (CEX8S) Hardware Security Module (HSM)</li>
+      <li>(b) Intel SGX Security Enclave</li>
+      <li>(c) NVIDIA Tensor Core H100 GPU</li>
+      <li>(d) CP Assist for Cryptographic Functions (CPACF) DES engine</li>
+    </ul>
+    <div class="answer">
+      ✅ <strong>Correct Answer: (a)</strong>
+      <br><strong>Explanation:</strong> The **Crypto Express 8S (CEX8S)** coprocessor is standard on the IBM z16 and LinuxONE 4 mainframes. It provides dedicated physical hardware acceleration for post-quantum algorithms like ML-KEM and ML-DSA, ensuring that lattice-based secure boot and transaction signatures execute with ultra-low latency and maximum safety.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

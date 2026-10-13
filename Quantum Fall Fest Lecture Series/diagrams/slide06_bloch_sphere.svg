@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360">
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#EF5350"/>
+    </marker>
+    <marker id="az" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#546E7A"/>
+    </marker>
+  </defs>
+  <rect width="360" height="360" fill="#0D1B2A" rx="10"/>
+  <text x="180" y="26" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#90CAF9" font-weight="bold">BLOCH SPHERE</text>
+  <text x="180" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#B0BEC5">Geometric representation of a single qubit</text>
+  <!-- Sphere outline -->
+  <ellipse cx="180" cy="185" rx="110" ry="110" fill="none" stroke="#1E3A5F" stroke-width="1.5"/>
+  <!-- Equator dashed -->
+  <ellipse cx="180" cy="185" rx="110" ry="30" fill="none" stroke="#37474F" stroke-width="1.2" stroke-dasharray="6,4"/>
+  <!-- Axes -->
+  <line x1="180" y1="75" x2="180" y2="295" stroke="#546E7A" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <line x1="70" y1="185" x2="290" y2="185" stroke="#546E7A" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <!-- Z axis label -->
+  <line x1="180" y1="75" x2="180" y2="60" stroke="#546E7A" stroke-width="1.5" marker-end="url(#az)"/>
+  <text x="188" y="58" font-family="Calibri,sans-serif" font-size="12" fill="#78909C">Z</text>
+  <!-- |0> north pole -->
+  <circle cx="180" cy="75" r="7" fill="#1E88E5" stroke="#90CAF9" stroke-width="1.5"/>
+  <text x="194" y="73" font-family="Calibri,sans-serif" font-size="14" fill="#90CAF9" font-weight="bold">|0&#x27E9;</text>
+  <!-- |1> south pole -->
+  <circle cx="180" cy="295" r="7" fill="#66BB6A" stroke="#A5D6A7" stroke-width="1.5"/>
+  <text x="194" y="300" font-family="Calibri,sans-serif" font-size="14" fill="#A5D6A7" font-weight="bold">|1&#x27E9;</text>
+  <!-- |+> |-> equatorial -->
+  <circle cx="290" cy="185" r="5" fill="#FFB300"/>
+  <text x="298" y="190" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">|+&#x27E9;</text>
+  <circle cx="70" cy="185" r="5" fill="#FFB300"/>
+  <text x="28" y="190" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">|&#x2212;&#x27E9;</text>
+  <!-- State vector |psi> -->
+  <line x1="180" y1="185" x2="232" y2="118" stroke="#EF5350" stroke-width="3" marker-end="url(#ah)"/>
+  <circle cx="232" cy="118" r="5" fill="#EF5350"/>
+  <text x="240" y="115" font-family="Calibri,sans-serif" font-size="14" fill="#EF9A9A" font-weight="bold">|&#x03C8;&#x27E9;</text>
+  <!-- Theta arc -->
+  <path d="M180,100 A38,38 0 0,1 208,130" fill="none" stroke="#90CAF9" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="196" y="107" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">&#x03B8;</text>
+  <!-- Phi arc on equator projection -->
+  <path d="M210,185 A30,8 0 0,0 220,162" fill="none" stroke="#FFCC02" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="228" y="178" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">&#x03C6;</text>
+  <!-- projection lines -->
+  <line x1="180" y1="185" x2="215" y2="185" stroke="#546E7A" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="215" y1="185" x2="232" y2="118" stroke="#546E7A" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- Formula -->
+  <rect x="14" y="310" width="332" height="38" rx="6" fill="#1E3A5F" stroke="#37474F"/>
+  <text x="180" y="325" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#E3F2FD">|&#x03C8;&#x27E9; = cos(&#x03B8;/2)|0&#x27E9; + e^(i&#x03C6;) sin(&#x03B8;/2)|1&#x27E9;</text>
+  <text x="180" y="342" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#B0BEC5">Every quantum gate = a rotation on this sphere</text>
+</svg>

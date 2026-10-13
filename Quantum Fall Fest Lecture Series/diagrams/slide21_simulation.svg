@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 130" width="900" height="130">
+  <rect width="900" height="130" fill="#0A1628" rx="8"/>
+  <text x="14" y="18" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">QUANTUM SIMULATION  &#x2014;  Why Quantum Computers are Nature's Native Language</text>
+  <!-- Classic simulation wall -->
+  <rect x="14" y="28" width="260" height="88" rx="6" fill="#7F0000" stroke="#EF5350" stroke-width="1.5"/>
+  <text x="144" y="46" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFCDD2" font-weight="bold">Classical Simulation Wall</text>
+  <text x="24" y="62" font-family="Calibri,sans-serif" font-size="11" fill="#FFCDD2">&#x25AA; 50 electrons = 2&#x2075;&#x2070; = 10&#x00B9;&#x2075; numbers</text>
+  <text x="24" y="76" font-family="Calibri,sans-serif" font-size="11" fill="#FFCDD2">&#x25AA; 1 petabyte of memory just to store</text>
+  <text x="24" y="90" font-family="Calibri,sans-serif" font-size="11" fill="#FFCDD2">&#x25AA; Years of compute time on Summit</text>
+  <text x="24" y="104" font-family="Calibri,sans-serif" font-size="11" fill="#EF9A9A">&#x25AA; Exponential wall — INTRACTABLE</text>
+  <!-- VS arrow -->
+  <text x="284" y="75" font-family="Calibri,sans-serif" font-size="22" fill="#FFD54F">&#x2192;</text>
+  <!-- Quantum simulation -->
+  <rect x="306" y="28" width="280" height="88" rx="6" fill="#1B5E20" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="446" y="46" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#A5D6A7" font-weight="bold">Quantum Simulation</text>
+  <text x="316" y="62" font-family="Calibri,sans-serif" font-size="11" fill="#C8E6C9">&#x25AA; Qubits ARE quantum — native language</text>
+  <text x="316" y="76" font-family="Calibri,sans-serif" font-size="11" fill="#C8E6C9">&#x25AA; n qubits represent 2ⁿ states natively</text>
+  <text x="316" y="90" font-family="Calibri,sans-serif" font-size="11" fill="#C8E6C9">&#x25AA; VQE on IBM: H₂, LiH, BeH₂, N₂ done</text>
+  <text x="316" y="104" font-family="Calibri,sans-serif" font-size="11" fill="#FFD54F">&#x25AA; Polynomial overhead — FEASIBLE</text>
+  <!-- Application domains -->
+  <rect x="602" y="28" width="284" height="88" rx="6" fill="#0D2137" stroke="#37474F" stroke-width="1.2"/>
+  <text x="744" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">Application Domains</text>
+  <text x="612" y="59" font-family="Calibri,sans-serif" font-size="10" fill="#B3E5FC">&#x25C6; Drug discovery: protein-ligand binding</text>
+  <text x="612" y="72" font-family="Calibri,sans-serif" font-size="10" fill="#B3E5FC">&#x25C6; Materials: high-T&#x1D9C; superconductors</text>
+  <text x="612" y="85" font-family="Calibri,sans-serif" font-size="10" fill="#B3E5FC">&#x25C6; Chemistry: reaction pathways, catalysts</text>
+  <text x="612" y="98" font-family="Calibri,sans-serif" font-size="10" fill="#B3E5FC">&#x25C6; Nuclear: QCD lattice simulations</text>
+  <text x="612" y="111" font-family="Calibri,sans-serif" font-size="9" fill="#90CAF9">Feynman 1982: &quot;Nature is quantum — simulate it quantum&quot;</text>
+</svg>

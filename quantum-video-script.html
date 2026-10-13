@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Video Script — IBM Qiskit Fall Fest 2026 | Quantum for Humanity</title>
+<style>
+/* ─── RESET & ROOT ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --bg:#0a0818;--surface:#14102a;--card:#1c1835;
+  --purple:#8B5CF6;--pink:#FF6B9D;--blue:#6EA8FE;
+  --gold:#FFB347;--green:#34D399;
+  --text:#e8e4ff;--muted:#9488c0;--border:rgba(139,92,246,.2);
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+a{color:var(--purple);text-decoration:none}
+
+/* ─── TOP BAR ──────────────────────────────────────────────────── */
+.topbar{background:linear-gradient(90deg,#1c0040,#2D1B69);border-bottom:2px solid var(--pink);padding:12px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.topbar-title{font-size:13px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+.topbar-back{font-size:12px;font-weight:600;color:var(--pink);border:1px solid rgba(255,107,157,.35);border-radius:999px;padding:5px 16px;transition:background .2s}
+.topbar-back:hover{background:rgba(255,107,157,.12)}
+
+/* ─── HERO HEADER ──────────────────────────────────────────────── */
+.vid-hero{background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(139,92,246,.18),transparent 70%);padding:64px 5% 40px;text-align:center;border-bottom:1px solid var(--border)}
+.rec-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,157,.1);border:1px solid rgba(255,107,157,.3);border-radius:999px;padding:6px 18px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:24px}
+.rec-dot{width:10px;height:10px;border-radius:50%;background:var(--pink);animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+.vid-hero h1{font-size:clamp(26px,5vw,52px);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.vid-hero h1 .accent{color:var(--pink)}
+.vid-hero h1 .hi{color:#c4b5fd}
+.vid-hero p{font-size:15px;color:var(--muted);max-width:680px;margin:0 auto 32px;line-height:1.75}
+
+/* ─── CONTROLS ─────────────────────────────────────────────────── */
+.controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.btn{border:none;border-radius:999px;font-size:13px;font-weight:700;padding:10px 26px;cursor:pointer;letter-spacing:.06em;transition:transform .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px);opacity:.88}
+.btn-start{background:var(--green);color:#0a1a12}
+.btn-pause{background:var(--gold);color:#1a0a00}
+.btn-reset{background:rgba(255,255,255,.08);color:var(--text);border:1px solid var(--border)}
+.speed-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:10px;font-size:12px;color:var(--muted)}
+.speed-btn{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:3px 10px;cursor:pointer;font-size:12px;font-weight:600;transition:background .2s}
+.speed-btn:hover,.speed-btn.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+#speed-display{min-width:34px;text-align:center;font-weight:700;color:var(--purple)}
+
+/* ─── PROGRESS BAR ─────────────────────────────────────────────── */
+.progress-wrap{max-width:920px;margin:16px auto 0;padding:0 5%}
+.progress-track{height:4px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--purple),var(--pink));transition:width .3s linear;border-radius:4px}
+.progress-label{font-size:11px;color:var(--muted);text-align:right;margin-top:4px;letter-spacing:.04em}
+
+/* ─── TELEPROMPTER STAGE ───────────────────────────────────────── */
+.stage-wrap{max-width:920px;margin:32px auto;padding:0 5%}
+.teleprompter{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:0;overflow:hidden;position:relative}
+.tp-topfade{position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,var(--surface),transparent);z-index:2;pointer-events:none;border-radius:20px 20px 0 0}
+.tp-botfade{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,var(--surface),transparent);z-index:2;pointer-events:none;border-radius:0 0 20px 20px}
+.tp-cursor{position:absolute;top:50%;left:0;right:0;height:3px;background:rgba(255,107,157,.4);transform:translateY(-50%);z-index:3;pointer-events:none}
+.tp-cursor::before{content:'';position:absolute;left:0;right:0;top:-24px;height:48px;background:rgba(255,107,157,.04);border-radius:2px}
+#script-scroll{max-height:480px;overflow-y:auto;padding:100px 52px;scrollbar-width:thin;scrollbar-color:var(--purple) transparent}
+#script-scroll::-webkit-scrollbar{width:4px}
+#script-scroll::-webkit-scrollbar-thumb{background:var(--purple);border-radius:4px}
+
+/* ─── SCRIPT BLOCKS ────────────────────────────────────────────── */
+.script-block{margin-bottom:0;opacity:.35;transition:opacity .4s}
+.script-block.active{opacity:1}
+.script-block.past{opacity:.18}
+
+.cue{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:8px;line-height:1}
+.cue-intro{background:rgba(139,92,246,.2);color:#c4b5fd}
+.cue-history{background:rgba(110,168,254,.15);color:var(--blue)}
+.cue-today{background:rgba(52,211,153,.12);color:var(--green)}
+.cue-agenda{background:rgba(255,107,157,.15);color:var(--pink)}
+.cue-close{background:rgba(255,179,71,.15);color:var(--gold)}
+
+.script-text{font-size:clamp(18px,2.8vw,26px);font-weight:500;line-height:1.65;color:#fff;margin-bottom:8px}
+.script-text em{color:var(--pink);font-style:normal;font-weight:700}
+.script-text strong{color:#c4b5fd}
+
+.pause-mark{display:block;text-align:center;font-size:11px;color:var(--muted);letter-spacing:.12em;padding:14px 0 6px;text-transform:uppercase}
+.pause-mark::before{content:'— '}
+.pause-mark::after{content:' —'}
+
+/* ─── AGENDA INSET ─────────────────────────────────────────────── */
+.agenda-inset{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin:10px 0}
+.agenda-inset h3{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:16px}
+.ag-day{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.05)}
+.ag-day:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.ag-num{min-width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0}
+.ag-d1{background:rgba(255,153,51,.18);color:#FFB347}
+.ag-d2{background:rgba(139,92,246,.18);color:#c4b5fd}
+.ag-d3{background:rgba(52,211,153,.12);color:var(--green)}
+.ag-d4{background:rgba(110,168,254,.15);color:var(--blue)}
+.ag-d5{background:rgba(255,107,157,.15);color:var(--pink)}
+.ag-info{flex:1}
+.ag-date{font-size:11px;color:var(--muted);margin-bottom:2px}
+.ag-theme{font-size:13.5px;font-weight:700;color:var(--text)}
+.ag-sessions{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+
+/* ─── FULL SCRIPT PANEL (print / copy) ────────────────────────── */
+.full-script-wrap{max-width:920px;margin:0 auto 60px;padding:0 5%}
+.fs-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.fs-header h2{font-size:16px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.btn-copy{background:var(--card);border:1px solid var(--border);color:var(--text);font-size:12px;font-weight:600;padding:7px 18px;border-radius:999px;cursor:pointer;transition:background .2s}
+.btn-copy:hover{background:var(--purple);color:#fff;border-color:var(--purple)}
+.full-script{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px 44px;line-height:1.9;font-size:14.5px;color:var(--text);white-space:pre-wrap;word-break:break-word;max-height:600px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--purple) transparent}
+.full-script::-webkit-scrollbar{width:4px}
+.full-script::-webkit-scrollbar-thumb{background:var(--purple);border-radius:4px}
+
+/* ─── TIPS ─────────────────────────────────────────────────────── */
+.tips-wrap{max-width:920px;margin:0 auto 60px;padding:0 5%}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tip-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.tip-icon{font-size:22px;margin-bottom:8px}
+.tip-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.tip-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────── */
+@media(max-width:600px){
+  #script-scroll{padding:80px 24px}
+  .full-script{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="topbar-title">&#127909; IBM Qiskit Fall Fest 2026 — Video Introduction Script</span>
+  <a class="topbar-back" href="index.html">&larr; Back to Website</a>
+</div>
+
+<!-- HERO -->
+<div class="vid-hero">
+  <div class="rec-badge"><span class="rec-dot"></span>Teleprompter Ready</div>
+  <h1>Your <span class="accent">Video Introduction</span><br/>Script &amp; Teleprompter for<br/><span class="hi">IBM Qiskit Fall Fest 2026</span></h1>
+  <p>A complete, ready-to-record script covering the history of quantum computing through to today, plus the full event agenda — all in your voice. Press <strong style="color:var(--green)">Start</strong> to begin the auto-scroll teleprompter, then record your screen or use the script panel below to copy your talk.</p>
+  <div class="controls">
+    <button class="btn btn-start" id="btn-start" onclick="startScroll()">&#9654; Start Scroll</button>
+    <button class="btn btn-pause" id="btn-pause" onclick="pauseScroll()" style="display:none">&#9646;&#9646; Pause</button>
+    <button class="btn btn-reset" onclick="resetScroll()">&#8635; Reset</button>
+  </div>
+  <div class="speed-row">
+    Speed:
+    <button class="speed-btn" onclick="setSpeed(0.5)">0.5×</button>
+    <button class="speed-btn active" onclick="setSpeed(1)">1×</button>
+    <button class="speed-btn" onclick="setSpeed(1.5)">1.5×</button>
+    <button class="speed-btn" onclick="setSpeed(2)">2×</button>
+    <span id="speed-display">1×</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0% complete</div>
+</div>
+
+<!-- TELEPROMPTER STAGE -->
+<div class="stage-wrap">
+  <div class="teleprompter">
+    <div class="tp-topfade"></div>
+    <div class="tp-botfade"></div>
+    <div class="tp-cursor"></div>
+    <div id="script-scroll">
+      <!-- Script blocks injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- FULL SCRIPT (copy / print) -->
+<div class="full-script-wrap">
+  <div class="fs-header">
+    <h2>&#128221; Full Script — Copy &amp; Use</h2>
+    <button class="btn-copy" onclick="copyScript()">&#128203; Copy Script</button>
+  </div>
+  <div class="full-script" id="full-script-text"></div>
+</div>
+
+<!-- RECORDING TIPS -->
+<div class="tips-wrap">
+  <div class="fs-header"><h2>&#127909; Recording Tips</h2></div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">&#127908;</div><div class="tip-title">Microphone</div><div class="tip-desc">Use a headset or lapel mic. Record in a quiet room. Speak at a steady, warm pace — about 130 words per minute.</div></div>
+    <div class="tip-card"><div class="tip-icon">&#128065;</div><div class="tip-title">Eye Contact</div><div class="tip-desc">Look directly at the camera lens, not the screen. Place this teleprompter window directly below your webcam.</div></div>
+    <div class="tip-card"><div class="tip-icon">&#9654;</div><div class="tip-title">Use Takes</div><div class="tip-desc">Record each section separately if needed — pause, reset, re-record. Edit out the joins in any free video editor.</div></div>
+    <div class="tip-card"><div class="tip-icon">&#128337;</div><div class="tip-title">Duration</div><div class="tip-desc">This script runs approx. 4–5 minutes at a natural pace. Keep the total video under 6 minutes for best engagement.</div></div>
+    <div class="tip-card"><div class="tip-icon">&#128247;</div><div class="tip-title">Background</div><div class="tip-desc">Use a solid dark or branded background. You can screen-record this page as a visual backdrop while recording voice-over.</div></div>
+    <div class="tip-card"><div class="tip-icon">&#9889;</div><div class="tip-title">Embed</div><div class="tip-desc">Upload to YouTube (unlisted or public) and embed on the website using the HTML embed snippet below your video.</div></div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   AGENDA DATA — Edit this object to update the script automatically
+   ══════════════════════════════════════════════════════════════════ */
+const AGENDA = [
+  {
+    day: 1,
+    date: "Monday, 23 November 2026",
+    theme: "Opening & Quantum Foundations",
+    emoji: "🚀",
+    sessions: [
+      "Opening Ceremony & Welcome — IBM Quantum & Quantum for Humanity Org",
+      "Opening Keynote: IBM Quantum 2026 Roadmap",
+      "What is Quantum Computing? — Zero to Qubit (Beginner)",
+      "Qiskit Live Lab: Build Your First Quantum Circuit",
+      "48-Hour Hackathon Kickoff & Team Formation",
+      "Networking & Community Meetup"
+    ]
+  },
+  {
+    day: 2,
+    date: "Tuesday, 24 November 2026",
+    theme: "Quantum Circuits, Algorithms & Hardware",
+    emoji: "⚡",
+    sessions: [
+      "Quantum Gates & Circuit Composition (Intermediate)",
+      "Grover's & Shor's Algorithms Explained",
+      "Quantum Machine Learning Workshop",
+      "IBM Eagle & Heron Processor: Hardware Deep Dive",
+      "Open Source Sprint: Contribute to Qiskit"
+    ]
+  },
+  {
+    day: 3,
+    date: "Wednesday, 25 November 2026",
+    theme: "Quantum for Humanity Day",
+    emoji: "🌍",
+    sessions: [
+      "Quantum for Humanity Keynote — Global Vision",
+      "Drug Discovery: Quantum Simulation for TB & Malaria",
+      "Quantum for Agriculture & Water Security",
+      "Quantum Finance & Financial Inclusion",
+      "Panel: Responsible Quantum Innovation"
+    ]
+  },
+  {
+    day: 4,
+    date: "Thursday, 26 November 2026",
+    theme: "Advanced Research & Error Correction",
+    emoji: "🔬",
+    sessions: [
+      "Quantum Error Correction at Scale (Advanced)",
+      "VQE & QAOA: Chemistry & Combinatorial Optimisation",
+      "Fault-Tolerant Quantum Computing: The Next Decade",
+      "Quantum Networking & Cryptography",
+      "Hackathon Midpoint: Judge Mentorship Round"
+    ]
+  },
+  {
+    day: 5,
+    date: "Friday, 27 November 2026",
+    theme: "Hackathon Finals & Closing Showcase",
+    emoji: "🏆",
+    sessions: [
+      "Hackathon Finals — Live Presentations (Top 10 Teams)",
+      "Live Award Ceremony — IBM Quantum Prize",
+      "Quantum for Humanity Manifesto Launch",
+      "Community Showcase: 50+ Projects from Around the World",
+      "Closing Keynote: The Quantum Decade Ahead",
+      "Closing Networking & Discord Community Celebration"
+    ]
+  }
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   BUILD SCRIPT LINES FROM AGENDA
+   ══════════════════════════════════════════════════════════════════ */
+function agendaHtml() {
+  let html = '<div class="agenda-inset"><h3>📅 5-Day Event Agenda — IBM Qiskit Fall Fest 2026</h3>';
+  const nums = ['ag-d1','ag-d2','ag-d3','ag-d4','ag-d5'];
+  AGENDA.forEach((d, i) => {
+    html += `<div class="ag-day">
+      <div class="ag-num ${nums[i]}">D${d.day}</div>
+      <div class="ag-info">
+        <div class="ag-date">${d.date}</div>
+        <div class="ag-theme">${d.emoji} ${d.theme}</div>
+        <div class="ag-sessions">${d.sessions.join(' &nbsp;·&nbsp; ')}</div>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+  return html;
+}
+
+function agendaPlain() {
+  let txt = '\n--- 5-DAY AGENDA ---\n';
+  AGENDA.forEach(d => {
+    txt += `\nDay ${d.day} — ${d.date}: ${d.theme}\n`;
+    d.sessions.forEach(s => txt += `  • ${s}\n`);
+  });
+  txt += '--- END AGENDA ---\n';
+  return txt;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SCRIPT DEFINITION
+   Each block: { cue, cueClass, text (HTML for teleprompter), plain (for copy) }
+   ══════════════════════════════════════════════════════════════════ */
+const SCRIPT_BLOCKS = [
+  {
+    cue: "Opening", cueClass: "cue-intro",
+    text: `<p class="script-text">Hello, and welcome.</p>
+           <p class="script-text">My name is <em>[Your Name]</em>, and I'm truly honoured to be your host for the <strong>IBM Qiskit Fall Fest 2026</strong> — a five-day global quantum computing festival presented in partnership with <strong>IBM Quantum</strong> and the <strong>Quantum for Humanity Organisation</strong>.</p>`,
+    plain: `Hello, and welcome.\nMy name is [Your Name], and I'm truly honoured to be your host for the IBM Qiskit Fall Fest 2026 — a five-day global quantum computing festival presented in partnership with IBM Quantum and the Quantum for Humanity Organisation.`
+  },
+  {
+    cue: "Scene-set", cueClass: "cue-intro",
+    text: `<p class="script-text">In this short introduction, I want to take you on a journey — from the very origins of quantum computing, all the way through to where we stand today in <strong>2026</strong> — and then share with you what we have planned for this extraordinary event.</p>`,
+    plain: `In this short introduction, I want to take you on a journey — from the very origins of quantum computing, all the way through to where we stand today in 2026 — and then share with you what we have planned for this extraordinary event.`
+  },
+  {
+    cue: "History · 1900s", cueClass: "cue-history",
+    text: `<p class="script-text">Let's go back. Way back — to the early <em>1900s</em>.</p>
+           <p class="script-text">Classical computers had not yet been born, but physicists were already wrestling with the most unsettling discovery in science: the world at its smallest scale does <strong>not</strong> obey the rules of everyday physics.</p>
+           <p class="script-text">When Max Planck, Albert Einstein, and Niels Bohr peered into the atom, they found something extraordinary — energy comes in <em>discrete packets</em>, particles can be in multiple states at once, and the mere act of observation changes what you see.</p>
+           <p class="script-text">This was quantum mechanics — and it changed <strong>everything</strong>.</p>`,
+    plain: `Let's go back. Way back — to the early 1900s.\nClassical computers had not yet been born, but physicists were already wrestling with the most unsettling discovery in science: the world at its smallest scale does not obey the rules of everyday physics.\nWhen Max Planck, Albert Einstein, and Niels Bohr peered into the atom, they found something extraordinary — energy comes in discrete packets, particles can be in multiple states at once, and the mere act of observation changes what you see.\nThis was quantum mechanics — and it changed everything.`
+  },
+  {
+    cue: "History · 1970–80s", cueClass: "cue-history",
+    text: `<p class="script-text">Fast forward to <em>1981</em>. Richard Feynman — Nobel Prize-winning physicist and brilliant thinker — stood up at a physics conference and said something that would echo through the decades:</p>
+           <p class="script-text" style="padding-left:24px;border-left:3px solid var(--purple);font-style:italic;color:#c4b5fd">"Nature isn't classical, dammit. And if you want to make a simulation of nature, you'd better make it quantum mechanical. And by golly it's a wonderful problem."</p>
+           <p class="script-text">Feynman's insight was simple but profound: <strong>a computer built from quantum laws could simulate the quantum world in ways no classical machine ever could.</strong></p>`,
+    plain: `Fast forward to 1981. Richard Feynman stood up at a physics conference and said:\n"Nature isn't classical, dammit. And if you want to make a simulation of nature, you'd better make it quantum mechanical. And by golly it's a wonderful problem."\nFeynman's insight was simple but profound: a computer built from quantum laws could simulate the quantum world in ways no classical machine ever could.`
+  },
+  {
+    cue: "History · 1990s", cueClass: "cue-history",
+    text: `<p class="script-text">Through the <em>1990s</em>, the mathematics caught up with the vision.</p>
+           <p class="script-text">In <strong>1994</strong>, Peter Shor proved that a quantum computer could factor enormous numbers exponentially faster than any classical machine — threatening the very foundations of modern encryption.</p>
+           <p class="script-text">A year later, Lov Grover showed quantum algorithms could search unsorted databases with a breathtaking <em>quadratic speedup</em>.</p>
+           <p class="script-text">The race was on. But there was a catch — nobody had built the hardware yet.</p>`,
+    plain: `Through the 1990s, the mathematics caught up with the vision.\nIn 1994, Peter Shor proved that a quantum computer could factor enormous numbers exponentially faster than any classical machine — threatening the very foundations of modern encryption.\nA year later, Lov Grover showed quantum algorithms could search unsorted databases with a breathtaking quadratic speedup.\nThe race was on. But there was a catch — nobody had built the hardware yet.`
+  },
+  {
+    cue: "History · 2000s", cueClass: "cue-history",
+    text: `<p class="script-text">In the <em>2000s</em>, the first real quantum hardware began to emerge.</p>
+           <p class="script-text">D-Wave built the first commercial quantum annealer. Ion trap machines, photonic processors, and superconducting qubits were all competing to be the platform of the future.</p>
+           <p class="script-text">And then in <strong>2016</strong>, IBM made a move that changed quantum computing forever — they put a <em>5-qubit quantum computer on the cloud</em>. Publicly. For free. Anyone with a browser could run a quantum circuit on real hardware for the first time in history.</p>
+           <p class="script-text">IBM Quantum Experience — and the open-source <strong>Qiskit</strong> framework — democratised quantum computing overnight.</p>`,
+    plain: `In the 2000s, the first real quantum hardware began to emerge.\nD-Wave built the first commercial quantum annealer. Ion trap machines, photonic processors, and superconducting qubits were all competing.\nAnd then in 2016, IBM made a move that changed quantum computing forever — they put a 5-qubit quantum computer on the cloud. Publicly. For free.\nIBM Quantum Experience — and the open-source Qiskit framework — democratised quantum computing overnight.`
+  },
+  {
+    cue: "History · 2019–2023", cueClass: "cue-history",
+    text: `<p class="script-text">The <em>2020s</em> brought a quantum leap in hardware scale.</p>
+           <p class="script-text">In <strong>2019</strong>, Google claimed "quantum supremacy" — running a calculation in 200 seconds that they said would take the world's fastest supercomputer 10,000 years.</p>
+           <p class="script-text">IBM answered with the <strong>Eagle processor</strong> at 127 qubits in 2021, the <strong>Osprey</strong> at 433 qubits in 2022, and the <strong>Condor</strong> at 1,121 qubits in 2023.</p>
+           <p class="script-text">But quantity of qubits was never the whole story. The real challenge — and the real prize — is <em>fault tolerance</em>: building quantum computers that can correct their own errors and run reliably for hours, not milliseconds.</p>`,
+    plain: `The 2020s brought a quantum leap in hardware scale.\nIn 2019, Google claimed "quantum supremacy".\nIBM answered with the Eagle processor at 127 qubits in 2021, Osprey at 433 qubits in 2022, and Condor at 1,121 qubits in 2023.\nBut the real challenge is fault tolerance: building quantum computers that can correct their own errors and run reliably for hours, not milliseconds.`
+  },
+  {
+    cue: "Today · 2026", cueClass: "cue-today",
+    text: `<p class="script-text">And that brings us to <em>today — 2026</em>.</p>
+           <p class="script-text">We are standing at the threshold of what IBM calls the <strong>Utility Era</strong> of quantum computing — the moment when quantum processors become genuinely useful tools for solving problems that matter.</p>
+           <p class="script-text">IBM's latest <strong>Heron</strong> processors are delivering unprecedented gate fidelity. The Quantum Error Correction roadmap is advancing faster than most predicted. Organisations around the world — in pharmaceuticals, climate science, logistics, and finance — are beginning to run their <em>first real quantum workloads</em>.</p>
+           <p class="script-text">We are not waiting for a quantum future anymore. <strong>The quantum era is here.</strong></p>`,
+    plain: `And that brings us to today — 2026.\nWe are standing at the threshold of what IBM calls the Utility Era of quantum computing — the moment when quantum processors become genuinely useful tools for solving problems that matter.\nIBM's latest Heron processors are delivering unprecedented gate fidelity. The Quantum Error Correction roadmap is advancing faster than most predicted.\nWe are not waiting for a quantum future anymore. The quantum era is here.`
+  },
+  {
+    cue: "Transition", cueClass: "cue-today",
+    text: `<p class="script-text">Which is exactly <em>why this event exists.</em></p>
+           <p class="script-text">IBM Qiskit Fall Fest 2026 is our invitation to you — whether you have never written a line of quantum code, or whether you are a researcher working at the frontier — to come, learn, build, and be part of this moment in history.</p>`,
+    plain: `Which is exactly why this event exists.\nIBM Qiskit Fall Fest 2026 is our invitation to you — whether you have never written a line of quantum code, or whether you are a researcher working at the frontier — to come, learn, build, and be part of this moment in history.`
+  },
+  {
+    cue: "Agenda", cueClass: "cue-agenda",
+    text: `<p class="script-text">Here is what we have prepared for <em>five extraordinary days</em> — November 23 to 27, 2026:</p>` + agendaHtml(),
+    plain: agendaPlain()
+  },
+  {
+    cue: "Agenda Highlight", cueClass: "cue-agenda",
+    text: `<p class="script-text">Day One begins with <em>absolute beginners</em> — we start from zero, explain what a qubit is, and have you running your very first quantum circuit on real IBM Quantum hardware within the first morning.</p>
+           <p class="script-text">By Day Three, we turn quantum power toward <strong>humanity's greatest challenges</strong> — drug discovery for tuberculosis and malaria, water security, climate modelling, and financial inclusion for the world's underserved populations.</p>
+           <p class="script-text">And by Day Five, the <em>48-hour hackathon</em> reaches its climax — live finals, IBM Quantum prizes, and the launch of the Quantum for Humanity Manifesto.</p>`,
+    plain: `Day One begins with absolute beginners — we start from zero, explain what a qubit is, and have you running your very first quantum circuit on real IBM Quantum hardware within the first morning.\nBy Day Three, we turn quantum power toward humanity's greatest challenges — drug discovery for tuberculosis and malaria, water security, climate modelling, and financial inclusion for the world's underserved populations.\nAnd by Day Five, the 48-hour hackathon reaches its climax — live finals, IBM Quantum prizes, and the launch of the Quantum for Humanity Manifesto.`
+  },
+  {
+    cue: "Call to Action", cueClass: "cue-close",
+    text: `<p class="script-text">Registration is <em>completely free</em>. Every session is live-streamed and recorded. All content is aligned with the official IBM Quantum Learning platform.</p>
+           <p class="script-text">Whether you join us in person or from anywhere in the world — <strong>you belong here.</strong></p>`,
+    plain: `Registration is completely free. Every session is live-streamed and recorded. All content is aligned with the official IBM Quantum Learning platform.\nWhether you join us in person or from anywhere in the world — you belong here.`
+  },
+  {
+    cue: "Closing", cueClass: "cue-close",
+    text: `<p class="script-text">On behalf of the entire Quantum for Humanity team, and our partners at IBM Quantum — <em>we cannot wait to see you there.</em></p>
+           <p class="script-text">The quantum revolution is not coming. It is <strong>already here.</strong> And together, we will use it to change the world.</p>
+           <p class="script-text">Thank you — and welcome to <em>IBM Qiskit Fall Fest 2026.</em></p>`,
+    plain: `On behalf of the entire Quantum for Humanity team, and our partners at IBM Quantum — we cannot wait to see you there.\nThe quantum revolution is not coming. It is already here. And together, we will use it to change the world.\nThank you — and welcome to IBM Qiskit Fall Fest 2026.`
+  }
+];
+
+/* ══════════════════════════════════════════════════════════════════
+   RENDER SCRIPT INTO TELEPROMPTER
+   ══════════════════════════════════════════════════════════════════ */
+const container = document.getElementById('script-scroll');
+SCRIPT_BLOCKS.forEach((block, i) => {
+  const div = document.createElement('div');
+  div.className = 'script-block' + (i === 0 ? ' active' : '');
+  div.id = 'block-' + i;
+  div.innerHTML = `<span class="cue ${block.cueClass}">${block.cue}</span>${block.text}<span class="pause-mark">Pause / Breathe</span>`;
+  container.appendChild(div);
+});
+
+/* Render plain text copy panel */
+const plainLines = SCRIPT_BLOCKS.map(b => `[${b.cue.toUpperCase()}]\n${b.plain}`).join('\n\n');
+document.getElementById('full-script-text').textContent = plainLines;
+
+/* ══════════════════════════════════════════════════════════════════
+   TELEPROMPTER ENGINE
+   ══════════════════════════════════════════════════════════════════ */
+let scrollInterval = null;
+let scrollSpeed = 1;   // px per tick
+let running = false;
+
+function startScroll() {
+  if (running) return;
+  running = true;
+  document.getElementById('btn-start').style.display = 'none';
+  document.getElementById('btn-pause').style.display = '';
+  scrollInterval = setInterval(tick, 30);
+}
+
+function pauseScroll() {
+  running = false;
+  clearInterval(scrollInterval);
+  document.getElementById('btn-pause').style.display = 'none';
+  document.getElementById('btn-start').style.display = '';
+  document.getElementById('btn-start').textContent = '▶ Resume Scroll';
+}
+
+function resetScroll() {
+  pauseScroll();
+  container.scrollTop = 0;
+  document.getElementById('btn-start').textContent = '▶ Start Scroll';
+  document.querySelectorAll('.script-block').forEach((b, i) => {
+    b.className = 'script-block' + (i === 0 ? ' active' : '');
+  });
+  document.getElementById('progress-fill').style.width = '0%';
+  document.getElementById('progress-label').textContent = '0% complete';
+}
+
+function setSpeed(s) {
+  scrollSpeed = s * 1.2;
+  document.getElementById('speed-display').textContent = s + '×';
+  document.querySelectorAll('.speed-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === s + '×');
+  });
+}
+
+function tick() {
+  const el = container;
+  const maxScroll = el.scrollHeight - el.clientHeight;
+  if (maxScroll <= 0) { pauseScroll(); return; }
+  el.scrollTop += scrollSpeed;
+
+  // Progress
+  const pct = Math.min(100, Math.round((el.scrollTop / maxScroll) * 100));
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '% complete';
+
+  // Active block highlight
+  const midY = el.scrollTop + el.clientHeight / 2;
+  let activeSet = false;
+  document.querySelectorAll('.script-block').forEach(block => {
+    const top = block.offsetTop;
+    const bot = top + block.offsetHeight;
+    if (!activeSet && midY >= top && midY <= bot) {
+      block.className = 'script-block active';
+      activeSet = true;
+    } else if (block.offsetTop + block.offsetHeight < midY) {
+      block.className = 'script-block past';
+    } else {
+      block.className = 'script-block';
+    }
+  });
+
+  if (el.scrollTop >= maxScroll) pauseScroll();
+}
+
+/* Copy plain script */
+function copyScript() {
+  const txt = document.getElementById('full-script-text').textContent;
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = document.querySelector('.btn-copy');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy Script', 2000);
+  }).catch(() => {
+    alert('Copy failed — please select and copy the text manually.');
+  });
+}
+</script>
+
+<footer style="text-align:center;padding:32px 5%;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">
+  IBM Qiskit Fall Fest 2026 &mdash; Quantum for Humanity Org &mdash; <a href="index.html">Back to main site</a>
+</footer>
+
+</body>
+</html>

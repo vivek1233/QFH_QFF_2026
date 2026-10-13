@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 140" width="900" height="140">
+  <rect width="900" height="140" fill="#0A1628" rx="8"/>
+  <text x="14" y="18" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">SUPERCONDUCTING QUBIT  &#x2014;  How IBM Quantum Works</text>
+  <!-- Dilution fridge diagram -->
+  <rect x="14" y="26" width="220" height="104" rx="8" fill="#0D2137" stroke="#1E88E5" stroke-width="1.5"/>
+  <text x="124" y="42" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#90CAF9" font-weight="bold">Dilution Refrigerator</text>
+  <!-- Temperature stages -->
+  <rect x="26" y="48" width="196" height="14" rx="3" fill="#546E7A" opacity="0.6"/>
+  <text x="124" y="59" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#E3F2FD">Room Temperature (293 K)</text>
+  <rect x="36" y="66" width="176" height="12" rx="3" fill="#1565C0" opacity="0.7"/>
+  <text x="124" y="76" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#E3F2FD">4K stage — cryogenic pumps</text>
+  <rect x="50" y="82" width="148" height="12" rx="3" fill="#0D47A1" opacity="0.8"/>
+  <text x="124" y="92" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#E3F2FD">800 mK — still cooling</text>
+  <rect x="66" y="98" width="116" height="12" rx="3" fill="#1A237E"/>
+  <text x="124" y="108" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#E3F2FD">15 mK — quantum processor</text>
+  <!-- Chip at bottom -->
+  <rect x="86" y="114" width="76" height="10" rx="2" fill="#42A5F5"/>
+  <text x="124" y="122" text-anchor="middle" font-family="Calibri,sans-serif" font-size="8" fill="#0D1B2A" font-weight="bold">Quantum Chip</text>
+  <!-- Transmon qubit diagram -->
+  <rect x="250" y="26" width="200" height="104" rx="8" fill="#0D2137" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="350" y="42" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#A5D6A7" font-weight="bold">Transmon Qubit</text>
+  <!-- Josephson junction schematic -->
+  <line x1="290" y1="75" x2="340" y2="75" stroke="#90CAF9" stroke-width="2"/>
+  <rect x="340" y="64" width="20" height="22" rx="2" fill="#1565C0" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="350" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="8" fill="#FFFFFF">JJ</text>
+  <line x1="360" y1="75" x2="410" y2="75" stroke="#90CAF9" stroke-width="2"/>
+  <!-- Capacitor symbol -->
+  <line x1="400" y1="60" x2="400" y2="70" stroke="#90CAF9" stroke-width="2"/>
+  <line x1="392" y1="68" x2="408" y2="68" stroke="#90CAF9" stroke-width="2.5"/>
+  <line x1="392" y1="74" x2="408" y2="74" stroke="#90CAF9" stroke-width="2.5"/>
+  <line x1="400" y1="74" x2="400" y2="90" stroke="#90CAF9" stroke-width="2"/>
+  <text x="350" y="96" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">JJ = Josephson Junction</text>
+  <text x="350" y="108" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">Non-linear inductor</text>
+  <text x="350" y="120" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">creates anharmonic levels</text>
+  <!-- Control chain -->
+  <rect x="466" y="26" width="420" height="104" rx="8" fill="#0D2137" stroke="#FFB300" stroke-width="1.5"/>
+  <text x="676" y="42" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#FFD54F" font-weight="bold">Qubit Control Chain</text>
+  <!-- MW pulse -->
+  <rect x="480" y="52" width="90" height="32" rx="4" fill="#1E3A5F" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="525" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FFFFFF">Microwave</text>
+  <text x="525" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#90CAF9">Pulse (GHz)</text>
+  <line x1="570" y1="68" x2="590" y2="68" stroke="#FFD54F" stroke-width="1.5" marker-end="url(#af)"/>
+  <defs><marker id="af" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#FFD54F"/></marker></defs>
+  <!-- Qubit box -->
+  <rect x="590" y="52" width="60" height="32" rx="4" fill="#1A237E" stroke="#7986CB" stroke-width="1.5"/>
+  <text x="620" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FFFFFF">Qubit</text>
+  <text x="620" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#9FA8DA">state rotates</text>
+  <line x1="650" y1="68" x2="670" y2="68" stroke="#FFD54F" stroke-width="1.5" marker-end="url(#af)"/>
+  <!-- Readout resonator -->
+  <rect x="670" y="52" width="80" height="32" rx="4" fill="#1E3A5F" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="710" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FFFFFF">Readout</text>
+  <text x="710" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">Resonator</text>
+  <line x1="750" y1="68" x2="770" y2="68" stroke="#FFD54F" stroke-width="1.5" marker-end="url(#af)"/>
+  <!-- Result -->
+  <rect x="770" y="52" width="104" height="32" rx="4" fill="#1B5E20" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="822" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FFFFFF">Result</text>
+  <text x="822" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">|0&#x27E9; or |1&#x27E9;</text>
+  <text x="676" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#B0BEC5">Gate time: ~30 ns (SQ) / ~300 ns (2Q)</text>
+  <text x="676" y="114" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#B0BEC5">T&#x2081; ~ 2,000 &#x3BC;s  |  Fridge cost: ~$1M USD</text>
+</svg>

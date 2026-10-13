@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 110" width="900" height="110">
+  <rect width="900" height="110" fill="#0D1B2A" rx="8"/>
+  <!-- Classical side -->
+  <text x="200" y="20" text-anchor="middle" font-family="Calibri,sans-serif" font-size="14" fill="#B3E5FC" font-weight="bold">CLASSICAL BIT</text>
+  <rect x="60" y="30" width="80" height="55" rx="6" fill="#0D47A1" stroke="#42A5F5" stroke-width="2"/>
+  <text x="100" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">0</text>
+  <text x="152" y="62" font-family="Calibri,sans-serif" font-size="20" fill="#FFD54F" font-weight="bold">OR</text>
+  <rect x="185" y="30" width="80" height="55" rx="6" fill="#0D47A1" stroke="#42A5F5" stroke-width="2"/>
+  <text x="225" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">1</text>
+  <text x="100" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#90CAF9">Definite state only</text>
+  <text x="225" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#90CAF9">n bits = 1 of 2ⁿ states</text>
+  <!-- VS -->
+  <text x="450" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="28" fill="#FFD54F" font-weight="bold">VS</text>
+  <!-- Quantum side -->
+  <text x="700" y="20" text-anchor="middle" font-family="Calibri,sans-serif" font-size="14" fill="#C8E6C9" font-weight="bold">QUBIT (Quantum Bit)</text>
+  <rect x="530" y="30" width="80" height="55" rx="6" fill="#1B5E20" stroke="#66BB6A" stroke-width="2"/>
+  <text x="570" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">0</text>
+  <text x="622" y="62" font-family="Calibri,sans-serif" font-size="20" fill="#A5D6A7" font-weight="bold">AND</text>
+  <rect x="665" y="30" width="80" height="55" rx="6" fill="#1B5E20" stroke="#66BB6A" stroke-width="2"/>
+  <text x="705" y="65" text-anchor="middle" font-family="Calibri,sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">1</text>
+  <text x="760" y="30" font-family="Calibri,sans-serif" font-size="11" fill="#FFD54F">simultaneously</text>
+  <text x="760" y="48" font-family="Calibri,sans-serif" font-size="11" fill="#FFD54F">until measured!</text>
+  <text x="570" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#A5D6A7">Superposition</text>
+  <text x="705" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#A5D6A7">n qubits = 2ⁿ states at once</text>
+</svg>

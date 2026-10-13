@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 130" width="900" height="130">
+  <rect width="900" height="130" fill="#0A1628" rx="8"/>
+  <text x="14" y="18" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">BELL STATE CIRCUIT  &#x2014;  Hello World of Quantum Computing</text>
+  <!-- Labels -->
+  <text x="14" y="48" font-family="Calibri,sans-serif" font-size="12" fill="#B0BEC5">Width:</text>
+  <text x="60" y="48" font-family="Calibri,sans-serif" font-size="11" fill="#FFD54F">2 qubits</text>
+  <text x="14" y="64" font-family="Calibri,sans-serif" font-size="12" fill="#B0BEC5">Depth:</text>
+  <text x="60" y="64" font-family="Calibri,sans-serif" font-size="11" fill="#FFD54F">2 layers</text>
+  <!-- Circuit -->
+  <text x="130" y="58" font-family="Calibri,sans-serif" font-size="13" fill="#B3E5FC">q&#x2080; &#x2500;&#x2500;</text>
+  <line x1="170" y1="54" x2="218" y2="54" stroke="#B3E5FC" stroke-width="2"/>
+  <rect x="218" y="42" width="36" height="24" rx="4" fill="#1565C0" stroke="#42A5F5" stroke-width="2"/>
+  <text x="236" y="59" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">H</text>
+  <line x1="254" y1="54" x2="300" y2="54" stroke="#B3E5FC" stroke-width="2"/>
+  <circle cx="300" cy="54" r="6" fill="#42A5F5" stroke="#90CAF9" stroke-width="1.5"/>
+  <line x1="300" y1="60" x2="300" y2="84" stroke="#42A5F5" stroke-width="2"/>
+  <line x1="306" y1="54" x2="350" y2="54" stroke="#B3E5FC" stroke-width="2"/>
+  <rect x="350" y="42" width="36" height="24" rx="4" fill="#37474F" stroke="#78909C" stroke-width="2"/>
+  <text x="368" y="57" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#FFFFFF">&#x2221;</text>
+  <text x="368" y="70" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">M</text>
+  <text x="130" y="92" font-family="Calibri,sans-serif" font-size="13" fill="#C8E6C9">q&#x2081; &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;</text>
+  <circle cx="300" cy="84" r="13" fill="none" stroke="#66BB6A" stroke-width="2.5"/>
+  <line x1="300" y1="71" x2="300" y2="97" stroke="#66BB6A" stroke-width="2.5"/>
+  <line x1="287" y1="84" x2="313" y2="84" stroke="#66BB6A" stroke-width="2.5"/>
+  <line x1="306" y1="84" x2="350" y2="84" stroke="#C8E6C9" stroke-width="2"/>
+  <rect x="350" y="72" width="36" height="24" rx="4" fill="#37474F" stroke="#78909C" stroke-width="2"/>
+  <text x="368" y="87" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#FFFFFF">&#x2221;</text>
+  <text x="368" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">M</text>
+  <!-- Depth markers -->
+  <rect x="218" y="112" width="36" height="10" rx="2" fill="#1E88E5" opacity="0.4"/>
+  <text x="236" y="121" text-anchor="middle" font-family="Calibri,sans-serif" font-size="8" fill="#90CAF9">L1</text>
+  <rect x="284" y="112" width="32" height="10" rx="2" fill="#1E88E5" opacity="0.4"/>
+  <text x="300" y="121" text-anchor="middle" font-family="Calibri,sans-serif" font-size="8" fill="#90CAF9">L2</text>
+  <!-- Result -->
+  <rect x="420" y="30" width="240" height="80" rx="8" fill="#1E3A5F" stroke="#1E88E5" stroke-width="1.5"/>
+  <text x="540" y="50" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">Measurement histogram</text>
+  <rect x="450" y="58" width="40" height="36" fill="#1E88E5" rx="2"/>
+  <text x="470" y="50" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#90CAF9">~50%</text>
+  <text x="470" y="106" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#B3E5FC">|00&#x27E9;</text>
+  <rect x="600" y="58" width="40" height="36" fill="#66BB6A" rx="2"/>
+  <text x="620" y="50" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">~50%</text>
+  <text x="620" y="106" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#C8E6C9">|11&#x27E9;</text>
+  <!-- NISQ note -->
+  <rect x="680" y="30" width="206" height="80" rx="8" fill="#1A1A2E" stroke="#FFD54F" stroke-width="1.5"/>
+  <text x="783" y="48" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">NISQ Constraint</text>
+  <text x="690" y="64" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Circuit depth limited by T&#x2082;</text>
+  <text x="690" y="78" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Gate fidelity: ~99.5% (2-qubit)</text>
+  <text x="690" y="92" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">&#x25AA; Shallow circuits &#x2192; better results</text>
+  <text x="690" y="104" font-family="Calibri,sans-serif" font-size="9" fill="#90CAF9">T-count determines fault-tolerance cost</text>
+</svg>

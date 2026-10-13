@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 130" width="900" height="130">
+  <rect width="900" height="130" fill="#0A1628" rx="8"/>
+  <text x="14" y="18" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">QUANTUM GATE REFERENCE CARD</text>
+  <!-- X Gate -->
+  <rect x="14" y="26" width="110" height="90" rx="6" fill="#1E3A5F" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="69" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">X  Gate</text>
+  <rect x="34" y="50" width="28" height="28" rx="3" fill="#1565C0" stroke="#90CAF9" stroke-width="1.5"/>
+  <text x="48" y="69" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">X</text>
+  <text x="70" y="66" font-family="Calibri,sans-serif" font-size="11" fill="#E3F2FD">NOT gate</text>
+  <text x="24" y="92" font-family="Calibri,sans-serif" font-size="10" fill="#90CAF9">|0&#x27E9;&#x2192;|1&#x27E9;, |1&#x27E9;&#x2192;|0&#x27E9;</text>
+  <text x="24" y="108" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">[[0,1],[1,0]]</text>
+  <!-- H Gate -->
+  <rect x="136" y="26" width="110" height="90" rx="6" fill="#1E3A5F" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="191" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">H  Gate</text>
+  <rect x="155" y="50" width="28" height="28" rx="3" fill="#1565C0" stroke="#90CAF9" stroke-width="1.5"/>
+  <text x="169" y="69" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">H</text>
+  <text x="190" y="66" font-family="Calibri,sans-serif" font-size="11" fill="#E3F2FD">Hadamard</text>
+  <text x="144" y="92" font-family="Calibri,sans-serif" font-size="10" fill="#90CAF9">|0&#x27E9;&#x2192;|+&#x27E9; superpos.</text>
+  <text x="144" y="108" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">1/&#x221A;2[[1,1],[1,-1]]</text>
+  <!-- Z Gate -->
+  <rect x="258" y="26" width="110" height="90" rx="6" fill="#1E3A5F" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="313" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">Z  Gate</text>
+  <rect x="277" y="50" width="28" height="28" rx="3" fill="#1565C0" stroke="#90CAF9" stroke-width="1.5"/>
+  <text x="291" y="69" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">Z</text>
+  <text x="312" y="66" font-family="Calibri,sans-serif" font-size="11" fill="#E3F2FD">Phase flip</text>
+  <text x="266" y="92" font-family="Calibri,sans-serif" font-size="10" fill="#90CAF9">|1&#x27E9;&#x2192; -|1&#x27E9;</text>
+  <text x="266" y="108" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">[[1,0],[0,-1]]</text>
+  <!-- T Gate -->
+  <rect x="380" y="26" width="110" height="90" rx="6" fill="#1E3A5F" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="435" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">T  Gate</text>
+  <rect x="400" y="50" width="28" height="28" rx="3" fill="#2E7D32" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="414" y="69" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">T</text>
+  <text x="434" y="66" font-family="Calibri,sans-serif" font-size="11" fill="#E3F2FD">&#x3C0;/8 phase</text>
+  <text x="388" y="92" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">For universality</text>
+  <text x="388" y="108" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">diag(1, e^(i&#x3C0;/4))</text>
+  <!-- CNOT -->
+  <rect x="502" y="26" width="130" height="90" rx="6" fill="#1E3A5F" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="567" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFD54F" font-weight="bold">CNOT Gate</text>
+  <line x1="540" y1="64" x2="600" y2="64" stroke="#90CAF9" stroke-width="1.5"/>
+  <circle cx="560" cy="64" r="5" fill="#42A5F5"/>
+  <line x1="560" y1="69" x2="560" y2="82" stroke="#42A5F5" stroke-width="1.5"/>
+  <circle cx="560" cy="82" r="10" fill="none" stroke="#66BB6A" stroke-width="2"/>
+  <line x1="560" y1="72" x2="560" y2="92" stroke="#66BB6A" stroke-width="2"/>
+  <line x1="550" y1="82" x2="570" y2="82" stroke="#66BB6A" stroke-width="2"/>
+  <text x="575" y="72" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">Flips target if</text>
+  <text x="575" y="84" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">control = |1&#x27E9;</text>
+  <text x="514" y="108" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">Generates entanglement</text>
+  <!-- Universality box -->
+  <rect x="646" y="26" width="240" height="90" rx="6" fill="#0D2137" stroke="#FFD54F" stroke-width="1.5"/>
+  <text x="766" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">Universal Gate Set</text>
+  <text x="656" y="60" font-family="Calibri,sans-serif" font-size="11" fill="#E3F2FD">{  H,  T,  CNOT  }</text>
+  <text x="656" y="76" font-family="Calibri,sans-serif" font-size="10" fill="#B0BEC5">Any quantum computation can be</text>
+  <text x="656" y="90" font-family="Calibri,sans-serif" font-size="10" fill="#B0BEC5">expressed with just these 3 gates</text>
+  <text x="656" y="106" font-family="Calibri,sans-serif" font-size="9" fill="#90CAF9">All gates are unitary: U&#x2020;U = I</text>
+</svg>

@@ -1,0 +1,381 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 2560 1440" width="2560" height="1440">
+  <defs>
+    <!-- Deep space background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%"   stop-color="#0A1628"/>
+      <stop offset="50%"  stop-color="#060E1C"/>
+      <stop offset="100%" stop-color="#020810"/>
+    </radialGradient>
+
+    <!-- Central orb glow -->
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="50%"  stop-color="#1E88E5" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0A1628"  stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Atom ring gradient -->
+    <linearGradient id="ringGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00E5FF"/>
+      <stop offset="50%"  stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#7C4DFF"/>
+    </linearGradient>
+    <linearGradient id="ringGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00BCD4"/>
+      <stop offset="50%"  stop-color="#26C6DA"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <linearGradient id="ringGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#7C4DFF"/>
+      <stop offset="50%"  stop-color="#AB47BC"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </linearGradient>
+
+    <!-- Human figure gradient -->
+    <linearGradient id="humanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00E5FF"/>
+      <stop offset="40%"  stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#7C4DFF"/>
+    </linearGradient>
+
+    <!-- Text gradient -->
+    <linearGradient id="textGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00E5FF"/>
+      <stop offset="50%"  stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#CE93D8"/>
+    </linearGradient>
+    <linearGradient id="textGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#B2EBF2"/>
+      <stop offset="100%" stop-color="#E1BEE7"/>
+    </linearGradient>
+
+    <!-- Qubit node glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="textGlow" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip for atom ring tilt transforms -->
+    <clipPath id="noClip"/>
+  </defs>
+
+  <!-- ═══════════════════════════════════ BACKGROUND ═══════════════════════════════════ -->
+  <rect width="2560" height="1440" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid lines -->
+  <g opacity="0.04" stroke="#00E5FF" stroke-width="1">
+    <line x1="0" y1="240"  x2="2560" y2="240"/>
+    <line x1="0" y1="480"  x2="2560" y2="480"/>
+    <line x1="0" y1="720"  x2="2560" y2="720"/>
+    <line x1="0" y1="960"  x2="2560" y2="960"/>
+    <line x1="0" y1="1200" x2="2560" y2="1200"/>
+    <line x1="512"  y1="0" x2="512"  y2="1440"/>
+    <line x1="1024" y1="0" x2="1024" y2="1440"/>
+    <line x1="1536" y1="0" x2="1536" y2="1440"/>
+    <line x1="2048" y1="0" x2="2048" y2="1440"/>
+  </g>
+
+  <!-- Star field -->
+  <g filter="url(#starGlow)">
+    <circle cx="120"  cy="80"   r="1.5" fill="#E3F2FD" opacity="0.8"/>
+    <circle cx="380"  cy="160"  r="2"   fill="#B2EBF2" opacity="0.7"/>
+    <circle cx="620"  cy="60"   r="1"   fill="#E3F2FD" opacity="0.6"/>
+    <circle cx="920"  cy="140"  r="1.5" fill="#B2EBF2" opacity="0.8"/>
+    <circle cx="1200" cy="50"   r="2"   fill="#E3F2FD" opacity="0.7"/>
+    <circle cx="1450" cy="130"  r="1"   fill="#B2EBF2" opacity="0.6"/>
+    <circle cx="1700" cy="80"   r="2"   fill="#E3F2FD" opacity="0.8"/>
+    <circle cx="1950" cy="170"  r="1.5" fill="#B2EBF2" opacity="0.7"/>
+    <circle cx="2200" cy="60"   r="1"   fill="#E3F2FD" opacity="0.6"/>
+    <circle cx="2450" cy="100"  r="2"   fill="#B2EBF2" opacity="0.8"/>
+    <circle cx="180"  cy="1300" r="1.5" fill="#E3F2FD" opacity="0.7"/>
+    <circle cx="460"  cy="1380" r="2"   fill="#B2EBF2" opacity="0.6"/>
+    <circle cx="800"  cy="1320" r="1"   fill="#E3F2FD" opacity="0.8"/>
+    <circle cx="1100" cy="1400" r="1.5" fill="#B2EBF2" opacity="0.7"/>
+    <circle cx="1600" cy="1340" r="2"   fill="#E3F2FD" opacity="0.6"/>
+    <circle cx="1900" cy="1380" r="1"   fill="#B2EBF2" opacity="0.8"/>
+    <circle cx="2300" cy="1310" r="2"   fill="#E3F2FD" opacity="0.7"/>
+    <circle cx="2500" cy="1260" r="1.5" fill="#B2EBF2" opacity="0.6"/>
+    <circle cx="60"   cy="720"  r="1.5" fill="#E3F2FD" opacity="0.5"/>
+    <circle cx="2500" cy="720"  r="1.5" fill="#E3F2FD" opacity="0.5"/>
+  </g>
+
+  <!-- ═══════════════════════════════════ CENTRAL ORB GLOW ═══════════════════════════════════ -->
+  <circle cx="1280" cy="620" r="380" fill="url(#orbGlow)"/>
+  <circle cx="1280" cy="620" r="260" fill="none" stroke="#00E5FF" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="1280" cy="620" r="180" fill="none" stroke="#1E88E5" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- ═══════════════════════════════════ ATOM RINGS ═══════════════════════════════════ -->
+  <!-- Ring 1: horizontal (tilted 15°) — teal -->
+  <ellipse cx="1280" cy="620" rx="340" ry="90"
+           fill="none" stroke="url(#ringGrad1)" stroke-width="4" opacity="0.9"
+           transform="rotate(15,1280,620)"
+           filter="url(#glow)"/>
+
+  <!-- Ring 2: tilted 75° — blue/violet -->
+  <ellipse cx="1280" cy="620" rx="340" ry="90"
+           fill="none" stroke="url(#ringGrad2)" stroke-width="4" opacity="0.9"
+           transform="rotate(75,1280,620)"
+           filter="url(#glow)"/>
+
+  <!-- Ring 3: tilted -45° — violet/cyan -->
+  <ellipse cx="1280" cy="620" rx="340" ry="90"
+           fill="none" stroke="url(#ringGrad3)" stroke-width="4" opacity="0.9"
+           transform="rotate(-45,1280,620)"
+           filter="url(#glow)"/>
+
+  <!-- ═══════════════════════════════════ ELECTRONS (qubit nodes) on rings ═══════════════════════════════════ -->
+  <!-- Ring 1 electrons -->
+  <circle cx="1280" cy="530" r="14" fill="#00E5FF" filter="url(#softGlow)" opacity="0.95"/>
+  <circle cx="1280" cy="530" r="7"  fill="white" opacity="0.9"/>
+  <circle cx="1280" cy="710" r="14" fill="#00BCD4" filter="url(#softGlow)" opacity="0.95"/>
+  <circle cx="1280" cy="710" r="7"  fill="white" opacity="0.9"/>
+
+  <!-- Ring 2 electrons (90° rotated positions) -->
+  <circle cx="1620" cy="620" r="14" fill="#7C4DFF" filter="url(#softGlow)" opacity="0.95"/>
+  <circle cx="1620" cy="620" r="7"  fill="white" opacity="0.9"/>
+  <circle cx="940"  cy="620" r="14" fill="#AB47BC" filter="url(#softGlow)" opacity="0.95"/>
+  <circle cx="940"  cy="620" r="7"  fill="white" opacity="0.9"/>
+
+  <!-- Ring 3 electrons (diagonal positions approx) -->
+  <circle cx="1516" cy="476" r="12" fill="#1E88E5" filter="url(#softGlow)" opacity="0.95"/>
+  <circle cx="1516" cy="476" r="6"  fill="white" opacity="0.9"/>
+  <circle cx="1044" cy="764" r="12" fill="#26C6DA" filter="url(#softGlow)" opacity="0.95"/>
+  <circle cx="1044" cy="764" r="6"  fill="white" opacity="0.9"/>
+
+  <!-- ═══════════════════════════════════ CENTRAL NUCLEUS ═══════════════════════════════════ -->
+  <circle cx="1280" cy="620" r="62" fill="#0D1B2A" stroke="#00E5FF" stroke-width="2.5" opacity="0.95"/>
+  <circle cx="1280" cy="620" r="52" fill="none"   stroke="#1E88E5" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- HUMAN FIGURE inside nucleus -->
+  <!-- Head -->
+  <circle cx="1280" cy="593" r="13" fill="url(#humanGrad)" opacity="0.95"/>
+  <!-- Body torso -->
+  <rect x="1272" y="607" width="16" height="22" rx="4" fill="url(#humanGrad)" opacity="0.95"/>
+  <!-- Arms raised (reaching upward — humanity embracing quantum) -->
+  <line x1="1272" y1="614" x2="1256" y2="602" stroke="url(#humanGrad)" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+  <line x1="1288" y1="614" x2="1304" y2="602" stroke="url(#humanGrad)" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+  <!-- Legs -->
+  <line x1="1276" y1="629" x2="1268" y2="648" stroke="url(#humanGrad)" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+  <line x1="1284" y1="629" x2="1292" y2="648" stroke="url(#humanGrad)" stroke-width="5" stroke-linecap="round" opacity="0.95"/>
+
+  <!-- ═══════════════════════════════════ QUANTUM CIRCUIT LINES (decoration) ═══════════════════════════════════ -->
+  <!-- Left circuit lines -->
+  <g opacity="0.35" stroke="#00BCD4" stroke-width="1.5">
+    <line x1="480" y1="560" x2="900" y2="560"/>
+    <line x1="480" y1="620" x2="900" y2="620"/>
+    <line x1="480" y1="680" x2="900" y2="680"/>
+    <!-- Gate boxes on left -->
+    <rect x="580" y="548" width="36" height="24" rx="4" fill="#0D1B2A" stroke="#00BCD4" stroke-width="1.5"/>
+    <text x="598" y="565" font-family="monospace" font-size="13" fill="#00E5FF" text-anchor="middle">H</text>
+    <rect x="680" y="608" width="36" height="24" rx="4" fill="#0D1B2A" stroke="#1E88E5" stroke-width="1.5"/>
+    <text x="698" y="625" font-family="monospace" font-size="13" fill="#90CAF9" text-anchor="middle">X</text>
+    <rect x="760" y="668" width="36" height="24" rx="4" fill="#0D1B2A" stroke="#7C4DFF" stroke-width="1.5"/>
+    <text x="778" y="685" font-family="monospace" font-size="13" fill="#CE93D8" text-anchor="middle">Z</text>
+    <!-- CNOT dots -->
+    <circle cx="820" cy="560" r="5" fill="#00E5FF"/>
+    <line x1="820" y1="560" x2="820" y2="620" stroke="#00BCD4" stroke-width="1.5"/>
+    <circle cx="820" cy="620" r="10" fill="none" stroke="#00BCD4" stroke-width="1.5"/>
+    <line x1="810" y1="620" x2="830" y2="620" stroke="#00BCD4" stroke-width="1.5"/>
+    <line x1="820" y1="610" x2="820" y2="630" stroke="#00BCD4" stroke-width="1.5"/>
+  </g>
+
+  <!-- Right circuit lines -->
+  <g opacity="0.35" stroke="#7C4DFF" stroke-width="1.5">
+    <line x1="1660" y1="560" x2="2080" y2="560"/>
+    <line x1="1660" y1="620" x2="2080" y2="620"/>
+    <line x1="1660" y1="680" x2="2080" y2="680"/>
+    <!-- Gate boxes on right -->
+    <rect x="1740" y="548" width="36" height="24" rx="4" fill="#0D1B2A" stroke="#7C4DFF" stroke-width="1.5"/>
+    <text x="1758" y="565" font-family="monospace" font-size="13" fill="#CE93D8" text-anchor="middle">T</text>
+    <rect x="1840" y="608" width="36" height="24" rx="4" fill="#0D1B2A" stroke="#AB47BC" stroke-width="1.5"/>
+    <text x="1858" y="625" font-family="monospace" font-size="13" fill="#F3E5F5" text-anchor="middle">S</text>
+    <rect x="1940" y="668" width="36" height="24" rx="4" fill="#0D1B2A" stroke="#00BCD4" stroke-width="1.5"/>
+    <text x="1958" y="685" font-family="monospace" font-size="13" fill="#B2EBF2" text-anchor="middle">CX</text>
+    <!-- Controlled gate -->
+    <circle cx="2000" cy="560" r="5" fill="#7C4DFF"/>
+    <line x1="2000" y1="560" x2="2000" y2="620" stroke="#7C4DFF" stroke-width="1.5"/>
+    <circle cx="2000" cy="620" r="10" fill="none" stroke="#7C4DFF" stroke-width="1.5"/>
+    <line x1="1990" y1="620" x2="2010" y2="620" stroke="#7C4DFF" stroke-width="1.5"/>
+    <line x1="2000" y1="610" x2="2000" y2="630" stroke="#7C4DFF" stroke-width="1.5"/>
+  </g>
+
+  <!-- ═══════════════════════════════════ BRACE / BRACKET decoration ═══════════════════════════════════ -->
+  <!-- Ket bracket left: | -->
+  <text x="450" y="640" font-family="monospace" font-size="120" fill="#00BCD4" opacity="0.25" text-anchor="middle">|</text>
+  <!-- Bra bracket right: ⟩ -->
+  <text x="2110" y="640" font-family="monospace" font-size="90" fill="#7C4DFF" opacity="0.25" text-anchor="middle">⟩</text>
+
+  <!-- ═══════════════════════════════════ WAVEFORM (bottom decoration) ═══════════════════════════════════ -->
+  <path d="M 0 1100
+    C 128 1060, 256 1140, 384 1100
+    C 512 1060, 640 1140, 768 1100
+    C 896 1060, 1024 1140, 1152 1100
+    C 1280 1060, 1408 1140, 1536 1100
+    C 1664 1060, 1792 1140, 1920 1100
+    C 2048 1060, 2176 1140, 2304 1100
+    C 2432 1060, 2560 1100, 2560 1100"
+    fill="none" stroke="#00BCD4" stroke-width="2.5" opacity="0.18"/>
+  <path d="M 0 1120
+    C 160 1080, 320 1160, 480 1120
+    C 640 1080, 800 1160, 960 1120
+    C 1120 1080, 1280 1160, 1440 1120
+    C 1600 1080, 1760 1160, 1920 1120
+    C 2080 1080, 2240 1160, 2400 1120
+    L 2560 1120"
+    fill="none" stroke="#1E88E5" stroke-width="1.5" opacity="0.12"/>
+
+  <!-- Probability curve (Gaussian-like under atom) -->
+  <path d="M 880 870
+    C 960 865, 1060 800, 1160 750
+    C 1220 715, 1260 700, 1280 698
+    C 1300 700, 1340 715, 1400 750
+    C 1500 800, 1600 865, 1680 870"
+    fill="none" stroke="#00E5FF" stroke-width="2" opacity="0.30" stroke-dasharray="8,5"/>
+
+  <!-- ═══════════════════════════════════ DIRAC NOTATION (decorative math) ═══════════════════════════════════ -->
+  <text x="200" y="900" font-family="serif" font-size="28" fill="#00BCD4" opacity="0.40"
+        font-style="italic">|ψ⟩ = α|0⟩ + β|1⟩</text>
+  <text x="200" y="940" font-family="serif" font-size="24" fill="#1E88E5" opacity="0.35"
+        font-style="italic">|α|² + |β|² = 1</text>
+  <text x="2020" y="900" font-family="serif" font-size="28" fill="#7C4DFF" opacity="0.40"
+        font-style="italic" text-anchor="end">Ĥ|ψ⟩ = E|ψ⟩</text>
+  <text x="2020" y="940" font-family="serif" font-size="24" fill="#AB47BC" opacity="0.35"
+        font-style="italic" text-anchor="end">iℏ ∂|ψ⟩/∂t = Ĥ|ψ⟩</text>
+
+  <!-- ═══════════════════════════════════ CONNECTED NODES (humanity network) ═══════════════════════════════════ -->
+  <!-- People nodes around outer radius — symbolize global humanity connected by quantum -->
+  <!-- Node positions (8 points around large circle r=640 centered 1280,620) -->
+  <!-- Top -->
+  <g filter="url(#glow)">
+    <circle cx="1280" cy="140"  r="18" fill="none" stroke="#00BCD4" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="1280" cy="140"  r="8"  fill="#00E5FF" opacity="0.8"/>
+    <line x1="1280" y1="158"  x2="1280" y2="530" stroke="#00BCD4" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Top-right -->
+    <circle cx="1732" cy="267" r="18" fill="none" stroke="#1E88E5" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="1732" cy="267" r="8"  fill="#90CAF9" opacity="0.8"/>
+    <line x1="1716" y1="279" x2="1516" y2="476" stroke="#1E88E5" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Right -->
+    <circle cx="1920" cy="620" r="18" fill="none" stroke="#7C4DFF" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="1920" cy="620" r="8"  fill="#CE93D8" opacity="0.8"/>
+    <line x1="1902" y1="620" x2="1620" y2="620" stroke="#7C4DFF" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Bottom-right -->
+    <circle cx="1732" cy="973" r="18" fill="none" stroke="#AB47BC" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="1732" cy="973" r="8"  fill="#F3E5F5" opacity="0.8"/>
+    <line x1="1716" y1="961" x2="1044" y2="764" stroke="#AB47BC" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Bottom -->
+    <circle cx="1280" cy="1100" r="18" fill="none" stroke="#26C6DA" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="1280" cy="1100" r="8"  fill="#B2EBF2" opacity="0.8"/>
+    <line x1="1280" y1="1082" x2="1280" y2="710"  stroke="#26C6DA" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Bottom-left -->
+    <circle cx="828"  cy="973" r="18" fill="none" stroke="#00BCD4" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="828"  cy="973" r="8"  fill="#80DEEA" opacity="0.8"/>
+    <line x1="844"  y1="961" x2="1044" y2="764" stroke="#00BCD4" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Left -->
+    <circle cx="640"  cy="620" r="18" fill="none" stroke="#1E88E5" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="640"  cy="620" r="8"  fill="#90CAF9" opacity="0.8"/>
+    <line x1="658"  y1="620" x2="940"  y2="620" stroke="#1E88E5" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+
+    <!-- Top-left -->
+    <circle cx="828"  cy="267" r="18" fill="none" stroke="#7C4DFF" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="828"  cy="267" r="8"  fill="#B39DDB" opacity="0.8"/>
+    <line x1="844"  y1="279" x2="1044" y2="476" stroke="#7C4DFF" stroke-width="1" stroke-dasharray="6,6" opacity="0.3"/>
+  </g>
+
+  <!-- ═══════════════════════════════════ MAIN TITLE TEXT ═══════════════════════════════════ -->
+  <!-- "QUANTUM" — large, centered -->
+  <text x="1280" y="1200"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-size="168" font-weight="900" letter-spacing="32"
+        fill="url(#textGrad1)"
+        text-anchor="middle"
+        filter="url(#textGlow)">QUANTUM</text>
+
+  <!-- Thin accent line under QUANTUM -->
+  <line x1="500" y1="1220" x2="2060" y2="1220" stroke="url(#textGrad1)" stroke-width="2.5" opacity="0.6"/>
+
+  <!-- "for" — elegant italic -->
+  <text x="1280" y="1290"
+        font-family="'Georgia', 'Times New Roman', serif"
+        font-size="56" font-weight="400" font-style="italic"
+        fill="#80DEEA" letter-spacing="18"
+        text-anchor="middle"
+        opacity="0.85">for</text>
+
+  <!-- "HUMANITY" — large, same weight as QUANTUM -->
+  <text x="1280" y="1390"
+        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+        font-size="148" font-weight="900" letter-spacing="28"
+        fill="url(#textGrad2)"
+        text-anchor="middle"
+        filter="url(#textGlow)">HUMANITY</text>
+
+  <!-- ═══════════════════════════════════ TAGLINE ═══════════════════════════════════ -->
+  <text x="1280" y="48"
+        font-family="'Arial', 'Helvetica Neue', Arial, sans-serif"
+        font-size="26" font-weight="300" letter-spacing="10"
+        fill="#4DD0E1" text-anchor="middle" opacity="0.8">
+    HARNESSING QUANTUM MECHANICS FOR THE BENEFIT OF ALL
+  </text>
+  <line x1="640"  y1="58" x2="1000" y2="58" stroke="#00BCD4" stroke-width="1" opacity="0.4"/>
+  <line x1="1560" y1="58" x2="1920" y2="58" stroke="#00BCD4" stroke-width="1" opacity="0.4"/>
+  <circle cx="1280" cy="58" r="3" fill="#00E5FF" opacity="0.6"/>
+
+  <!-- ═══════════════════════════════════ QFF BADGE (top-right corner) ═══════════════════════════════════ -->
+  <g transform="translate(2360,100)">
+    <circle cx="0" cy="0" r="80" fill="#0D1B2A" stroke="#00BCD4" stroke-width="2.5" opacity="0.9"/>
+    <circle cx="0" cy="0" r="70" fill="none"    stroke="#1E88E5" stroke-width="1" opacity="0.5"/>
+    <text x="0" y="-12" font-family="'Arial Black', sans-serif" font-size="26" font-weight="900"
+          fill="#00E5FF" text-anchor="middle" letter-spacing="4">QFF</text>
+    <text x="0" y="18" font-family="'Arial', sans-serif" font-size="22" font-weight="700"
+          fill="#90CAF9" text-anchor="middle" letter-spacing="6">2026</text>
+  </g>
+
+  <!-- ═══════════════════════════════════ BLOCH SPHERE MINI (top-left) ═══════════════════════════════════ -->
+  <g transform="translate(200,100)" opacity="0.75">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#00BCD4" stroke-width="1.5" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="70" ry="20" fill="none" stroke="#00BCD4" stroke-width="1" opacity="0.4" transform="rotate(0)"/>
+    <ellipse cx="0" cy="0" rx="20" ry="70" fill="none" stroke="#1E88E5" stroke-width="1" opacity="0.4"/>
+    <!-- |0> top -->
+    <circle cx="0" cy="-70" r="7" fill="#00E5FF" opacity="0.9"/>
+    <text x="0" y="-80" font-family="monospace" font-size="16" fill="#00E5FF" text-anchor="middle">|0⟩</text>
+    <!-- |1> bottom -->
+    <circle cx="0" cy="70" r="7" fill="#7C4DFF" opacity="0.9"/>
+    <text x="0" y="90" font-family="monospace" font-size="16" fill="#CE93D8" text-anchor="middle">|1⟩</text>
+    <!-- State vector -->
+    <line x1="0" y1="0" x2="42" y2="-52" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="42" cy="-52" r="5" fill="#00E5FF"/>
+    <text x="52" y="-56" font-family="monospace" font-size="16" fill="#B2EBF2">|ψ⟩</text>
+  </g>
+
+</svg>

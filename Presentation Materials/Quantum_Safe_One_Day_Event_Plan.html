@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>One-Day Event Plan — IBM Quantum Safe Masterclass & Workshop | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#8B5CF6;--accent2:#FF6B9D;--accent3:#33B1FF;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  /* Header */
+  .site-header{background:linear-gradient(135deg,#1a0a2e 0%,#0d1a3a 50%,#0a1a0d 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent2);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  .day-badge{display:inline-block;background:rgba(255,107,157,0.18);border:1px solid var(--accent2);color:var(--accent2);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-left:10px;vertical-align:middle;}
+  h1.doc-title{font-size:2.1rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#FF6B9D 60%,#8B5CF6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1rem;margin-bottom:18px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--muted);}
+  .meta-row span{background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:6px;}
+  /* Layout */
+  .container{max-width:960px;margin:0 auto;padding:40px 32px 80px;}
+  /* TOC */
+  .toc{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent2);border-radius:10px;padding:24px 28px;margin-bottom:40px;}
+  .toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent2);margin-bottom:14px;}
+  .toc ol{padding-left:20px;}
+  .toc li{margin-bottom:6px;font-size:.93rem;}
+  /* Sections */
+  .section{margin-bottom:52px;}
+  h2.sec-title{font-size:1.45rem;font-weight:700;color:#fff;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+  h2.sec-title .icon{font-size:1.2rem;}
+  h3.sub-title{font-size:1.05rem;font-weight:700;color:var(--accent2);margin:28px 0 12px;}
+  h4.q-title{font-size:.95rem;font-weight:700;color:var(--accent3);margin:20px 0 8px;}
+  p{margin-bottom:14px;color:#cccce0;}
+  ul,ol{padding-left:22px;margin-bottom:14px;}
+  li{margin-bottom:6px;color:#cccce0;}
+  /* Callout boxes */
+  .callout{border-radius:10px;padding:18px 22px;margin:20px 0;border-left:4px solid;}
+  .callout.info{background:rgba(51,177,255,.08);border-color:var(--accent3);}
+  .callout.tip{background:rgba(139,92,246,.1);border-color:var(--accent);}
+  .callout.warning{background:rgba(255,126,182,.08);border-color:var(--accent2);}
+  .callout.key{background:rgba(52,211,153,.08);border-color:#34D399;}
+  .callout-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+  .callout.info .callout-title{color:var(--accent3);}
+  .callout.tip .callout-title{color:var(--accent);}
+  .callout.warning .callout-title{color:var(--accent2);}
+  .callout.key .callout-title{color:#34D399;}
+  /* Code */
+  pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:20px 22px;overflow-x:auto;margin:18px 0;}
+  code{font-family:"Fira Code","Consolas",monospace;font-size:.87rem;color:#FF6B9D;}
+  p code,li code{background:rgba(255,107,157,.15);padding:2px 6px;border-radius:4px;font-size:.85rem;}
+  /* Tables */
+  .table-wrap{overflow-x:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  th{background:var(--card);color:var(--accent2);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  td{padding:9px 14px;border-bottom:1px solid var(--border);color:#cccce0;}
+  tr:hover td{background:rgba(255,107,157,.06);}
+  .time-cell{font-weight:700;color:#fff;width:150px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="event-tag">Quantum Safe Masterclass</div>
+  <span class="day-badge">Special Workshop</span>
+  <h1 class="doc-title">One-Day Event Plan: Enterprise Cryptographic Transformation</h1>
+  <p class="doc-subtitle">A comprehensive masterclass and hands-on laboratory session preparing security architects, engineers, and developers for the post-quantum era.</p>
+  <div class="meta-row">
+    <span>📅 Event Date: November 26, 2026</span>
+    <span>⏱️ Duration: 9:00 AM – 5:00 PM IST (8 Hours)</span>
+    <span>💻 Target Audience: Cybersecurity Architects, PKI Admins, Software Engineers</span>
+  </div>
+</header>
+
+<div class="container">
+  
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#landscape">1. The Post-Quantum Cryptographic Threat Landscape</a></li>
+      <li><a href="#standards">2. Global NIST PQC Standards (FIPS 203, 204, 205, 206)</a></li>
+      <li><a href="#methodology">3. IBM Quantum Safe Transformation Framework</a></li>
+      <li><a href="#cbom">4. Standardized Cryptographic Bill of Materials (CBOM)</a></li>
+      <li><a href="#agility">5. Architectural Principles of Crypto-Agility &amp; Hybrids</a></li>
+      <li><a href="#systems">6. Enterprise Quantum Safe Hardware &amp; Cloud Systems</a></li>
+      <li><a href="#agenda">7. Detailed Hour-by-Hour Event Agenda</a></li>
+      <li><a href="#labs">8. Hands-on Laboratory Pipeline (Discover, Observe, Transform)</a></li>
+      <li><a href="#assessment">9. Graded Assessment &amp; Mastery Evaluation (0–100 pts)</a></li>
+      <li><a href="#references">10. References &amp; Additional Resources</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="landscape">
+    <h2 class="sec-title"><span class="icon">🛡️</span> 1. The Post-Quantum Cryptographic Threat Landscape</h2>
+    <p>As quantum computing hardware advances rapidly toward commercial and scientific utility, the fundamental cryptographic primitives protecting global data face an existential threat. This masterclass centers on preparing enterprise infrastructure for the arrival of cryptanalytically relevant quantum computers (CRQCs).</p>
+    
+    <div class="callout warning">
+      <div class="callout-title">Shor's Algorithm &amp; Exponential Speedup</div>
+      <p>Shor's algorithm provides an exponential speedup in solving integer factorization and discrete logarithms. Once run on a CRQC, it will completely compromise <strong>RSA-2048/4096, Diffie-Hellman, ECDH, and ECDSA</strong>, completely rendering standard SSL/TLS, SSH, IPsec, PKI, digital identities, and blockchain vulnerable.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">Grover's Algorithm &amp; Quadratic Speedup</div>
+      <p>Grover's algorithm provides a quadratic speedup for searching unstructured databases. It reduces symmetric key strength by half, dropping AES-128 to 64-bit strength (vulnerable) while leaving <strong>AES-256 secure (128-bit quantum security strength)</strong>.</p>
+    </div>
+
+    <div class="callout key">
+      <div class="callout-title">Harvest Now, Decrypt Later (HNDL)</div>
+      <p>Adversaries are actively intercepting and storing encrypted data today. Once a CRQC arrives, they will decrypt it. Consequently, datasets with long lifespans (>10 years), such as medical archives, defense secrets, and intellectual property, are under threat <strong>today</strong>.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="standards">
+    <h2 class="sec-title"><span class="icon">📜</span> 2. Global NIST PQC Standards (FIPS 203, 204, 205, 206)</h2>
+    <p>In August 2024, the National Institute of Standards and Technology (NIST) finalized the primary post-quantum cryptographic standards, co-designed by IBM researchers. These standards form the bedrock of the migration program:</p>
+    
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>NIST Standard</th>
+            <th>Algorithm Name</th>
+            <th>Mathematical Basis</th>
+            <th>Primary Enterprise Use Case</th>
+            <th>Key / Signature Sizes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>FIPS 203</strong></td>
+            <td>ML-KEM (CRYSTALS-Kyber)</td>
+            <td>Module-Lattice (M-LWE)</td>
+            <td>General Encryption, TLS/HTTPS, Key Exchange</td>
+            <td>ML-KEM-768: 1,184-byte Public Key</td>
+          </tr>
+          <tr>
+            <td><strong>FIPS 204</strong></td>
+            <td>ML-DSA (CRYSTALS-Dilithium)</td>
+            <td>Module-Lattice (M-LWE)</td>
+            <td>Digital Signatures, Identity, PKI Certificates</td>
+            <td>ML-DSA-65: 3,293-byte Signature</td>
+          </tr>
+          <tr>
+            <td><strong>FIPS 205</strong></td>
+            <td>SLH-DSA (SPHINCS+)</td>
+            <td>Stateless Hash-Based</td>
+            <td>Stateless Backup Signatures, Firmware Signing</td>
+            <td>Larger signatures, zero lattice dependence</td>
+          </tr>
+          <tr>
+            <td><strong>FIPS 206</strong></td>
+            <td>FN-DSA (FALCON)</td>
+            <td>NTRU Lattice</td>
+            <td>Compact Signature Footprints</td>
+            <td>Extremely small signature size, high CPU resource</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="methodology">
+    <h2 class="sec-title"><span class="icon">🔄</span> 3. IBM Quantum Safe Transformation Framework</h2>
+    <p>Migrating a large-scale enterprise from classical cryptography to post-quantum standards requires a structured, multi-phase methodology. The IBM Quantum Safe Transformation Framework provides three major execution blocks:</p>
+    
+    <ol>
+      <li><strong>DISCOVER: Catalog &amp; Inventory Assets</strong>
+        <ul>
+          <li>Scan codebases, binary artifacts, database schemas, HSM configurations, and network endpoints.</li>
+          <li>Incorporate automated agents (such as IBM Quantum Safe Explorer and IBM zCDI on mainframe environments) to map cryptographic calls in real-time.</li>
+          <li>Output a comprehensive cryptographic inventory of the entire organization.</li>
+        </ul>
+      </li>
+      <li><strong>OBSERVE: Assess Posture &amp; Prioritize Risk</strong>
+        <ul>
+          <li>Analyze cryptographic posture against compliance regulations (NIST, NSA CNSA 2.0).</li>
+          <li>Determine Risk Exposure Index based on algorithm vulnerability, key length, and the data lifespan.</li>
+          <li>Assess migration complexity and prioritize applications utilizing IBM Quantum Safe Advisor.</li>
+        </ul>
+      </li>
+      <li><strong>TRANSFORM: Remediate with Crypto-Agility</strong>
+        <ul>
+          <li>Deploy hybrid schemes combining classical (ECDH) + post-quantum (ML-KEM) algorithms.</li>
+          <li>Modernize network layers, API gateways, application configurations, and hardware security modules (HSMs).</li>
+          <li>Integrate dynamic, zero-downtime microservice gateways utilizing IBM Quantum Safe Remediator.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="cbom">
+    <h2 class="sec-title"><span class="icon">📦</span> 4. Standardized Cryptographic Bill of Materials (CBOM)</h2>
+    <p>A <strong>Cryptographic Bill of Materials (CBOM)</strong> is an extension of the traditional Software Bill of Materials (SBOM) using the OWASP CycloneDX format. It defines every cryptographic asset, algorithm, key size, and parameter utilized in software systems.</p>
+    
+    <div class="callout tip">
+      <div class="callout-title">Core CBOM Data Structures</div>
+      <ul>
+        <li><strong>Asset properties</strong>: Algorithm Name, OID, Key Length, and padding schemes.</li>
+        <li><strong>Vulnerability classification</strong>: Flags identifying if the asset is quantum-vulnerable (e.g. RSA, ECC) or quantum-safe (e.g. ML-KEM).</li>
+        <li><strong>Location traceability</strong>: Absolute file path, line numbers, function names, and byte offsets.</li>
+        <li><strong>Policy Compliance</strong>: Maps the asset's capability directly to international standards (e.g., FIPS 203, FIPS 204, NSA CNSA 2.0).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="agility">
+    <h2 class="sec-title"><span class="icon">🔀</span> 5. Architectural Principles of Crypto-Agility &amp; Hybrids</h2>
+    <p>Directly swapping classical algorithms for post-quantum ones is not immediately feasible due to potential software instabilities, buffer limits, and compliance demands. Therefore, we design with two foundational architectural models:</p>
+
+    <h3 class="sub-title">Why Hybrid Cryptography is the Gold Standard</h3>
+    <p>Hybrid cryptography combines a classical cryptosystem (e.g. ECDH X25519) and a post-quantum cryptosystem (ML-KEM-768) in tandem. It ensures that <strong>security is guaranteed</strong> even if a theoretical mathematical vulnerability is discovered in the new lattice cryptography, while meeting modern post-quantum standards.</p>
+    <div class="eq">Shared Session Key = HKDF-Extract-and-Expand(Classical_Secret || Post_Quantum_Secret)</div>
+
+    <h3 class="sub-title">Core Principles of Crypto-Agility</h3>
+    <ul>
+      <li><strong>Decoupled Abstractions</strong>: Applications never call low-level libraries or hardcoded ciphers directly. Instead, they interact with higher-level APIs.</li>
+      <li><strong>Policy-Driven Configurations</strong>: Ciphers can be hot-swapped dynamically via central configuration (YAML/JSON) without recompiling or redeploying code.</li>
+      <li><strong>Buffer Elasticity</strong>: Post-quantum public keys and signatures are orders of magnitude larger than classical counterparts (e.g. ML-DSA signature is ~3.2 KB vs ECDSA's 64 bytes). Network queues and buffers must be scaled to prevent memory allocation overflows.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="systems">
+    <h2 class="sec-title"><span class="icon">🖥️</span> 6. Enterprise Quantum Safe Hardware &amp; Cloud Systems</h2>
+    <p>IBM offers specialized hardware and cloud portfolios built for enterprise post-quantum transition:</p>
+    <ul>
+      <li><strong>IBM z16 &amp; LinuxONE 4 Mainframes</strong>: Featuring the <em>Crypto Express 8S (CEX8S)</em> HSM, providing state-of-the-art native hardware-accelerated execution of Kyber (ML-KEM) and Dilithium (ML-DSA) algorithms alongside dual-signature secure boot.</li>
+      <li><strong>IBM Cloud Secrets Manager</strong>: Centralizes credentials and enables automated lifecycle rotation of classical, hybrid, and post-quantum certificates.</li>
+      <li><strong>IBM Cloud Hyper Protect Crypto Services (HPCS)</strong>: Provides FIPS 140-2 Level 4 HSM capabilities, guaranteeing that cryptographic root keys are secure from logical and physical exposure.</li>
+      <li><strong>IBM Security Verify</strong>: Facilitates post-quantum resistant federated authentication and multi-factor authentication (MFA) services across hybrid IT systems.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="agenda">
+    <h2 class="sec-title"><span class="icon">⏱️</span> 7. Detailed Hour-by-Hour Event Agenda</h2>
+    <p>A comprehensive schedule designed to transition executive stakeholders, security managers, and development teams in a single day:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Session Name</th>
+            <th>Type</th>
+            <th>Session Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time-cell"><strong>09:00 – 10:00 AM</strong></td>
+            <td><strong>Executive Opening &amp; Threat Briefing</strong></td>
+            <td>Presentation</td>
+            <td>Analyzing the quantum threat landscape: Shor's and Grover's algorithm mechanics, Harvest Now Decrypt Later (HNDL), and regulatory compliance mandates.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>10:00 – 11:15 AM</strong></td>
+            <td><strong>Deep Dive: NIST FIPS PQC Standards</strong></td>
+            <td>Technical Lecture</td>
+            <td>A comprehensive engineering walkthrough of FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), FIPS 205 (SLH-DSA), and FIPS 206 (FN-DSA). Understanding performance profiles and signature sizes.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>11:15 – 11:30 AM</strong></td>
+            <td><strong>Coffee &amp; Networking Break</strong></td>
+            <td>Networking</td>
+            <td>Informal networking and discussion of enterprise security challenges.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>11:30 AM – 12:30 PM</strong></td>
+            <td><strong>Methodology &amp; CBOM Specifications</strong></td>
+            <td>Interactive Strategy</td>
+            <td>Deconstructing the Discover-Observe-Transform roadmap. Exploring OWASP CycloneDX CBOM schemas and how IBM zCDI analyzes cryptographic assets on mainframes.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>12:30 – 01:30 PM</strong></td>
+            <td><strong>Lunch Break</strong></td>
+            <td>Networking</td>
+            <td>Structured peer discussions.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>01:30 – 02:30 PM</strong></td>
+            <td><strong>Laboratory 1: Code Discovery &amp; CBOM</strong></td>
+            <td>Hands-On Lab</td>
+            <td><strong>Lab 1: CBOM Discovery.</strong> Deploying a static codebase code scanner, mapping vulnerable primitives, classifying algorithm risk, and generating standard CycloneDX CBOM JSON outputs.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>02:30 – 03:30 PM</strong></td>
+            <td><strong>Laboratory 2: Hybrid KEM &amp; Signatures</strong></td>
+            <td>Hands-On Lab</td>
+            <td><strong>Lab 2: Cryptographic Implementation.</strong> Coding a hybrid key exchange combining ECDH (X25519) + ML-KEM-768, deriving a shared session key via HKDF, and implementing ML-DSA-65 digital signature validation.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>03:30 – 04:30 PM</strong></td>
+            <td><strong>Laboratory 3: Crypto-Agile Gateways</strong></td>
+            <td>Hands-On Lab</td>
+            <td><strong>Lab 3: Agility Engineering.</strong> Architecting a stateful security engine enabling dynamic, zero-downtime policy transition between Classical, Hybrid, and Pure Post-Quantum cipher suites.</td>
+          </tr>
+          <tr>
+            <td class="time-cell"><strong>04:30 – 05:00 PM</strong></td>
+            <td><strong>Automated Assessment &amp; Closing Ceremony</strong></td>
+            <td>Grading &amp; Wrap-up</td>
+            <td>Running the automated test engine (<code>lab_grader.py</code>), reviewing student implementation scores (0-100), distributing IBM Qiskit Fall Fest badges, and delivering next-step timelines.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="labs">
+    <h2 class="sec-title"><span class="icon">💻</span> 8. Hands-on Laboratory Pipeline</h2>
+    <p>The practical laboratory portion utilizes real-world scripts. Students modify and execute code that demonstrates core quantum-safe capabilities:</p>
+    
+    <div class="callout tip">
+      <div class="callout-title">Lab 1: Cryptographic Discovery &amp; CBOM Generation</div>
+      <p>Students execute <code>lab1_cbom_discovery.py</code> to scan application code, extract parameters, map obsolete algorithms (like 3DES or short-key RSA) and output a standardized JSON CBOM. This establishes the foundation of the 'Discover' phase.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">Lab 2: Hybrid Key Encapsulation (ML-KEM) &amp; Digital Signatures (ML-DSA)</div>
+      <p>Students execute <code>lab2_hybrid_kem_mldsa.py</code> to configure public-private key pairs, generate classical ECDH secrets and lattice secrets, and encapsulate shared keys. They also verify post-quantum signatures mapping exactly to standardized public key lengths (1,952 bytes) and signature lengths (3,293 bytes).</p>
+    </div>
+
+    <div class="callout key">
+      <div class="callout-title">Lab 3: Crypto-Agile Microservice Gateway</div>
+      <p>Students run <code>lab3_crypto_agile_api.py</code> to experience a live microservice API gateway capable of hot-swapping active cipher configurations instantly without needing code recompilation or application downtime.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section" id="assessment">
+    <h2 class="sec-title"><span class="icon">🏆</span> 9. Graded Assessment &amp; Mastery Evaluation (0–100 pts)</h2>
+    <p>To receive the official event certification, students must complete the 4 tasks in <code>student_assignment.py</code>. The automated grading script (<code>lab_grader.py</code>) runs a suite of test vectors and evaluates implementations on a 100-point rubric:</p>
+    
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Assessment Component</th>
+            <th>Assigned Points</th>
+            <th>Coded Objective &amp; Logic Tested</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Task 1: Algorithm Risk Classifier</strong></td>
+            <td>25 Points</td>
+            <td>Implement <code>classify_crypto_algorithm</code> to identify RSA, Diffie-Hellman, ECDSA, 3DES, and short-key AES as vulnerable, classify NIST standard category (FIPS 203, 204), and suggest remediation.</td>
+          </tr>
+          <tr>
+            <td><strong>Task 2: Hybrid Key Derivation</strong></td>
+            <td>25 Points</td>
+            <td>Implement <code>derive_hybrid_session_key</code> utilizing HMAC-SHA256 based HKDF-Extract-and-Expand to safely combine classical ECDH and ML-KEM-768 secrets.</td>
+          </tr>
+          <tr>
+            <td><strong>Task 3: Post-Quantum Signature Validator</strong></td>
+            <td>25 Points</td>
+            <td>Implement <code>verify_mldsa_signature</code> to enforce exact byte-length constraints for ML-DSA-65 signatures (3,293 bytes) and public keys (1,952 bytes).</td>
+          </tr>
+          <tr>
+            <td><strong>Task 4: Dynamic Security Policy State Machine</strong></td>
+            <td>25 Points</td>
+            <td>Develop <code>AgileSecurityEngine</code> to safely cycle cipher suites (CLASSICAL, HYBRID, and POST_QUANTUM) dynamically based on incoming API security rules.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section" id="references">
+    <h2 class="sec-title"><span class="icon">📚</span> 10. References &amp; Additional Resources</h2>
+    <p>All materials are mapped against academic research and international specifications:</p>
+    <ol>
+      <li><strong>NIST PQC Standards (August 2024)</strong>: <a href="https://csrc.nist.gov/pqc" target="_blank">csrc.nist.gov/pqc</a></li>
+      <li><strong>IBM Quantum Safe Security Portfolio</strong>: <a href="https://ibm.com/quantum/quantum-safe" target="_blank">ibm.com/quantum/quantum-safe</a></li>
+      <li><strong>IBM Z Crypto Discovery &amp; Inventory (zCDI)</strong>: <a href="https://www.ibm.com/docs/en/z-crypto-discovery-inventory" target="_blank">ibm.com/docs/en/z-crypto-discovery-inventory</a></li>
+      <li><strong>OWASP CycloneDX CBOM Specification</strong>: <a href="https://cyclonedx.org/capabilities/cbom/" target="_blank">cyclonedx.org/capabilities/cbom</a></li>
+    </ol>
+  </div>
+
+</div>
+
+</body>
+</html>

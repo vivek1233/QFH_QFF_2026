@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 150" width="900" height="150">
+  <rect width="900" height="150" fill="#0D1B2A" rx="8"/>
+  <text x="450" y="24" text-anchor="middle" font-family="Calibri,sans-serif" font-size="14" fill="#90CAF9" font-weight="bold">QUANTUM COMPUTING ECOSYSTEM</text>
+  <!-- boxes -->
+  <rect x="20" y="38" width="148" height="52" rx="6" fill="#1E3A5F" stroke="#1E88E5" stroke-width="2"/>
+  <text x="94" y="60" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">Quantum</text>
+  <text x="94" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9">Hardware</text>
+  <rect x="190" y="38" width="148" height="52" rx="6" fill="#1E3A5F" stroke="#1E88E5" stroke-width="2"/>
+  <text x="264" y="60" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">Quantum</text>
+  <text x="264" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9">Algorithms</text>
+  <rect x="360" y="38" width="180" height="52" rx="6" fill="#1E3A5F" stroke="#1E88E5" stroke-width="2"/>
+  <text x="450" y="60" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">Quantum Software</text>
+  <text x="450" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9">Qiskit / Cirq / Q#</text>
+  <rect x="562" y="38" width="168" height="52" rx="6" fill="#1E3A5F" stroke="#1E88E5" stroke-width="2"/>
+  <text x="646" y="60" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">Quantum Security</text>
+  <text x="646" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9">PQC / QKD</text>
+  <rect x="752" y="38" width="130" height="52" rx="6" fill="#1E3A5F" stroke="#1E88E5" stroke-width="2"/>
+  <text x="817" y="60" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">Quantum</text>
+  <text x="817" y="78" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9">Applications</text>
+  <!-- arrows -->
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1E88E5"/></marker></defs>
+  <line x1="168" y1="64" x2="188" y2="64" stroke="#1E88E5" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="338" y1="64" x2="358" y2="64" stroke="#1E88E5" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="540" y1="64" x2="560" y2="64" stroke="#1E88E5" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="730" y1="64" x2="750" y2="64" stroke="#1E88E5" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="450" y="138" text-anchor="middle" font-family="Calibri,sans-serif" font-size="11" fill="#B0BEC5">Today's session covers all five pillars — from physical hardware to real-world applications</text>
+</svg>

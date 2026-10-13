@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 110" width="900" height="110">
+  <rect width="900" height="110" fill="#0A1628" rx="8"/>
+  <text x="14" y="20" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">SUPERPOSITION STEP-BY-STEP</text>
+  <!-- Step 1 -->
+  <rect x="14" y="28" width="90" height="50" rx="5" fill="#1565C0" stroke="#42A5F5" stroke-width="2"/>
+  <text x="59" y="50" text-anchor="middle" font-family="Calibri,sans-serif" font-size="22" fill="#FFFFFF" font-weight="bold">|0⟩</text>
+  <text x="59" y="70" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#90CAF9">initial state</text>
+  <text x="110" y="56" font-family="Calibri,sans-serif" font-size="18" fill="#FFD54F" font-weight="bold">&#x2192;</text>
+  <!-- Step 2 Hadamard -->
+  <rect x="128" y="28" width="90" height="50" rx="5" fill="#2E7D32" stroke="#66BB6A" stroke-width="2"/>
+  <text x="173" y="50" text-anchor="middle" font-family="Calibri,sans-serif" font-size="20" fill="#FFFFFF" font-weight="bold">H</text>
+  <text x="173" y="70" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">Hadamard gate</text>
+  <text x="224" y="56" font-family="Calibri,sans-serif" font-size="18" fill="#FFD54F" font-weight="bold">&#x2192;</text>
+  <!-- Step 3 Superposition -->
+  <rect x="242" y="28" width="180" height="50" rx="5" fill="#1A237E" stroke="#7986CB" stroke-width="2"/>
+  <text x="332" y="48" text-anchor="middle" font-family="Calibri,sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">&#x03B1;|0&#x27E9; + &#x03B2;|1&#x27E9;</text>
+  <text x="332" y="68" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#9FA8DA">superposition — both at once</text>
+  <text x="428" y="56" font-family="Calibri,sans-serif" font-size="18" fill="#FFD54F" font-weight="bold">&#x2192;</text>
+  <!-- Measure -->
+  <text x="446" y="36" font-family="Calibri,sans-serif" font-size="11" fill="#B0BEC5">Measure</text>
+  <rect x="444" y="40" width="56" height="28" rx="4" fill="#1565C0" stroke="#42A5F5" stroke-width="1.5"/>
+  <text x="472" y="59" text-anchor="middle" font-family="Calibri,sans-serif" font-size="18" fill="#FFFFFF" font-weight="bold">0</text>
+  <text x="506" y="53" font-family="Calibri,sans-serif" font-size="11" fill="#90CAF9">|&#x03B1;|&#xB2; prob</text>
+  <text x="448" y="76" font-family="Calibri,sans-serif" font-size="9" fill="#B0BEC5">OR</text>
+  <rect x="444" y="80" width="56" height="25" rx="4" fill="#1B5E20" stroke="#66BB6A" stroke-width="1.5"/>
+  <text x="472" y="97" text-anchor="middle" font-family="Calibri,sans-serif" font-size="18" fill="#FFFFFF" font-weight="bold">1</text>
+  <text x="506" y="94" font-family="Calibri,sans-serif" font-size="11" fill="#A5D6A7">|&#x03B2;|&#xB2; prob</text>
+  <!-- Scale chart -->
+  <line x1="590" y1="10" x2="590" y2="108" stroke="#37474F" stroke-width="1"/>
+  <text x="606" y="24" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">Quantum parallelism scale:</text>
+  <rect x="606" y="34" width="14" height="12" fill="#1E88E5" rx="1"/>
+  <text x="626" y="44" font-family="Calibri,sans-serif" font-size="12" fill="#E3F2FD">3 qubits  &#x2192;  8 simultaneous states</text>
+  <rect x="606" y="52" width="14" height="12" fill="#42A5F5" rx="1"/>
+  <text x="626" y="62" font-family="Calibri,sans-serif" font-size="12" fill="#E3F2FD">10 qubits &#x2192;  1,024 states</text>
+  <rect x="606" y="70" width="14" height="12" fill="#64B5F6" rx="1"/>
+  <text x="626" y="80" font-family="Calibri,sans-serif" font-size="12" fill="#E3F2FD">20 qubits &#x2192;  1 million states</text>
+  <rect x="606" y="88" width="14" height="12" fill="#90CAF9" rx="1"/>
+  <text x="626" y="98" font-family="Calibri,sans-serif" font-size="12" fill="#E3F2FD">50 qubits &#x2192;  10&#xB9;&#x2075; states</text>
+</svg>

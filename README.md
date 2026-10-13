@@ -1,8 +1,8 @@
 ﻿# QFH_QFF_2026 — IBM Qiskit Fall Fest 2026
 ### Quantum for Humanity Org × IBM Quantum
 
-**Live Website:** A 5-day quantum computing festival — Beginner to Advanced  
-**Dates:** November 16–20, 2026  
+**Live Website:** A 5-day quantum computing festival — Beginner to Advanced
+**Dates:** November 23–27, 2026
 **Partners:** IBM Quantum & Quantum for Humanity Org
 
 ## Registration

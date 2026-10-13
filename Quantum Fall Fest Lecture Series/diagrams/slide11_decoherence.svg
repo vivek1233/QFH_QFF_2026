@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="900" height="120">
+  <rect width="900" height="120" fill="#0A1628" rx="8"/>
+  <text x="14" y="18" font-family="Calibri,sans-serif" font-size="13" fill="#90CAF9" font-weight="bold">DECOHERENCE  &#x2014;  How Qubits Lose Quantum Information</text>
+  <!-- T1 decay -->
+  <rect x="14" y="28" width="260" height="80" rx="6" fill="#1E3A5F" stroke="#EF5350" stroke-width="1.5"/>
+  <text x="144" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#EF9A9A" font-weight="bold">T&#x2081; — Energy Relaxation</text>
+  <circle cx="50" cy="72" r="14" fill="#1E88E5" stroke="#90CAF9" stroke-width="2"/>
+  <text x="50" y="77" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">|1&#x27E9;</text>
+  <path d="M68,72 Q120,45 165,72" fill="none" stroke="#EF5350" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="118" y="58" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FF8A80">energy lost to environment</text>
+  <circle cx="183" cy="72" r="14" fill="#66BB6A" stroke="#A5D6A7" stroke-width="2"/>
+  <text x="183" y="77" text-anchor="middle" font-family="Calibri,sans-serif" font-size="13" fill="#FFFFFF" font-weight="bold">|0&#x27E9;</text>
+  <text x="144" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#B0BEC5">IBM Heron: T&#x2081; ~ 2,000 &#x3BC;s</text>
+  <!-- T2 dephasing -->
+  <rect x="288" y="28" width="260" height="80" rx="6" fill="#1E3A5F" stroke="#FFB300" stroke-width="1.5"/>
+  <text x="418" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">T&#x2082; — Dephasing</text>
+  <circle cx="320" cy="72" r="14" fill="#1E88E5" stroke="#90CAF9" stroke-width="2"/>
+  <text x="320" y="76" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FFFFFF">|0&#x27E9;+|1&#x27E9;</text>
+  <path d="M338,72 Q380,55 420,72" fill="none" stroke="#FFB300" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="380" y="58" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#FFD54F">phase noise</text>
+  <circle cx="440" cy="72" r="14" fill="#546E7A" stroke="#90A4AE" stroke-width="2"/>
+  <text x="440" y="76" text-anchor="middle" font-family="Calibri,sans-serif" font-size="9" fill="#FFFFFF">random phase</text>
+  <text x="418" y="100" text-anchor="middle" font-family="Calibri,sans-serif" font-size="10" fill="#B0BEC5">Relative phase randomized</text>
+  <!-- Error rates -->
+  <rect x="562" y="28" width="322" height="80" rx="6" fill="#0D2137" stroke="#37474F" stroke-width="1.5"/>
+  <text x="723" y="44" text-anchor="middle" font-family="Calibri,sans-serif" font-size="12" fill="#FFD54F" font-weight="bold">Error Rate Targets</text>
+  <rect x="575" y="52" width="110" height="16" rx="3" fill="#EF5350" opacity="0.7"/>
+  <text x="690" y="64" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">NISQ today: ~0.1–1% / gate</text>
+  <rect x="575" y="72" width="36" height="16" rx="3" fill="#66BB6A" opacity="0.8"/>
+  <text x="615" y="84" font-family="Calibri,sans-serif" font-size="10" fill="#A5D6A7">~0.01%</text>
+  <text x="660" y="84" font-family="Calibri,sans-serif" font-size="10" fill="#E3F2FD">fault-tolerant threshold</text>
+  <text x="575" y="102" font-family="Calibri,sans-serif" font-size="9" fill="#90CAF9">IBM Heron 2024: 99.9% SQ, 99.5% 2Q fidelity</text>
+</svg>
