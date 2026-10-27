@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin — Visitor Analytics | QFF 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0120;color:#e8e0f5;min-height:100vh;line-height:1.5}
+a{color:#8B5CF6;text-decoration:none}
+
+/* LOGIN */
+#login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-box{background:#1a0533;border:1px solid rgba(139,92,246,.3);border-radius:16px;padding:48px 40px;width:100%;max-width:380px;text-align:center}
+.login-box h1{font-size:22px;font-weight:700;margin-bottom:6px;color:#fff}
+.login-box p{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:28px}
+.login-box input{width:100%;background:#0d0120;border:1px solid rgba(139,92,246,.4);border-radius:8px;padding:11px 14px;font-size:14px;color:#fff;outline:none;margin-bottom:14px}
+.login-box input:focus{border-color:#8B5CF6}
+.login-box button{width:100%;background:#8B5CF6;color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .2s}
+.login-box button:hover{opacity:.85}
+.login-err{color:#FF6B9D;font-size:13px;margin-top:10px;display:none}
+.login-logo{font-size:32px;margin-bottom:18px}
+
+/* DASHBOARD */
+#dashboard{display:none;padding:0}
+.top-bar{background:#1a0533;border-bottom:1px solid rgba(139,92,246,.25);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10}
+.top-bar-left{display:flex;align-items:center;gap:12px}
+.top-bar h2{font-size:16px;font-weight:700;color:#fff}
+.top-bar span{font-size:12px;color:rgba(255,255,255,.4);background:rgba(139,92,246,.15);padding:3px 10px;border-radius:999px}
+.top-bar-right{display:flex;gap:8px;align-items:center}
+.btn{font-size:13px;font-weight:600;padding:8px 18px;border-radius:8px;cursor:pointer;border:none;transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn-primary{background:#8B5CF6;color:#fff}
+.btn-success{background:#138808;color:#fff}
+.btn-logout{background:rgba(255,107,157,.15);color:#FF6B9D;border:1px solid rgba(255,107,157,.3)}
+
+.main{padding:24px 5%}
+
+/* STATS CARDS */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:28px}
+.stat-card{background:#1a0533;border:1px solid rgba(139,92,246,.2);border-radius:12px;padding:20px 18px}
+.stat-card .label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:6px}
+.stat-card .value{font-size:28px;font-weight:800;color:#fff}
+.stat-card .sub{font-size:12px;color:rgba(255,255,255,.35);margin-top:4px}
+
+/* FILTERS */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.filter-bar input,.filter-bar select{background:#1a0533;border:1px solid rgba(139,92,246,.3);border-radius:8px;padding:8px 12px;font-size:13px;color:#e8e0f5;outline:none}
+.filter-bar input:focus,.filter-bar select:focus{border-color:#8B5CF6}
+.filter-bar input{flex:1;min-width:160px}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid rgba(139,92,246,.2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:#2D1B69}
+thead th{padding:12px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55);font-weight:600;white-space:nowrap}
+tbody tr{border-top:1px solid rgba(139,92,246,.1);transition:background .15s}
+tbody tr:hover{background:rgba(139,92,246,.07)}
+tbody td{padding:11px 14px;color:#e8e0f5;white-space:nowrap}
+tbody td.wrap{white-space:normal;max-width:220px;word-break:break-all}
+.flag{font-size:16px}
+.country-cell{display:flex;align-items:center;gap:6px}
+.no-data{text-align:center;padding:48px 20px;color:rgba(255,255,255,.3);font-size:14px}
+
+/* SETUP NOTICE */
+.setup-notice{background:rgba(255,153,51,.08);border:1px solid rgba(255,153,51,.35);border-radius:12px;padding:20px 24px;margin-bottom:24px;display:none}
+.setup-notice h3{color:#FF9933;font-size:14px;font-weight:700;margin-bottom:8px}
+.setup-notice p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7}
+.setup-notice code{background:rgba(255,255,255,.08);padding:2px 7px;border-radius:4px;font-family:monospace;font-size:12px;color:#8B5CF6}
+.setup-notice a{color:#FF9933;font-weight:600}
+
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.04em}
+.badge-new{background:rgba(19,136,8,.18);color:#4ade80;border:1px solid rgba(19,136,8,.3)}
+.badge-ret{background:rgba(139,92,246,.18);color:#c4b5fd;border:1px solid rgba(139,92,246,.3)}
+
+.pagination{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:16px;font-size:13px;color:rgba(255,255,255,.45)}
+.pagination button{background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);color:#c4b5fd;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+.pagination button:disabled{opacity:.3;cursor:not-allowed}
+.pagination button:hover:not(:disabled){background:rgba(139,92,246,.3)}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🔐</div>
+    <h1>Admin Portal</h1>
+    <p>IBM Qiskit Fall Fest 2026 — Visitor Analytics</p>
+    <input type="password" id="pwd-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <button onclick="doLogin()">Sign In</button>
+    <div class="login-err" id="login-err">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="top-bar h2" style="font-size:16px;font-weight:700;color:#fff">📊 Visitor Analytics</div>
+      <span id="last-refresh">Loading…</span>
+    </div>
+    <div class="top-bar-right">
+      <button class="btn btn-primary" onclick="loadData()">⟳ Refresh</button>
+      <button class="btn btn-success" onclick="downloadExcel()">⬇ Download Excel</button>
+      <button class="btn btn-logout" onclick="doLogout()">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <div class="setup-notice" id="setup-notice">
+      <h3>⚠ Setup Required — Google Apps Script not configured</h3>
+      <p>
+        The visitor tracker is not yet connected to a backend. Follow the steps in
+        <a href="VISITOR-TRACKING-SETUP.md" target="_blank">VISITOR-TRACKING-SETUP.md</a> to deploy the Google Apps Script Web App,
+        then paste your Web App URL into <code>index.html</code> (replace <code>YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL</code>)
+        and paste your published Google Sheet CSV URL into <code>admin.html</code> (replace <code>YOUR_GOOGLE_SHEET_CSV_URL</code>).
+        Once done, visitor data will appear here automatically.
+      </p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="label">Total Visits</div><div class="value" id="stat-total">—</div><div class="sub">all time</div></div>
+      <div class="stat-card"><div class="label">Unique IPs</div><div class="value" id="stat-unique">—</div><div class="sub">distinct visitors</div></div>
+      <div class="stat-card"><div class="label">Countries</div><div class="value" id="stat-countries">—</div><div class="sub">global reach</div></div>
+      <div class="stat-card"><div class="label">Cities</div><div class="value" id="stat-cities">—</div><div class="sub">locations</div></div>
+      <div class="stat-card"><div class="label">Today</div><div class="value" id="stat-today">—</div><div class="sub" id="stat-today-date">visits</div></div>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="🔍  Search by city, country, IP…" oninput="applyFilter()"/>
+      <select id="country-filter" onchange="applyFilter()">
+        <option value="">All Countries</option>
+      </select>
+      <select id="rows-per-page" onchange="applyFilter()">
+        <option value="25">25 per page</option>
+        <option value="50">50 per page</option>
+        <option value="100">100 per page</option>
+        <option value="999999">All</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Timestamp (IST)</th>
+            <th>IP Address</th>
+            <th>City</th>
+            <th>Region</th>
+            <th>Country</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>ISP / Org</th>
+            <th>Timezone</th>
+            <th>Referrer</th>
+          </tr>
+        </thead>
+        <tbody id="visitor-tbody">
+          <tr><td colspan="11" class="no-data">Loading visitor data…</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <span id="page-info"></span>
+      <button id="prev-btn" onclick="changePage(-1)" disabled>‹ Prev</button>
+      <button id="next-btn" onclick="changePage(1)">Next ›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── CONFIG ──────────────────────────────────────────────────────────────────
+var SHEET_CSV_URL = 'YOUR_GOOGLE_SHEET_CSV_URL';  // ← paste Published CSV URL here after setup
+var ADMIN_PASSWORD_HASH = 'qff2026admin';          // ← change this to your password
+// ─────────────────────────────────────────────────────────────────────────────
+
+var allRows   = [];
+var filtered  = [];
+var currentPage = 1;
+var rowsPerPage = 25;
+
+/* ---------- AUTH ---------- */
+function doLogin(){
+  var pwd = document.getElementById('pwd-input').value;
+  if(pwd === ADMIN_PASSWORD_HASH){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    sessionStorage.setItem('qff_admin','1');
+    loadData();
+  } else {
+    document.getElementById('login-err').style.display='block';
+  }
+}
+function doLogout(){
+  sessionStorage.removeItem('qff_admin');
+  location.reload();
+}
+// Auto-login if already authenticated this session
+if(sessionStorage.getItem('qff_admin')==='1'){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+}
+
+/* ---------- DATA LOAD ---------- */
+function loadData(){
+  document.getElementById('last-refresh').textContent='Refreshing…';
+
+  if(SHEET_CSV_URL.indexOf('YOUR_')===0){
+    document.getElementById('setup-notice').style.display='block';
+    document.getElementById('last-refresh').textContent='Not configured';
+    renderTable([]);
+    updateStats([]);
+    return;
+  }
+
+  // Bust cache with timestamp
+  fetch(SHEET_CSV_URL + '&t=' + Date.now())
+    .then(function(r){ return r.text(); })
+    .then(function(csv){
+      allRows = parseCSV(csv);
+      populateCountryFilter(allRows);
+      applyFilter();
+      updateStats(allRows);
+      var now = new Date();
+      document.getElementById('last-refresh').textContent =
+        'Last refreshed: ' + now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+    })
+    .catch(function(err){
+      document.getElementById('last-refresh').textContent='Error loading data';
+      console.error(err);
+    });
+}
+
+/* ---------- CSV PARSER ---------- */
+function parseCSV(text){
+  var lines = text.trim().split('\n');
+  if(lines.length < 2) return [];
+  // Skip header row (row 0)
+  var rows = [];
+  for(var i=1;i<lines.length;i++){
+    var cols = splitCSVLine(lines[i]);
+    if(cols.length < 2) continue;
+    rows.push({
+      timestamp   : cols[0]||'',
+      ip          : cols[1]||'',
+      city        : cols[2]||'',
+      region      : cols[3]||'',
+      country     : cols[4]||'',
+      country_code: cols[5]||'',
+      latitude    : cols[6]||'',
+      longitude   : cols[7]||'',
+      org         : cols[8]||'',
+      timezone    : cols[9]||'',
+      page        : cols[10]||'',
+      referrer    : cols[11]||'',
+      ua          : cols[12]||''
+    });
+  }
+  return rows;
+}
+function splitCSVLine(line){
+  var result=[],cur='',inQ=false;
+  for(var i=0;i<line.length;i++){
+    var c=line[i];
+    if(c==='"'){inQ=!inQ;}
+    else if(c===','&&!inQ){result.push(cur.trim());cur='';}
+    else{cur+=c;}
+  }
+  result.push(cur.trim());
+  return result;
+}
+
+/* ---------- STATS ---------- */
+function updateStats(rows){
+  var total=rows.length;
+  var ips=new Set(rows.map(function(r){return r.ip})).size;
+  var countries=new Set(rows.map(function(r){return r.country})).size;
+  var cities=new Set(rows.map(function(r){return r.city})).size;
+  var today=new Date().toISOString().slice(0,10);
+  var todayCount=rows.filter(function(r){return r.timestamp.slice(0,10)===today}).length;
+
+  document.getElementById('stat-total').textContent=total;
+  document.getElementById('stat-unique').textContent=ips;
+  document.getElementById('stat-countries').textContent=countries;
+  document.getElementById('stat-cities').textContent=cities;
+  document.getElementById('stat-today').textContent=todayCount;
+}
+
+/* ---------- FILTER + RENDER ---------- */
+function populateCountryFilter(rows){
+  var countries=[...new Set(rows.map(function(r){return r.country}))].filter(Boolean).sort();
+  var sel=document.getElementById('country-filter');
+  sel.innerHTML='<option value="">All Countries</option>';
+  countries.forEach(function(c){
+    var o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);
+  });
+}
+function applyFilter(){
+  var q=(document.getElementById('search-input').value||'').toLowerCase();
+  var country=document.getElementById('country-filter').value;
+  rowsPerPage=parseInt(document.getElementById('rows-per-page').value)||25;
+  currentPage=1;
+  filtered=allRows.filter(function(r){
+    var matchQ=!q||(r.ip+r.city+r.region+r.country+r.org+r.referrer).toLowerCase().includes(q);
+    var matchC=!country||r.country===country;
+    return matchQ&&matchC;
+  });
+  renderTable(filtered);
+}
+function changePage(dir){
+  currentPage+=dir;
+  renderTable(filtered);
+}
+function renderTable(rows){
+  var tbody=document.getElementById('visitor-tbody');
+  if(!rows.length){
+    tbody.innerHTML='<tr><td colspan="11" class="no-data">No visitor records found.</td></tr>';
+    document.getElementById('page-info').textContent='';
+    document.getElementById('prev-btn').disabled=true;
+    document.getElementById('next-btn').disabled=true;
+    return;
+  }
+  var totalPages=Math.ceil(rows.length/rowsPerPage);
+  if(currentPage>totalPages)currentPage=totalPages;
+  var start=(currentPage-1)*rowsPerPage;
+  var pageRows=rows.slice(start,start+rowsPerPage);
+
+  var html='';
+  pageRows.forEach(function(r,i){
+    var flag=countryFlag(r.country_code);
+    var ts=formatTS(r.timestamp);
+    html+='<tr>';
+    html+='<td style="color:rgba(255,255,255,.3)">'+(start+i+1)+'</td>';
+    html+='<td>'+esc(ts)+'</td>';
+    html+='<td style="font-family:monospace;font-size:12px">'+esc(r.ip)+'</td>';
+    html+='<td>'+esc(r.city)+'</td>';
+    html+='<td>'+esc(r.region)+'</td>';
+    html+='<td><div class="country-cell"><span class="flag">'+flag+'</span>'+esc(r.country)+'</div></td>';
+    html+='<td style="font-size:12px;color:rgba(255,255,255,.5)">'+esc(r.latitude)+'</td>';
+    html+='<td style="font-size:12px;color:rgba(255,255,255,.5)">'+esc(r.longitude)+'</td>';
+    html+='<td class="wrap" style="font-size:12px;max-width:180px">'+esc(r.org)+'</td>';
+    html+='<td style="font-size:12px">'+esc(r.timezone)+'</td>';
+    html+='<td class="wrap" style="font-size:12px;max-width:160px;color:rgba(255,255,255,.5)">'+esc(r.referrer||'direct')+'</td>';
+    html+='</tr>';
+  });
+  tbody.innerHTML=html;
+  document.getElementById('page-info').textContent=
+    'Page '+currentPage+' of '+totalPages+' ('+rows.length+' records)';
+  document.getElementById('prev-btn').disabled=(currentPage<=1);
+  document.getElementById('next-btn').disabled=(currentPage>=totalPages);
+}
+
+/* ---------- EXCEL DOWNLOAD ---------- */
+function downloadExcel(){
+  if(!allRows.length){ alert('No data to export.'); return; }
+  var headers=['#','Timestamp','IP Address','City','Region','Country','Country Code',
+               'Latitude','Longitude','ISP / Org','Timezone','Page','Referrer','User Agent'];
+  var csvLines=[headers.join(',')];
+  allRows.forEach(function(r,i){
+    var cols=[i+1,r.timestamp,r.ip,r.city,r.region,r.country,r.country_code,
+              r.latitude,r.longitude,r.org,r.timezone,r.page,r.referrer,r.ua];
+    csvLines.push(cols.map(function(c){return '"'+String(c||'').replace(/"/g,'""')+'"';}).join(','));
+  });
+  var blob=new Blob(['\uFEFF'+csvLines.join('\r\n')],{type:'text/csv;charset=utf-8'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='QFF2026_Visitors_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click();
+}
+
+/* ---------- HELPERS ---------- */
+function esc(s){ var d=document.createElement('div');d.textContent=s||'';return d.innerHTML; }
+function formatTS(ts){
+  if(!ts) return '';
+  try{
+    var d=new Date(ts);
+    return d.toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'short',
+      year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  }catch(e){return ts;}
+}
+function countryFlag(code){
+  if(!code||code.length!==2) return '🌍';
+  var c=code.toUpperCase();
+  return String.fromCodePoint(c.charCodeAt(0)+127397,c.charCodeAt(1)+127397);
+}
+
+// Auto-load if already logged in
+if(sessionStorage.getItem('qff_admin')==='1') loadData();
+</script>
+</body>
+</html>

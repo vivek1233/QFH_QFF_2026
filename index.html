@@ -1072,5 +1072,46 @@ function showDay(n,el){
   },{passive:true});
 })();
 </script>
+
+<script>
+/* ===== VISITOR TRACKER ===== */
+(function(){
+  try {
+    // Only run once per session to avoid duplicate hits on navigation
+    if(sessionStorage.getItem('qff_tracked')) return;
+    sessionStorage.setItem('qff_tracked','1');
+
+    var GAS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // ← replaced during setup
+    if(GAS_URL.indexOf('YOUR_') === 0) return; // not configured yet
+
+    fetch('https://ipapi.co/json/')
+      .then(function(r){ return r.json(); })
+      .then(function(geo){
+        var payload = {
+          timestamp  : new Date().toISOString(),
+          ip         : geo.ip         || '',
+          city       : geo.city       || '',
+          region     : geo.region     || '',
+          country    : geo.country_name || '',
+          country_code: geo.country_code || '',
+          latitude   : geo.latitude   || '',
+          longitude  : geo.longitude  || '',
+          org        : geo.org        || '',
+          timezone   : geo.timezone   || '',
+          page       : window.location.href,
+          referrer   : document.referrer || 'direct',
+          ua         : navigator.userAgent
+        };
+        fetch(GAS_URL, {
+          method : 'POST',
+          mode   : 'no-cors',
+          headers: {'Content-Type':'application/json'},
+          body   : JSON.stringify(payload)
+        });
+      })
+      .catch(function(){});
+  } catch(e){}
+})();
+</script>
 </body>
 </html>
