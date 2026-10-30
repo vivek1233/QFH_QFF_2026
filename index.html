@@ -1081,7 +1081,7 @@ function showDay(n,el){
     if(sessionStorage.getItem('qff_tracked')) return;
     sessionStorage.setItem('qff_tracked','1');
 
-    var GAS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // ← replaced during setup
+    var GAS_URL = 'https://script.google.com/macros/s/AKfycbwIYttGKREvSX4lJo93HpIp_uoSgvli0Ab9lQ1mWqOa4qhTUBKvAXPTZRVqLxFvwaJq/exec';
     if(GAS_URL.indexOf('YOUR_') === 0) return; // not configured yet
 
     fetch('https://ipapi.co/json/')

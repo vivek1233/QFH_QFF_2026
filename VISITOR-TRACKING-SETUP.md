@@ -65,41 +65,35 @@ var GAS_URL = 'https://script.google.com/macros/s/AKfycb.../exec';
 
 ---
 
-## Step 4 — Publish the Google Sheet as CSV
+## Step 4 — Keep the Google Sheet PRIVATE
 
-1. In your Google Sheet, go to **File → Share → Publish to web**
-2. Set: **Visitors** sheet → **Comma-separated values (.csv)**
-3. Click **Publish** and **Copy the link**
-4. The link looks like:
-   `https://docs.google.com/spreadsheets/d/SHEET_ID/gviz/tq?tqx=out:csv&sheet=Visitors`
+Do **not** share the sheet or publish it to the web. Only the Apps Script
+(running as you) reads it, and it only returns data when the correct admin
+password is supplied. Visitors cannot see any data.
 
 ---
 
-## Step 5 — Paste the CSV URL into admin.html
+## Step 5 — Paste the same Web App URL into admin.html
 
-Open `admin.html` and find this line near the bottom:
-
-```js
-var SHEET_CSV_URL = 'YOUR_GOOGLE_SHEET_CSV_URL';
-```
-
-Replace it with your published CSV URL:
+Open `admin.html` and find:
 
 ```js
-var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/SHEET_ID/gviz/tq?tqx=out:csv&sheet=Visitors';
+var GAS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
 ```
+
+Replace it with the same `/exec` URL used in `index.html`.
 
 ---
 
-## Step 6 — Set Your Admin Password
+## Step 6 — Set the Admin Password (stored only in Google)
 
-In `admin.html`, find:
+1. In Apps Script, open **Project Settings (gear icon) → Script properties**
+2. Click **Add script property**
+3. Property: `ADMIN_PASSWORD`  Value: your chosen strong password
+4. Save. The password is never written into the website code.
 
-```js
-var ADMIN_PASSWORD_HASH = 'qff2026admin';
-```
-
-Change `qff2026admin` to your preferred admin password.
+After changing `visitor-tracker.gs`, use **Deploy → Manage deployments → Edit →
+New version → Deploy** so the update goes live.
 
 ---
 

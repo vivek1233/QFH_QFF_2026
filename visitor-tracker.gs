@@ -11,9 +11,46 @@
 
 var SHEET_NAME = 'Visitors';
 
+// Admin password is NOT stored in code. Set it once in:
+// Apps Script → Project Settings → Script properties → ADMIN_PASSWORD
+// Visitor data is only returned to a request that supplies this password.
+// Keep the Google Sheet itself PRIVATE (do not share it).
+
+function jsonOut(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// Prevent spreadsheet formula injection from untrusted visitor data
+function clean(v) {
+  v = (v === undefined || v === null) ? '' : String(v).slice(0, 500);
+  return /^[=+\-@]/.test(v) ? "'" + v : v;
+}
+
+// Admin-only: return all visitor rows if the password is correct
+function listVisitors(password) {
+  var saved = PropertiesService.getScriptProperties().getProperty('ADMIN_PASSWORD');
+  if (!saved || password !== saved) {
+    Utilities.sleep(1000);
+    return jsonOut({ status: 'denied' });
+  }
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  if (!sheet || sheet.getLastRow() < 2) return jsonOut({ status: 'ok', rows: [] });
+  var values = sheet.getRange(2, 1, sheet.getLastRow() - 1, 13).getValues();
+  var rows = values.map(function (r) {
+    return r.map(function (c) {
+      return c instanceof Date ? c.toISOString() : String(c);
+    });
+  });
+  return jsonOut({ status: 'ok', rows: rows });
+}
+
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
+    if (data.action === 'list') return listVisitors(data.password);
+
     var ss   = SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ss.getSheetByName(SHEET_NAME);
 
@@ -44,19 +81,19 @@ function doPost(e) {
 
     // Append the visitor row
     sheet.appendRow([
-      data.timestamp    || '',
-      data.ip           || '',
-      data.city         || '',
-      data.region       || '',
-      data.country      || '',
-      data.country_code || '',
-      data.latitude     || '',
-      data.longitude    || '',
-      data.org          || '',
-      data.timezone     || '',
-      data.page         || '',
-      data.referrer     || '',
-      data.ua           || ''
+      clean(data.timestamp),
+      clean(data.ip),
+      clean(data.city),
+      clean(data.region),
+      clean(data.country),
+      clean(data.country_code),
+      clean(data.latitude),
+      clean(data.longitude),
+      clean(data.org),
+      clean(data.timezone),
+      clean(data.page),
+      clean(data.referrer),
+      clean(data.ua)
     ]);
 
     return ContentService

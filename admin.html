@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
 <title>Admin — Visitor Analytics | QFF 2026</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -86,7 +87,7 @@ tbody td.wrap{white-space:normal;max-width:220px;word-break:break-all}
   <div class="login-box">
     <div class="login-logo">🔐</div>
     <h1>Admin Portal</h1>
-    <p>IBM Qiskit Fall Fest 2026 — Visitor Analytics</p>
+    <p>IBM Qiskit Fall Fest 2026 — Visitor Analytics<br/>Restricted to the Admin: Vivekanand Choudhry</p>
     <input type="password" id="pwd-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()"/>
     <button onclick="doLogin()">Sign In</button>
     <div class="login-err" id="login-err">Incorrect password. Please try again.</div>
@@ -112,10 +113,8 @@ tbody td.wrap{white-space:normal;max-width:220px;word-break:break-all}
     <div class="setup-notice" id="setup-notice">
       <h3>⚠ Setup Required — Google Apps Script not configured</h3>
       <p>
-        The visitor tracker is not yet connected to a backend. Follow the steps in
-        <a href="VISITOR-TRACKING-SETUP.md" target="_blank">VISITOR-TRACKING-SETUP.md</a> to deploy the Google Apps Script Web App,
-        then paste your Web App URL into <code>index.html</code> (replace <code>YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL</code>)
-        and paste your published Google Sheet CSV URL into <code>admin.html</code> (replace <code>YOUR_GOOGLE_SHEET_CSV_URL</code>).
+        The visitor tracker is not yet connected to a backend. Deploy the Google Apps Script Web App
+        and paste its URL into <code>GAS_URL</code> in both <code>index.html</code> and <code>admin.html</code>.
         Once done, visitor data will appear here automatically.
       </p>
     </div>
@@ -173,8 +172,9 @@ tbody td.wrap{white-space:normal;max-width:220px;word-break:break-all}
 
 <script>
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-var SHEET_CSV_URL = 'YOUR_GOOGLE_SHEET_CSV_URL';  // ← paste Published CSV URL here after setup
-var ADMIN_PASSWORD_HASH = 'qff2026admin';          // ← change this to your password
+// Same Google Apps Script Web App URL (ends in /exec) as in index.html.
+// The admin password is NOT stored here; it is checked by the script on Google's side.
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbwIYttGKREvSX4lJo93HpIp_uoSgvli0Ab9lQ1mWqOa4qhTUBKvAXPTZRVqLxFvwaJq/exec';
 // ─────────────────────────────────────────────────────────────────────────────
 
 var allRows   = [];
@@ -182,33 +182,52 @@ var filtered  = [];
 var currentPage = 1;
 var rowsPerPage = 25;
 
-/* ---------- AUTH ---------- */
-function doLogin(){
-  var pwd = document.getElementById('pwd-input').value;
-  if(pwd === ADMIN_PASSWORD_HASH){
-    document.getElementById('login-screen').style.display='none';
-    document.getElementById('dashboard').style.display='block';
-    sessionStorage.setItem('qff_admin','1');
-    loadData();
-  } else {
-    document.getElementById('login-err').style.display='block';
-  }
+/* ---------- AUTH (verified server-side) ---------- */
+function fetchVisitors(pwd){
+  // text/plain avoids a CORS preflight, which Apps Script does not support
+  return fetch(GAS_URL, {
+    method : 'POST',
+    headers: {'Content-Type':'text/plain;charset=utf-8'},
+    body   : JSON.stringify({action:'list', password:pwd})
+  }).then(function(r){ return r.json(); });
 }
-function doLogout(){
-  sessionStorage.removeItem('qff_admin');
-  location.reload();
-}
-// Auto-login if already authenticated this session
-if(sessionStorage.getItem('qff_admin')==='1'){
+function showDashboard(){
   document.getElementById('login-screen').style.display='none';
   document.getElementById('dashboard').style.display='block';
+}
+function doLogin(){
+  var pwd = document.getElementById('pwd-input').value;
+  var err = document.getElementById('login-err');
+  err.style.display='none';
+  if(GAS_URL.indexOf('YOUR_')===0){
+    showDashboard();
+    loadData();
+    return;
+  }
+  fetchVisitors(pwd).then(function(res){
+    if(res.status==='ok'){
+      sessionStorage.setItem('qff_admin_pwd',pwd);
+      showDashboard();
+      applyData(res.rows);
+    } else {
+      err.textContent='Incorrect password. Please try again.';
+      err.style.display='block';
+    }
+  }).catch(function(){
+    err.textContent='Could not reach the server. Please try again.';
+    err.style.display='block';
+  });
+}
+function doLogout(){
+  sessionStorage.removeItem('qff_admin_pwd');
+  location.reload();
 }
 
 /* ---------- DATA LOAD ---------- */
 function loadData(){
   document.getElementById('last-refresh').textContent='Refreshing…';
 
-  if(SHEET_CSV_URL.indexOf('YOUR_')===0){
+  if(GAS_URL.indexOf('YOUR_')===0){
     document.getElementById('setup-notice').style.display='block';
     document.getElementById('last-refresh').textContent='Not configured';
     renderTable([]);
@@ -216,61 +235,44 @@ function loadData(){
     return;
   }
 
-  // Bust cache with timestamp
-  fetch(SHEET_CSV_URL + '&t=' + Date.now())
-    .then(function(r){ return r.text(); })
-    .then(function(csv){
-      allRows = parseCSV(csv);
-      populateCountryFilter(allRows);
-      applyFilter();
-      updateStats(allRows);
-      var now = new Date();
-      document.getElementById('last-refresh').textContent =
-        'Last refreshed: ' + now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  fetchVisitors(sessionStorage.getItem('qff_admin_pwd')||'')
+    .then(function(res){
+      if(res.status!=='ok'){ doLogout(); return; }
+      applyData(res.rows);
     })
     .catch(function(err){
       document.getElementById('last-refresh').textContent='Error loading data';
       console.error(err);
     });
 }
-
-/* ---------- CSV PARSER ---------- */
-function parseCSV(text){
-  var lines = text.trim().split('\n');
-  if(lines.length < 2) return [];
-  // Skip header row (row 0)
-  var rows = [];
-  for(var i=1;i<lines.length;i++){
-    var cols = splitCSVLine(lines[i]);
-    if(cols.length < 2) continue;
-    rows.push({
-      timestamp   : cols[0]||'',
-      ip          : cols[1]||'',
-      city        : cols[2]||'',
-      region      : cols[3]||'',
-      country     : cols[4]||'',
-      country_code: cols[5]||'',
-      latitude    : cols[6]||'',
-      longitude   : cols[7]||'',
-      org         : cols[8]||'',
-      timezone    : cols[9]||'',
-      page        : cols[10]||'',
-      referrer    : cols[11]||'',
-      ua          : cols[12]||''
-    });
-  }
-  return rows;
+function applyData(rows){
+  allRows = rowsToObjects(rows);
+  populateCountryFilter(allRows);
+  applyFilter();
+  updateStats(allRows);
+  document.getElementById('last-refresh').textContent =
+    'Last refreshed: ' + new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
 }
-function splitCSVLine(line){
-  var result=[],cur='',inQ=false;
-  for(var i=0;i<line.length;i++){
-    var c=line[i];
-    if(c==='"'){inQ=!inQ;}
-    else if(c===','&&!inQ){result.push(cur.trim());cur='';}
-    else{cur+=c;}
-  }
-  result.push(cur.trim());
-  return result;
+
+/* ---------- ROW MAPPING ---------- */
+function rowsToObjects(rows){
+  return rows.map(function(c){
+    return {
+      timestamp   : c[0]||'',
+      ip          : c[1]||'',
+      city        : c[2]||'',
+      region      : c[3]||'',
+      country     : c[4]||'',
+      country_code: c[5]||'',
+      latitude    : c[6]||'',
+      longitude   : c[7]||'',
+      org         : c[8]||'',
+      timezone    : c[9]||'',
+      page        : c[10]||'',
+      referrer    : c[11]||'',
+      ua          : c[12]||''
+    };
+  }).reverse(); // newest first
 }
 
 /* ---------- STATS ---------- */
@@ -387,8 +389,8 @@ function countryFlag(code){
   return String.fromCodePoint(c.charCodeAt(0)+127397,c.charCodeAt(1)+127397);
 }
 
-// Auto-load if already logged in
-if(sessionStorage.getItem('qff_admin')==='1') loadData();
+// Auto-load if already logged in this session
+if(sessionStorage.getItem('qff_admin_pwd')){ showDashboard(); loadData(); }
 </script>
 </body>
 </html>
