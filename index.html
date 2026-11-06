@@ -240,6 +240,53 @@ p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:62
 .brand-label{font-size:12.5px;font-weight:700;color:var(--purple-deep)}
 .brand-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
 
+/* DISCORD COMMUNITY */
+.discord-sec{background:linear-gradient(180deg,#1a1033 0%,#0d0a1e 100%);padding:88px 5%;position:relative;overflow:hidden}
+.discord-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 20% 50%,rgba(88,101,242,.12),transparent 70%),radial-gradient(ellipse 40% 40% at 80% 30%,rgba(255,107,157,.07),transparent 60%);pointer-events:none}
+.discord-sec .sec-title{color:#fff}
+.discord-sec .sec-title .accent{color:var(--discord)}
+.discord-sec .section-tag{background:rgba(88,101,242,.18);border-color:rgba(88,101,242,.35);color:#a5b4fc}
+.discord-sec .sec-desc{color:rgba(255,255,255,.55)}
+.discord-layout{display:grid;grid-template-columns:260px 1fr;gap:28px;max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.discord-sidebar{background:#2b2d31;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.discord-server-header{background:#1e1f22;padding:16px 16px 14px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:10px}
+.discord-server-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--purple-deep),var(--discord));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.discord-server-name{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
+.discord-server-sub{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.dc-category{padding:16px 8px 4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);display:flex;align-items:center;gap:5px;cursor:default;user-select:none}
+.dc-category::before{content:'▸';font-size:9px}
+.dc-channel{display:flex;align-items:center;gap:8px;padding:5px 8px 5px 14px;border-radius:6px;margin:1px 6px;font-size:13.5px;color:rgba(255,255,255,.45);cursor:pointer;transition:background .15s,color .15s}
+.dc-channel:hover,.dc-channel.active{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85)}
+.dc-channel.active{background:rgba(255,255,255,.12);color:#fff}
+.dc-hash{font-size:16px;color:rgba(255,255,255,.22);flex-shrink:0;line-height:1;margin-top:1px}
+.dc-lock{font-size:13px;color:rgba(255,255,255,.22);flex-shrink:0;line-height:1}
+.dc-unread{margin-left:auto;width:18px;height:18px;background:#5865F2;border-radius:50%;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.discord-main{display:flex;flex-direction:column;gap:22px}
+.dc-panel{background:#313338;border-radius:14px;padding:28px 26px;border:1px solid rgba(255,255,255,.07)}
+.dc-panel-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.dc-panel-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.dc-panel-icon.users{background:rgba(88,101,242,.2)}
+.dc-panel-icon.speakers{background:rgba(255,107,157,.2)}
+.dc-panel-icon.organizers{background:rgba(139,92,246,.2)}
+.dc-panel-title{font-size:16px;font-weight:800;color:#fff}
+.dc-panel-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.dc-channels-list{display:flex;flex-direction:column;gap:6px}
+.dc-ch-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(255,255,255,.06);transition:border-color .2s,background .2s}
+.dc-ch-item:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}
+.dc-ch-icon{font-size:14px;flex-shrink:0;margin-top:2px}
+.dc-ch-name{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:2px}
+.dc-ch-desc{font-size:11.5px;color:rgba(255,255,255,.38);line-height:1.5}
+.dc-role-badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.05em;margin-left:7px}
+.dc-role-users{background:rgba(88,101,242,.25);color:#a5b4fc}
+.dc-role-speakers{background:rgba(255,107,157,.2);color:#fda4af}
+.dc-role-organizers{background:rgba(139,92,246,.22);color:#c4b5fd}
+.dc-role-admin{background:rgba(255,153,51,.22);color:#fbbf24}
+.dc-join-strip{background:rgba(88,101,242,.1);border:1px solid rgba(88,101,242,.25);border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px;position:relative;z-index:1}
+.dc-join-strip p{font-size:13px;color:rgba(255,255,255,.6);flex:1;min-width:160px;line-height:1.6}
+.dc-join-strip strong{color:#fff}
+@media(max-width:860px){.discord-layout{grid-template-columns:1fr}}
+@media(max-width:600px){.discord-sidebar{display:none}}
+
 /* FAQ */
 .faq-sec{background:#fff}
 .faq-list{max-width:780px;display:flex;flex-direction:column;gap:12px}
@@ -341,6 +388,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <li><a href="#organizers">Organizers</a></li>
     <li><a href="#schedule">Schedule</a></li>
     <li><a href="#hackathon">Hackathon</a></li>
+    <li><a href="#discord-community">Discord</a></li>
     <li><a href="#register">Register</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -711,6 +759,21 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <span class="speaker-confirmed">✓ Confirmed</span>
         </a>
       </div>
+      <div class="speaker-card confirmed">
+        <a href="https://www.linkedin.com/in/liherelgezabal/" target="_blank" rel="noopener" title="View Liher Elgezabal on LinkedIn" style="display:block;text-decoration:none">
+          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+            <img src="Guest Spekaers/Liher Elgezabal.jpg" alt="Liher Elgezabal" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+            <span style="position:absolute;bottom:0;right:0;width:20px;height:20px;background:#0A66C2;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="#fff"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.102v1.561h.046c.432-.818 1.487-1.681 3.062-1.681 3.274 0 3.878 2.155 3.878 4.958v6.614zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.554 13.019H3.783V9h3.108v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </span>
+          </div>
+          <div class="speaker-name">Liher Elgezabal</div>
+          <div class="speaker-role">Principal WW Data Security<br/>Technical Sales Leader, IBM</div>
+          <span class="speaker-topic">Quantum Safe Philosophy &amp; Implementation</span>
+          <span class="speaker-confirmed">✓ Confirmed</span>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -875,6 +938,9 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
       <div class="brand-card"><img src="sticker-entanglement.png" alt="Entanglement"/><div class="brand-label">Entanglement</div><div class="brand-sub">Sticker 08</div></div>
       <div class="brand-card"><img src="sticker-wave.png" alt="Wave"/><div class="brand-label">Wave Function</div><div class="brand-sub">Sticker 09</div></div>
     </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="Advertisements/index.html" class="nav-cta" style="display:inline-block;padding:12px 32px;font-size:14px;background:var(--purple-deep);box-shadow:0 8px 24px rgba(45,27,105,.25)">📢 View &amp; Download Social Media Ads &amp; Posters &rarr;</a>
+    </div>
   </div>
 </section>
 
@@ -910,6 +976,235 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     </div>
   </div>
 </section>
+
+
+<!-- DISCORD COMMUNITY -->
+<section class="discord-sec" id="discord-community">
+  <div style="max-width:1160px;margin:0 auto 44px;position:relative;z-index:1">
+    <div class="section-tag"><span class="tag-dot"></span>Community Hub</div>
+    <h2 class="sec-title">Our <span class="accent">Discord</span> Server</h2>
+    <p class="sec-desc">The QFF-2026 Discord is organized into three dedicated category groups — one for every role in the event. Join the right channels to connect, collaborate, and stay informed.</p>
+  </div>
+
+  <div class="discord-layout">
+
+    <!-- SIDEBAR: channel list mockup -->
+    <div class="discord-sidebar">
+      <div class="discord-server-header">
+        <div class="discord-server-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        </div>
+        <div>
+          <div class="discord-server-name">QFF 2026 Official</div>
+          <div class="discord-server-sub">Quantum Fall Fest 2026</div>
+        </div>
+      </div>
+
+      <!-- Welcome -->
+      <div class="dc-category">Welcome</div>
+      <div class="dc-channel active"><span class="dc-hash">#</span>welcome<span class="dc-unread">1</span></div>
+      <div class="dc-channel"><span class="dc-hash">#</span>announcements</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>rules-and-info</div>
+
+      <!-- Attendees -->
+      <div class="dc-category">&#128100; Attendees</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>introductions</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>general-chat</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>qna-live</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>hackathon-teams</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>resources-links</div>
+
+      <!-- Speakers -->
+      <div class="dc-category">&#127908; Speakers</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>speaker-lounge</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>session-prep</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>av-tech-check</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>speaker-feedback</div>
+
+      <!-- Organizers -->
+      <div class="dc-category">&#9889; Organizers</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>org-general</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>event-ops</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>volunteer-coord</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>mod-log</div>
+      <div style="padding-bottom:12px"></div>
+    </div>
+
+    <!-- MAIN: three category panels -->
+    <div class="discord-main">
+
+      <!-- ATTENDEES / USERS panel -->
+      <div class="dc-panel">
+        <div class="dc-panel-header">
+          <div class="dc-panel-icon users">&#128100;</div>
+          <div>
+            <div class="dc-panel-title">Attendees &amp; Users <span class="dc-role-badge dc-role-users">@attendee</span></div>
+            <div class="dc-panel-sub">Open to all registered participants &mdash; your home base for the event</div>
+          </div>
+        </div>
+        <div class="dc-channels-list">
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">introductions</div>
+              <div class="dc-ch-desc">Tell the community who you are, where you are from, and what brings you to QFF-2026. New here? Start here.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">general-chat</div>
+              <div class="dc-ch-desc">Open discussion for all attendees. Quantum banter, networking, memes, and community conversation.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">qna-live</div>
+              <div class="dc-ch-desc">Ask your questions to speakers and mentors during and between sessions. Moderated by the organizer team.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">hackathon-teams</div>
+              <div class="dc-ch-desc">Find teammates for the 48-Hour Hackathon. Post your skills and the problem domain you want to tackle.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">resources-links</div>
+              <div class="dc-ch-desc">Curated links: IBM Quantum Learning modules, Qiskit docs, session recordings, and workshop notebooks.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">feedback-and-polls</div>
+              <div class="dc-ch-desc">Daily quick polls and a feedback thread after each session. Your voice shapes the event in real time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPEAKERS panel -->
+      <div class="dc-panel">
+        <div class="dc-panel-header">
+          <div class="dc-panel-icon speakers">&#127908;</div>
+          <div>
+            <div class="dc-panel-title">Speakers <span class="dc-role-badge dc-role-speakers">@speaker</span></div>
+            <div class="dc-panel-sub">Private channels for confirmed speakers &mdash; invitation-only access</div>
+          </div>
+        </div>
+        <div class="dc-channels-list">
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">speaker-lounge</div>
+              <div class="dc-ch-desc">Dedicated lounge for all confirmed speakers to connect, share prep notes, and coordinate ahead of their sessions.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">session-prep</div>
+              <div class="dc-ch-desc">Share slide decks, demo links, and session outlines with the tech team. Final upload deadline: 48h before your slot.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">av-tech-check</div>
+              <div class="dc-ch-desc">Coordinate your A/V and screen-share test with the production team. Mandatory rehearsal slot booking here.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">speaker-feedback</div>
+              <div class="dc-ch-desc">Post-session debrief thread. Receive participant ratings and organizer notes after your talk.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">speaker-announcements</div>
+              <div class="dc-ch-desc">Official schedule changes, logistics updates, and reminders broadcast by the organizer team. Read-only for speakers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORGANIZERS panel -->
+      <div class="dc-panel">
+        <div class="dc-panel-header">
+          <div class="dc-panel-icon organizers">&#9889;</div>
+          <div>
+            <div class="dc-panel-title">Organizers <span class="dc-role-badge dc-role-organizers">@organizer</span> <span class="dc-role-badge dc-role-admin">@admin</span></div>
+            <div class="dc-panel-sub">Internal operations hub &mdash; restricted to the core organizing team</div>
+          </div>
+        </div>
+        <div class="dc-channels-list">
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">org-general</div>
+              <div class="dc-ch-desc">Primary coordination channel for the organizing team. Daily standups, task assignments, and real-time ops during the event.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">event-ops</div>
+              <div class="dc-ch-desc">Live event dashboard thread. Stream links, attendee counts, session timing, technical issues, and escalation handling.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">volunteer-coord</div>
+              <div class="dc-ch-desc">Volunteer roster, shift assignments, and instructions. Each volunteer is assigned a role: Chat Monitor, Q&amp;A Host, or Hackathon Shepherd.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">mod-log</div>
+              <div class="dc-ch-desc">Moderation action log. All warnings, timeouts, and bans are recorded here for transparency within the org team.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">hackathon-judging</div>
+              <div class="dc-ch-desc">Private judging panel channel. Scoring rubrics, team submission links, mentor assignment matrix, and finalist selection.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">&#128274;</span>
+            <div>
+              <div class="dc-ch-name">post-event-debrief</div>
+              <div class="dc-ch-desc">Post-event retrospective. Attendance metrics, NPS scores, speaker feedback summaries, and planning notes for QFF-2027.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Join strip -->
+      <div class="dc-join-strip">
+        <svg style="width:34px;height:34px;flex-shrink:0" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        <p><strong>Ready to join?</strong> The server is open to all registered attendees. Speakers and Organizers receive their private role invite link after confirmation. Join at <strong>discord.gg/UgF3PaEax</strong></p>
+        <a class="btn-discord" href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="font-size:13px;padding:11px 26px">
+          <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          Join Discord
+        </a>
+      </div>
+
+    </div><!-- /.discord-main -->
+  </div><!-- /.discord-layout -->
+</section>
+
 
 <!-- FAQ -->
 <section class="faq-sec" id="faq">
@@ -992,6 +1287,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
         <li><a href="https://qiskit.org/learn" target="_blank" rel="noopener">Qiskit Learn</a></li>
         <li><a href="https://quantum.ibm.com" target="_blank" rel="noopener">IBM Quantum</a></li>
         <li><a href="#hackathon">Hackathon</a></li>
+        <li><a href="Advertisements/index.html">Media &amp; Ad Kit</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
