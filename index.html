@@ -268,6 +268,9 @@ p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:62
 .dc-panel-icon.users{background:rgba(88,101,242,.2)}
 .dc-panel-icon.speakers{background:rgba(255,107,157,.2)}
 .dc-panel-icon.organizers{background:rgba(139,92,246,.2)}
+.dc-panel-icon.days{background:rgba(110,168,254,.2)}
+.dc-panel-icon.tracks{background:rgba(16,185,129,.2)}
+.dc-panel-icon.hack{background:rgba(255,153,51,.2)}
 .dc-panel-title{font-size:16px;font-weight:800;color:#fff}
 .dc-panel-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
 .dc-channels-list{display:flex;flex-direction:column;gap:6px}
@@ -983,7 +986,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
   <div style="max-width:1160px;margin:0 auto 44px;position:relative;z-index:1">
     <div class="section-tag"><span class="tag-dot"></span>Community Hub</div>
     <h2 class="sec-title">Our <span class="accent">Discord</span> Server</h2>
-    <p class="sec-desc">The QFF-2026 Discord is organized into three dedicated category groups — one for every role in the event. Join the right channels to connect, collaborate, and stay informed.</p>
+    <p class="sec-desc">The <strong>Quantum_For_Humanity</strong> Discord server mirrors the event itself — a channel for every programme day (Nov 23&ndash;27), every track, and every hackathon challenge, plus dedicated spaces for attendees, speakers and organizers. Join the right channels to connect, collaborate, and stay informed.</p>
   </div>
 
   <div class="discord-layout">
@@ -995,7 +998,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
         </div>
         <div>
-          <div class="discord-server-name">QFF 2026 Official</div>
+          <div class="discord-server-name">Quantum_For_Humanity</div>
           <div class="discord-server-sub">Quantum Fall Fest 2026</div>
         </div>
       </div>
@@ -1011,8 +1014,34 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
       <div class="dc-channel"><span class="dc-hash">#</span>introductions</div>
       <div class="dc-channel"><span class="dc-hash">#</span>general-chat</div>
       <div class="dc-channel"><span class="dc-hash">#</span>qna-live</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>hackathon-teams</div>
       <div class="dc-channel"><span class="dc-hash">#</span>resources-links</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>feedback-and-polls</div>
+
+      <!-- Event Days -->
+      <div class="dc-category">&#128197; Event Days</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-1-foundations</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-2-circuits-algorithms</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-3-quantum-for-humanity</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-4-research-qec</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-5-finals-closing</div>
+
+      <!-- Tracks -->
+      <div class="dc-category">&#129517; Tracks</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>beginner-education</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>research-advanced</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>quantum-for-humanity</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>quantum-safe-pqc</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>qiskit-open-source</div>
+
+      <!-- Hackathon -->
+      <div class="dc-category">&#127942; Hackathon</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>hackathon-teams</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-healthcare</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-climate</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-education</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-finance</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>mentor-office-hours</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>submissions-finals</div>
 
       <!-- Speakers -->
       <div class="dc-category">&#127908; Speakers</div>
@@ -1067,13 +1096,6 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <div class="dc-ch-item">
             <span class="dc-ch-icon">#</span>
             <div>
-              <div class="dc-ch-name">hackathon-teams</div>
-              <div class="dc-ch-desc">Find teammates for the 48-Hour Hackathon. Post your skills and the problem domain you want to tackle.</div>
-            </div>
-          </div>
-          <div class="dc-ch-item">
-            <span class="dc-ch-icon">#</span>
-            <div>
               <div class="dc-ch-name">resources-links</div>
               <div class="dc-ch-desc">Curated links: IBM Quantum Learning modules, Qiskit docs, session recordings, and workshop notebooks.</div>
             </div>
@@ -1083,6 +1105,164 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
             <div>
               <div class="dc-ch-name">feedback-and-polls</div>
               <div class="dc-ch-desc">Daily quick polls and a feedback thread after each session. Your voice shapes the event in real time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENT DAYS panel -->
+      <div class="dc-panel">
+        <div class="dc-panel-header">
+          <div class="dc-panel-icon days">&#128197;</div>
+          <div>
+            <div class="dc-panel-title">Event Days <span class="dc-role-badge dc-role-users">Nov 23&ndash;27</span></div>
+            <div class="dc-panel-sub">One channel per programme day &mdash; live discussion, session links and recaps (09:30&ndash;18:00 IST)</div>
+          </div>
+        </div>
+        <div class="dc-channels-list">
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">day-1-foundations <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Mon 23 Nov</span></div>
+              <div class="dc-ch-desc">Opening Ceremony, IBM Quantum 2026 Roadmap keynote, &ldquo;What is Quantum Computing?&rdquo;, Qiskit Live Lab and the 48h Hackathon kickoff. Evening networking meetup at 17:30.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">day-2-circuits-algorithms <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Tue 24 Nov</span></div>
+              <div class="dc-ch-desc">Quantum gates &amp; circuit composition, Grover&rsquo;s &amp; Shor&rsquo;s algorithms, Quantum Machine Learning workshop, IBM Eagle &amp; Heron hardware deep dive, and the Qiskit open source sprint.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">day-3-quantum-for-humanity <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Wed 25 Nov</span></div>
+              <div class="dc-ch-desc">Quantum for Humanity keynote, drug discovery (TB &amp; malaria), agriculture &amp; water security, quantum finance &amp; financial inclusion, and the Responsible Quantum Innovation panel.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">day-4-research-qec <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Thu 26 Nov</span></div>
+              <div class="dc-ch-desc">Quantum error correction at scale, VQE &amp; QAOA, fault-tolerant computing, quantum networking &amp; cryptography, and the hackathon midpoint mentorship round.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">day-5-finals-closing <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Fri 27 Nov</span></div>
+              <div class="dc-ch-desc">Hackathon finals, IBM Quantum Prize ceremony, QfH Manifesto launch, community showcase, closing keynote and the 18:00 IST community celebration.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRACKS panel -->
+      <div class="dc-panel">
+        <div class="dc-panel-header">
+          <div class="dc-panel-icon tracks">&#129517;</div>
+          <div>
+            <div class="dc-panel-title">Programme Tracks <span class="dc-role-badge dc-role-users">@attendee</span></div>
+            <div class="dc-panel-sub">Topic channels aligned with the event tracks &mdash; go deeper on what interests you</div>
+          </div>
+        </div>
+        <div class="dc-channels-list">
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">beginner-education</div>
+              <div class="dc-ch-desc">No prior experience needed. Ask first-qubit questions, share IBM Quantum Learning progress, and get help with your first Qiskit circuits.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">research-advanced</div>
+              <div class="dc-ch-desc">Error correction, VQE/QAOA, quantum ML and fault-tolerant computing. Discuss papers, hardware results and open research problems.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">quantum-for-humanity</div>
+              <div class="dc-ch-desc">Impact-focused discussion: drug discovery, agriculture, clean water, climate science and financial inclusion for underserved communities.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">quantum-safe-pqc</div>
+              <div class="dc-ch-desc">Post-quantum cryptography and quantum-safe security. Follow-up questions for the guest talks on PQC migration, cryptographic assets, and Quantum Safe &mdash; Philosophy &amp; Implementation.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">qiskit-open-source</div>
+              <div class="dc-ch-desc">Support for the Day 2 Open Source Sprint: first-time contributor onboarding, GitHub workflow, and the Qiskit codebase.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HACKATHON panel -->
+      <div class="dc-panel">
+        <div class="dc-panel-header">
+          <div class="dc-panel-icon hack">&#127942;</div>
+          <div>
+            <div class="dc-panel-title">48-Hour Hackathon <span class="dc-role-badge dc-role-admin">Starts Nov 23, 16:00 IST</span></div>
+            <div class="dc-panel-sub">Team formation, challenge rooms and mentor access &mdash; from kickoff to the Day 5 finals</div>
+          </div>
+        </div>
+        <div class="dc-channels-list">
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">hackathon-teams</div>
+              <div class="dc-ch-desc">Find teammates for the 48-Hour Hackathon. Post your skills and the problem domain you want to tackle.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">challenge-healthcare</div>
+              <div class="dc-ch-desc">Healthcare problem statements revealed at the Day 1 kickoff. Brainstorm quantum approaches with other teams.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">challenge-climate</div>
+              <div class="dc-ch-desc">Climate, clean energy and water security challenges. Share models, datasets and approaches.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">challenge-education</div>
+              <div class="dc-ch-desc">Education challenges: make quantum learning accessible, multilingual and inclusive.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">challenge-finance</div>
+              <div class="dc-ch-desc">Quantum-powered risk models and financial inclusion for underserved global populations.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">mentor-office-hours</div>
+              <div class="dc-ch-desc">Ask IBM Quantum mentors for help. Includes scheduling for the Day 4 midpoint round, where the top 20 teams get 15-minute mentor sessions.</div>
+            </div>
+          </div>
+          <div class="dc-ch-item">
+            <span class="dc-ch-icon">#</span>
+            <div>
+              <div class="dc-ch-name">submissions-finals</div>
+              <div class="dc-ch-desc">Project submission links and finals logistics. The top 10 teams present live on Day 5 at 09:30 IST; the IBM Quantum Prize is announced at 12:00 IST.</div>
             </div>
           </div>
         </div>
@@ -1194,7 +1374,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
       <!-- Join strip -->
       <div class="dc-join-strip">
         <svg style="width:34px;height:34px;flex-shrink:0" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-        <p><strong>Ready to join?</strong> The server is open to all registered attendees. Speakers and Organizers receive their private role invite link after confirmation. Join at <strong>discord.gg/UgF3PaEax</strong></p>
+        <p><strong>Ready to join?</strong> The <strong>Quantum_For_Humanity</strong> server is open to all registered attendees. Speakers and Organizers receive their private role invite link after confirmation. Join at <strong>discord.gg/UgF3PaEax</strong></p>
         <a class="btn-discord" href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="font-size:13px;padding:11px 26px">
           <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
           Join Discord
@@ -1216,7 +1396,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
       <details open><summary>Is IBM Qiskit Fall Fest 2026 free?</summary><div class="faq-body">Yes &mdash; completely free. All 5 days of sessions, workshops, and the hackathon are free to attend. Register via the Google Form above to receive your confirmation, session links, and participation certificate.</div></details>
       <details><summary>Do I need prior quantum computing experience?</summary><div class="faq-body">No. Day 1 is fully beginner-friendly and starts from zero. The festival is designed to take you from <strong>Beginner (Day 1)</strong> through <strong>Intermediate (Day 2)</strong>, <strong>Applied (Day 3)</strong>, all the way to <strong>Advanced (Day 4)</strong>. Content is aligned with the official <a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener" style="color:var(--purple-bright)">IBM Quantum Learning</a> platform (CC BY 4.0).</div></details>
       <details><summary>How do I register?</summary><div class="faq-body">Click the <strong>"Register Free"</strong> button anywhere on this page, or go directly to the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform?usp=preview" target="_blank" rel="noopener" style="color:var(--purple-bright)">Google Form registration</a>. Fill in your details and you will receive a confirmation with all session links.</div></details>
-      <details><summary>How do I join the community Discord?</summary><div class="faq-body">Join the Quantum for Humanity Discord server at <a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="color:var(--discord)">discord.gg/UgF3PaEax</a>. This is where you can find hackathon teammates, ask questions to mentors, get live event updates, and stay connected with the global quantum community year-round.</div></details>
+      <details><summary>How do I join the community Discord?</summary><div class="faq-body">Join the <strong>Quantum_For_Humanity</strong> Discord server at <a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="color:var(--discord)">discord.gg/UgF3PaEax</a>. This is where you can find hackathon teammates, ask questions to mentors, get live event updates, and stay connected with the global quantum community year-round.</div></details>
       <details><summary>Can I attend online? Are sessions recorded?</summary><div class="faq-body">Yes. All sessions are live-streamed globally and fully recorded. You can attend from anywhere in the world. On-demand recordings will be available after each day for registered participants.</div></details>
       <details><summary>What is the Hackathon and how do I participate?</summary><div class="faq-body">The 48-Hour Quantum for Humanity Hackathon kicks off on Day 1 (Nov 23) and finals are on Day 5 (Nov 27). Build quantum solutions to real-world humanitarian problems across 4 domains: healthcare, climate, education, and financial inclusion. Join the <a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener" style="color:var(--discord)">Discord</a> to find a team.</div></details>
       <details><summary>What is the connection to IBM Quantum Learning?</summary><div class="faq-body">Event sessions and workshops are aligned with the <a href="https://learning.quantum.ibm.com" target="_blank" rel="noopener" style="color:var(--purple-bright)">IBM Quantum Learning</a> platform. Educational content is adapted under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:var(--purple-bright)">CC BY 4.0</a>. IBM Quantum Learning is a product of IBM Corporation.</div></details>
@@ -1294,7 +1474,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <div class="footer-col">
       <h4>Community</h4>
       <ul>
-        <li><a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener">Discord &mdash; QfH</a></li>
+        <li><a href="https://discord.gg/UgF3PaEax" target="_blank" rel="noopener">Discord &mdash; Quantum_For_Humanity</a></li>
         <li><a href="https://github.com/Qiskit" target="_blank" rel="noopener">GitHub / Qiskit</a></li>
         <li><a href="https://twitter.com/IBMQuantum" target="_blank" rel="noopener">@IBMQuantum</a></li>
         <li><a href="https://www.youtube.com/@IBMQuantum" target="_blank" rel="noopener">YouTube</a></li>
