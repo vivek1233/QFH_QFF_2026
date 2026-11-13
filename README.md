@@ -7,7 +7,7 @@
 
 ## Registration
 - **Google Form:** https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform?usp=preview
-- **Discord:** https://discord.gg/UgF3PaEax
+- **Discord:** https://discord.gg/u2MKXRT4n
 
 ## Deployment (GitHub Pages)
 1. Push this repo to GitHub as `QFH_QFF_2026`

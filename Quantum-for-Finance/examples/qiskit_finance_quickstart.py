@@ -83,4 +83,4 @@ if __name__ == "__main__":
     print("   Next steps:")
     print("   - Open notebooks/ for detailed tutorials")
     print("   - Visit https://learning.quantum.ibm.com for IBM Quantum Learning")
-    print("   - Join Discord: https://discord.gg/UgF3PaEax")
+    print("   - Join Discord: https://discord.gg/u2MKXRT4n")
