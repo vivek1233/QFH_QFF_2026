@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>QFF-2026 Media & Advertising Kit | IBM Qiskit Fall Fest 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0120;color:#f5f0ff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+:root{
+  --purple-deep:#2D1B69;--purple-mid:#5A3FA0;--purple-bright:#8B5CF6;
+  --pink:#FF6B9D;--blue:#6EA8FE;--saffron:#FF9933;--dark:#0A0E1A;--green:#10B981;
+}
+header{background:linear-gradient(135deg,#0d0120 0%,#2D1B69 100%);padding:60px 5% 40px;text-align:center;border-bottom:2px solid var(--pink);position:relative}
+.badge-top{display:inline-block;padding:6px 18px;border-radius:999px;background:rgba(255,107,157,.15);border:1px solid rgba(255,107,157,.35);color:var(--pink);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(32px,5vw,56px);font-weight:800;color:#fff;margin-bottom:12px}
+h1 span{color:var(--pink)}
+.subtitle{font-size:18px;color:rgba(255,255,255,.7);max-width:720px;margin:0 auto 24px}
+.nav-back{display:inline-flex;align-items:center;gap:8px;padding:8px 22px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:13px;font-weight:600;transition:all .2s}
+.nav-back:hover{background:var(--pink);border-color:var(--pink)}
+
+.container{max-width:1200px;margin:0 auto;padding:60px 5%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;margin-bottom:60px}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(139,92,246,.25);border-radius:20px;overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(139,92,246,.25)}
+.card-media{position:relative;background:#150a2e;overflow:hidden}
+.card-media img{width:100%;height:auto;display:block;transition:transform .3s}
+.card-media:hover img{transform:scale(1.02)}
+.card-badge{position:absolute;top:14px;left:14px;background:rgba(10,14,26,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:.05em}
+.card-body{padding:26px;flex:1;display:flex;flex-direction:column}
+.card-title{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px}
+.card-specs{font-size:12px;color:var(--saffron);font-weight:600;margin-bottom:14px}
+.card-desc{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.6;flex:1}
+.card-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:all .2s;text-align:center;cursor:pointer;border:none}
+.btn-primary{background:var(--pink);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,.1)}
+.btn-copy{background:rgba(139,92,246,.25);border:1px solid rgba(139,92,246,.5);color:#c4b5fd;font-size:12px;padding:6px 14px}
+.btn-copy:hover{background:var(--purple-bright);color:#fff}
+
+.section-head{text-align:center;margin-bottom:40px}
+.section-head h2{font-size:32px;font-weight:800;color:#fff;margin-bottom:8px}
+.section-head p{font-size:15px;color:rgba(255,255,255,.6);max-width:600px;margin:0 auto}
+
+.copy-box{background:#150a2e;border:1px solid rgba(139,92,246,.3);border-radius:16px;padding:24px;margin-bottom:32px;position:relative}
+.copy-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;flex-wrap:wrap;gap:10px}
+.copy-title{font-size:18px;font-weight:700;color:var(--pink)}
+.copy-content{font-family:'Segoe UI',system-ui,monospace,sans-serif;font-size:13.5px;color:rgba(255,255,255,.9);white-space:pre-wrap;line-height:1.65;background:rgba(0,0,0,.25);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,.05)}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--green);color:#fff;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.5);opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1;transform:translateY(0)}
+
+footer{background:#060012;padding:40px 5%;text-align:center;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge-top">&#9889; Official Marketing &amp; Media Kit</div>
+  <h1>QFF-2026 <span>Advertisements &amp; Publish Kit</span></h1>
+  <p class="subtitle">Complete promotional creative assets, copy, video scripts, and publishing materials for YouTube, Facebook, LinkedIn, Twitter, WhatsApp, and Printable Wall Posters.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a class="nav-back" href="../index.html">&larr; Back to QFF 2026 Website</a>
+    <a class="nav-back" href="PUBLISH_COPY_AND_SCRIPTS.md" target="_blank" style="background:var(--pink);border-color:var(--pink)">📄 Download Full Markdown Kit</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="section-head">
+    <h2>Promotional Visual Creatives</h2>
+    <p>High-resolution ads tailored for each major distribution channel and physical display.</p>
+  </div>
+
+  <div class="grid">
+    <!-- YOUTUBE AD -->
+    <div class="card">
+      <div class="card-media">
+        <span class="card-badge">YouTube 16:9</span>
+        <img src="QFF2026-youtube-ad.png" alt="YouTube Ad Banner for QFF 2026"/>
+      </div>
+      <div class="card-body">
+        <div class="card-title">&#127916; YouTube Banner &amp; Video Ad</div>
+        <div class="card-specs">1920 &times; 1080 px &bull; 16:9 Landscape</div>
+        <div class="card-desc">Perfect for YouTube video end screens, community tab announcements, pre-roll video cards, and thumbnail branding.</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="QFF2026-youtube-ad.png" download>Download PNG</a>
+          <a class="btn btn-outline" href="source/youtube-ad.html" target="_blank">View HTML Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FACEBOOK AD -->
+    <div class="card">
+      <div class="card-media">
+        <span class="card-badge">Facebook 1:1</span>
+        <img src="QFF2026-facebook-ad.png" alt="Facebook Square Ad for QFF 2026"/>
+      </div>
+      <div class="card-body">
+        <div class="card-title">&#128241; Facebook Feed &amp; Instagram Post</div>
+        <div class="card-specs">1080 &times; 1080 px &bull; 1:1 Square</div>
+        <div class="card-desc">Optimized for Facebook Feed campaigns, sponsored carousel cards, group posts, and Instagram grid feeds.</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="QFF2026-facebook-ad.png" download>Download PNG</a>
+          <a class="btn btn-outline" href="source/facebook-ad.html" target="_blank">View HTML Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINKEDIN AD -->
+    <div class="card">
+      <div class="card-media">
+        <span class="card-badge">LinkedIn 1.91:1</span>
+        <img src="QFF2026-linkedin-ad.png" alt="LinkedIn Sponsored Content for QFF 2026"/>
+      </div>
+      <div class="card-body">
+        <div class="card-title">&#128188; LinkedIn Sponsored Banner</div>
+        <div class="card-specs">1200 &times; 627 px &bull; Landscape Banner</div>
+        <div class="card-desc">Designed for high-engagement professional feeds, sponsored content, company pages, and executive post shares.</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="QFF2026-linkedin-ad.png" download>Download PNG</a>
+          <a class="btn btn-outline" href="source/linkedin-ad.html" target="_blank">View HTML Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUEST SPEAKER AD (LIHER ELGEZABAL) -->
+    <div class="card">
+      <div class="card-media">
+        <span class="card-badge">Guest Speaker &bull; LinkedIn 1.91:1</span>
+        <img src="QFF2026-speaker-liher-ad.png" alt="Guest Speaker Ad - Liher Elgezabal, Quantum Safe Philosophy and Implementation"/>
+      </div>
+      <div class="card-body">
+        <div class="card-title">&#127908; Guest Speaker: Liher Elgezabal</div>
+        <div class="card-specs">1200 &times; 627 px &bull; Landscape &bull; LinkedIn &amp; registration QR codes</div>
+        <div class="card-desc">Announces Principal WW Data Security Technical Sales Leader Liher Elgezabal and his session on Quantum Safe &mdash; Philosophy &amp; Implementation. Includes his LinkedIn profile QR code.</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="QFF2026-speaker-liher-ad.png" download>Download PNG</a>
+          <a class="btn btn-outline" href="source/speaker-liher-ad.html" target="_blank">View HTML Source</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- WALL POSTER -->
+    <div class="card">
+      <div class="card-media">
+        <span class="card-badge">A3 / A4 Poster</span>
+        <img src="QFF2026-poster.png" alt="Printable Wall Poster for QFF 2026"/>
+      </div>
+      <div class="card-body">
+        <div class="card-title">&#128204; Printable Wall Poster</div>
+        <div class="card-specs">1200 &times; 1850 px &bull; Print Ready (A3/A4) &bull; 5 Physical Venues, Speakers, Organizers &amp; Dual QR Codes</div>
+        <div class="card-desc">Comprehensive high-impact poster featuring the 5-day event summary, 5 physical IBM in-person venue hubs (Gurugram, Bengaluru, Mumbai, Pune, Hyderabad), 13 guest speakers, 9 organizers, a bring-your-own-laptop notice, perks, and scan-to-join QR codes (Register, Discord &amp; Website) for notice boards, university campuses, and tech hubs.</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="QFF2026-poster.png" download>Download PNG</a>
+          <a class="btn btn-primary" href="QFF2026-poster.pdf" download>Download PDF</a>
+          <a class="btn btn-outline" href="source/poster.html" target="_blank">View HTML Source</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD COPY SECTION -->
+  <div class="section-head">
+    <h2>Ready-to-Publish Copy &amp; Scripts</h2>
+    <p>Pre-written, optimized promotional text, scripts, and hashtags with one-click copy buttons.</p>
+  </div>
+
+  <!-- YOUTUBE COPY -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#127916; YouTube Video Script &amp; Description</div>
+      <button class="btn btn-copy" onclick="copyText('yt-copy')">📋 Copy YouTube Script &amp; Text</button>
+    </div>
+    <div class="copy-content" id="yt-copy">[30-Sec Video Ad Script]
+VO: "Curious about quantum computing but don’t know where to start?
+Join IBM Qiskit Fall Fest 2026 — presented by IBM Quantum and Quantum for Humanity Org!
+Five days of hands-on learning, real quantum algorithms, and a 48-hour global hackathon with IBM Quantum hardware credits.
+From your first qubit to cutting-edge error correction — completely free!
+November 23rd to 27th. Register now at the link in description!"
+
+[Video Description]
+🚀 IBM Qiskit Fall Fest 2026 | Quantum for Humanity
+Dates: November 23–27, 2026 | 09:30 – 18:00 IST (Hybrid / Global)
+🎓 5-Day Curriculum: Beginner to Advanced | Qiskit Labs | 48h Hackathon
+🎟️ Free Registration: https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform
+🌐 Website: https://vivek1233.github.io/QFH_QFF_2026/
+💬 Discord: https://discord.gg/u2MKXRT4n
+
+#QiskitFallFest2026 #QuantumForHumanity #IBMQuantum #QuantumComputing #Qiskit</div>
+  </div>
+
+  <!-- FACEBOOK COPY -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#128241; Facebook Post &amp; Ad Campaign Copy</div>
+      <button class="btn btn-copy" onclick="copyText('fb-copy')">📋 Copy Facebook Text</button>
+    </div>
+    <div class="copy-content" id="fb-copy">[Primary Text]
+🔬 Ready to build the future with Quantum Computing?
+IBM Qiskit Fall Fest 2026 is officially here! Join us for a 5-day global festival co-presented by IBM Quantum and Quantum for Humanity Org.
+
+Whether you're a complete beginner writing your first quantum circuit or an advanced researcher tackling quantum error correction, there's a track for you:
+✨ Day 1: Quantum Foundations (Zero to Qubit)
+✨ Day 2: Circuits, Algorithms & QML
+✨ Day 3: Quantum for Humanity (Healthcare, Climate, Agriculture & Finance)
+✨ Day 4: Quantum Error Correction & VQE/QAOA
+✨ Day 5: 48h Hackathon Finals & IBM Quantum Prizes!
+
+🗓️ Nov 23–27, 2026 | In-Person & Online
+🎯 100% Free Registration + Certificates + IBM Quantum Credits
+
+👉 Tap "Learn More" to claim your free pass: https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform
+
+[Headline] Learn Quantum with IBM & Qiskit — Free 5-Day Global Fest
+[CTA Button] Sign Up / Learn More</div>
+  </div>
+
+  <!-- LINKEDIN COPY -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#128188; LinkedIn Professional Announcement Copy</div>
+      <button class="btn btn-copy" onclick="copyText('li-copy')">📋 Copy LinkedIn Text</button>
+    </div>
+    <div class="copy-content" id="li-copy">🌍 Announcing IBM Qiskit Fall Fest 2026: Quantum for Humanity
+
+Quantum computing is transitioning from theoretical promise to utility-scale reality. Are you ready to lead the shift?
+
+In partnership with IBM Quantum and Quantum for Humanity Org, we invite developers, students, researchers, and enterprise innovators to participate in the 5-day flagship Qiskit Fall Fest 2026.
+
+📚 What to expect:
+• 5 progressive learning levels sourced from IBM Quantum Learning
+• Deep dives into Quantum Error Correction, QML, Post-Quantum Cryptography (PQC), and Hamiltonian Simulation
+• Keynotes from IBM Quantum researchers and industry leaders
+• 48-Hour Quantum Hackathon tackling healthcare, water security, clean energy, and financial inclusion
+• Verified certificates & IBM Quantum credits for participants
+
+🗓️ Dates: November 23–27, 2026 (09:30–18:00 IST daily)
+📍 Format: Hybrid (Online Global & In-Person)
+💳 Cost: Free
+
+Join the next generation of quantum problem solvers.
+Register here: https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform
+
+#QuantumComputing #IBMQuantum #Qiskit #QuantumForHumanity #QiskitFallFest2026 #TechInnovation #OpenSource #DeepTech</div>
+  </div>
+  <!-- GUEST SPEAKER (LIHER ELGEZABAL) COPY -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#127908; Guest Speaker Announcement &mdash; Liher Elgezabal</div>
+      <button class="btn btn-copy" onclick="copyText('sp-copy')">📋 Copy Speaker Announcement</button>
+    </div>
+    <div class="copy-content" id="sp-copy">🎤 Featured Guest Speaker | IBM Qiskit Fall Fest 2026
+
+We are delighted to announce Liher Elgezabal, Principal WW Data Security Technical Sales Leader at IBM, as a guest speaker at IBM Qiskit Fall Fest 2026!
+
+🔐 Session: Quantum Safe — Philosophy & Implementation
+Learn why quantum-safe security matters today, how to think about the migration to post-quantum cryptography, and how organisations can put a quantum-safe strategy into practice.
+
+🔗 Connect with Liher on LinkedIn: https://www.linkedin.com/in/liherelgezabal/
+
+🗓️ Nov 23–27, 2026 | 09:30–18:00 IST daily | In-Person &amp; Online | Free
+🎟️ Register: https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform
+🌐 Speakers &amp; schedule: https://vivek1233.github.io/QFH_QFF_2026/
+
+#QiskitFallFest2026 #QuantumSafe #PostQuantumCryptography #DataSecurity #IBMQuantum #QuantumForHumanity</div>
+  </div>
+
+
+
+  <!-- WHATSAPP / TELEGRAM COPY -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#128172; WhatsApp &amp; Telegram Community Broadcast</div>
+      <button class="btn btn-copy" onclick="copyText('wa-copy')">📋 Copy WhatsApp Text</button>
+    </div>
+    <div class="copy-content" id="wa-copy">🚀 *IBM Qiskit Fall Fest 2026 is Here! (Nov 23–27, 2026)* ⚛️
+
+Learn Quantum Computing from scratch with *IBM Quantum* & *Quantum for Humanity Org*!
+
+🔥 *5 Days • Beginner to Advanced • 100% Free*
+
+🗓️ *Schedule Highlights:*
+• *Day 1:* Quantum Foundations & Qiskit Live Lab
+• *Day 2:* Circuits, Algorithms & Quantum Machine Learning
+• *Day 3:* Quantum for Humanity (Healthcare & Clean Energy)
+• *Day 4:* Quantum Error Correction & Advanced Research
+• *Day 5:* 48h Hackathon Finals & IBM Quantum Prizes!
+
+🎁 *Perks:* Verified Certificates + IBM Quantum Credits + Global Mentorship!
+
+👉 *Register Free Now:*
+https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform
+
+🌐 *Event Website:* https://vivek1233.github.io/QFH_QFF_2026/
+💬 *Discord:* https://discord.gg/u2MKXRT4n
+
+_Forward this to your tech & coding groups!_ 📲</div>
+  </div>
+
+  <!-- X / TWITTER COPY -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#128038; X (Twitter) Thread</div>
+      <button class="btn btn-copy" onclick="copyText('tw-copy')">📋 Copy X Thread</button>
+    </div>
+    <div class="copy-content" id="tw-copy">1/4 ⚡ Announcing IBM Qiskit Fall Fest 2026! ⚡
+A 5-day global quantum computing festival presented by @IBMQuantum & @QuantumForHumanity.
+
+🗓️ Nov 23–27, 2026
+📍 Online & In-Person
+💰 100% Free
+
+From first qubit to Quantum Error Correction. Let’s build! 🧵👇
+
+2/4 📚 What’s happening across 5 days:
+🔹 Day 1: Quantum Foundations (Zero to Qubit)
+🔹 Day 2: Algorithms & Quantum ML
+🔹 Day 3: Quantum for Humanity (Health & Climate)
+🔹 Day 4: Quantum Error Correction (QEC)
+🔹 Day 5: 48h Hackathon Finals
+
+3/4 🏆 Win IBM Quantum credits, get certified, and work with real quantum hardware and top researchers from IBM Quantum!
+
+4/4 🎟️ Free registration is now open! Secure your spot today:
+🔗 https://docs.google.com/forms/d/e/1FAIpQLSdFIqtN7kptfAAJkjwSLjZYoF-s5yCisxW66LgXl0TIWxVw7A/viewform
+
+#QiskitFallFest2026 #QuantumComputing #Qiskit #IBMQuantum #Python #DeepTech</div>
+  </div>
+
+  <!-- POSTER GUIDE -->
+  <div class="copy-box">
+    <div class="copy-head">
+      <div class="copy-title">&#128204; Wall Poster Print &amp; Placement Guide</div>
+    </div>
+    <div class="copy-content"><strong>[Printing Specifications]</strong>
+&bull; File: Advertisements/QFF2026-poster.png (or source/poster.html)
+&bull; Paper Format: A3 (297 &times; 420 mm) or A4 (210 &times; 297 mm)
+&bull; Stock Recommendation: 170–250 gsm Matte or Semi-Gloss Art Paper
+&bull; Resolution: 300 DPI high-clarity color print
+
+<strong>[Recommended Placement Locations]</strong>
+1. University Computer Science, Physics, and Electrical Engineering bulletin boards
+2. Campus Library & Research Center notice areas
+3. Co-working spaces, tech incubators, and innovation hubs
+4. Tech company cafeteria bulletin boards and training centers
+5. Student activity centers & coding club notice boards</div>
+  </div>
+</main>
+
+<div class="toast" id="toast">✅ Copied to clipboard!</div>
+
+<footer>
+  <p>&copy; 2026 IBM Qiskit Fall Fest &bull; Presented by IBM Quantum &amp; Quantum for Humanity Org</p>
+</footer>
+
+<script>
+function copyText(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  });
+}
+</script>
+
+</body>
+</html>
