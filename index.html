@@ -27,6 +27,11 @@ img{max-width:100%;display:block}
 .ann-bar{background:var(--purple-deep);padding:10px 5%;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.85);font-weight:500;letter-spacing:.03em;border-bottom:2px solid var(--pink)}
 .cd-block{background:var(--pink);color:#fff;font-size:13px;font-weight:800;min-width:34px;height:34px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center}
 .ann-bar a{color:var(--pink);font-weight:700;border-bottom:1px solid rgba(255,107,157,.4)}
+.scroll-notice{background:var(--pink);color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-size:13.5px;font-weight:700;letter-spacing:.03em}
+.scroll-notice-track{display:inline-block;padding-left:100%;animation:scroll-notice 28s linear infinite}
+.scroll-notice:hover .scroll-notice-track{animation-play-state:paused}
+@keyframes scroll-notice{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.scroll-notice-track{animation:none;padding-left:0;display:block;text-align:center;white-space:normal}}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(10,14,26,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,107,157,.2);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
@@ -342,6 +347,11 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
   <span>Starts in: <span class="cd-block" id="cd-d">--</span> d <span class="cd-block" id="cd-h">--</span> h <span class="cd-block" id="cd-m">--</span> m <span class="cd-block" id="cd-s">--</span> s</span>
   &nbsp;|&nbsp;
   <a href="#register">Register Free &rarr;</a>
+</div>
+
+<!-- SCROLLING NOTICE -->
+<div class="scroll-notice" role="region" aria-label="Important notice">
+  <div class="scroll-notice-track">&#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; Please bring your own laptop to join the hands-on Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions</div>
 </div>
 
 <!-- NAV -->
