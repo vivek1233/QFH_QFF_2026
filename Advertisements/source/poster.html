@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IBM Qiskit Fall Fest 2026 — Official Event Poster</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{margin:0;padding:0;background:#080214;font-family:'Segoe UI',system-ui,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#fff}
+
+:root{
+  --purple-dark:#0a0118;
+  --purple-deep:#1c0d3a;
+  --purple-card:#1d1138;
+  --purple-border:rgba(139,92,246,0.28);
+  --purple-bright:#8B5CF6;
+  --purple-glow:#a78bfa;
+  --pink:#FF6B9D;
+  --pink-glow:rgba(255,107,157,0.35);
+  --blue:#6EA8FE;
+  --saffron:#FF9933;
+  --green:#10B981;
+  --dark:#060012;
+}
+
+/* Poster Container: High-Res Print-Ready (1200px × 1850px) */
+.poster-page{
+  width:1200px;
+  height:1850px;
+  max-width:1200px;
+  margin:0 auto;
+  position:relative;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(139,92,246,0.22) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(255,107,157,0.18) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(110,168,254,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 85%, rgba(255,153,51,0.15) 0%, transparent 45%),
+    linear-gradient(180deg, #090216 0%, #15082e 25%, #1a0a38 50%, #120527 75%, #070112 100%);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:32px 38px 24px;
+  border:1px solid rgba(139,92,246,0.3);
+}
+
+/* Background Subtle Grid & Orbs */
+.bg-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+
+.bg-circuit{
+  position:absolute;
+  top:-80px;
+  right:-80px;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  border:1px dashed rgba(255,107,157,0.18);
+  pointer-events:none;
+}
+
+/* HEADER SECTION */
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:2;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.brand-logos{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand-col{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.brand-title{
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#fff;
+}
+
+.brand-sub{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+}
+
+.sep-v{
+  width:1.5px;
+  height:30px;
+  background:rgba(255,255,255,0.22);
+}
+
+.header-meta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.pill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+}
+.pill-badge.pink{background:rgba(255,107,157,0.18);border-color:rgba(255,107,157,0.45);color:#FF6B9D}
+.pill-badge.saffron{background:rgba(255,153,51,0.18);border-color:rgba(255,153,51,0.45);color:#FFB347}
+.pill-badge.green{background:rgba(16,185,129,0.18);border-color:rgba(16,185,129,0.45);color:#34D399}
+.pill-badge.blue{background:rgba(110,168,254,0.18);border-color:rgba(110,168,254,0.45);color:#6EA8FE}
+
+/* HERO TITLE BANNER */
+.hero-banner{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:center;
+  margin-top:10px;
+  position:relative;
+  z-index:2;
+}
+
+.hero-text h1{
+  font-size:58px;
+  font-weight:900;
+  line-height:1.02;
+  letter-spacing:-0.03em;
+  color:#fff;
+  text-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-text h1 .accent{
+  background:linear-gradient(135deg, #FF6B9D 0%, #FF9933 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-text h1 .glow-yr{
+  color:#c4b5fd;
+  font-weight:800;
+}
+
+.hero-tagline{
+  font-size:15px;
+  font-weight:400;
+  color:rgba(255,255,255,0.82);
+  margin-top:6px;
+  line-height:1.35;
+}
+
+.hero-tagline strong{
+  color:#FFD166;
+  font-weight:700;
+}
+
+.hero-dates-strip{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:8px;
+  background:rgba(139,92,246,0.18);
+  border:1px solid rgba(139,92,246,0.4);
+  border-radius:10px;
+  padding:6px 14px;
+  font-size:12.8px;
+  font-weight:700;
+  color:#e0e7ff;
+}
+
+.hero-dates-strip span.highlight{
+  color:#FF6B9D;
+  font-weight:800;
+}
+
+.hero-badge-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.badge-img{
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  box-shadow:0 0 35px rgba(255,107,157,0.45), 0 0 70px rgba(139,92,246,0.3);
+  border:2.5px solid rgba(255,255,255,0.25);
+}
+
+/* SECTION TITLES */
+.sec-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:10px 0 6px;
+  position:relative;
+  z-index:2;
+}
+
+.sec-title{
+  font-size:15.5px;
+  font-weight:800;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.sec-title::before{
+  content:'';
+  width:9px;
+  height:9px;
+  border-radius:3px;
+  background:#FF6B9D;
+  box-shadow:0 0 8px #FF6B9D;
+}
+
+.sec-subtitle{
+  font-size:11.5px;
+  color:rgba(255,255,255,0.58);
+  font-weight:500;
+  letter-spacing:0.03em;
+}
+
+/* 5-DAY SUMMARY GRID */
+.days-container{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:8px;
+  position:relative;
+  z-index:2;
+}
+
+.day-card{
+  background:rgba(255,255,255,0.045);
+  border:1px solid var(--purple-border);
+  border-radius:11px;
+  padding:9px 9px 10px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  backdrop-filter:blur(10px);
+}
+
+.day-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  border-radius:11px 11px 0 0;
+}
+
+.d1::before{background:linear-gradient(90deg, #FF9933, #FF6B9D)}
+.d2::before{background:linear-gradient(90deg, #8B5CF6, #FF6B9D)}
+.d3::before{background:linear-gradient(90deg, #10B981, #6EA8FE)}
+.d4::before{background:linear-gradient(90deg, #6EA8FE, #8B5CF6)}
+.d5::before{background:linear-gradient(90deg, #FF6B9D, #FF9933)}
+
+.day-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:3px;
+}
+
+.day-tag{
+  font-size:9.5px;
+  font-weight:800;
+  color:#FF6B9D;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+}
+
+.day-date{
+  font-size:10.5px;
+  font-weight:700;
+  color:rgba(255,255,255,0.65);
+}
+
+.day-theme{
+  font-size:11.8px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:5px;
+  min-height:28px;
+}
+
+.day-bullets{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:2.5px;
+  font-size:9.8px;
+  color:rgba(255,255,255,0.78);
+  line-height:1.32;
+}
+
+.day-bullets li{
+  position:relative;
+  padding-left:10px;
+}
+
+.day-bullets li::before{
+  content:'▸';
+  position:absolute;
+  left:0;
+  color:#a78bfa;
+  font-size:8.5px;
+  top:0px;
+}
+
+/* EVENT HIGHLIGHTS STRIP */
+.perks-strip{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:7px;
+  margin-top:6px;
+  position:relative;
+  z-index:2;
+}
+
+.perk-item{
+  background:rgba(139,92,246,0.12);
+  border:1px solid rgba(139,92,246,0.22);
+  border-radius:8px;
+  padding:5px 9px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.perk-icon{
+  font-size:14px;
+  flex-shrink:0;
+}
+
+.perk-text{
+  font-size:10.5px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.2;
+}
+
+.perk-text span{
+  display:block;
+  font-size:9px;
+  font-weight:500;
+  color:rgba(255,255,255,0.6);
+}
+
+/* PHYSICAL VENUE HUBS SECTION */
+.venues-container{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:8px;
+  position:relative;
+  z-index:2;
+}
+
+.venue-card{
+  background:linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(139,92,246,0.08) 100%);
+  border:1px solid rgba(255,153,51,0.3);
+  border-radius:11px;
+  padding:9px 9px 8px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  backdrop-filter:blur(8px);
+}
+
+.venue-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  border-radius:11px 11px 0 0;
+  background:linear-gradient(90deg, #FF9933, #FF6B9D);
+}
+
+.venue-city-badge{
+  font-size:10.5px;
+  font-weight:800;
+  color:#FFB347;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin-bottom:3px;
+}
+
+.venue-name{
+  font-size:11.5px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:3px;
+}
+
+.venue-address{
+  font-size:9.2px;
+  color:rgba(255,255,255,0.72);
+  line-height:1.3;
+  margin-bottom:5px;
+  flex:1;
+}
+
+.venue-contact{
+  font-size:9px;
+  font-weight:700;
+  color:#6EA8FE;
+  background:rgba(110,168,254,0.12);
+  padding:2px 6px;
+  border-radius:4px;
+  display:inline-block;
+  border:1px solid rgba(110,168,254,0.25);
+  margin-top:auto;
+}
+
+/* SPEAKERS SECTION */
+.speakers-grid{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:8px;
+  position:relative;
+  z-index:2;
+}
+
+.speaker-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(139,92,246,0.22);
+  border-radius:11px;
+  padding:9px 5px 8px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  backdrop-filter:blur(8px);
+}
+
+.speaker-photo-wrap{
+  position:relative;
+  width:64px;
+  height:64px;
+  margin-bottom:5px;
+}
+
+.speaker-photo{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center top;
+  border:2px solid var(--purple-bright);
+  box-shadow:0 3px 10px rgba(0,0,0,0.4);
+}
+
+.speaker-in-badge{
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:16px;
+  height:16px;
+  background:#0A66C2;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1.5px solid #fff;
+}
+
+.speaker-name{
+  font-size:11.2px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:2px;
+  min-height:14px;
+  width:100%;
+}
+
+.speaker-role{
+  font-size:8.8px;
+  color:rgba(255,255,255,0.68);
+  line-height:1.22;
+  height:24px;
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+}
+
+.speaker-topic{
+  display:inline-block;
+  margin-top:3px;
+  background:rgba(255,107,157,0.14);
+  border:1px solid rgba(255,107,157,0.3);
+  color:#FF94B9;
+  font-size:8.6px;
+  font-weight:700;
+  padding:3px 6px;
+  border-radius:9px;
+  white-space:normal;
+  line-height:1.2;
+  min-height:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  max-width:100%;
+}
+
+/* ORGANIZERS SECTION */
+.organizers-grid{
+  display:grid;
+  grid-template-columns:repeat(9, 1fr);
+  gap:8px;
+  position:relative;
+  z-index:2;
+}
+
+.organizer-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(139,92,246,0.22);
+  border-radius:11px;
+  padding:8px 4px 7px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.organizer-card.lead{
+  border:1.5px solid var(--purple-bright);
+  background:linear-gradient(180deg, rgba(139,92,246,0.18) 0%, rgba(255,255,255,0.04) 100%);
+  box-shadow:0 0 14px rgba(139,92,246,0.22);
+}
+
+.organizer-photo{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center top;
+  border:2px solid var(--purple-bright);
+  margin-bottom:4px;
+}
+
+.organizer-name{
+  font-size:10.2px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:1px;
+  min-height:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+
+.organizer-role{
+  font-size:8.5px;
+  color:rgba(255,255,255,0.65);
+  line-height:1.2;
+  height:21px;
+  overflow:hidden;
+}
+
+.organizer-tag{
+  display:inline-block;
+  margin-top:2px;
+  background:rgba(139,92,246,0.25);
+  color:#c4b5fd;
+  font-size:8px;
+  font-weight:700;
+  padding:2px 5px;
+  border-radius:999px;
+  border:1px solid rgba(139,92,246,0.35);
+}
+
+.organizer-tag.lead{
+  background:linear-gradient(135deg, #FF6B9D, #8B5CF6);
+  color:#fff;
+  border:none;
+}
+
+/* FOOTER CALL TO ACTION & QR CODES */
+.cta-footer{
+  background:linear-gradient(135deg, rgba(45,27,105,0.85) 0%, rgba(13,1,32,0.95) 100%);
+  border:1.5px solid rgba(255,107,157,0.4);
+  border-radius:16px;
+  padding:14px 20px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+  box-shadow:0 8px 28px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.cta-left h3{
+  font-size:22px;
+  font-weight:900;
+  color:#fff;
+  line-height:1.1;
+  margin-bottom:4px;
+}
+
+.cta-left h3 .free-pill{
+  display:inline-block;
+  background:#FF6B9D;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  padding:2.5px 10px;
+  border-radius:999px;
+  margin-left:7px;
+  vertical-align:middle;
+  letter-spacing:0.04em;
+}
+
+.cta-details{
+  font-size:12px;
+  color:rgba(255,255,255,0.82);
+  line-height:1.35;
+  margin-bottom:6px;
+}
+
+.cta-features-row{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.cta-feat{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:999px;
+  padding:2.5px 9px;
+  font-size:10px;
+  font-weight:700;
+  color:#FFD166;
+}
+
+.cta-url-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:6px;
+  font-size:11.5px;
+  color:rgba(255,255,255,0.7);
+  font-family:monospace;
+}
+
+.cta-url-row strong{
+  color:#6EA8FE;
+}
+
+.qr-group{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.qr-box{
+  background:#fff;
+  border-radius:11px;
+  padding:7px 7px 5px;
+  text-align:center;
+  width:108px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.4);
+}
+
+.qr-box img{
+  width:94px;
+  height:94px;
+  display:block;
+  margin:0 auto;
+}
+
+.qr-label{
+  font-size:9.5px;
+  font-weight:800;
+  color:#1c0d3a;
+  margin-top:3px;
+  line-height:1.15;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+
+.qr-label.accent{
+  color:#cc2e6a;
+}
+
+
+/* BRING YOUR OWN LAPTOP BANNER */
+.laptop-banner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:10px 20px;
+  border-radius:14px;
+  background:linear-gradient(90deg, rgba(255,107,157,0.28) 0%, rgba(255,153,51,0.22) 100%);
+  border:1.5px solid rgba(255,153,51,0.7);
+  box-shadow:0 0 26px rgba(255,107,157,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+.laptop-banner .lb-icon{font-size:34px;line-height:1}
+.laptop-banner .lb-main{font-size:19px;font-weight:900;letter-spacing:0.03em;color:#fff;text-transform:uppercase}
+.laptop-banner .lb-main em{font-style:normal;color:#FFD166}
+.laptop-banner .lb-sub{font-size:11.5px;color:rgba(255,255,255,0.85);margin-top:2px}
+.laptop-banner .lb-tag{margin-left:auto;background:#FF6B9D;color:#fff;font-weight:800;font-size:11px;letter-spacing:0.08em;padding:6px 14px;border-radius:999px;white-space:nowrap}
+
+/* LIVE STATUS RIBBON */
+.hero-ribbon{display:flex;gap:8px;margin-top:10px;position:relative;z-index:2}
+.hero-ribbon span{font-size:11.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:6px;background:linear-gradient(90deg,#FF6B9D,#8B5CF6);color:#fff}
+.hero-ribbon span.alt{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25)}
+
+.qr-box.sm{width:128px}
+.qr-box.sm img{width:114px;height:114px}
+.qr-label.discord{color:#4752c4}
+
+/* BOTTOM HASHTAGS */
+.bottom-strip{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:4px;
+  font-size:10.5px;
+  color:rgba(255,255,255,0.45);
+  position:relative;
+  z-index:2;
+}
+
+.hashtags{
+  display:flex;
+  gap:8px;
+  font-weight:700;
+  color:rgba(255,255,255,0.6);
+}
+</style>
+</head>
+<body>
+
+<div class="poster-page">
+  <div class="bg-grid"></div>
+  <div class="bg-circuit"></div>
+
+  <!-- 1. HEADER BRANDING -->
+  <div class="header-row">
+    <div class="brand-logos">
+      <!-- IBM Quantum Logo -->
+      <svg width="120" height="34" viewBox="0 0 130 44" fill="none">
+        <text x="0" y="17" font-family="Segoe UI,sans-serif" font-size="12" font-weight="800" fill="white" letter-spacing="2">IBM</text>
+        <text x="0" y="33" font-family="Segoe UI,sans-serif" font-size="11.5" font-weight="600" fill="rgba(255,255,255,0.75)" letter-spacing="1.5">QUANTUM</text>
+        <circle cx="116" cy="22" r="13" stroke="#FF7EB6" stroke-width="1.4" fill="none"/>
+        <ellipse cx="116" cy="22" rx="13" ry="4.5" stroke="#FF7EB6" stroke-width="1.4" fill="none"/>
+        <line x1="108" y1="13" x2="124" y2="31" stroke="#FF7EB6" stroke-width="1.6"/>
+        <circle cx="108" cy="13" r="2.5" fill="#FF7EB6"/>
+        <circle cx="124" cy="31" r="2.5" fill="#8B5CF6"/>
+      </svg>
+
+      <div class="sep-v"></div>
+
+      <!-- Quantum for Humanity Logo -->
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg width="34" height="34" viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="90" stroke="#8B5CF6" stroke-width="2.5" opacity=".7"/>
+          <ellipse cx="100" cy="100" rx="90" ry="30" stroke="#8B5CF6" stroke-width="2" opacity=".6" transform="rotate(-30 100 100)"/>
+          <ellipse cx="100" cy="100" rx="90" ry="30" stroke="#FF7EB6" stroke-width="1.8" opacity=".55" transform="rotate(30 100 100)"/>
+          <circle cx="100" cy="100" r="32" fill="rgba(139,92,246,.2)"/>
+          <circle cx="100" cy="100" r="32" stroke="#8B5CF6" stroke-width="1.8" opacity=".8"/>
+          <circle cx="100" cy="82" r="8" fill="#8B5CF6"/>
+          <path d="M91 94 Q91 112 100 115 Q109 112 109 94 Q105.5 90.5 100 90 Q94.5 90.5 91 94Z" fill="#8B5CF6"/>
+          <path d="M91 97 L74 104 M109 97 L126 104" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="190" cy="100" r="5" fill="#8B5CF6"/>
+          <circle cx="10"  cy="100" r="5" fill="#8B5CF6"/>
+          <circle cx="138" cy="22"  r="4" fill="#FF7EB6"/>
+          <circle cx="62"  cy="178" r="4" fill="#FF7EB6"/>
+        </svg>
+        <div class="brand-col">
+          <span class="brand-title" style="font-size:13.5px;letter-spacing:0.12em">QUANTUM FOR HUMANITY</span>
+          <span class="brand-sub" style="font-size:9.5px;letter-spacing:0.1em">GLOBAL ORGANIZATION</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-meta">
+      <span class="pill-badge saffron">5 Days</span>
+      <span class="pill-badge pink">Beginner to Advanced</span>
+      <span class="pill-badge blue">5 In-Person Hubs</span>
+      <span class="pill-badge green">Free Registration</span>
+    </div>
+  </div>
+
+  <!-- 2. HERO BANNER -->
+  <div class="hero-banner">
+    <div class="hero-text">
+      <h1>IBM Qiskit <span class="accent">Fall Fest</span> <span class="glow-yr">2026</span></h1>
+      <p class="hero-tagline">
+        The Premier Global Quantum Computing Festival &mdash; <strong>Quantum for Humanity</strong><br/>
+        Presented by <strong>IBM Quantum</strong> &amp; <strong>Quantum for Humanity Org</strong>
+      </p>
+      <div class="hero-dates-strip">
+        <span>📅 <span class="highlight">November 23 &ndash; 27, 2026</span></span>
+        <span>•</span>
+        <span>⏰ 09:30 &ndash; 18:00 IST Daily</span>
+        <span>•</span>
+        <span>🏢 5 In-Person IBM Hubs &amp; Online Global Stream</span>
+      </div>
+      <div class="hero-ribbon"><span>Free &bull; Hybrid</span><span class="alt">In-Person at 5 IBM Hubs</span><span class="alt">Live Online Stream</span></div>
+    </div>
+    <div class="hero-badge-container">
+      <img src="../../qff2026-badge-black.png" alt="QFF 2026 Official Badge" class="badge-img"/>
+    </div>
+  </div>
+
+  <!-- LAPTOP NOTICE -->
+  <div class="laptop-banner">
+    <div class="lb-icon">💻</div>
+    <div>
+      <div class="lb-main">Bring Your <em>Own Laptop</em> for the Qiskit Lab Sessions</div>
+      <div class="lb-sub">Hands-on Qiskit coding labs &mdash; a personal laptop is required to take part in the lab exercises.</div>
+    </div>
+    <div class="lb-tag">HANDS-ON LABS</div>
+  </div>
+
+  <!-- 3. SUMMARY OF EVENTS / 5-DAY CURRICULUM -->
+  <div>
+    <div class="sec-header">
+      <div class="sec-title">5-Day Comprehensive Curriculum</div>
+      <div class="sec-subtitle">Beginner Foundations &bull; Deep Algorithms &bull; Real Hardware &bull; 48h Hackathon</div>
+    </div>
+    <div class="days-container">
+      <div class="day-card d1">
+        <div class="day-top"><span class="day-tag">Day 1</span><span class="day-date">23 Nov</span></div>
+        <div class="day-theme">🚀 Opening &amp; Foundations</div>
+        <ul class="day-bullets">
+          <li>Keynote: IBM Quantum 2026</li>
+          <li>Zero to Qubit: Superposition</li>
+          <li>Live Lab: First Qiskit Circuit</li>
+          <li>48h Hackathon Team Kickoff</li>
+        </ul>
+      </div>
+
+      <div class="day-card d2">
+        <div class="day-top"><span class="day-tag">Day 2</span><span class="day-date">24 Nov</span></div>
+        <div class="day-theme">⚡ Circuits &amp; Algorithms</div>
+        <ul class="day-bullets">
+          <li>Grover &amp; Shor Algorithms</li>
+          <li>Quantum Machine Learning (QML)</li>
+          <li>IBM Eagle &amp; Heron Hardware</li>
+          <li>Open Source Qiskit Sprint</li>
+        </ul>
+      </div>
+
+      <div class="day-card d3">
+        <div class="day-top"><span class="day-tag">Day 3</span><span class="day-date">25 Nov</span></div>
+        <div class="day-theme">🌍 Quantum for Humanity</div>
+        <ul class="day-bullets">
+          <li>Global Humanity Vision Keynote</li>
+          <li>Drug Discovery: TB &amp; Malaria</li>
+          <li>Agriculture &amp; Clean Water</li>
+          <li>Quantum Financial Inclusion</li>
+        </ul>
+      </div>
+
+      <div class="day-card d4">
+        <div class="day-top"><span class="day-tag">Day 4</span><span class="day-date">26 Nov</span></div>
+        <div class="day-theme">🔬 Research &amp; Error Correction</div>
+        <ul class="day-bullets">
+          <li>Quantum Error Correction (QEC)</li>
+          <li>VQE &amp; QAOA Optimisation</li>
+          <li>Post-Quantum Crypto (PQC)</li>
+          <li>Fault-Tolerant Quantum Net</li>
+        </ul>
+      </div>
+
+      <div class="day-card d5">
+        <div class="day-top"><span class="day-tag">Day 5</span><span class="day-date">27 Nov</span></div>
+        <div class="day-theme">🏆 Hackathon &amp; Closing</div>
+        <ul class="day-bullets">
+          <li>Live Hackathon Project Pitches</li>
+          <li>IBM Quantum Prize Winners</li>
+          <li>QfH Manifesto Launch</li>
+          <li>Grand Closing Keynote 2030</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Event Highlights / Perks -->
+    <div class="perks-strip">
+      <div class="perk-item">
+        <div class="perk-icon">🎓</div>
+        <div class="perk-text">Verified Certificates<span>Official IBM Quantum Learning</span></div>
+      </div>
+      <div class="perk-item">
+        <div class="perk-icon">⚡</div>
+        <div class="perk-text">IBM Quantum Hardware<span>Real QPU Cloud Access</span></div>
+      </div>
+      <div class="perk-item">
+        <div class="perk-icon">🏆</div>
+        <div class="perk-text">48h Global Hackathon<span>Prizes, Credits &amp; Mentorship</span></div>
+      </div>
+      <div class="perk-item">
+        <div class="perk-icon">🌍</div>
+        <div class="perk-text">Multi-Track Learning<span>Education, Research &amp; Impact</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. PHYSICAL IN-PERSON VENUE HUBS -->
+  <div>
+    <div class="sec-header">
+      <div class="sec-title">Join In Person &mdash; IBM Physical Locations</div>
+      <div class="sec-subtitle">📍 5 In-Person Hubs Across India &bull; Register first, then contact the hub</div>
+    </div>
+    <div class="venues-container">
+      <div class="venue-card">
+        <div class="venue-city-badge">📍 Gurgaon</div>
+        <div class="venue-name">IBM India, Intellion Park</div>
+        <div class="venue-address">Tower 04, 11th Floor, Training Room, IT/ITES SEZ, Village Behrampur, Gurugram 122004</div>
+        <div class="venue-contact">📞 +91 95601 43888</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-city-badge">📍 Bengaluru</div>
+        <div class="venue-name">IBM Embassy Golf Links</div>
+        <div class="venue-address">C Block, Embassy Golf Links Business Park, Off Indira Nagar-Koramangala Ring Rd, Challaghatta 560071</div>
+        <div class="venue-contact">📞 +91 98458 16688</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-city-badge">📍 Mumbai</div>
+        <div class="venue-name">IBM Airoli Office</div>
+        <div class="venue-address">Building-5, Mindspace Airoli East, MIDC Industrial Area, Airoli, Navi Mumbai 400708</div>
+        <div class="venue-contact">📞 +91 96194 49381</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-city-badge">📍 Pune</div>
+        <div class="venue-name">IBM Pune ETZ</div>
+        <div class="venue-address">Embassy Tech Zone, Block 1.3 Congo, Plot 03, Hinjawadi Phase II, Rajiv Gandhi Infotech Park 411057</div>
+        <div class="venue-contact">📞 +91 96194 49381</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-city-badge">📍 Hyderabad</div>
+        <div class="venue-name">IBM Mindspace 12D</div>
+        <div class="venue-address">11th Floor, L&amp;K Training Rooms 1 &amp; 2, Mindspace 12D, Hyderabad, Telangana</div>
+        <div class="venue-contact">🌐 In-Person Hub</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. GUEST SPEAKERS -->
+  <div>
+    <div class="sec-header">
+      <div class="sec-title">Distinguished Guest Speakers</div>
+      <div class="sec-subtitle">Industry Pioneers, IBM Researchers &amp; Quantum Leaders</div>
+    </div>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Dr.%20Subarna%20Roy.jpg" alt="Dr. Subarna Roy" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Dr. Subarna Roy</div>
+        <div class="speaker-role">Researcher &amp; Educator<br/>IBM Quantum</div>
+        <span class="speaker-topic">Quantum Circuits &amp; QML</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Yogendra%20Soni.png" alt="Yogendra Soni" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Yogendra Soni</div>
+        <div class="speaker-role">Program Director, Quantum Safe<br/>IBM Software</div>
+        <span class="speaker-topic">PQC Migration &amp; Quantum Safe</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Puneet%20Sharma.png" alt="Puneet Sharma" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Puneet Sharma</div>
+        <div class="speaker-role">Architect, Data Security<br/>IBM</div>
+        <span class="speaker-topic">Cryptographic Assets &amp; PQC</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Bharadwaj%20Mummaneni.png" alt="Bharadwaj Mummaneni" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Bharadwaj Mummaneni</div>
+        <div class="speaker-role">Quantum Researcher<br/>IBM Quantum</div>
+        <span class="speaker-topic">Hamiltonian Simulation</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Archit%20Chadalawada.png" alt="Archit Chadalawada" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Archit Chadalawada</div>
+        <div class="speaker-role">Quantum Research Engineer<br/>IBM Quantum Research</div>
+        <span class="speaker-topic">Quantum Algorithms</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Organizers/Vivekanand%20Triloknath%20Choudhry.jpg" alt="Vivekanand Choudhry" class="speaker-photo"/>
+        </div>
+        <div class="speaker-name">Vivekanand Choudhry</div>
+        <div class="speaker-role">Quantum Computing Mentor<br/>Sr. Solution Manager, IBM</div>
+        <span class="speaker-topic">Quantum Application for Humanity</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Ravindranath%20Nemani.jpg" alt="Ravindranath Nemani" class="speaker-photo"/>
+          
+        </div>
+        <div class="speaker-name">Ravindranath Nemani</div>
+        <div class="speaker-role">Data Scientist</div>
+        <span class="speaker-topic">Geometric Quantum Machine Learning</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Suranjan%20Nandi.jpg" alt="Suranjan Nandi" class="speaker-photo"/>
+          
+        </div>
+        <div class="speaker-name">Suranjan Nandi</div>
+        <div class="speaker-role">Lead AI Architect &amp; Data Scientist</div>
+        <span class="speaker-topic">Qiskit Lab Session</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Anuradha%20A.jpg" alt="Anuradha A" class="speaker-photo"/>
+          
+        </div>
+        <div class="speaker-name">Anuradha A</div>
+        <div class="speaker-role">Partner &amp; Solutioning Leader</div>
+        <span class="speaker-topic">Quantum Computing: A Consulting Perspective</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Punet%20Gandhi.jpg" alt="Puneet Gandhi" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Puneet Gandhi</div>
+        <div class="speaker-role">Associate Partner, Global Solutioning Leader, IBM</div>
+        <span class="speaker-topic">Quantum Computing in Telecom</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Liher%20Elgezabal.jpg" alt="Liher Elgezabal" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Liher Elgezabal</div>
+        <div class="speaker-role">Principal WW Data Security Tech Sales Leader, IBM</div>
+        <span class="speaker-topic">Quantum Safe Philosophy &amp; Implementation</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Guncha%20Malik.jpg" alt="Guncha Malik" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Guncha Malik</div>
+        <div class="speaker-role">Technical Ambassador<br/>IBM Quantum</div>
+        <span class="speaker-topic">Qiskit Ecosystem</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Phalak%20Bhatnagar.jpg" alt="Phalak Bhatnagar" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Phalak Bhatnagar</div>
+        <div class="speaker-role">Research Engineer<br/>IBM</div>
+        <span class="speaker-topic">Quantum Systems</span>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo-wrap">
+          <img src="../../Guest%20Spekaers/Het%20Patel.jpg" alt="Het Patel" class="speaker-photo"/>
+          <span class="speaker-in-badge"><svg viewBox="0 0 24 24" width="10" height="10" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></span>
+        </div>
+        <div class="speaker-name">Het Patel</div>
+        <div class="speaker-role">AI Software Dev Engineer, IBM Quantum</div>
+        <span class="speaker-topic">Qiskit Advocate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ORGANIZERS -->
+  <div>
+    <div class="sec-header">
+      <div class="sec-title">Event Organizers &amp; Mentors</div>
+      <div class="sec-subtitle">The team bringing Quantum for Humanity to life</div>
+    </div>
+    <div class="organizers-grid">
+      <div class="organizer-card lead">
+        <img src="../../Organizers/Vivekanand%20Triloknath%20Choudhry.jpg" alt="Vivekanand Choudhry" class="organizer-photo"/>
+        <div class="organizer-name">Vivekanand Choudhry</div>
+        <div class="organizer-role">Senior Solution Manager, IBM</div>
+        <span class="organizer-tag lead">⭐ Lead Organizer</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/AK-Profile%20Pic.jpg" alt="Amit Kumar" class="organizer-photo"/>
+        <div class="organizer-name">Amit Kumar</div>
+        <div class="organizer-role">Senior Solution Manager, IBM</div>
+        <span class="organizer-tag">🎯 Event Mentor</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Manish%20Kumar.png" alt="Manish Kumar" class="organizer-photo"/>
+        <div class="organizer-name">Manish Kumar</div>
+        <div class="organizer-role">Senior Solution Manager, IBM</div>
+        <span class="organizer-tag">🎯 Event Mentor</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Vikram%20Kumar%20Ventrapragada.jpg" alt="Vikram Ventrapragada" class="organizer-photo"/>
+        <div class="organizer-name">Vikram Ventrapragada</div>
+        <div class="organizer-role">Senior Solution Manager, IBM</div>
+        <span class="organizer-tag">🎯 Event Mentor</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Kiran%20Mane.png" alt="Kiran Mane" class="organizer-photo"/>
+        <div class="organizer-name">Kiran Mane</div>
+        <div class="organizer-role">Sr. Business Analyst, Global Solutioning</div>
+        <span class="organizer-tag">🎯 Organizer</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Puran%20Bughani.jpg" alt="Puran Bughani" class="organizer-photo"/>
+        <div class="organizer-name">Puran Bughani</div>
+        <div class="organizer-role">Lead Delivery Project Executive, IBM</div>
+        <span class="organizer-tag">🎯 Organizer</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Shruti%20Kulkarni.jpg" alt="Shruti Kulkarni" class="organizer-photo"/>
+        <div class="organizer-name">Shruti Kulkarni</div>
+        <div class="organizer-role">Architect, IBM Payments Center</div>
+        <span class="organizer-tag">🎯 Organizer</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Pradeep%20Lamba.jpg" alt="Pradeep Lamba" class="organizer-photo"/>
+        <div class="organizer-name">Pradeep Lamba</div>
+        <div class="organizer-role">Sr. Solution Consultant, IBM</div>
+        <span class="organizer-tag">🎯 Organizer</span>
+      </div>
+      <div class="organizer-card">
+        <img src="../../Organizers/Ravi%20Panyala.jpg" alt="Ravi Pendyala" class="organizer-photo"/>
+        <div class="organizer-name">Ravi Pendyala</div>
+        <div class="organizer-role">Sr. Solution Consultant, Oracle</div>
+        <span class="organizer-tag">🎯 Organizer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CALL TO ACTION & QR CODES -->
+  <div class="cta-footer">
+    <div class="cta-left">
+      <h3>Ready to Build the Future? <span class="free-pill">100% FREE PASS</span></h3>
+      <p class="cta-details">
+        Open to students, researchers, developers &amp; industry professionals worldwide.
+        Join in person at any of the 5 IBM hubs or online via live stream. <strong style="color:#FFD166">Bring your own laptop for the Lab Sessions.</strong>
+      </p>
+      <div class="cta-features-row">
+        <span class="cta-feat">🏆 48h Hackathon</span>
+        <span class="cta-feat">📜 IBM Verified Certificates</span>
+        <span class="cta-feat">☁️ IBM Quantum Cloud Credits</span>
+        <span class="cta-feat">👥 Global Discord Community</span>
+      </div>
+      <div class="cta-url-row" style="flex-direction:column;align-items:flex-start;gap:3px">
+        <span>🌐 Website: <strong>vivek1233.github.io/QFH_QFF_2026/</strong></span>
+        <span>💬 Discord: <strong>discord.gg/u2MKXRT4n</strong></span>
+      </div>
+    </div>
+
+    <div class="qr-group">
+      <div class="qr-box sm">
+        <img src="qr-register.png" alt="Scan to Register Free"/>
+        <div class="qr-label accent">1. Scan to<br/>Register Free</div>
+      </div>
+      <div class="qr-box sm">
+        <img src="qr-discord.png" alt="Scan to Join Discord"/>
+        <div class="qr-label discord">2. Scan to<br/>Join Discord</div>
+      </div>
+      <div class="qr-box sm">
+        <img src="qr-website.png" alt="Scan for Website"/>
+        <div class="qr-label">3. Scan for<br/>Website</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. BOTTOM HASHTAGS & ACCREDITATION -->
+  <div class="bottom-strip">
+    <div class="hashtags">
+      <span>#QiskitFallFest2026</span>
+      <span>#QuantumForHumanity</span>
+      <span>#IBMQuantum</span>
+      <span>#Qiskit</span>
+      <span>#DeepTech</span>
+      <span>#OpenScience</span>
+    </div>
+    <div>Co-presented by IBM Quantum &amp; Quantum for Humanity Organization &bull; Official Festival Poster</div>
+  </div>
+
+</div>
+
+</body>
+</html>
