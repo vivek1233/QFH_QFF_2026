@@ -258,13 +258,19 @@ p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:62
 .discord-server-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--purple-deep),var(--discord));display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .discord-server-name{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
 .discord-server-sub{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.04em}
-.dc-category{padding:16px 8px 4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);display:flex;align-items:center;gap:5px;cursor:default;user-select:none}
-.dc-category::before{content:'▸';font-size:9px}
-.dc-channel{display:flex;align-items:center;gap:8px;padding:5px 8px 5px 14px;border-radius:6px;margin:1px 6px;font-size:13.5px;color:rgba(255,255,255,.45);cursor:pointer;transition:background .15s,color .15s}
-.dc-channel:hover,.dc-channel.active{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85)}
-.dc-channel.active{background:rgba(255,255,255,.12);color:#fff}
-.dc-hash{font-size:16px;color:rgba(255,255,255,.22);flex-shrink:0;line-height:1;margin-top:1px}
-.dc-lock{font-size:13px;color:rgba(255,255,255,.22);flex-shrink:0;line-height:1}
+.dc-status-bar{background:#111214;padding:6px 14px;font-size:11px;color:#949ba4;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.05)}
+.dc-status-item{display:inline-flex;align-items:center;gap:5px}
+.dc-status-dot{width:7px;height:7px;border-radius:50%;background:#23a55a}
+.dc-category{padding:14px 10px 4px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#949ba4;display:flex;align-items:center;gap:6px;cursor:default;user-select:none}
+.dc-category::before{content:'▼';font-size:8px;color:#80848e}
+.dc-channel{display:flex;align-items:center;gap:8px;padding:6px 10px 6px 12px;border-radius:5px;margin:2px 6px;font-size:13px;font-weight:500;color:#949ba4;cursor:pointer;transition:background .15s,color .15s}
+.dc-channel:hover{background:rgba(255,255,255,.06);color:#dbdee1}
+.dc-channel.active{background:rgba(88,101,242,.22);color:#fff;font-weight:600}
+.dc-channel.voice{color:#a5b4fc}
+.dc-channel.voice:hover{background:rgba(88,101,242,.12);color:#fff}
+.dc-hash{font-size:15px;color:#80848e;flex-shrink:0;line-height:1}
+.dc-lock{font-size:12px;color:#f59e0b;flex-shrink:0;line-height:1}
+.dc-voice-icon{font-size:13px;color:#5865F2;flex-shrink:0}
 .dc-unread{margin-left:auto;width:18px;height:18px;background:#5865F2;border-radius:50%;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .discord-main{display:flex;flex-direction:column;gap:22px}
 .dc-panel{background:#313338;border-radius:14px;padding:28px 26px;border:1px solid rgba(255,255,255,.07)}
@@ -692,7 +698,26 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <span class="speaker-confirmed">✓ Confirmed</span>
         </a>
       </div>
-
+      <div class="speaker-card confirmed">
+        <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+          <img src="Guest Spekaers/Anuradha A.jpg" alt="Anuradha A" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+        </div>
+        <div class="speaker-name">Anuradha A</div>
+        <div class="speaker-role">Partner &amp; Solutioning Leader</div>
+        <span class="speaker-topic">Quantum Computing from a Consulting Perspective</span>
+        <span class="speaker-confirmed">✓ Confirmed</span>
+      </div>
+      <div class="speaker-card confirmed">
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Deepak%20Gupta%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Deepak Gupta on LinkedIn" style="display:block;text-decoration:none">
+          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+            <img src="Guest Spekaers/Deepak Gupta.jpg" alt="Deepak Gupta" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+          </div>
+          <div class="speaker-name">Deepak Gupta</div>
+          <div class="speaker-role">Practice Leader, Custom Application Operations, IBM</div>
+          <span class="speaker-topic">Opening Session Guest Speaker</span>
+          <span class="speaker-confirmed">✓ Confirmed</span>
+        </a>
+      </div>
       <div class="speaker-card confirmed">
         <a href="https://www.linkedin.com/in/dr-subarna-roy-1224057/" target="_blank" rel="noopener" title="View Dr. Subarna Roy on LinkedIn" style="display:block;text-decoration:none">
           <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
@@ -702,8 +727,47 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
             </span>
           </div>
           <div class="speaker-name">Dr. Subarna Roy</div>
-          <div class="speaker-role">IBM Quantum<br/>Researcher &amp; Educator</div>
+          <div class="speaker-role">Global Chief Data Scientist- AI &amp; Analytics<br/>&amp; IBM Quantum Ambassador</div>
           <span class="speaker-topic">Quantum Circuits &amp; QML</span>
+          <span class="speaker-confirmed">✓ Confirmed</span>
+        </a>
+      </div>
+      <div class="speaker-card confirmed">
+        <a href="https://www.linkedin.com/in/pugandhi/" target="_blank" rel="noopener" title="View Puneet Gandhi on LinkedIn" style="display:block;text-decoration:none">
+          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+            <img src="Guest Spekaers/Punet Gandhi.jpg" alt="Puneet Gandhi" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+            <span style="position:absolute;bottom:0;right:0;width:20px;height:20px;background:#0A66C2;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="#fff"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.102v1.561h.046c.432-.818 1.487-1.681 3.062-1.681 3.274 0 3.878 2.155 3.878 4.958v6.614zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.554 13.019H3.783V9h3.108v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </span>
+          </div>
+          <div class="speaker-name">Puneet Gandhi</div>
+          <div class="speaker-role">Associate Partner – Global Solutioning Leader<br/>Salesforce, ServiceNow &amp; Industries Consulting, IBM</div>
+          <span class="speaker-topic">Quantum Computing in Telecom</span>
+          <span class="speaker-confirmed">✓ Confirmed</span>
+        </a>
+      </div>
+      <div class="speaker-card confirmed">
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Sridhar%20Jonnala%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Sridhar Jonnala on LinkedIn" style="display:block;text-decoration:none">
+          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+            <img src="Guest Spekaers/Sridhar Jonnala.png" alt="Sridhar Jonnala" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+            <span style="position:absolute;bottom:0;right:0;width:20px;height:20px;background:#0A66C2;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="#fff"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.102v1.561h.046c.432-.818 1.487-1.681 3.062-1.681 3.274 0 3.878 2.155 3.878 4.958v6.614zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.554 13.019H3.783V9h3.108v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </span>
+          </div>
+          <div class="speaker-name">Sridhar Jonnala</div>
+          <div class="speaker-role">Chief Data Scientist &amp;<br/>Distinguished Engineer</div>
+          <span class="speaker-topic">Welcome Message &bull; Opening Ceremony</span>
+          <span class="speaker-confirmed">✓ Confirmed</span>
+        </a>
+      </div>
+      <div class="speaker-card confirmed">
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Pradeep%20Lamba%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Pradeep Lamba on LinkedIn" style="display:block;text-decoration:none">
+          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+            <img src="Guest Spekaers/Pradeep Lamba.jpg" alt="Pradeep Lamba" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+          </div>
+          <div class="speaker-name">Pradeep Lamba</div>
+          <div class="speaker-role">Senior Solution Consultant – Strategy &amp; Transformation, CIC, AMO<br/>Supply Chain &amp; Sustainability, IBM</div>
+          <span class="speaker-topic">Drug Discovery: Quantum Simulation for TB &amp; Malaria</span>
           <span class="speaker-confirmed">✓ Confirmed</span>
         </a>
       </div>
@@ -773,20 +837,6 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
         <span class="speaker-confirmed">✓ Confirmed</span>
       </div>
       <div class="speaker-card confirmed">
-        <a href="https://www.linkedin.com/in/pugandhi/" target="_blank" rel="noopener" title="View Puneet Gandhi on LinkedIn" style="display:block;text-decoration:none">
-          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
-            <img src="Guest Spekaers/Punet Gandhi.jpg" alt="Puneet Gandhi" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
-            <span style="position:absolute;bottom:0;right:0;width:20px;height:20px;background:#0A66C2;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="#fff"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.102v1.561h.046c.432-.818 1.487-1.681 3.062-1.681 3.274 0 3.878 2.155 3.878 4.958v6.614zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.554 13.019H3.783V9h3.108v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </span>
-          </div>
-          <div class="speaker-name">Puneet Gandhi</div>
-          <div class="speaker-role">Associate Partner – Global Solutioning Leader<br/>Salesforce, ServiceNow &amp; Industries Consulting, IBM</div>
-          <span class="speaker-topic">Quantum Computing in Telecom</span>
-          <span class="speaker-confirmed">✓ Confirmed</span>
-        </a>
-      </div>
-      <div class="speaker-card confirmed">
         <a href="https://www.linkedin.com/in/liherelgezabal/" target="_blank" rel="noopener" title="View Liher Elgezabal on LinkedIn" style="display:block;text-decoration:none">
           <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
             <img src="Guest Spekaers/Liher Elgezabal.jpg" alt="Liher Elgezabal" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
@@ -814,7 +864,6 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <span class="speaker-confirmed">✓ Confirmed</span>
         </a>
       </div>
-
       <div class="speaker-card confirmed">
         <a href="https://www.linkedin.com/search/results/all/?keywords=Guncha%20Malik%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Guncha Malik on LinkedIn" style="display:block;text-decoration:none">
           <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
@@ -863,7 +912,6 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
         <span class="speaker-topic">Geometric Quantum Machine Learning</span>
         <span class="speaker-confirmed">✓ Confirmed</span>
       </div>
-
       <div class="speaker-card confirmed">
         <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
           <img src="Guest Spekaers/Suranjan Nandi.jpg" alt="Suranjan Nandi" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
@@ -873,41 +921,6 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
         <span class="speaker-topic">Qiskit Lab Session</span>
         <span class="speaker-confirmed">✓ Confirmed</span>
       </div>
-      <div class="speaker-card confirmed">
-        <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
-          <img src="Guest Spekaers/Anuradha A.jpg" alt="Anuradha A" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
-        </div>
-        <div class="speaker-name">Anuradha A</div>
-        <div class="speaker-role">Partner &amp; Solutioning Leader</div>
-        <span class="speaker-topic">Quantum Computing from a Consulting Perspective</span>
-        <span class="speaker-confirmed">✓ Confirmed</span>
-      </div>
-      <div class="speaker-card confirmed">
-        <a href="https://www.linkedin.com/search/results/all/?keywords=Pradeep%20Lamba%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Pradeep Lamba on LinkedIn" style="display:block;text-decoration:none">
-          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
-            <img src="Guest Spekaers/Pradeep Lamba.jpg" alt="Pradeep Lamba" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
-          </div>
-          <div class="speaker-name">Pradeep Lamba</div>
-          <div class="speaker-role">Senior Solution Consultant – Strategy &amp; Transformation, CIC, AMO<br/>Supply Chain &amp; Sustainability, IBM</div>
-          <span class="speaker-topic">Drug Discovery: Quantum Simulation for TB &amp; Malaria</span>
-          <span class="speaker-confirmed">✓ Confirmed</span>
-        </a>
-      </div>
-      <div class="speaker-card confirmed">
-        <a href="https://www.linkedin.com/search/results/all/?keywords=Deepak%20Gupta%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Deepak Gupta on LinkedIn" style="display:block;text-decoration:none">
-          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
-            <img src="Guest Spekaers/Deepak Gupta.jpg" alt="Deepak Gupta" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
-          </div>
-          <div class="speaker-name">Deepak Gupta</div>
-          <div class="speaker-role">Practice Leader, Custom Application Operations, IBM</div>
-          <span class="speaker-topic">Opening Session Guest Speaker</span>
-          <span class="speaker-confirmed">✓ Confirmed</span>
-        </a>
-      </div>
-
-
-
-
     </div>
   </div>
 </section>
@@ -1049,7 +1062,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
 
     <div id="day-1" class="day-content schedule-wrap">
       <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
-        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Opening Ceremony &amp; Welcome</div><div class="s-speaker">IBM Quantum &amp; Quantum for Humanity &middot; Welcome (20 min) &middot; IBM Quantum &amp; Quantum for Humanity (40 min)</div></td><td>Anuradha A, Santosh Prasad &amp; Deepak Gupta</td><td><span class="badge b-key">Inauguration</span></td></tr>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Opening Ceremony &amp; Welcome</div><div class="s-speaker">IBM Quantum &amp; Quantum for Humanity &middot; Welcome Message (20 min) &middot; IBM Quantum &amp; Quantum for Humanity (40 min)</div></td><td>Sridhar Jonnala, Anuradha A, Santosh Prasad &amp; Deepak Gupta</td><td><span class="badge b-key">Inauguration</span></td></tr>
         <tr><td class="time-cell">11:00<span class="ist">IST</span></td><td><div class="s-title"><a href="Presentation Materials/Opening_Keynote_IBM_Quantum_2026_Roadmap_and_Beyond.html" style="color:inherit;text-decoration:none;">Opening Keynote: IBM Quantum 2026 and Beyond Roadmap</a></div><div class="s-speaker">The state of quantum computing and the road to fault tolerance &middot; <a href="Presentation Materials/Opening_Keynote_IBM_Quantum_2026_Roadmap_and_Beyond.pptx" download style="color:#33B1FF;font-size:0.82rem;font-weight:600;">[📥 Lecture Notes &amp; PPTX]</a></div></td><td>Dr. Subarna Roy</td><td><span class="badge b-key">Keynote</span></td></tr>
         <tr><td class="time-cell">12:00<span class="ist">IST</span></td><td><div class="s-title">What is Quantum Computing? (Beginner)</div><div class="s-speaker">Qubits, superposition, entanglement and why it matters</div></td><td>Het Patel</td><td><span class="badge b-edu">Beginner</span></td></tr>
         <tr><td class="time-cell">14:00<span class="ist">IST</span></td><td><div class="s-title">Qiskit Live Lab: Build Your First Quantum Circuit</div><div class="s-speaker">Hands-on: build, run &amp; measure on IBM Quantum hardware</div></td><td>Het Patel</td><td><span class="badge b-edu">Workshop</span></td></tr>
@@ -1202,9 +1215,9 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
 <!-- DISCORD COMMUNITY -->
 <section class="discord-sec" id="discord-community">
   <div style="max-width:1160px;margin:0 auto 44px;position:relative;z-index:1">
-    <div class="section-tag"><span class="tag-dot"></span>Community Hub</div>
-    <h2 class="sec-title">Our <span class="accent">Discord</span> Server</h2>
-    <p class="sec-desc">The <strong>Quantum_For_Humanity</strong> Discord server mirrors the event itself — a channel for every programme day (Nov 23&ndash;27), every track, and every hackathon challenge, plus dedicated spaces for attendees, speakers and organizers. Join the right channels to connect, collaborate, and stay informed.</p>
+    <div class="section-tag"><span class="tag-dot"></span>Official Community &amp; Live Collaboration Hub</div>
+    <h2 class="sec-title">Our Professional <span class="accent">Discord</span> Server</h2>
+    <p class="sec-desc">The <strong>Quantum_For_Humanity</strong> Discord server mirrors the event ecosystem — featuring structured broadcast channels, dedicated spaces for all 5 programme days, tracks, hackathon challenge lounges, 5 IBM physical hub channels, and stage voice rooms. Connect with 1,400+ quantum researchers, developers, mentors, and speakers.</p>
   </div>
 
   <div class="discord-layout">
@@ -1216,63 +1229,84 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
         </div>
         <div>
-          <div class="discord-server-name">Quantum_For_Humanity</div>
-          <div class="discord-server-sub">Quantum Fall Fest 2026</div>
+          <div class="discord-server-name">Quantum_For_Humanity <span style="font-size:10px;background:#5865F2;padding:1px 5px;border-radius:4px;vertical-align:middle;">VERIFIED</span></div>
+          <div class="discord-server-sub">IBM Qiskit Fall Festival 2026</div>
         </div>
       </div>
 
-      <!-- Welcome -->
-      <div class="dc-category">Welcome</div>
-      <div class="dc-channel active"><span class="dc-hash">#</span>welcome<span class="dc-unread">1</span></div>
-      <div class="dc-channel"><span class="dc-hash">#</span>announcements</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>rules-and-info</div>
+      <!-- Live Server Status Bar -->
+      <div class="dc-status-bar">
+        <span class="dc-status-item"><span class="dc-status-dot"></span> <strong>485</strong> Online</span>
+        <span class="dc-status-item" style="margin-left:auto;">👥 <strong>1,420</strong> Members</span>
+      </div>
 
-      <!-- Attendees -->
-      <div class="dc-category">&#128100; Attendees</div>
+      <!-- START HERE / WELCOME -->
+      <div class="dc-category">📌 Information &amp; Onboarding</div>
+      <div class="dc-channel active"><span class="dc-hash">#</span>welcome-start-here<span class="dc-unread">1</span></div>
+      <div class="dc-channel"><span class="dc-hash">#</span>announcements-stream-links</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>rules-code-of-conduct</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>ibm-physical-hubs</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>faq-and-helpdesk</div>
+
+      <!-- Attendees (PRESERVED GENERAL SECTION) -->
+      <div class="dc-category">&#128100; Attendees &amp; General</div>
       <div class="dc-channel"><span class="dc-hash">#</span>introductions</div>
       <div class="dc-channel"><span class="dc-hash">#</span>general-chat</div>
       <div class="dc-channel"><span class="dc-hash">#</span>qna-live</div>
       <div class="dc-channel"><span class="dc-hash">#</span>resources-links</div>
       <div class="dc-channel"><span class="dc-hash">#</span>feedback-and-polls</div>
 
+      <!-- Live Stages & Audio Lounges -->
+      <div class="dc-category">🔊 Live Stages &amp; Hub Lounges</div>
+      <div class="dc-channel voice"><span class="dc-voice-icon">🔊</span>Stage | Main Keynote Hall</div>
+      <div class="dc-channel voice"><span class="dc-voice-icon">🔊</span>Hub-1 | Gurugram Lounge</div>
+      <div class="dc-channel voice"><span class="dc-voice-icon">🔊</span>Hub-2 | Bengaluru Lounge</div>
+      <div class="dc-channel voice"><span class="dc-voice-icon">🔊</span>Hub-3 | Mumbai Lounge</div>
+      <div class="dc-channel voice"><span class="dc-voice-icon">🔊</span>Hub-4 | Pune Lounge</div>
+      <div class="dc-channel voice"><span class="dc-voice-icon">🔊</span>Hub-5 | Hyderabad Lounge</div>
+
       <!-- Event Days -->
-      <div class="dc-category">&#128197; Event Days</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>day-1-foundations</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>day-2-circuits-algorithms</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>day-3-quantum-safe</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>day-4-research-applications</div>
+      <div class="dc-category">&#128197; Daily Programme (Nov 23&ndash;27)</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-1-foundations-qiskit</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-2-circuits-qml-sprint</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-3-quantum-safe-pqc</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>day-4-hardware-applications</div>
       <div class="dc-channel"><span class="dc-hash">#</span>day-5-finals-closing</div>
 
       <!-- Tracks -->
-      <div class="dc-category">&#129517; Tracks</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>beginner-education</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>research-advanced</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>quantum-for-humanity</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>quantum-safe-pqc</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>qiskit-open-source</div>
+      <div class="dc-category">&#129517; Learning &amp; Research Tracks</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>track-beginner-foundations</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>track-advanced-algorithms</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>track-quantum-for-humanity</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>track-quantum-safe-pqc</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>track-qiskit-open-source</div>
 
       <!-- Hackathon -->
-      <div class="dc-category">&#127942; Hackathon</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>hackathon-teams</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>challenge-healthcare</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>challenge-climate</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>challenge-education</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>challenge-finance</div>
+      <div class="dc-category">&#127942; 48-Hour Hackathon</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>hack-announcements</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>team-formation</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-healthcare-lifesciences</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-climate-sustainability</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-education-multilingual</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>challenge-financial-inclusion</div>
       <div class="dc-channel"><span class="dc-hash">#</span>mentor-office-hours</div>
-      <div class="dc-channel"><span class="dc-hash">#</span>submissions-finals</div>
+      <div class="dc-channel"><span class="dc-hash">#</span>project-submissions</div>
 
       <!-- Speakers -->
-      <div class="dc-category">&#127908; Speakers</div>
-      <div class="dc-channel"><span class="dc-lock">&#128274;</span>speaker-lounge</div>
-      <div class="dc-channel"><span class="dc-lock">&#128274;</span>session-prep</div>
-      <div class="dc-channel"><span class="dc-lock">&#128274;</span>av-tech-check</div>
+      <div class="dc-category">&#127908; Speaker Backstage</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>speaker-announcements</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>speaker-green-room</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>av-tech-checks</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>session-slide-decks</div>
       <div class="dc-channel"><span class="dc-lock">&#128274;</span>speaker-feedback</div>
 
       <!-- Organizers -->
-      <div class="dc-category">&#9889; Organizers</div>
-      <div class="dc-channel"><span class="dc-lock">&#128274;</span>org-general</div>
-      <div class="dc-channel"><span class="dc-lock">&#128274;</span>event-ops</div>
+      <div class="dc-category">&#9889; Organizing Committee</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>org-command-center</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>hub-leads-sync</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>event-ops-stream</div>
       <div class="dc-channel"><span class="dc-lock">&#128274;</span>volunteer-coord</div>
+      <div class="dc-channel"><span class="dc-lock">&#128274;</span>hackathon-judging</div>
       <div class="dc-channel"><span class="dc-lock">&#128274;</span>mod-log</div>
       <div style="padding-bottom:12px"></div>
     </div>
@@ -1333,44 +1367,44 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
         <div class="dc-panel-header">
           <div class="dc-panel-icon days">&#128197;</div>
           <div>
-            <div class="dc-panel-title">Event Days <span class="dc-role-badge dc-role-users">Nov 23&ndash;27</span></div>
-            <div class="dc-panel-sub">One channel per programme day &mdash; live discussion, session links and recaps (09:30&ndash;18:00 IST)</div>
+            <div class="dc-panel-title">Daily Programme Discussions <span class="dc-role-badge dc-role-users">Nov 23&ndash;27 &bull; 09:30&ndash;18:00 IST</span></div>
+            <div class="dc-panel-sub">Live thread per conference day &mdash; morning briefings, speaker slides, Webex links and live Q&amp;A</div>
           </div>
         </div>
         <div class="dc-channels-list">
           <div class="dc-ch-item">
             <span class="dc-ch-icon">#</span>
             <div>
-              <div class="dc-ch-name">day-1-foundations <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Mon 23 Nov</span></div>
-              <div class="dc-ch-desc">Opening Ceremony, IBM Quantum 2026 Roadmap keynote, &ldquo;What is Quantum Computing?&rdquo;, Qiskit Live Lab and the Quantum Hamiltonian session. Evening networking meetup at 17:30.</div>
+              <div class="dc-ch-name">day-1-foundations-qiskit <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Mon 23 Nov</span></div>
+              <div class="dc-ch-desc">Opening Ceremony (Sridhar Jonnala, Anuradha A, Santosh Prasad), Opening Keynote (Dr. Subarna Roy), Beginner Concepts &amp; Qiskit Live Lab (Het Patel), and Quantum Hamiltonian (Bharadwaj Mummaneni).</div>
             </div>
           </div>
           <div class="dc-ch-item">
             <span class="dc-ch-icon">#</span>
             <div>
-              <div class="dc-ch-name">day-2-circuits-algorithms <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Tue 24 Nov</span></div>
-              <div class="dc-ch-desc">Quantum gates &amp; circuit composition, Grover&rsquo;s &amp; Shor&rsquo;s algorithms, Quantum Machine Learning workshop, the Qiskit open source sprint, the 48h hackathon kickoff and the IBM Eagle &amp; Heron hardware deep dive.</div>
+              <div class="dc-ch-name">day-2-circuits-qml-sprint <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Tue 24 Nov</span></div>
+              <div class="dc-ch-desc">Quantum Gates &amp; Circuits (Suranjan Nandi), Grover &amp; Shor Algorithms (Dr. Subarna Roy), QML Workshop (Archit Chadalawada), Open Source Sprint (Phalak Bhatnagar), and 48-Hour Hackathon Kickoff.</div>
             </div>
           </div>
           <div class="dc-ch-item">
             <span class="dc-ch-icon">#</span>
             <div>
-              <div class="dc-ch-name">day-3-quantum-safe <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Wed 25 Nov</span></div>
-              <div class="dc-ch-desc">Quantum Safe Workshop: Quantum Safe fundamentals, the IBM Quantum Safe architectural POV, data-driven PQC migration planning, and Quantum Safe philosophy &amp; case studies.</div>
+              <div class="dc-ch-name">day-3-quantum-safe-pqc <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Wed 25 Nov</span></div>
+              <div class="dc-ch-desc">Quantum Safe Fundamentals (Shruti Kulkarni), Architectural POV (Puneet Sharma), PQC Migration Planning (Yogendra Soni), and Data Security Implementation (Liher Elgezabal).</div>
             </div>
           </div>
           <div class="dc-ch-item">
             <span class="dc-ch-icon">#</span>
             <div>
-              <div class="dc-ch-name">day-4-research-applications <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Thu 26 Nov</span></div>
-              <div class="dc-ch-desc">Geometric quantum machine learning, fault-tolerant computing, drug discovery (TB &amp; malaria), quantum computing in telecom &amp; finance, and the hackathon midpoint mentorship round.</div>
+              <div class="dc-ch-name">day-4-hardware-applications <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Thu 26 Nov</span></div>
+              <div class="dc-ch-desc">Geometric QML (Ravindranath Nemani), Fault Tolerance (Guncha Malik), Life Sciences &amp; Healthcare (Pradeep Lamba), Telecom Optimization (Puneet Gandhi), and Midpoint Mentor Check-ins.</div>
             </div>
           </div>
           <div class="dc-ch-item">
             <span class="dc-ch-icon">#</span>
             <div>
               <div class="dc-ch-name">day-5-finals-closing <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Fri 27 Nov</span></div>
-              <div class="dc-ch-desc">Hackathon finals, IBM Quantum Prize ceremony, QfH Manifesto launch, community showcase, closing keynote and the 18:00 IST community celebration.</div>
+              <div class="dc-ch-desc">Top 10 Hackathon Finals Presentation, IBM Quantum Prize Ceremony, Quantum for Humanity Showcase, Closing Keynote (Adam Byrne), and Global Celebration Gala.</div>
             </div>
           </div>
         </div>
