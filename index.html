@@ -28,7 +28,8 @@ img{max-width:100%;display:block}
 .cd-block{background:var(--pink);color:#fff;font-size:13px;font-weight:800;min-width:34px;height:34px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center}
 .ann-bar a{color:var(--pink);font-weight:700;border-bottom:1px solid rgba(255,107,157,.4)}
 .scroll-notice{background:var(--pink);color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-size:13.5px;font-weight:700;letter-spacing:.03em}
-.scroll-notice-track{display:inline-block;padding-left:100%;animation:scroll-notice 28s linear infinite}
+.scroll-notice-track{display:inline-block;padding-left:100%;animation:scroll-notice 60s linear infinite}
+.scroll-notice-track a{color:#fff;text-decoration:underline}
 .scroll-notice:hover .scroll-notice-track{animation-play-state:paused}
 @keyframes scroll-notice{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 @media (prefers-reduced-motion:reduce){.scroll-notice-track{animation:none;padding-left:0;display:block;text-align:center;white-space:normal}}
@@ -357,7 +358,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
 
 <!-- SCROLLING NOTICE -->
 <div class="scroll-notice" role="region" aria-label="Important notice">
-  <div class="scroll-notice-track">&#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; Please bring your own laptop to join the hands-on Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions</div>
+  <div class="scroll-notice-track">&#127970; IBM PHYSICAL LOCATION: Participants who want to join at an IBM physical location MUST fill the <a href="#venue">On-Site Registration Form</a> by 23 Nov 2026, BEFORE coming, to get their pass &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#129706; Please bring your Government ID proof at the venue &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#127970; IBM PHYSICAL LOCATION: You MUST fill the <a href="#venue">On-Site Registration Form</a> before coming to get your pass &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#129706; Please bring your Government ID proof at the venue</div>
 </div>
 
 <!-- NAV -->
@@ -998,7 +999,13 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
   <div class="container">
     <div class="section-tag"><span class="tag-dot"></span>Join In Person</div>
     <h2 class="sec-title">Physical <span class="accent">Locations</span></h2>
-    <p class="sec-desc">Prefer to join in person? Attend the festival together with fellow participants at any of these IBM locations across India. Please <a href="#register" style="color:var(--purple-bright);font-weight:600">register</a> first and contact the location coordinator for access details.</p>
+    <p class="sec-desc">Prefer to join in person? Attend the festival together with fellow participants at any of these IBM locations across India. Please <a href="#register" style="color:var(--purple-bright);font-weight:600">register</a> for the event, and fill the On-Site Registration Form below to get your pass.</p>
+    <div style="background:#fff;border:2px solid var(--pink);border-radius:18px;padding:26px 24px;margin-bottom:28px;text-align:center">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:6px">&#127970; Mandatory for In-Person Attendance</div>
+      <div style="font-size:19px;font-weight:800;color:var(--purple-deep);margin-bottom:10px">On-Site Registration Form &mdash; IBM Physical Locations</div>
+      <div style="font-size:14px;color:var(--text-body);line-height:1.7;max-width:680px;margin:0 auto 16px">Participants who want to join at an <strong>IBM physical location</strong> <strong>must fill this form before coming</strong> to get their pass. Please <strong>bring your Government ID proof at the venue</strong>. Entry is not possible without a completed form and a valid ID. Last date to register: <strong>23 November 2026</strong>.</div>
+      <a class="btn-form" href="https://docs.google.com/forms/d/e/1FAIpQLSdm8b7Q-0fGS7pO1Pc84Hiouezi8mreeW0dACIFqGG1JP3HbQ/viewform" target="_blank" rel="noopener">Fill On-Site Registration Form &rarr;</a>
+    </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
 
       <div style="background:#fff;border-radius:18px;padding:26px 24px;border:1px solid rgba(139,92,246,.15)">
