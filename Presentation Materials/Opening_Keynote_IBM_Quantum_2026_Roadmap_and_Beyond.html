@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Opening Keynote — IBM Quantum 2026 Roadmap and Beyond | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#8B5CF6;--accent2:#FF7EB6;--accent3:#33B1FF;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  /* Header */
+  .site-header{background:linear-gradient(135deg,#1a0a2e 0%,#0d1a3a 50%,#0a1a0d 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  .day-badge{display:inline-block;background:rgba(139,92,246,.18);border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-left:10px;vertical-align:middle;}
+  h1.doc-title{font-size:2.2rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#c4b5fd 60%,#38BDF8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1.05rem;margin-bottom:18px;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--muted);}
+  .meta-row span{background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:6px;}
+  /* Layout */
+  .container{max-width:980px;margin:0 auto;padding:40px 32px 80px;}
+  /* TOC */
+  .toc{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:24px 28px;margin-bottom:40px;}
+  .toc h2{font-size:.85rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin-bottom:14px;}
+  .toc ol{padding-left:20px;}
+  .toc li{margin-bottom:6px;font-size:.93rem;}
+  /* Sections */
+  .section{margin-bottom:52px;}
+  h2.sec-title{font-size:1.45rem;font-weight:700;color:#fff;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+  h2.sec-title .icon{font-size:1.2rem;}
+  h3.sub-title{font-size:1.1rem;font-weight:700;color:var(--accent3);margin:28px 0 12px;}
+  h4.q-title{font-size:.95rem;font-weight:700;color:var(--accent2);margin:20px 0 8px;}
+  p{margin-bottom:14px;color:#cccce0;}
+  ul,ol{padding-left:22px;margin-bottom:14px;}
+  li{margin-bottom:6px;color:#cccce0;}
+  /* Callout boxes */
+  .callout{border-radius:10px;padding:18px 22px;margin:20px 0;border-left:4px solid;}
+  .callout.info{background:rgba(51,177,255,.08);border-color:var(--accent3);}
+  .callout.tip{background:rgba(139,92,246,.1);border-color:var(--accent);}
+  .callout.warning{background:rgba(255,126,182,.08);border-color:var(--accent2);}
+  .callout.key{background:rgba(52,211,153,.08);border-color:#34D399;}
+  .callout-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+  .callout.info .callout-title{color:var(--accent3);}
+  .callout.tip .callout-title{color:var(--accent);}
+  .callout.warning .callout-title{color:var(--accent2);}
+  .callout.key .callout-title{color:#34D399;}
+  /* Code */
+  pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:20px 22px;overflow-x:auto;margin:18px 0;}
+  code{font-family:"Fira Code","Consolas",monospace;font-size:.87rem;color:#c4b5fd;}
+  p code,li code{background:rgba(139,92,246,.15);padding:2px 6px;border-radius:4px;font-size:.85rem;}
+  /* Tables */
+  .table-wrap{overflow-x:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  th{background:var(--card);color:var(--accent3);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  td{padding:9px 14px;border-bottom:1px solid var(--border);color:#cccce0;}
+  tr:hover td{background:rgba(139,92,246,.06);}
+  /* Diagram Box */
+  .diagram-container{background:#060913;border:1px solid #1e293b;border-radius:10px;padding:24px;margin:24px 0;overflow-x:auto;}
+  .diagram-container pre{background:transparent;border:none;margin:0;padding:0;color:#38bdf8;font-size:0.85rem;}
+  /* PPT Download Box */
+  .ppt-box{background:linear-gradient(135deg,rgba(56,189,248,.1) 0%,rgba(139,92,246,.1) 100%);border:1px solid rgba(56,189,248,.3);border-radius:12px;padding:24px;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .ppt-btn{background:#38BDF8;color:#0A1128;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+  .ppt-btn:hover{background:#7dd3fc;text-decoration:none;}
+  /* References */
+  .ref-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:52px;}
+  .ref-section h2{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .ref-list{list-style:none;padding:0;}
+  .ref-list li{padding:10px 0;border-bottom:1px solid rgba(42,42,61,.7);font-size:.88rem;display:grid;grid-template-columns:36px 1fr;gap:8px;}
+  .ref-list li:last-child{border-bottom:none;}
+  .ref-num{color:var(--accent3);font-weight:700;font-size:.85rem;}
+  .ref-text{color:#aaaacc;}
+  .ref-text a{color:var(--accent3);}
+  .ref-tag{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:600;}
+  .ref-tag.ibm{background:rgba(51,177,255,.15);color:var(--accent3);}
+  .ref-tag.academic{background:rgba(139,92,246,.15);color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="event-tag">IBM Qiskit Fall Fest 2026</div>
+  <span class="day-badge">Opening Keynote Lecture Notes</span>
+  <h1 class="doc-title">IBM Quantum 2026 Roadmap and Beyond</h1>
+  <p class="doc-subtitle">From Quantum Utility to Fault-Tolerant Supercomputing: Comprehensive Technical Blueprint & Speaker Notes</p>
+  <div class="meta-row">
+    <span>📅 November 23, 2026</span>
+    <span>🏛️ Quantum for Humanity Org × IBM Quantum</span>
+    <span>🎙️ Keynote Lecture Notes & Slides</span>
+    <span>🎯 Target: 2026–2033+ Roadmap</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="ppt-box">
+    <div>
+      <h3 style="color:#fff;margin-bottom:4px;">📊 Official Keynote PowerPoint Deck Available</h3>
+      <p style="color:#cbd5e1;font-size:0.9rem;margin:0;">12-slide comprehensive presentation with complete speaker notes, visual diagrams, and architecture tables.</p>
+    </div>
+    <a class="ppt-btn" href="Opening_Keynote_IBM_Quantum_2026_Roadmap_and_Beyond.pptx" download>📥 Download Keynote PPTX</a>
+  </div>
+
+  <nav class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Executive Summary: The State of Quantum in 2026</a></li>
+      <li><a href="#s2">Master Hardware Roadmap (2023–2033+)</a></li>
+      <li><a href="#s3">Processor Architecture Deep Dive: Heron, Flamingo & Kookaburra</a></li>
+      <li><a href="#s4">Modular Scaling: IBM Quantum System Two & The 3 Interconnects (L, M, C-Couplers)</a></li>
+      <li><a href="#s5">The QEC Revolution: From Error Mitigation to qLDPC & Gross Codes</a></li>
+      <li><a href="#s6">The Fault-Tolerant Horizon: Starling (2029) to Blue Jay (2033)</a></li>
+      <li><a href="#s7">Quantum-Centric Supercomputing (QCS) & HPC Integration</a></li>
+      <li><a href="#s8">Software Stack Evolution: Qiskit 1.x/2.0, Primitives v2 & Qiskit Functions</a></li>
+      <li><a href="#s9">Humanitarian & Industrial High-Impact Applications</a></li>
+      <li><a href="#s10">Complete End-to-End System Architecture Diagram</a></li>
+      <li><a href="#s11">Authoritative References & Research Citations</a></li>
+    </ol>
+  </nav>
+
+  <!-- Section 1 -->
+  <section class="section" id="s1">
+    <h2 class="sec-title"><span class="icon">🧭</span> 1. Executive Summary: The State of Quantum in 2026</h2>
+    <p>In 2023, IBM marked the beginning of the <strong>Quantum Utility Era</strong> when research published in <em>Nature</em> (Kim et al., 2023) demonstrated that a 127-qubit IBM Eagle processor could compute expectation values beyond the exact brute-force capabilities of classical supercomputers. By 2026, the quantum ecosystem has matured from single isolated processors to <strong>Quantum-Centric Supercomputing clusters</strong> operating in hybrid harmony with high-performance classical supercomputers.</p>
+    
+    <div class="callout key">
+      <div class="callout-title">The Three Eras of Quantum Computing</div>
+      <p><strong>1. Quantum Exploration (2016–2022):</strong> 5 to 65 noisy physical qubits, proof-of-concept demonstrations, circuit toy models.</p>
+      <p><strong>2. Quantum Utility (2023–2028) [CURRENT]:</strong> 100+ to 4,000+ qubits, >99.9% 1Q fidelity, >99.5% 2Q fidelity, advanced Error Mitigation (ZNE, PEC) + Error Suppression (DD), exploring unsimulable state spaces.</p>
+      <p><strong>3. Fault-Tolerant Quantum Advantage (2029+):</strong> Error-corrected logical qubits running with qLDPC bivariate bicycle codes, executing 100M+ quantum gates with logical error rates below 10<sup>-8</sup>.</p>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="section" id="s2">
+    <h2 class="sec-title"><span class="icon">🗺️</span> 2. Master Hardware Roadmap (2023–2033+)</h2>
+    <p>The updated IBM Quantum Roadmap prioritizes <strong>gate fidelity and logical operations</strong> over raw physical qubit numbers. Below is the official progression from the Utility Era to fully fault-tolerant supercomputing:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Processor / Milestone</th>
+            <th>Physical Qubits</th>
+            <th>Logical Qubits</th>
+            <th>Key Architectural Innovation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2023</strong></td>
+            <td>IBM Heron (r1)</td>
+            <td>133</td>
+            <td>—</td>
+            <td>Tunable couplers; 5× error reduction; Nature 2023 utility demonstration</td>
+          </tr>
+          <tr>
+            <td><strong>2024</strong></td>
+            <td>IBM Heron (r2)</td>
+            <td>156</td>
+            <td>~5 (experimental)</td>
+            <td>>99.9% 1Q, >99.5% 2Q fidelity; Qiskit 1.0 release; Break-even QEC demo</td>
+          </tr>
+          <tr>
+            <td><strong>2025</strong></td>
+            <td>IBM Flamingo</td>
+            <td>156+ / 1,386</td>
+            <td>~10</td>
+            <td>Short-range chip-to-chip quantum communication link (M-couplers)</td>
+          </tr>
+          <tr>
+            <td><strong>2026</strong></td>
+            <td>IBM Kookaburra <em>[NOW]</em></td>
+            <td>4,158</td>
+            <td>~100 (demo)</td>
+            <td>3-chip multi-QPU system; tightly coupled HPC classical-quantum co-processing</td>
+          </tr>
+          <tr>
+            <td><strong>2027</strong></td>
+            <td>Egret / Loon</td>
+            <td>~5,000+</td>
+            <td>~200 (test)</td>
+            <td>Long-range cryogenic quantum bus; multi-cryostat coupling links</td>
+          </tr>
+          <tr>
+            <td><strong>2028</strong></td>
+            <td>Nene / Cockatoo</td>
+            <td>~7,500+</td>
+            <td>~500</td>
+            <td>Cryostat-to-cryostat C-couplers; fault-tolerant prototyping</td>
+          </tr>
+          <tr>
+            <td><strong>2029</strong></td>
+            <td><strong>IBM Starling (QEC TARGET)</strong></td>
+            <td>~10,000+</td>
+            <td><strong>200 Logical Qubits</strong></td>
+            <td><strong>First Fault-Tolerant System; 100,000,000 (10<sup>8</sup>) Quantum Gates</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2033</strong></td>
+            <td><strong>IBM Blue Jay</strong></td>
+            <td>~100,000+</td>
+            <td><strong>2,000 Logical Qubits</strong></td>
+            <td><strong>Scaled Fault Tolerance; 1,000,000,000 (10<sup>9</sup>) Quantum Gates</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="section" id="s3">
+    <h2 class="sec-title"><span class="icon">🔬</span> 3. Processor Architecture Deep Dive: Heron, Flamingo & Kookaburra</h2>
+    <p>The defining hardware innovation of IBM's modern quantum processors is the move from fixed coupling to <strong>tunable coupling</strong> and <strong>modular multi-chip tiling</strong>.</p>
+    
+    <h3 class="sub-title">3.1 IBM Heron (156 Qubits)</h3>
+    <ul>
+      <li><strong>Heavy-Hex Lattice:</strong> Hexagonal layout interspersed with vertex qubits minimizes spectator interactions and frequency collisions.</li>
+      <li><strong>Tunable Couplers:</strong> Dynamically tuned via flux biases to zero interaction when idle, completely eliminating residual parasitic ZZ-coupling errors.</li>
+      <li><strong>Native Gate Set:</strong> Native two-qubit gate is the Echoed Cross-Resonance (ECR) / CZ gate, complemented by single-qubit rotations <code>{Rz, SX, X}</code>.</li>
+      <li><strong>Benchmarked Performance:</strong> 2Q error rates &lt; 0.5% (median fidelity ~99.7%), single-qubit fidelity > 99.9%, coherence times $T_1, T_2 \approx 200–300\ \mu\text{s}$.</li>
+    </ul>
+
+    <h3 class="sub-title">3.2 IBM Flamingo & Kookaburra</h3>
+    <ul>
+      <li><strong>Modular Scalability:</strong> Instead of building impractical wafer-scale monolithic chips, Flamingo and Kookaburra interconnect discrete QPU dies using low-loss quantum interconnects.</li>
+      <li><strong>IBM Kookaburra (4,158 Qubits):</strong> Composed of three 1,386-qubit QPUs operating with real-time classical control buses and mid-circuit measurement feedforward.</li>
+    </ul>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="section" id="s4">
+    <h2 class="sec-title"><span class="icon">❄️</span> 4. Modular Scaling: IBM Quantum System Two & The 3 Interconnects</h2>
+    <p>To support multi-chip and multi-cryostat scaling, IBM introduced <strong>IBM Quantum System Two</strong> — a modular cryogenic architecture.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Interconnect Type</th>
+            <th>Coupling Level</th>
+            <th>Physical Medium</th>
+            <th>Primary Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>L-Coupler</strong> (Logic-layer)</td>
+            <td>On-Substrate / Inter-Die</td>
+            <td>Direct multi-chip module bonds</td>
+            <td>High-speed multi-core QPU coupling on the same carrier substrate (latency &lt; 50 ns).</td>
+          </tr>
+          <tr>
+            <td><strong>M-Coupler</strong> (Modular Link)</td>
+            <td>Intra-Cryostat / Chip-to-Chip</td>
+            <td>Millimeter/microwave quantum waveguides</td>
+            <td>Connects separate processor dies within the same dilution refrigerator (10–100 cm).</td>
+          </tr>
+          <tr>
+            <td><strong>C-Coupler</strong> (Cryostat Link)</td>
+            <td>Inter-Cryostat / Bus</td>
+            <td>Cooled microwave quantum communication cables</td>
+            <td>Links separate Quantum System Two cryostats (1–10 meters) to form a distributed quantum network.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="section" id="s5">
+    <h2 class="sec-title"><span class="icon">🛡️</span> 5. The QEC Revolution: From Error Mitigation to qLDPC & Gross Codes</h2>
+    <p>The biggest theoretical breakthrough accelerating IBM's roadmap is the transition from 2D surface codes to <strong>Quantum Low-Density Parity Check (qLDPC) codes</strong>, specifically <strong>bivariate bicycle codes (Gross Codes)</strong> (Bravyi et al., <em>Nature</em> 2024).</p>
+
+    <div class="callout tip">
+      <div class="callout-title">Why the Gross Code Changes Everything</div>
+      <p><strong>Traditional Surface Code:</strong> Requires $\sim 1,000$ physical qubits per logical qubit ($1000:1$ overhead). Reaching 100 logical qubits required 100,000 physical qubits.</p>
+      <p><strong>IBM Gross Code (qLDPC):</strong> Uses non-local cross-couplers to encode <strong>12 logical qubits into just 144 physical qubits</strong> ($12:1$ ratio!). This represents a <strong>$10\times$ to $40\times$ reduction in physical qubit overhead</strong>, pulling the fault-tolerant timeline forward to 2029.</p>
+    </div>
+  </section>
+
+  <!-- Section 6 -->
+  <section class="section" id="s6">
+    <h2 class="sec-title"><span class="icon">🚀</span> 6. The Fault-Tolerant Horizon: Starling (2029) to Blue Jay (2033)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>IBM Starling (2029)</th>
+            <th>IBM Blue Jay (2033)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Logical Qubits</strong></td>
+            <td>200 Error-Corrected Logical Qubits</td>
+            <td>2,000 Error-Corrected Logical Qubits</td>
+          </tr>
+          <tr>
+            <td><strong>Quantum Gate Operations</strong></td>
+            <td>100,000,000 (10<sup>8</sup> Gates)</td>
+            <td>1,000,000,000 (10<sup>9</sup> Gates)</td>
+          </tr>
+          <tr>
+            <td><strong>Algorithmic Regime</strong></td>
+            <td>Exact Quantum Phase Estimation (QPE), deep Hamiltonian simulation</td>
+            <td>Full-scale ab initio chemistry, global quadratic optimization, cryptography</td>
+          </tr>
+          <tr>
+            <td><strong>Logical Error Target</strong></td>
+            <td>&lt; 10<sup>-8</sup> per logical gate</td>
+            <td>&lt; 10<sup>-10</sup> per logical gate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 7 -->
+  <section class="section" id="s7">
+    <h2 class="sec-title"><span class="icon">⚡</span> 7. Quantum-Centric Supercomputing (QCS) & HPC Integration</h2>
+    <p>Quantum computing is not an isolated technology; it functions as an accelerator in a triad alongside CPUs and GPUs.</p>
+    
+    <div class="callout info">
+      <div class="callout-title">The Hybrid Workflow: Qiskit Patterns</div>
+      <ol>
+        <li><strong>Map:</strong> Convert the scientific or industrial problem into quantum operators (Hamiltonians, QUBO).</li>
+        <li><strong>Optimize:</strong> Use the Qiskit Rust core to synthesize and optimize circuits targeting native hardware basis gates with dynamical decoupling.</li>
+        <li><strong>Execute:</strong> Dispatch sub-circuits across GPUs/CPUs for classical preprocessing (circuit knitting) and QPUs for quantum sampling via <code>Qiskit Serverless</code>.</li>
+        <li><strong>Post-Process:</strong> Apply error mitigation (ZNE/PEC) and statistical reconstruction on classical HPC nodes.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 8 -->
+  <section class="section" id="s8">
+    <h2 class="sec-title"><span class="icon">💻</span> 8. Software Stack Evolution: Qiskit 1.x/2.0 & Primitives v2</h2>
+    <p>Qiskit 1.0 represented the first stable, production-grade release of the quantum development kit, featuring an ultra-fast Rust transpilation core and standardized Execution Primitives v2:</p>
+    
+    <pre><code># Example: Executing with Qiskit Runtime Primitives v2 & Automated Resilience
+from qiskit import QuantumCircuit
+from qiskit_ibm_runtime import QiskitRuntimeService, EstimatorV2
+from qiskit.quantum_info import SparsePauliOp
+
+# 1. Connect to IBM Quantum Platform
+service = QiskitRuntimeService()
+backend = service.least_busy(operational=True, simulator=False)
+
+# 2. Build circuit
+qc = QuantumCircuit(2)
+qc.h(0)
+qc.cx(0, 1)
+
+# 3. Define observable
+observable = SparsePauliOp.from_list([("ZZ", 1.0)])
+
+# 4. Initialize EstimatorV2 with resilience options
+estimator = EstimatorV2(mode=backend)
+estimator.options.resilience_level = 2  # Automated ZNE + Measurement Mitigation
+
+# 5. Execute workload
+job = estimator.run([(qc, observable)])
+result = job.result()
+print(f"Expectation value <ZZ>: {result[0].data.evs}")</code></pre>
+  </section>
+
+  <!-- Section 9 -->
+  <section class="section" id="s9">
+    <h2 class="sec-title"><span class="icon">🌍</span> 9. Humanitarian & Industrial High-Impact Applications</h2>
+    <ul>
+      <li><strong>Healthcare & Drug Discovery (SDG 3):</strong> Simulating active sites of metalloenzymes and molecular binding affinities for targeted oncology drugs.</li>
+      <li><strong>Climate & Clean Fertilizer (SDG 7, 13):</strong> Modeling the FeMoco catalytic cluster in nitrogenase to enable room-temperature ammonia production, potentially eliminating ~2% of global carbon emissions from Haber-Bosch.</li>
+      <li><strong>Sustainable Energy Storage:</strong> Simulating solid-state electrolyte degradation pathways in high-energy lithium-sulfur batteries.</li>
+      <li><strong>Quantum-Safe Cryptography (SDG 16):</strong> Implementation of NIST post-quantum standards finalized in 2024: ML-KEM (Kyber), ML-DSA (Dilithium), and SLH-DSA (SPHINCS+).</li>
+    </ul>
+  </section>
+
+  <!-- Section 10 -->
+  <section class="section" id="s10">
+    <h2 class="sec-title"><span class="icon">📊</span> 10. Complete End-to-End System Architecture Diagram</h2>
+    <div class="diagram-container">
+      <pre>
++==================================================================================================+
+|                                1. DOMAIN APPLICATION LAYER                                       |
+|    Healthcare & Chemistry    |    Clean Energy & Climate    |    Finance & Optimization          |
+|    (Metalloenzymes, VQE)     |    (FeMoco, Li-S Battery)    |    (QAOA, QAE Portfolio Analysis)  |
++================================================+=================================================+
+                                                 |
+                                                 v
++================================================+=================================================+
+|                         2. SOFTWARE ORCHESTRATION & COMPILER                                      |
+|    • Qiskit 1.x / 2.0 Rust Core Transpiler (16x speedup, 10x memory reduction)                   |
+|    • Qiskit Patterns Workflow (Map -> Optimize -> Execute -> Post-Process)                       |
+|    • Qiskit Runtime Primitives v2: EstimatorV2 (ZNE / PEC) & SamplerV2 (Twirling / DD)           |
++================================================+=================================================+
+                                                 |
+                   +-----------------------------+-----------------------------+
+                   v                                                           v
++------------------------------------+                    +----------------------------------------+
+| 3A. CLASSICAL HPC ACCELERATION     |                    | 3B. IBM QUANTUM SYSTEM TWO CRYOSTAT    |
+| • GPU Cluster (Tensor Networks)    |                    | • Modular Dilution Refrigerator (15mK) |
+| • Circuit Knitting / Cutting Loops |   Qiskit           | • Generation-3 Cryo-CMOS & FPGA Control|
+| • Real-time QEC Syndrome Decoding  |<------------------>| • Dynamic Circuits & Mid-Circuit Meas  |
+| • Error Mitigation Inversion       |   Serverless       | • Ultra-low latency feedback (<1 us)   |
++------------------------------------+                    +--------------------+-------------------+
+                                                                               |
+                                                                               v
++==============================================================================+===================+
+| 4. QUANTUM HARDWARE SCALING & INTERCONNECT FABRIC                                                |
+|                                                                                                  |
+|   [ IBM Heron / Kookaburra QPU 1 ]  <======== L-Coupler ========>  [ IBM Kookaburra QPU 2 ]      |
+|                 ||                                                               ||              |
+|                 +======================== M-Coupler =============================+               |
+|                                                  ||                                              |
+|                                   (Inter-Cryostat C-Coupler Cable)                               |
+|                                                  vv                                              |
+|            [ 2029 Target: IBM Starling Fault-Tolerant qLDPC Gross Code Architecture ]            |
+|                     (144 Physical Qubits -> 12 Protected Logical Qubits)                         |
++==================================================================================================+
+      </pre>
+    </div>
+  </section>
+
+  <!-- Section 11 -->
+  <section class="section ref-section" id="s11">
+    <h2>11. Authoritative References & Research Citations</h2>
+    <ul class="ref-list">
+      <li>
+        <span class="ref-num">[1]</span>
+        <span class="ref-text">IBM Quantum. <em>IBM Quantum Development Roadmap</em>. IBM, 2024. <a href="https://www.ibm.com/quantum/roadmap" target="_blank">ibm.com/quantum/roadmap</a> <span class="ref-tag ibm">IBM Official</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[2]</span>
+        <span class="ref-text">Kim, Y., Eddins, A., Anand, S., et al. <em>Evidence for the utility of quantum computing before fault tolerance</em>. <strong>Nature</strong> 618, 500–505 (2023). <a href="https://doi.org/10.1038/s41586-023-06096-3" target="_blank">doi:10.1038/s41586-023-06096-3</a> <span class="ref-tag academic">Peer-Reviewed</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[3]</span>
+        <span class="ref-text">Bravyi, S., Cross, A.W., Gambetta, J.M., et al. <em>High-threshold and low-overhead fault-tolerant quantum memory using bivariate bicycle codes</em>. <strong>Nature</strong> 627, 778–782 (2024). <a href="https://doi.org/10.1038/s41586-024-07107-7" target="_blank">doi:10.1038/s41586-024-07107-7</a> <span class="ref-tag academic">Peer-Reviewed</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[4]</span>
+        <span class="ref-text">IBM Quantum. <em>IBM Quantum System Two and Heron Processor Architecture</em>. IBM Research Blog, 2023. <a href="https://research.ibm.com/blog/quantum-heron" target="_blank">research.ibm.com/blog/quantum-heron</a> <span class="ref-tag ibm">IBM Research</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[5]</span>
+        <span class="ref-text">IBM Quantum. <em>Qiskit 1.0: A new era for quantum software</em>. IBM Research, 2024. <a href="https://docs.quantum.ibm.com/" target="_blank">docs.quantum.ibm.com</a> <span class="ref-tag ibm">Qiskit Docs</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[6]</span>
+        <span class="ref-text">NIST. <em>Post-Quantum Cryptography Standardization Final Standards (FIPS 203, 204, 205)</em>. NIST, 2024. <a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">csrc.nist.gov</a> <span class="ref-tag academic">NIST Standard</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[7]</span>
+        <span class="ref-text">IBM Quantum Learning Platform. <em>Interactive Quantum Computing Courses & Tutorials</em>. <a href="https://learning.quantum.ibm.com" target="_blank">learning.quantum.ibm.com</a> <span class="ref-tag ibm">IBM Learning</span></span>
+      </li>
+      <li>
+        <span class="ref-num">[8]</span>
+        <span class="ref-text">Quantum for Humanity Organization. <em>QFF 2026 Community Portal & Discord</em>. <a href="https://discord.gg/u2MKXRT4n" target="_blank">discord.gg/u2MKXRT4n</a> <span class="ref-tag ibm">QFF Community</span></span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+</body>
+</html>

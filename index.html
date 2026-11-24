@@ -30,6 +30,7 @@ img{max-width:100%;display:block}
 .scroll-notice{background:var(--pink);color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-size:13.5px;font-weight:700;letter-spacing:.03em}
 .scroll-notice-track{display:inline-block;padding-left:100%;animation:scroll-notice 60s linear infinite}
 .scroll-notice-track a{color:#fff;text-decoration:underline}
+.scroll-notice-track img.ticker-ad{height:44px;width:auto;vertical-align:middle;border-radius:6px;margin:0 10px;border:1px solid rgba(255,255,255,.6)}
 .scroll-notice:hover .scroll-notice-track{animation-play-state:paused}
 @keyframes scroll-notice{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 @media (prefers-reduced-motion:reduce){.scroll-notice-track{animation:none;padding-left:0;display:block;text-align:center;white-space:normal}}
@@ -233,6 +234,11 @@ p.sec-desc{font-size:clamp(14px,1.8vw,17px);color:var(--text-muted);max-width:62
 .btn-form:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,107,157,.55)}
 .btn-disc{background:var(--discord);color:#fff;font-size:15px;font-weight:700;padding:13px 34px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 28px rgba(88,101,242,.4);transition:transform .2s;display:inline-flex;align-items:center;gap:9px}
 .btn-disc:hover{transform:translateY(-2px)}
+.btn-teams{background:#5B5FC7;color:#fff;font-size:15px;font-weight:700;padding:14px 38px;border-radius:999px;letter-spacing:.04em;box-shadow:0 8px 32px rgba(91,95,199,.45);transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-teams:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(91,95,199,.55)}
+.teams-svg{width:20px;height:20px;flex-shrink:0}
+.teams-meta{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:22px}
+.teams-meta strong{color:#fff;font-family:Consolas,monospace;letter-spacing:.04em}
 .disc-svg{width:20px;height:20px;flex-shrink:0}
 .hash-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 .hash{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 16px;letter-spacing:.04em}
@@ -354,11 +360,13 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
   <span>Starts in: <span class="cd-block" id="cd-d">--</span> d <span class="cd-block" id="cd-h">--</span> h <span class="cd-block" id="cd-m">--</span> m <span class="cd-block" id="cd-s">--</span> s</span>
   &nbsp;|&nbsp;
   <a href="#register">Register Free &rarr;</a>
+  &nbsp;|&nbsp;
+  <a href="https://teams.microsoft.com/meet/2302000284605480?p=wIho4f3jnHUTxFs7y5" target="_blank" rel="noopener">Join Live on Teams &rarr;</a>
 </div>
 
 <!-- SCROLLING NOTICE -->
 <div class="scroll-notice" role="region" aria-label="Important notice">
-  <div class="scroll-notice-track">&#127970; IBM PHYSICAL LOCATION: Participants who want to join at an IBM physical location MUST fill the <a href="#venue">On-Site Registration Form</a> by 23 Nov 2026, BEFORE coming, to get their pass &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#129706; Please bring your Government ID proof at the venue &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#127970; IBM PHYSICAL LOCATION: You MUST fill the <a href="#venue">On-Site Registration Form</a> before coming to get your pass &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#129706; Please bring your Government ID proof at the venue</div>
+  <div class="scroll-notice-track">&#128197; DAY 3 STARTS TOMORROW &mdash; Wed 25 Nov, 10:30 IST: Quantum Safe &amp; PQC Day. First session: Quantum Safe Fundamentals with Shruti Kulkarni, IBM Payments Center &mdash; <a href="#schedule">View Day 3 schedule</a> <a href="#schedule"><img class="ticker-ad" src="Advertisements/QFF2026-speaker-shruti-kulkarni-ad.png" alt="Shruti Kulkarni - Quantum Safe Fundamentals - Day 3, 10:30 IST"></a> &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#127908; NEW GUEST SPEAKER &mdash; Day 4, Thu 26 Nov, 19:30 IST: Sean Wagner, IBM Research Scientist, on Sample-based Quantum Diagonalization &mdash; <a href="#schedule">View Day 4 schedule</a> <a href="#schedule"><img class="ticker-ad" src="Advertisements/QFF2026-speaker-sean-wagner-ad.png" alt="Sean Wagner - Sample-based Quantum Diagonalization - Day 4, 19:30 IST"></a> &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#127942; HACKATHON IS LIVE! Find your team in #hackathon-teams on <a href="https://discord.gg/u2MKXRT4n" target="_blank" rel="noopener">Discord</a>. Code freeze Thu 26 Nov, 23:59 IST &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128226; Day 3 joining link is the SAME as Day 2: <a href="https://teams.microsoft.com/meet/2302000284605480?p=wIho4f3jnHUTxFs7y5" target="_blank" rel="noopener">Join on Teams</a> (Meeting ID: 230 200 028 460 548 0 &bull; Passcode: g4u5yP2n) &mdash; same link for Days 3, 4 &amp; 5 &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#127970; IBM PHYSICAL LOCATION: Participants who want to join at an IBM physical location MUST fill the <a href="#venue">On-Site Registration Form</a> by 23 Nov 2026, BEFORE coming, to get their pass &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#129706; Please bring your Government ID proof at the venue &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#128187; IMPORTANT: Participants must bring their own laptops for the Qiskit Lab Sessions &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#127970; IBM PHYSICAL LOCATION: You MUST fill the <a href="#venue">On-Site Registration Form</a> before coming to get your pass &nbsp;&nbsp;&bull;&nbsp;&nbsp; &#129706; Please bring your Government ID proof at the venue</div>
 </div>
 
 <!-- NAV -->
@@ -481,6 +489,10 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     <a class="btn-discord" href="https://discord.gg/u2MKXRT4n" target="_blank" rel="noopener">
       <svg class="disc-svg" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
       Join Discord
+    </a>
+    <a class="btn-teams" href="https://teams.microsoft.com/meet/2302000284605480?p=wIho4f3jnHUTxFs7y5" target="_blank" rel="noopener">
+      <svg class="teams-svg" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h8A2.5 2.5 0 0 1 16 6.5v2.2l4.2-2.6a.8.8 0 0 1 1.2.7v10.4a.8.8 0 0 1-1.2.7L16 15.3v2.2a2.5 2.5 0 0 1-2.5 2.5h-8A2.5 2.5 0 0 1 3 17.5v-11z"/></svg>
+      Join Live (Teams)
     </a>
     <a class="btn-outline" href="#days">View Programme</a>
   </div>
@@ -622,6 +634,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <li>Fault-Tolerant Quantum Computing</li>
           <li>Drug Discovery: TB &amp; Malaria</li>
           <li>Quantum Computing in Telecom &amp; Finance</li>
+          <li>Sample-based Quantum Diagonalization</li>
           <li>Hackathon Midpoint Mentorship (Top Teams)</li>
         </ul>
       </div>
@@ -747,6 +760,18 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
           <span class="speaker-confirmed">✓ Confirmed</span>
         </a>
       </div>
+      <div class="speaker-card confirmed">
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Sean%20Wagner%20IBM%20Quantum&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Sean Wagner on LinkedIn" style="display:block;text-decoration:none">
+          <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
+            <img src="Guest Spekaers/Sean Wagner.png" alt="Sean Wagner" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;border:2px solid rgba(139,92,246,.3)"/>
+          </div>
+          <div class="speaker-name">Sean Wagner</div>
+          <div class="speaker-role">Research Scientist &ndash; National Innovation Team<br/>Quantum Technical Ambassador, IBM</div>
+          <span class="speaker-topic">Sample-based Quantum Diagonalization</span>
+          <span class="speaker-confirmed">✓ Confirmed</span>
+        </a>
+      </div>
+
       <div class="speaker-card confirmed">
         <a href="https://www.linkedin.com/search/results/all/?keywords=Sridhar%20Jonnala%20IBM&origin=GLOBAL_SEARCH_HEADER" target="_blank" rel="noopener" title="Find Sridhar Jonnala on LinkedIn" style="display:block;text-decoration:none">
           <div style="position:relative;width:72px;height:72px;margin:0 auto 14px">
@@ -1086,11 +1111,11 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
 
     <div id="day-2" class="day-content schedule-wrap" style="display:none">
       <table class="schedule-table"><thead><tr><th>Time (IST)</th><th>Session</th><th>Speaker</th><th>Track</th></tr></thead><tbody>
-        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Quantum Gates &amp; Circuit Composition (Intermediate)</div><div class="s-speaker">IBM Quantum Learning: Single &amp; multi-qubit gates, circuit depth &amp; transpilation</div></td><td>Suranjan Nandi</td><td><span class="badge b-edu">Intermediate</span></td></tr>
+        <tr><td class="time-cell">09:30<span class="ist">IST</span></td><td><div class="s-title">Quantum Gates &amp; Circuit Composition (Intermediate)</div><div class="s-speaker">IBM Quantum Learning: Single &amp; multi-qubit gates, circuit depth &amp; transpilation &middot; <a href="Presentation Materials/Day2_Quantum_Gates_and_Circuit_Composition_Suranjan_Nandi.pptx" download style="color:#33B1FF;font-size:0.82rem;font-weight:600;">[📥 Lecture Notes &amp; PPTX]</a></div></td><td>Suranjan Nandi</td><td><span class="badge b-edu">Intermediate</span></td></tr>
         <tr><td class="time-cell">12:00<span class="ist">IST</span></td><td><div class="s-title">Grover's &amp; Shor's Algorithms Explained</div><div class="s-speaker">Quantum speedup &mdash; theory to Qiskit implementation</div></td><td>Dr. Subarna Roy</td><td><span class="badge b-res">Research</span></td></tr>
         <tr><td class="time-cell">14:00<span class="ist">IST</span></td><td><div class="s-title">Quantum Machine Learning Workshop</div><div class="s-speaker">Quantum kernels, QNNs &amp; hybrid classical-quantum models</div></td><td>Archit Chadalawada</td><td><span class="badge b-edu">Workshop</span></td></tr>
         <tr><td class="time-cell">16:00<span class="ist">IST</span></td><td><div class="s-title">Open Source Sprint: Contribute to Qiskit</div><div class="s-speaker">First-time contributor onboarding &mdash; GitHub workflow &amp; Qiskit codebase</div></td><td>Phalak Bhatnagar</td><td><span class="badge b-edu">Open Source</span></td></tr>
-        <tr><td class="time-cell">18:00<span class="ist">IST</span></td><td><div class="s-title">&#127942; 48h Hackathon Kickoff &amp; Team Formation</div><div class="s-speaker">Problem statements revealed: Healthcare, Climate, Education &amp; Finance</div></td><td>Phalak Bhatnagar</td><td><span class="badge b-hack">Hackathon</span></td></tr>
+        <tr><td class="time-cell">18:00<span class="ist">IST</span></td><td><div class="s-title">&#127942; 48h Hackathon Kickoff &amp; Team Formation</div><div class="s-speaker">Problem statements revealed: Healthcare, Climate, Education &amp; Finance &middot; <a href="Presentation Materials/QFF26_Hackathon_Playbook_Case_Studies_and_Judging.pptx" download style="color:#33B1FF;font-size:0.82rem;font-weight:600;">[📥 Hackathon Playbook, Case Studies &amp; Judging PPTX]</a></div></td><td>Phalak Bhatnagar</td><td><span class="badge b-hack">Hackathon</span></td></tr>
         <tr><td class="time-cell">19:00<span class="ist">IST</span></td><td><div class="s-title">IBM Eagle &amp; Heron Processor: Hardware Deep Dive</div><div class="s-speaker">Architecture, connectivity maps, error rates &amp; calibration</div></td><td>Guncha Malik</td><td><span class="badge b-res">Research</span></td></tr>
       </tbody></table>
     </div>
@@ -1196,7 +1221,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
   <div class="reg-inner">
     <div class="section-tag" style="margin:0 auto 18px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.85)"><span class="tag-dot"></span>Free Registration</div>
     <h2>Join <span class="accent">Fall Fest 2026</span></h2>
-    <p class="sub">Two ways to join the global quantum community. Register via Google Form for full event access, or jump into our Discord server to connect with the community right now.</p>
+    <p class="sub">Three ways to join the global quantum community. Register via Google Form for full event access, jump into our Discord server to connect with the community, or join the live session on Microsoft Teams.</p>
     <div class="reg-cards">
       <div class="reg-card">
         <div class="reg-card-icon">&#128203;</div>
@@ -1211,6 +1236,16 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
         <a class="btn-disc" href="https://discord.gg/u2MKXRT4n" target="_blank" rel="noopener">
           <svg class="disc-svg" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
           Join Discord &rarr;
+        </a>
+      </div>
+      <div class="reg-card" style="grid-column:1/-1">
+        <div class="reg-card-icon">&#127909;</div>
+        <div class="reg-card-title">Join the Live Session on Microsoft Teams</div>
+        <div class="reg-card-desc" style="margin-bottom:14px">Click below to join the live opening ceremony and sessions online. Use the meeting details if Teams asks for them.</div>
+        <div class="teams-meta">Meeting ID: <strong>230 200 028 460 548 0</strong> &nbsp;&bull;&nbsp; Passcode: <strong>g4u5yP2n</strong></div>
+        <a class="btn-teams" href="https://teams.microsoft.com/meet/2302000284605480?p=wIho4f3jnHUTxFs7y5" target="_blank" rel="noopener">
+          <svg class="teams-svg" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h8A2.5 2.5 0 0 1 16 6.5v2.2l4.2-2.6a.8.8 0 0 1 1.2.7v10.4a.8.8 0 0 1-1.2.7L16 15.3v2.2a2.5 2.5 0 0 1-2.5 2.5h-8A2.5 2.5 0 0 1 3 17.5v-11z"/></svg>
+          Join on Teams &rarr;
         </a>
       </div>
     </div>
@@ -1410,7 +1445,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
             <span class="dc-ch-icon">#</span>
             <div>
               <div class="dc-ch-name">day-4-hardware-applications <span style="color:rgba(255,255,255,.3);font-weight:500">&middot; Thu 26 Nov</span></div>
-              <div class="dc-ch-desc">Geometric QML (Ravindranath Nemani), Fault Tolerance (Guncha Malik), Life Sciences &amp; Healthcare (Pradeep Lamba), Telecom Optimization (Puneet Gandhi), and Midpoint Mentor Check-ins.</div>
+              <div class="dc-ch-desc">Geometric QML (Ravindranath Nemani), Fault Tolerance (Guncha Malik), Life Sciences &amp; Healthcare (Pradeep Lamba), Telecom Optimization (Puneet Gandhi), Sample-based Quantum Diagonalization (Sean Wagner), and Midpoint Mentor Check-ins.</div>
             </div>
           </div>
           <div class="dc-ch-item">
@@ -1775,7 +1810,7 @@ footer{background:var(--dark);padding:64px 5% 36px;border-top:2px solid rgba(255
     var diff=target-now;
     if(diff<=0){
       var bar=document.querySelector('.ann-bar');
-      if(bar) bar.innerHTML='&#9889; IBM Qiskit Fall Fest 2026 is LIVE! <a href="#register" style="color:var(--pink);font-weight:700">Join Now &rarr;</a>';
+      if(bar) bar.innerHTML='&#9889; IBM Qiskit Fall Fest 2026 is LIVE! <a href="https://teams.microsoft.com/meet/2302000284605480?p=wIho4f3jnHUTxFs7y5" target="_blank" rel="noopener" style="color:var(--pink);font-weight:700">Join Now &rarr;</a>';
       return;
     }
     var d=Math.floor(diff/864e5);
