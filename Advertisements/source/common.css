@@ -11,3 +11,5 @@ body{font-family:'Segoe UI',system-ui,Arial,sans-serif;color:#fff;overflow:hidde
 .circle{border-radius:50%;background:#D9E3FB;overflow:hidden;box-shadow:0 0 90px rgba(255,107,157,.45)}
 .circle img{width:100%;height:100%;object-fit:cover;display:block}
 .dots{position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,#fff 1.5px,transparent 1.5px);background-size:30px 30px;pointer-events:none}
+.join{margin-top:14px;font-size:20px;font-weight:600;color:rgba(255,255,255,.85)}
+.join b{color:#FF9933;font-family:Consolas,monospace;letter-spacing:.04em}
