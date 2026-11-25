@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:5d2f7c1e-3b8a-4e6f-9a41-7c0d2b9e6f13@qff2026
+DTSTAMP:20261125T103000Z
+DTSTART:20261126T140000Z
+DTEND:20261126T150000Z
+SUMMARY:QFF 2026 Speaker Slot: Sample-based Quantum Diagonalization
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot (Day 4\, 19:30 IST). Teams: https://teams.microsoft.com/meet/2617703172593201?p=HM89KDfdrgepzkifhQ (Meeting ID 261 770 317 259 320 1\, Passcode S6bs2Sk2). Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Microsoft Teams - https://teams.microsoft.com/meet/2617703172593201?p=HM89KDfdrgepzkifhQ
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
