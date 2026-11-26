@@ -33,7 +33,7 @@ A few reminders before we begin.
 
 **Ask your questions.** Please use the chat and the Discord community throughout the day.
 
-And a preview for tomorrow, **Day 5**. We start at **09:30** with the hackathon finals and live presentations, then the award ceremony, the Quantum for Humanity manifesto launch, the community showcase, and the closing keynote from **Adam Byrne** at **16:30**.
+And a preview for tomorrow, **Day 5**. We start at **11:00** with the hackathon finals and live presentations, then the Quantum for Humanity manifesto launch and Quantum Road Ahead at **14:00**, the closing keynote from **Adam Byrne** at **15:30**, the final talks and road ahead from **16:30**, and the live award ceremony at **18:25**.
 
 Thank you again for being part of this. Quantum computing will only change the world for the better if we build it together.
 

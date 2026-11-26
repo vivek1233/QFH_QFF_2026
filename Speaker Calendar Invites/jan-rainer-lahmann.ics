@@ -19,4 +19,20 @@ DESCRIPTION:Speaking slot starts in 30 minutes
 TRIGGER:-PT30M
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:be3e0b0a-0825-43a6-9f74-7350c1c15184@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T125500Z
+DTEND:20261127T132500Z
+SUMMARY:QFF 2026 Speaker Slot: Live Award Ceremony - IBM Quantum Prize
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Satish Chandra.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
 END:VCALENDAR
