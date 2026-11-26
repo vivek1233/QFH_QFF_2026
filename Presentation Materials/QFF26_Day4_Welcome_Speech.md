@@ -29,7 +29,7 @@ A few reminders before we begin.
 
 **The hackathon code freeze is tonight.** It is **Thursday, 26 November at 23:59 IST**. Please submit your work on time. If you still need help, our mentors are in the **#hackathon-teams** channel on Discord.
 
-**Use the same Teams link** for Days 3, 4 and 5. It is on the website and in your email, so you do not need a new one.
+**Join today on the Day 4 Teams link.** Day 4 has its own meeting, so please use today's link and not the Day 3 one. The meeting ID is 234 185 300 398 724 0 and the passcode is Sp3Pc9nm. It is also on the website and on every speaker ad.
 
 **Ask your questions.** Please use the chat and the Discord community throughout the day.
 
