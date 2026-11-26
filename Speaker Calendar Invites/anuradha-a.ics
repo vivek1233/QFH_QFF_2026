@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:c8f8d059-4629-45b8-ab46-3660060a6bad@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261123T040000Z
+DTEND:20261123T050000Z
+SUMMARY:QFF 2026 Speaker Slot: Opening Ceremony & Welcome - IBM Quantum & Quantum for Humanity
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Santosh Prasad.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:326679f0-2071-4776-b675-cb0d259145b9@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T112500Z
+DTEND:20261127T113500Z
+SUMMARY:QFF 2026 Speaker Slot: QFF 2026 Final Talk & Road Ahead - Talk 3
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

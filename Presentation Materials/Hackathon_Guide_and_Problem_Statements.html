@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>48-Hour Quantum for Humanity Hackathon — Guide, Mentors & Problem Statements | QFF 2026</title>
+<style>
+  :root{--bg:#0a0a0f;--surface:#12121a;--card:#1a1a28;--border:#2a2a3d;--accent:#8B5CF6;--accent2:#FF7EB6;--accent3:#33B1FF;--success:#34D399;--warning:#FBBF24;--text:#e8e8f0;--muted:#8888aa;--code-bg:#0d0d1a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.75;}
+  a{color:var(--accent3);text-decoration:none;}a:hover{text-decoration:underline;}
+  .site-header{background:linear-gradient(135deg,#1a0a2e 0%,#0d1a3a 50%,#0a1a0d 100%);border-bottom:1px solid var(--border);padding:36px 40px 28px;}
+  .event-tag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
+  h1.doc-title{font-size:2.2rem;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(90deg,#fff 0%,#c4b5fd 60%,#38BDF8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .doc-subtitle{color:var(--muted);font-size:1.05rem;margin-bottom:18px;}
+  .container{max-width:980px;margin:0 auto;padding:40px 32px 80px;}
+  .section{margin-bottom:52px;}
+  h2.sec-title{font-size:1.45rem;font-weight:700;color:#fff;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+  .problem-card{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:22px 26px;margin-bottom:24px;}
+  .problem-card.health{border-left-color:#34D399;}
+  .problem-card.climate{border-left-color:#38BDF8;}
+  .problem-card.finance{border-left-color:#FBBF24;}
+  .problem-card.security{border-left-color:#FF7EB6;}
+  .problem-tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:10px;}
+  .tag-health{background:rgba(52,211,153,.15);color:#34D399;border:1px solid #34D399;}
+  .tag-climate{background:rgba(56,189,248,.15);color:#38BDF8;border:1px solid #38BDF8;}
+  .tag-finance{background:rgba(251,191,36,.15);color:#FBBF24;border:1px solid #FBBF24;}
+  .tag-security{background:rgba(255,126,182,.15);color:#FF7EB6;border:1px solid #FF7EB6;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin:18px 0;}
+  th{background:var(--card);color:var(--accent3);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+  td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cccce0;}
+  tr:hover td{background:rgba(139,92,246,.06);}
+  .rubric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0;}
+  .rubric-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+  .rubric-pct{font-size:1.8rem;font-weight:800;color:var(--accent3);margin-bottom:4px;}
+  .rubric-lbl{font-size:0.9rem;font-weight:700;color:#fff;}
+  .rubric-desc{font-size:0.8rem;color:var(--muted);margin-top:6px;}
+</style>
+</head>
+<body>
+  <div class="site-header">
+    <div style="max-width:980px;margin:0 auto;">
+      <span class="event-tag">Hackathon Blueprint</span>
+      <h1 class="doc-title">48-Hour Quantum for Humanity Hackathon</h1>
+      <p class="doc-subtitle">Official problem statements, mentor roster, judging rubric, and submission protocol.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- TIMELINE & MILESTONES -->
+    <div class="section">
+      <h2 class="sec-title">⏱️ 48-Hour Hackathon Schedule & Milestones</h2>
+      <table>
+        <thead>
+          <tr><th>Milestone / Event</th><th>Date & Time (IST)</th><th>Action / Deliverable</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Problem Statements Released & Kickoff</strong></td><td>Day 2 (Tue 24 Nov), 18:00</td><td>Team formation locked on Discord <code>#team-formation</code></td></tr>
+          <tr><td><strong>Hacking Commences & Mentor AMA</strong></td><td>Day 2 (Tue 24 Nov), 19:00</td><td>Git repo setup, Qiskit environment verification</td></tr>
+          <tr><td><strong>Midpoint Judge Review & Mentorship Round</strong></td><td>Day 4 (Thu 26 Nov), 16:30</td><td>Top 20 teams selected for 15-min 1-on-1 mentor sprint</td></tr>
+          <tr><td><strong>Code Freeze & Video Submission Deadline</strong></td><td>Day 4 (Thu 26 Nov), 23:59</td><td>Submit GitHub repo + 3-min pitch link</td></tr>
+          <tr><td><strong>Top 10 Finalist Announcement</strong></td><td>Day 5 (Fri 27 Nov), 08:00</td><td>Finalist list announced on Discord & email</td></tr>
+          <tr><td><strong>🏆 Live Grand Finals Presentations</strong></td><td>Day 5 (Fri 27 Nov), 11:00</td><td>5-min pitch + 3-min Q&A before Executive Judges</td></tr>
+          <tr><td><strong>🏋 Live Award Ceremony & Prize Announcements</strong></td><td>Day 5 (Fri 27 Nov), 18:25</td><td>IBM Quantum Credits & Global Certificates awarded</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PROBLEM STATEMENTS -->
+    <div class="section">
+      <h2 class="sec-title">🎯 The 4 Grand Challenge Problem Statements</h2>
+      
+      <div class="problem-card health">
+        <span class="problem-tag tag-health">Track 1: Healthcare & Life Sciences</span>
+        <h3 style="color:#fff;margin-bottom:8px;">Targeted Molecular Simulation for Drug Discovery</h3>
+        <p><strong>Challenge:</strong> Simulate molecular ground states and binding affinities for small molecule drug candidates against infectious diseases (e.g., Tuberculosis or Malaria) using Variational Quantum Eigensolver (VQE) or Hamiltonian simulation.</p>
+        <p><strong>Expectations:</strong> Optimize circuit depth using Qiskit Runtime Estimator, apply error mitigation (ZNE / Twirled Readout Error Extinction), and compare runtime/accuracy against classical Hartree-Fock baselines.</p>
+      </div>
+
+      <div class="problem-card climate">
+        <span class="problem-tag tag-climate">Track 2: Climate, Energy & Agriculture</span>
+        <h3 style="color:#fff;margin-bottom:8px;">Grid Optimization & Catalytic Carbon Capture Modeling</h3>
+        <p><strong>Challenge:</strong> Formulate a Quadratic Unconstrained Binary Optimization (QUBO) problem using QAOA for renewable energy load balancing across power microgrids OR model electronic structures of metal-organic frameworks (MOFs) for carbon capture.</p>
+        <p><strong>Expectations:</strong> Demonstrate parameterized ansatz optimization, analyze convergence against graph density, and provide actionable real-world deployment metrics.</p>
+      </div>
+
+      <div class="problem-card finance">
+        <span class="problem-tag tag-finance">Track 3: Financial Inclusion & Resilient Markets</span>
+        <h3 style="color:#fff;margin-bottom:8px;">Quantum Portfolio Optimization & Fraud Detection via QSVM</h3>
+        <p><strong>Challenge:</strong> Implement Quantum Support Vector Machines (QSVM) with parameterized quantum kernels to classify fraudulent transactions OR optimize microfinance loan portfolios under strict risk-return constraints.</p>
+        <p><strong>Expectations:</strong> Compare quantum kernel trick performance against classical RBF kernels on high-dimensional noisy transaction datasets.</p>
+      </div>
+
+      <div class="problem-card security">
+        <span class="problem-tag tag-security">Track 4: Quantum Safe & Digital Infrastructure</span>
+        <h3 style="color:#fff;margin-bottom:8px;">Automated Cryptographic Discovery & PQC Migration</h3>
+        <p><strong>Challenge:</strong> Design an automated scanner or cryptographic inventory pipeline that detects vulnerable asymmetric cryptography (RSA/ECC) across enterprise codebases and maps replacement with NIST-approved Post-Quantum Cryptography algorithms (ML-KEM / ML-DSA).</p>
+        <p><strong>Expectations:</strong> Provide an architectural migration blueprint and functional POC demonstrating hybrid classical/PQC key exchange.</p>
+      </div>
+    </div>
+
+    <!-- MENTOR ROSTER & ASSIGNMENTS -->
+    <div class="section">
+      <h2 class="sec-title">👥 Mentor Roster & Track Assignments</h2>
+      <table>
+        <thead>
+          <tr><th>Mentor</th><th>Role / Domain</th><th>Assigned Track & Channels</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Phalak Bhatnagar</strong></td><td>Research Engineer, IBM</td><td>Hackathon Lead & Qiskit Open Source Track (<code>#hack-track-general</code>)</td></tr>
+          <tr><td><strong>Archit Chadalawada</strong></td><td>Quantum Research Engineer, IBM</td><td>Quantum Machine Learning & Algorithms (<code>#hack-track-qml</code>)</td></tr>
+          <tr><td><strong>Bharadwaj Mummaneni</strong></td><td>Quantum Researcher, IBM</td><td>Hamiltonian Simulation & Physics Workflows (<code>#hack-track-physics</code>)</td></tr>
+          <tr><td><strong>Guncha Malik</strong></td><td>IBM Quantum Technical Ambassador</td><td>Hardware Execution, Heron/Eagle topolgy (<code>#hack-track-hardware</code>)</td></tr>
+          <tr><td><strong>Pradeep Lamba</strong></td><td>Healthcare Lead, IBM</td><td>Life Sciences & Drug Discovery (<code>#hack-track-healthcare</code>)</td></tr>
+          <tr><td><strong>Shruti Kulkarni & Liher Elgezabal</strong></td><td>IBM Security & Architecture</td><td>Quantum Safe & PQC Cryptography (<code>#hack-track-pqc</code>)</td></tr>
+          <tr><td><strong>Dr. Subarna Roy & Vivekanand Choudhry</strong></td><td>Global Chief Data Scientist &amp; IBM Quantum Ambassador / Executive Advisors</td><td>Midpoint Review Judges & Finalist Mentorship</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- JUDGING RUBRIC -->
+    <div class="section">
+      <h2 class="sec-title">⚖️ Judging Rubric & Evaluation Weights</h2>
+      <div class="rubric-grid">
+        <div class="rubric-box">
+          <div class="rubric-pct">30%</div>
+          <div class="rubric-lbl">Technical Rigor & Qiskit Code</div>
+          <div class="rubric-desc">Clean implementation, efficient circuit depth, runtime primitives usage.</div>
+        </div>
+        <div class="rubric-box">
+          <div class="rubric-pct">25%</div>
+          <div class="rubric-lbl">Humanitarian Impact</div>
+          <div class="rubric-desc">Meaningful contribution to healthcare, climate, education, or security.</div>
+        </div>
+        <div class="rubric-box">
+          <div class="rubric-pct">25%</div>
+          <div class="rubric-lbl">Innovation & Quantum Feasibility</div>
+          <div class="rubric-desc">Valid quantum speedup justification vs. classical baselines.</div>
+        </div>
+        <div class="rubric-box">
+          <div class="rubric-pct">20%</div>
+          <div class="rubric-lbl">Pitch & Presentation Quality</div>
+          <div class="rubric-desc">Clarity of demo, architecture diagram, and live defense.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

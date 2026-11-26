@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:f7225abc-6fe8-4462-8c3f-648c39788b3e@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261125T083000Z
+DTEND:20261125T100000Z
+SUMMARY:QFF 2026 Speaker Slot: Data-Driven PQC Migration Planning with IBM Quantum Safe
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:59d81ce7-a61b-43c3-a74d-7a7ce9121772@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T053000Z
+DTEND:20261127T073000Z
+SUMMARY:QFF 2026 Speaker Slot: Hackathon Finals - Live Presentations
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Phalak Bhatnagar\, Guncha Malik\, Dr. Subarna Roy\, Ravindranath Nemani.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

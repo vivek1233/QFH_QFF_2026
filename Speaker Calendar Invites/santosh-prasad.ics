@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:412069d3-5a9a-40f0-8d1d-7e48ccff5736@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261123T040000Z
+DTEND:20261123T050000Z
+SUMMARY:QFF 2026 Speaker Slot: Opening Ceremony & Welcome - IBM Quantum & Quantum for Humanity
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Anuradha A.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:775ff157-28fe-4edb-8114-b0da3720c2e7@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T111500Z
+DTEND:20261127T112500Z
+SUMMARY:QFF 2026 Speaker Slot: QFF 2026 Final Talk & Road Ahead - Talk 2
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

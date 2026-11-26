@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:sridhar-jonnala-qff2026-welcome@ibm.com
+DTSTAMP:20261121T090000Z
+DTSTART:20261123T040000Z
+DTEND:20261123T050000Z
+SUMMARY:QFF 2026 Speaker Slot: Welcome Message & Opening Ceremony
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your guest speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Anuradha A\, Santosh Prasad\, Deepak Gupta.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream) & IBM In-Person Hubs
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:a946345a-a7de-4d47-8187-a178d216c8b3@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T114500Z
+DTEND:20261127T115500Z
+SUMMARY:QFF 2026 Speaker Slot: QFF 2026 Final Talk & Road Ahead - Talk 5
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

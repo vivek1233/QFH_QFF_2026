@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:ad812306-1710-47d5-bd4e-e1defd6322a8@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T110000Z
+DTEND:20261127T111500Z
+SUMMARY:QFF 2026 Speaker Slot: QFF 2026 Final Talk & Road Ahead - Talk 1
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2904ada7-a5fa-4907-b343-75566179e3b9@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T125500Z
+DTEND:20261127T132500Z
+SUMMARY:QFF 2026 Speaker Slot: Live Award Ceremony - IBM Quantum Prize
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Jan-Rainer Lahmann.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

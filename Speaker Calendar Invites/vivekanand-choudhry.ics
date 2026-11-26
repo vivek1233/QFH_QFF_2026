@@ -1,0 +1,54 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:67b6080b-5c56-4cb4-aa5a-3e0f8df7bd1f@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T083000Z
+DTEND:20261127T090000Z
+SUMMARY:QFF 2026 Speaker Slot: Quantum for Humanity Manifesto Launch & Quantum Road Ahead
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cacf2bb9-79c8-4077-af38-5f2f5e7e4349@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T121500Z
+DTEND:20261127T122500Z
+SUMMARY:QFF 2026 Speaker Slot: Organization Team - Thanksgiving Talk
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:de9ec26b-658a-49a4-905d-a20c1367260a@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T132500Z
+DTEND:20261127T133500Z
+SUMMARY:QFF 2026 Speaker Slot: Final Thanks and Event Conclusion
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

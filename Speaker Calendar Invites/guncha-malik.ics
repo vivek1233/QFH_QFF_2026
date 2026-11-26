@@ -1,0 +1,86 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:8ce088aa-216c-410b-bfd6-7c4f4013a00d@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261124T133000Z
+DTEND:20261124T143000Z
+SUMMARY:QFF 2026 Speaker Slot: IBM Eagle & Heron Processor: Hardware Deep Dive
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:8a754ac6-3b51-4bf5-b111-24fcc85cd887@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261126T063000Z
+DTEND:20261126T073000Z
+SUMMARY:QFF 2026 Speaker Slot: Fault-Tolerant Quantum Computing: The Next Decade
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:35323f6e-79d4-4c07-bfe3-e80ef8f1021c@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261126T110000Z
+DTEND:20261126T120000Z
+SUMMARY:QFF 2026 Speaker Slot: Quantum Computing in Finance
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:452dfa79-bd9e-4d98-a012-0ec415959ac0@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T053000Z
+DTEND:20261127T073000Z
+SUMMARY:QFF 2026 Speaker Slot: Hackathon Finals - Live Presentations
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Phalak Bhatnagar\, Dr. Subarna Roy\, Yogendra Soni\, Ravindranath Nemani.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:5dcf78d4-73e3-4cf6-b005-a6796d99d1ca@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T115500Z
+DTEND:20261127T120500Z
+SUMMARY:QFF 2026 Speaker Slot: QFF 2026 Final Talk & Road Ahead - Talk 6
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QFF 2026//Speaker Slots//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:db987637-510e-485c-9e56-57f1d1c41e8f@qff2026
+DTSTAMP:20261119T195853Z
+DTSTART:20261126T040000Z
+DTEND:20261126T053000Z
+SUMMARY:QFF 2026 Speaker Slot: Geometric Quantum Machine Learning
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bfa64ffa-de59-449b-bf04-a04878b2636a@qff2026
+DTSTAMP:20261126T192754Z
+DTSTART:20261127T053000Z
+DTEND:20261127T073000Z
+SUMMARY:QFF 2026 Speaker Slot: Hackathon Finals - Live Presentations
+DESCRIPTION:IBM Qiskit Fall Fest 2026 - your speaking slot. Join 15 minutes early for a tech check. Website: ibm.biz/qiskitfallfest2026 Co-speakers: Phalak Bhatnagar\, Guncha Malik\, Dr. Subarna Roy\, Yogendra Soni.
+LOCATION:Online (IBM Qiskit Fall Fest 2026 live stream)
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Speaking slot starts in 30 minutes
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
